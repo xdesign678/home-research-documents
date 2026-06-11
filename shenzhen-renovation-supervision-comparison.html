@@ -1,0 +1,1302 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>深圳装修监理决策报告：装小蜜 vs 牛角监</title>
+  <meta name="description" content="基于小红书公开帖子和评论整理的深圳半包装修监理对比报告。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-clay: #d97757;
+      --bg-primary: #faf9f5;
+      --bg-secondary: #f0eee6;
+      --bg-card: #fefdfb;
+      --bg-muted: #f0efe8;
+      --bg-hover: #f5f4f0;
+      --bg-button: #0f0f0e;
+      --text-primary: #141413;
+      --text-body: rgba(20,20,19,0.85);
+      --text-secondary: #5e5d59;
+      --text-tertiary: #8d8a82;
+      --text-on-button: #faf9f5;
+      --border-light: rgba(20,20,19,0.08);
+      --border-default: rgba(20,20,19,0.12);
+      --border-section: rgba(20,20,19,0.06);
+      --state-success: #5a856a;
+      --state-warning: #c4923a;
+      --state-error: #b85b44;
+      --state-info: #5a7d9b;
+      --color-olive: #788c5d;
+      --color-cactus: #bcd1ca;
+      --color-sky: #6a9bcc;
+      --color-fig: #c46686;
+      --color-oat: #d4c9b8;
+      --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-reading: Lora, "Noto Serif SC", Georgia, "Times New Roman", serif;
+      --font-mono: "SF Mono", "JetBrains Mono", Consolas, monospace;
+      --site-margin: clamp(1.25rem, 0.55rem + 3vw, 5rem);
+      --width-page: 1180px;
+      --radius: 8px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.10);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg-primary);
+    }
+
+    body {
+      margin: 0;
+      color: var(--text-body);
+      background: var(--bg-primary);
+      font-family: var(--font-reading);
+      font-size: 17px;
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: 68px;
+      border-bottom: 1px solid var(--border-section);
+      background: rgba(250,249,245,0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      max-width: var(--width-page);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 var(--site-margin);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      font-family: var(--font-sans);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--border-default);
+      border-radius: 50%;
+      color: var(--brand-clay);
+      background: var(--bg-card);
+      flex: 0 0 auto;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--text-secondary);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      padding: 8px 0;
+      border-bottom: 1px solid transparent;
+      transition: color 180ms ease, border-color 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+      border-color: var(--border-default);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .page-section {
+      max-width: var(--width-page);
+      margin: 0 auto;
+      padding: 72px var(--site-margin);
+    }
+
+    .page-section + .page-section {
+      border-top: 1px solid var(--border-section);
+    }
+
+    .hero {
+      padding-top: 86px;
+      padding-bottom: 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: 48px;
+      align-items: end;
+    }
+
+    .h1 {
+      margin: 0;
+      max-width: 770px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: clamp(2.35rem, 1.55rem + 3.2vw, 4.9rem);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 690px;
+      margin: 28px 0 0;
+      color: var(--text-body);
+      font-size: clamp(1.05rem, 0.98rem + 0.3vw, 1.25rem);
+      line-height: 1.72;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    .meta-row {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--border-light);
+      border-radius: 999px;
+      background: var(--bg-card);
+    }
+
+    .verdict-panel {
+      border: 1px solid rgba(196,146,58,0.28);
+      border-radius: var(--radius);
+      background: #fff8e8;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .verdict-panel h2 {
+      margin: 0 0 10px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .verdict-panel p {
+      margin: 0;
+      color: var(--text-body);
+    }
+
+    .verdict-score {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: end;
+    }
+
+    .big-number {
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .big-number span {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .section-heading {
+      margin: 0 0 30px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: clamp(1.7rem, 1.35rem + 1.35vw, 2.65rem);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .section-heading p {
+      margin: 8px 0 0;
+      max-width: 540px;
+      color: var(--text-secondary);
+    }
+
+    .source-note {
+      max-width: 320px;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      line-height: 1.55;
+      text-align: right;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .score-card {
+      position: relative;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .score-card.recommended {
+      border-color: rgba(217,119,87,0.35);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 22px;
+    }
+
+    .company-name {
+      margin: 0;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 28px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .tag {
+      display: inline-flex;
+      margin-top: 8px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--bg-muted);
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .tag.strong {
+      color: #7a4a34;
+      background: #f5dfcf;
+    }
+
+    .score-ring {
+      width: 92px;
+      height: 92px;
+      flex: 0 0 auto;
+    }
+
+    .metric-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+    }
+
+    .metric {
+      display: grid;
+      grid-template-columns: 110px minmax(90px,1fr) 32px;
+      gap: 12px;
+      align-items: center;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .track {
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(20,20,19,0.08);
+      overflow: hidden;
+    }
+
+    .fill {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: var(--text-primary);
+    }
+
+    .score-card.recommended .fill {
+      background: var(--brand-clay);
+    }
+
+    .score-summary {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-section);
+      color: var(--text-body);
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.88fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .table-wrap,
+    .radar-wrap {
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-sans);
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-section);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--text-secondary);
+      background: var(--bg-muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    td {
+      color: var(--text-body);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .num {
+      font-weight: 800;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .radar-wrap {
+      display: grid;
+      place-items: center;
+      padding: 22px 18px 16px;
+    }
+
+    .radar-title {
+      align-self: start;
+      width: 100%;
+      margin: 0 0 4px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 6px;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 13px;
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--brand-clay);
+    }
+
+    .dot.gray {
+      background: #7b7a75;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .pros-cons {
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      padding: 24px;
+    }
+
+    .pros-cons h3 {
+      margin: 0 0 18px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    .split-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .list-block h4 {
+      margin: 0 0 8px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .list-block ul,
+    .question-list,
+    .compact-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list-block li,
+    .compact-list li {
+      position: relative;
+      padding-left: 18px;
+      margin: 8px 0;
+    }
+
+    .list-block li::before,
+    .compact-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.68em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-olive);
+    }
+
+    .list-block.risk li::before {
+      background: var(--state-warning);
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .evidence-card {
+      min-height: 250px;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .evidence-card h3 {
+      margin: 0 0 10px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 18px;
+      line-height: 1.32;
+      letter-spacing: 0;
+    }
+
+    .evidence-card p {
+      margin: 0;
+      color: var(--text-body);
+      font-size: 15.5px;
+      line-height: 1.62;
+    }
+
+    .evidence-meta {
+      margin-top: auto;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 12px;
+    }
+
+    .strength {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    .risk-band {
+      background: var(--bg-secondary);
+    }
+
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .risk-card {
+      border: 1px solid rgba(20,20,19,0.10);
+      border-radius: var(--radius);
+      background: rgba(254,253,251,0.72);
+      padding: 20px;
+    }
+
+    .risk-card svg {
+      color: var(--state-warning);
+      margin-bottom: 12px;
+    }
+
+    .risk-card h3 {
+      margin: 0 0 8px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    .risk-card p {
+      margin: 0;
+      color: var(--text-body);
+      font-size: 15px;
+      line-height: 1.58;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .phase {
+      border-top: 2px solid var(--border-default);
+      padding-top: 18px;
+    }
+
+    .phase strong {
+      display: block;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .phase p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--text-body);
+    }
+
+    .questions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .question {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      padding: 16px;
+    }
+
+    .question-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--bg-muted);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .question strong {
+      display: block;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .question span {
+      display: block;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .recommendation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .recommend-card {
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      padding: 22px;
+      min-height: 280px;
+    }
+
+    .recommend-card h3 {
+      margin: 0 0 12px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .rating {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .stars {
+      display: inline-flex;
+      gap: 3px;
+      color: var(--brand-clay);
+      letter-spacing: 0;
+      font-size: 14px;
+    }
+
+    .stars.muted {
+      color: var(--text-tertiary);
+    }
+
+    .detail-table {
+      margin-top: 22px;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--bg-card);
+    }
+
+    details {
+      border-bottom: 1px solid var(--border-section);
+      background: var(--bg-card);
+    }
+
+    details:last-child {
+      border-bottom: 0;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 18px 20px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 700;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .detail-body {
+      padding: 0 20px 20px;
+      color: var(--text-body);
+    }
+
+    .detail-body p {
+      margin: 0 0 12px;
+    }
+
+    .footer {
+      padding: 48px var(--site-margin);
+      border-top: 1px solid var(--border-section);
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .icon {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .chart-grid,
+      .comparison-grid,
+      .score-grid,
+      .questions,
+      .recommendation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .evidence-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .risk-grid,
+      .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .source-note {
+        text-align: left;
+        max-width: none;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        height: auto;
+      }
+
+      .nav {
+        min-height: 58px;
+        align-items: start;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 14px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .page-section {
+        padding-top: 52px;
+        padding-bottom: 52px;
+      }
+
+      .evidence-grid,
+      .risk-grid,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        grid-template-columns: 88px minmax(80px,1fr) 30px;
+      }
+
+      th, td {
+        padding: 12px 10px;
+        font-size: 13px;
+      }
+
+      .score-card,
+      .pros-cons,
+      .recommend-card,
+      .evidence-card {
+        padding: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="页面导航">
+      <a class="brand" href="#top" aria-label="回到顶部">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4.3-2.7 7.4-7 9-4.3-1.6-7-4.7-7-9V7l7-4z"></path><path d="M9 12l2 2 4-5"></path></svg>
+        </span>
+        <span>装修监理决策报告<small>深圳 · 半包 · 小白友好</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#scores">评分</a>
+        <a href="#pros">优缺点</a>
+        <a href="#evidence">证据</a>
+        <a href="#risks">风险</a>
+        <a href="#questions">必问清单</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="page-section hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <h1 class="h1" id="hero-title">深圳装修监理服务对比：<span class="nowrap">装小蜜</span> vs <span class="nowrap">牛角监</span></h1>
+          <p class="lead">这份页面把小红书公开帖子和可见评论整理成一个决策报告。它不替任何品牌背书，只回答一个具体问题：你在深圳做半包、没太多时间盯工地、也不懂施工，谁更适合作为第三方监理入口。</p>
+          <div class="meta-row" aria-label="调研范围">
+            <span class="meta-chip">31 条有效线索</span>
+            <span class="meta-chip">深圳本地案例优先</span>
+            <span class="meta-chip">公开帖子与评论</span>
+            <span class="meta-chip">2026-06-11 整理</span>
+          </div>
+        </div>
+        <aside class="verdict-panel" aria-label="核心结论">
+          <h2>先给结论</h2>
+          <p>当前证据下，装小蜜略优先。原因不是品牌绝对更强，而是深圳公开样本更多，具体监理被用户点名的次数更多；牛角监仍可选，但更依赖分配到的具体监理和节点安排。</p>
+          <div class="verdict-score">
+            <div>
+              <strong class="tag strong">建议先约装小蜜</strong>
+              <p style="margin-top:10px;font-family:var(--font-sans);font-size:13px;color:var(--text-secondary);">同时拿牛角监报价和节点表做交叉对比。</p>
+            </div>
+            <div class="big-number">82<span>/100</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page-section" id="scores" aria-labelledby="scores-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="scores-title">可视化评分</h2>
+          <p>评分不是“谁一定靠谱”，而是把公开证据按你当前需求加权：服务体验、专业性、验收覆盖、售后边界、性价比。</p>
+        </div>
+        <div class="source-note">基于公开内容的决策评分，不是官方评级。具体体验会受分配监理影响。</div>
+      </div>
+
+      <div class="score-grid">
+        <article class="score-card recommended">
+          <div class="card-top">
+            <div>
+              <h3 class="company-name">装小蜜</h3>
+              <span class="tag strong">推荐优先沟通</span>
+            </div>
+            <svg class="score-ring" viewBox="0 0 120 120" aria-label="装小蜜综合评分 82 分">
+              <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(20,20,19,0.08)" stroke-width="12"></circle>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#d97757" stroke-width="12" stroke-linecap="round" stroke-dasharray="247 302" transform="rotate(-90 60 60)"></circle>
+              <text x="60" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="28" font-weight="800" fill="#141413">82</text>
+              <text x="60" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#5e5d59">综合分</text>
+            </svg>
+          </div>
+          <dl class="metric-list">
+            <div class="metric"><dt>服务体验</dt><dd class="track"><span class="fill" style="width:85%"></span></dd><dd>85</dd></div>
+            <div class="metric"><dt>监理专业性</dt><dd class="track"><span class="fill" style="width:83%"></span></dd><dd>83</dd></div>
+            <div class="metric"><dt>验收覆盖度</dt><dd class="track"><span class="fill" style="width:82%"></span></dd><dd>82</dd></div>
+            <div class="metric"><dt>售后与保障</dt><dd class="track"><span class="fill" style="width:81%"></span></dd><dd>81</dd></div>
+            <div class="metric"><dt>性价比</dt><dd class="track"><span class="fill" style="width:78%"></span></dd><dd>78</dd></div>
+          </dl>
+          <p class="score-summary">强项是深圳公开样本更多、具体监理口碑线索更多、退款和剩余次数机制在对比帖里略清晰。风险是仍然有抽卡属性，部分验收边界会按标准而不是按你的观感处理。</p>
+        </article>
+
+        <article class="score-card">
+          <div class="card-top">
+            <div>
+              <h3 class="company-name">牛角监</h3>
+              <span class="tag">可作为强备选</span>
+            </div>
+            <svg class="score-ring" viewBox="0 0 120 120" aria-label="牛角监综合评分 76 分">
+              <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(20,20,19,0.08)" stroke-width="12"></circle>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#7b7a75" stroke-width="12" stroke-linecap="round" stroke-dasharray="229 302" transform="rotate(-90 60 60)"></circle>
+              <text x="60" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="28" font-weight="800" fill="#141413">76</text>
+              <text x="60" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#5e5d59">综合分</text>
+            </svg>
+          </div>
+          <dl class="metric-list">
+            <div class="metric"><dt>服务体验</dt><dd class="track"><span class="fill" style="width:74%"></span></dd><dd>74</dd></div>
+            <div class="metric"><dt>监理专业性</dt><dd class="track"><span class="fill" style="width:75%"></span></dd><dd>75</dd></div>
+            <div class="metric"><dt>验收覆盖度</dt><dd class="track"><span class="fill" style="width:77%"></span></dd><dd>77</dd></div>
+            <div class="metric"><dt>售后与保障</dt><dd class="track"><span class="fill" style="width:72%"></span></dd><dd>72</dd></div>
+            <div class="metric"><dt>性价比</dt><dd class="track"><span class="fill" style="width:80%"></span></dd><dd>80</dd></div>
+          </dl>
+          <p class="score-summary">强项是价格层级清楚、套餐看起来更有性价比，也有深圳温工等正面线索。风险是上门节点可能消耗不理想，评论里出现过“不敢和工长硬碰”的负面反馈。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="matrix-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="matrix-title">评分矩阵</h2>
+          <p>权重按你的处境设置：没时间盯工地、半包、装修小白，所以专业性和验收覆盖比单纯低价更重要。</p>
+        </div>
+      </div>
+      <div class="chart-grid">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>评估维度</th><th>权重</th><th>装小蜜</th><th>牛角监</th><th>为什么</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>服务体验</td><td>20%</td><td class="num">85</td><td class="num">74</td><td>装小蜜深圳个案有更具体的监理反馈和小程序留痕描述。</td></tr>
+              <tr><td>监理专业性</td><td>25%</td><td class="num">83</td><td class="num">75</td><td>两家都依赖具体人；装小蜜被点名的深圳监理更多。</td></tr>
+              <tr><td>验收覆盖度</td><td>25%</td><td class="num">82</td><td class="num">77</td><td>两者都有节点服务，差别主要在节点安排是否合理。</td></tr>
+              <tr><td>售后与保障</td><td>15%</td><td class="num">81</td><td class="num">72</td><td>对比帖提到装小蜜剩余次数均价退款更明确。</td></tr>
+              <tr><td>性价比</td><td>15%</td><td class="num">78</td><td class="num">80</td><td>牛角监价格层级可读性较好，但需要核合同附件。</td></tr>
+              <tr><td><strong>综合得分</strong></td><td>100%</td><td class="num">82</td><td class="num">76</td><td>装小蜜略优先，牛角监适合强备选。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="radar-wrap">
+          <h3 class="radar-title">能力雷达图</h3>
+          <svg viewBox="0 0 380 320" width="100%" height="320" role="img" aria-label="装小蜜与牛角监能力雷达图">
+            <g transform="translate(190 160)" font-family="Inter, sans-serif" font-size="11" fill="#5e5d59">
+              <polygon points="0,-105 99.9,-32.4 61.7,84.9 -61.7,84.9 -99.9,-32.4" fill="none" stroke="rgba(20,20,19,0.10)"></polygon>
+              <polygon points="0,-78 74.2,-24.1 45.8,63.1 -45.8,63.1 -74.2,-24.1" fill="none" stroke="rgba(20,20,19,0.08)"></polygon>
+              <polygon points="0,-52 49.5,-16.1 30.6,42.1 -30.6,42.1 -49.5,-16.1" fill="none" stroke="rgba(20,20,19,0.08)"></polygon>
+              <line x1="0" y1="0" x2="0" y2="-112" stroke="rgba(20,20,19,0.08)"></line>
+              <line x1="0" y1="0" x2="106.5" y2="-34.6" stroke="rgba(20,20,19,0.08)"></line>
+              <line x1="0" y1="0" x2="65.8" y2="90.5" stroke="rgba(20,20,19,0.08)"></line>
+              <line x1="0" y1="0" x2="-65.8" y2="90.5" stroke="rgba(20,20,19,0.08)"></line>
+              <line x1="0" y1="0" x2="-106.5" y2="-34.6" stroke="rgba(20,20,19,0.08)"></line>
+              <polygon points="0,-89.3 82.1,-26.7 50.6,69.6 -50,68.8 -77.9,-25.3" fill="rgba(217,119,87,0.18)" stroke="#d97757" stroke-width="2"></polygon>
+              <polygon points="0,-77.7 74.8,-24.3 47.5,65.4 -44.5,61.2 -79.9,-26" fill="rgba(20,20,19,0.10)" stroke="#7b7a75" stroke-width="2"></polygon>
+              <circle cx="0" cy="-89.3" r="3" fill="#d97757"></circle>
+              <circle cx="82.1" cy="-26.7" r="3" fill="#d97757"></circle>
+              <circle cx="50.6" cy="69.6" r="3" fill="#d97757"></circle>
+              <circle cx="-50" cy="68.8" r="3" fill="#d97757"></circle>
+              <circle cx="-77.9" cy="-25.3" r="3" fill="#d97757"></circle>
+              <text x="0" y="-128" text-anchor="middle">服务体验</text>
+              <text x="124" y="-36" text-anchor="start">专业性</text>
+              <text x="77" y="112" text-anchor="start">验收覆盖</text>
+              <text x="-77" y="112" text-anchor="end">售后保障</text>
+              <text x="-124" y="-36" text-anchor="end">性价比</text>
+            </g>
+          </svg>
+          <div class="legend"><span><i class="dot"></i>装小蜜</span><span><i class="dot gray"></i>牛角监</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" id="pros" aria-labelledby="pros-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="pros-title">优缺点对照</h2>
+          <p>这里把“品牌宣传”拆成你真正会遇到的体验：谁来、怎么验、能不能撑腰、退换是否清楚。</p>
+        </div>
+      </div>
+      <div class="comparison-grid">
+        <article class="pros-cons">
+          <h3>装小蜜</h3>
+          <div class="split-list">
+            <div class="list-block">
+              <h4>优势</h4>
+              <ul>
+                <li>深圳公开样本更多，具体监理名字更容易被用户点到。</li>
+                <li>对比帖里用户最后退了牛角监、留下装小蜜。</li>
+                <li>深圳福田个案提到陪签、合同逐页核对、节点反馈和小程序留痕。</li>
+                <li>剩余次数按均价退款的说法在公开帖里更明确。</li>
+              </ul>
+            </div>
+            <div class="list-block risk">
+              <h4>短板</h4>
+              <ul>
+                <li>仍然有抽卡属性，具体监理差异大。</li>
+                <li>有差评提到“符合标准但观感不满意”的验收边界争议。</li>
+                <li>热门监理未必能指定，客服说法需要落到书面。</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="pros-cons">
+          <h3>牛角监</h3>
+          <div class="split-list">
+            <div class="list-block">
+              <h4>优势</h4>
+              <ul>
+                <li>套餐价格层级更容易看懂，10/15/20 次有公开截图线索。</li>
+                <li>有用户完工后认可陪签和节点验收价值。</li>
+                <li>深圳温光照等具体监理有正面公开线索。</li>
+                <li>在部分案例里能替业主向项目经理争取条款。</li>
+              </ul>
+            </div>
+            <div class="list-block risk">
+              <h4>短板</h4>
+              <ul>
+                <li>直接对比帖里被退掉，原因是前期节点偏密，容易浪费次数。</li>
+                <li>评论区出现过“不靠谱、怕事、像和工长一伙”的负面反馈。</li>
+                <li>深圳用户样本和具体监理交叉证据少于装小蜜。</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section" id="evidence" aria-labelledby="evidence-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="evidence-title">用户资料与证据</h2>
+          <p>下面只放对决策有用的公开线索。官方号内容降权，用户后续反馈、评论互证和具体名字更重要。</p>
+        </div>
+        <div class="source-note">链接来自小红书公开页面；无法核验的部分已降低权重。</div>
+      </div>
+
+      <div class="evidence-grid">
+        <article class="evidence-card">
+          <h3>同时下单装小蜜和牛角监</h3>
+          <p>作者认为两家形式和收费接近，真正差异在具体监理、上门节点和退款机制。评论里作者明确说最后退了牛角监，用了装小蜜。</p>
+          <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/68ad107a000000001b0200d6" target="_blank" rel="noreferrer">查看来源</a><span class="strength">强证据</span></div>
+        </article>
+
+        <article class="evidence-card">
+          <h3>深圳福田装小蜜杨则喜</h3>
+          <p>作者描述 20 次上门、送陪签、合同逐页核对、施工节点小程序反馈。评论里多人正面提到同一位监理。</p>
+          <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/6769705f0000000013008548" target="_blank" rel="noreferrer">查看来源</a><span class="strength">强证据</span></div>
+        </article>
+
+        <article class="evidence-card">
+          <h3>深圳求推荐监理</h3>
+          <p>作者是深圳装修小白，后续置顶说监理老师好评。评论里有人提醒识别托，也有人说深圳主要是牛角监和装小蜜。</p>
+          <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/66508343000000001303e657" target="_blank" rel="noreferrer">查看来源</a><span class="strength">强证据</span></div>
+        </article>
+
+        <article class="evidence-card">
+          <h3>牛角监完工体验</h3>
+          <p>用户用 15 次套餐送陪签，总价三千出头。认为监理能让施工方更重视问题，但也说明平时不是每天沟通。</p>
+          <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/6a0b077e0000000006022964" target="_blank" rel="noreferrer">查看来源</a><span class="strength">强证据</span></div>
+        </article>
+
+        <article class="evidence-card">
+          <h3>平台销售套路</h3>
+          <p>帖子提醒：活动、老带新、前三次不满意退款都有前置条件；装小蜜剩余次数均价退，牛角监可能按单次价折算。</p>
+          <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/6819ee2e0000000021004385" target="_blank" rel="noreferrer">查看来源</a><span class="strength">强证据</span></div>
+        </article>
+
+        <article class="evidence-card">
+          <h3>半包 46 个套路</h3>
+          <p>半包坑点高度集中在低价开工后增项、材料型号模糊、拆分收费、杂费漏写、工艺标准不清。这说明监理应尽早审报价。</p>
+          <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/682f34cd000000000f032af9" target="_blank" rel="noreferrer">查看来源</a><span class="strength">强证据</span></div>
+        </article>
+      </div>
+
+      <div class="detail-table" aria-label="更多证据摘要">
+        <details>
+          <summary>更多正面线索</summary>
+          <div class="detail-body">
+            <p>装小蜜：王海波、蔡仁学、韩争、邝晓鹏等名字在深圳相关搜索里出现；杨则喜样本质量最高。</p>
+            <p>牛角监：温光照有自我介绍和用户评价，用户提到水电验收逐条看回路、地面拆除不合格会要求整改。</p>
+          </div>
+        </details>
+        <details>
+          <summary>更多负面线索</summary>
+          <div class="detail-body">
+            <p>装小蜜：有北京用户差评称顶面波浪纹问题未提前拦住，平台按“符合标准”处理，引出验收边界争议。</p>
+            <p>牛角监：对比帖评论里有用户吐槽自己找的牛角监不靠谱、怕事、像和工长一伙。此为单条评论，不能泛化，但需要防。</p>
+          </div>
+        </details>
+        <details>
+          <summary>替代方案</summary>
+          <div class="detail-body">
+            <p>土巴兔/本地个人监理可作为询价对照。公开帖里有 11 次约 29 元/㎡、20 次约 49 元/㎡的线索，但这是自我介绍，缺少完工口碑。</p>
+            <p>千家监理在评论区被提到，但深圳本地强证据不足，暂不建议排在装小蜜和牛角监前面。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="page-section risk-band" id="risks" aria-labelledby="risks-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="risks-title">主要风险与注意事项</h2>
+          <p>这四件事比“品牌名”更影响你最后的体验。</p>
+        </div>
+      </div>
+      <div class="risk-grid">
+        <article class="risk-card">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 9v4"></path><path d="M12 17h.01"></path><path d="M10.3 4.3 2.8 17.2A2 2 0 0 0 4.5 20h15a2 2 0 0 0 1.7-2.8L13.7 4.3a2 2 0 0 0-3.4 0z"></path></svg>
+          <h3>具体监理差异</h3>
+          <p>两家都有抽卡属性。公开资料反复说明：平台只是入口，真正决定体验的是具体人。</p>
+        </article>
+        <article class="risk-card">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 19h16"></path><path d="M7 16V8"></path><path d="M12 16V5"></path><path d="M17 16v-6"></path></svg>
+          <h3>节点安排</h3>
+          <p>上门次数不是越多越好。关键是水电、防水、泥木、油工、竣工这些节点是否卡准。</p>
+        </article>
+        <article class="risk-card">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M8 6h13"></path><path d="M8 12h13"></path><path d="M8 18h13"></path><path d="M3 6h.01"></path><path d="M3 12h.01"></path><path d="M3 18h.01"></path></svg>
+          <h3>验收边界</h3>
+          <p>“符合标准”不等于你一定满意。墙顶平整、收口观感、油漆细节要提前问标准。</p>
+        </article>
+        <article class="risk-card">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10h18z"></path><path d="M7 6V4h10v2"></path><path d="M9 13h6"></path></svg>
+          <h3>售后边界</h3>
+          <p>监理能帮你发现问题、推动整改、留痕，但不替装修公司承担售后责任。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="timing-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="timing-title">什么时候请最值</h2>
+          <p>你如果还没签合同，现在请最划算。签完再请，仍有用，但价值会明显后移。</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="phase"><strong>签约前</strong><p>审半包报价、材料型号、工艺标准、付款节点和增项规则。价值最高。</p></div>
+        <div class="phase"><strong>开工交底</strong><p>让监理把施工要求和验收标准讲清楚，减少后期扯皮。</p></div>
+        <div class="phase"><strong>隐蔽工程</strong><p>重点看水电、防水、材料进场。这里出错，后面返工最痛。</p></div>
+        <div class="phase"><strong>收尾验收</strong><p>看空鼓、平整度、收口、油漆、整改记录。别只看报告“合格”。</p></div>
+      </div>
+    </section>
+
+    <section class="page-section" id="questions" aria-labelledby="questions-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="questions-title">购买前必问清单</h2>
+          <p>把这些问题直接发给客服。对方答得含糊，就先不要付全款。</p>
+        </div>
+      </div>
+      <div class="questions">
+        <div class="question"><span class="question-number">1</span><div><strong>深圳能不能指定监理？</strong><span>如果不能，能否指定区域、资历、服务案例类型。</span></div></div>
+        <div class="question"><span class="question-number">2</span><div><strong>不满意怎么换人？</strong><span>第一次不满意退款的前置条件是什么，是否要求未开工。</span></div></div>
+        <div class="question"><span class="question-number">3</span><div><strong>剩余次数怎么退？</strong><span>按套餐均价退，还是按单次价格扣，户型变大会不会加价。</span></div></div>
+        <div class="question"><span class="question-number">4</span><div><strong>每次上门验什么？</strong><span>10、15、20 次分别覆盖哪些节点，交底和验收要分清。</span></div></div>
+        <div class="question"><span class="question-number">5</span><div><strong>陪签是否逐项审报价？</strong><span>拆改、水电、防水、吊顶、墙面、垃圾清运、材料上楼都要看。</span></div></div>
+        <div class="question"><span class="question-number">6</span><div><strong>材料进场怎么验？</strong><span>是否核品牌、型号、规格、等级，并拍照留痕。</span></div></div>
+        <div class="question"><span class="question-number">7</span><div><strong>观感问题算不算整改？</strong><span>墙顶平整度、瓷砖空鼓、收口、油漆观感按什么标准验。</span></div></div>
+        <div class="question"><span class="question-number">8</span><div><strong>监理能否进装修群？</strong><span>施工方不配合时，是否直接沟通并写整改记录。</span></div></div>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="decision-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="decision-title">怎么选</h2>
+          <p>按你的情况，我会这样落地，不绕弯。</p>
+        </div>
+      </div>
+      <div class="recommendation-grid">
+        <article class="recommend-card">
+          <h3>先选装小蜜，如果</h3>
+          <ul class="compact-list">
+            <li>能指定或尽量争取深圳口碑监理。</li>
+            <li>客服能明确换人、退款、剩余次数规则。</li>
+            <li>愿意让监理签约前审报价和合同。</li>
+            <li>你更看重服务稳定和留痕。</li>
+          </ul>
+          <div class="rating"><span>推荐度</span><span class="stars">★★★★★</span></div>
+        </article>
+
+        <article class="recommend-card">
+          <h3>选牛角监，如果</h3>
+          <ul class="compact-list">
+            <li>价格明显更合适，套餐节点表也清楚。</li>
+            <li>能分配到有公开正面线索的深圳监理。</li>
+            <li>你能接受体验更依赖具体人。</li>
+            <li>你愿意提前盯住节点，避免次数浪费。</li>
+          </ul>
+          <div class="rating"><span>推荐度</span><span class="stars">★★★★<span class="stars muted">★</span></span></div>
+        </article>
+
+        <article class="recommend-card">
+          <h3>考虑独立监理，如果</h3>
+          <ul class="compact-list">
+            <li>你能面谈并核验真实完工案例。</li>
+            <li>能拿到报告样例、合同责任和报价明细。</li>
+            <li>能确认不卖材料、不和施工方绑定。</li>
+            <li>你想更强地指定具体人。</li>
+          </ul>
+          <div class="rating"><span>推荐度</span><span class="stars">★★★<span class="stars muted">★★</span></span></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>声明：本页基于 2026-06-11 小红书公开搜索、公开帖子和可见评论整理，仅用于个人决策参考。未核验数据不作为事实承诺，最终以合同、服务附件和实际监理为准。</p>
+  </footer>
+</body>
+</html>

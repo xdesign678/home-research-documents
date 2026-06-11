@@ -1,0 +1,2076 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>板材环保与甲醛风险排名</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --ink: #17201b;
+      --muted: #5b6b63;
+      --line: #dfe7e2;
+      --paper: #fbfcfa;
+      --card: #ffffff;
+      --green: #1f8a5b;
+      --blue: #3867d6;
+      --amber: #c88424;
+      --red: #b34848;
+      --slate: #415066;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 44px 0 28px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #f2f7f1 0%, #fbfcfa 100%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 860px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 24px;
+      align-items: end;
+    }
+
+    .summary-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(31, 74, 48, .08);
+    }
+
+    .summary-box strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .summary-box p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    section { padding: 34px 0; }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: -8px;
+      margin-bottom: 18px;
+    }
+
+    .ranking {
+      display: grid;
+      gap: 14px;
+    }
+
+    .rank-card {
+      display: grid;
+      grid-template-columns: 72px 1.2fr 1.6fr 190px;
+      gap: 18px;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+
+    .rank-card:hover,
+    .rank-card:focus-visible {
+      transform: translateY(-2px);
+      border-color: #b9d4c5;
+      box-shadow: 0 14px 32px rgba(31, 74, 48, .10);
+      outline: none;
+    }
+
+    .place {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      background: var(--green);
+      font-size: 20px;
+    }
+
+    .rank-card:nth-child(2) .place { background: var(--blue); }
+    .rank-card:nth-child(3) .place { background: var(--slate); }
+    .rank-card:nth-child(n+4) .place { background: var(--amber); }
+    .rank-card:nth-child(n+5) .place { background: var(--red); }
+
+    .brand-title {
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .reason {
+      color: #25342d;
+      font-size: 15px;
+    }
+
+    .score {
+      display: grid;
+      gap: 8px;
+    }
+
+    .score-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-weight: 800;
+    }
+
+    .score-top span:last-child {
+      font-size: 24px;
+    }
+
+    .bar {
+      height: 12px;
+      background: #edf2ef;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), var(--blue));
+    }
+
+    .matrix {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .matrix th,
+    .matrix td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    .matrix th {
+      background: #f3f7f4;
+      font-size: 13px;
+      color: #42534a;
+    }
+
+    .matrix tr:last-child td { border-bottom: 0; }
+
+    .grade {
+      display: inline-flex;
+      min-width: 34px;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 2px 9px;
+      font-weight: 800;
+      background: #eaf6ef;
+      color: var(--green);
+    }
+
+    .grade.mid { background: #fff4dd; color: var(--amber); }
+    .grade.low { background: #fdeaea; color: var(--red); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .card p,
+    .card ul {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .card ul { padding-left: 18px; }
+
+    .detail-page {
+      display: none;
+      padding-top: 28px;
+    }
+
+    body.detail-mode main > section:not(#brandDetail) {
+      display: none;
+    }
+
+    body.detail-mode #brandDetail {
+      display: block;
+    }
+
+    .back-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .back-button,
+    .filter-button,
+    .detail-button,
+    .modal-close {
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 9px 12px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .back-button:hover,
+    .filter-button:hover,
+    .filter-button.active,
+    .detail-button:hover,
+    .modal-close:hover {
+      border-color: #b9d4c5;
+      background: #f2f8f4;
+    }
+
+    .detail-hero {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      margin-bottom: 16px;
+    }
+
+    .detail-title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .detail-title-row h2 {
+      margin-bottom: 6px;
+    }
+
+    .detail-score {
+      min-width: 132px;
+      text-align: right;
+      font-weight: 800;
+      color: var(--green);
+      font-size: 38px;
+      line-height: 1;
+    }
+
+    .detail-score span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    .detail-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .stat-pill {
+      background: #f5f8f6;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .stat-pill strong {
+      display: block;
+      color: var(--ink);
+      font-size: 18px;
+      margin-top: 2px;
+    }
+
+    .detail-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .score-breakdown {
+      display: grid;
+      gap: 12px;
+    }
+
+    .metric-row {
+      display: grid;
+      gap: 6px;
+    }
+
+    .metric-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .evidence-toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 12px 0 16px;
+    }
+
+    .evidence-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .summary-entry-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+
+    .summary-entry-card:hover,
+    .summary-entry-card:focus-visible {
+      transform: translateY(-2px);
+      border-color: #b9d4c5;
+      box-shadow: 0 14px 32px rgba(31, 74, 48, .10);
+      outline: none;
+    }
+
+    .summary-entry-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .summary-entry-head h3 {
+      margin: 0;
+      font-size: 21px;
+    }
+
+    .summary-entry-meta {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .summary-entry-lead {
+      color: var(--muted);
+      margin: 12px 0 0;
+      font-size: 15px;
+    }
+
+    .summary-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .summary-stat {
+      background: #f8faf8;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .summary-stat strong {
+      display: block;
+      color: var(--ink);
+      font-size: 18px;
+      margin-top: 2px;
+    }
+
+    .summary-preview-list {
+      display: grid;
+      gap: 6px;
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .summary-article {
+      display: grid;
+      gap: 14px;
+    }
+
+    .summary-article-section {
+      background: #fbfcfb;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .summary-article-section h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .summary-article-section p,
+    .summary-article-section li {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 6px 0 0;
+    }
+
+    .summary-article-section ul {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+
+    .summary-posts {
+      display: grid;
+      gap: 10px;
+    }
+
+    .summary-post-item {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+
+    .summary-post-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .evidence-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .evidence-card header {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .evidence-card h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .evidence-meta {
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .evidence-card p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .evidence-topline {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .interaction-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .interaction-item {
+      border: 1px solid var(--line);
+      background: #f8faf8;
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .interaction-item strong {
+      display: block;
+      color: var(--ink);
+      font-size: 15px;
+      margin-top: 2px;
+    }
+
+    .credibility-badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 3px 9px;
+      background: #eef4fb;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .credibility-badge.high {
+      background: #eaf6ef;
+      color: var(--green);
+    }
+
+    .credibility-badge.low {
+      background: #fdeaea;
+      color: var(--red);
+    }
+
+    .post-expand {
+      margin-top: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+
+    .post-expand summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .post-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .post-detail-block {
+      background: #fbfcfb;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .post-detail-block h4 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    .post-detail-block p,
+    .post-detail-block li {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 6px 0 0;
+    }
+
+    .post-detail-block ul {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+
+    .evidence-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 12px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 28, 23, .52);
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      z-index: 20;
+    }
+
+    .modal-backdrop[hidden] {
+      display: none;
+    }
+
+    .modal-panel {
+      width: min(980px, 100%);
+      max-height: min(86vh, 900px);
+      overflow: auto;
+      background: var(--card);
+      border-radius: 8px;
+      box-shadow: 0 24px 70px rgba(18, 28, 23, .22);
+      border: 1px solid var(--line);
+      padding: 18px;
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    .modal-head h3 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .modal-subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .evidence-chip {
+      display: inline-flex;
+      margin-top: 10px;
+      border-radius: 999px;
+      padding: 2px 9px;
+      background: #f2f6f3;
+      color: #42534a;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .evidence-chip.negative {
+      background: #fdeaea;
+      color: var(--red);
+    }
+
+    .evidence-chip.positive {
+      background: #eaf6ef;
+      color: var(--green);
+    }
+
+    .callout {
+      background: #eef7f1;
+      border: 1px solid #cfe4d6;
+      border-radius: 8px;
+      padding: 18px;
+      color: #23382b;
+    }
+
+    .warning {
+      background: #fff7e8;
+      border-color: #f1d8a8;
+    }
+
+    .source-list {
+      display: grid;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .source-list div {
+      padding: 12px 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .rank-card,
+      .grid,
+      .detail-layout,
+      .detail-stats {
+        grid-template-columns: 1fr;
+      }
+      .interaction-grid,
+      .post-detail-grid,
+      .summary-stats {
+        grid-template-columns: 1fr;
+      }
+      .rank-card {
+        gap: 12px;
+      }
+      .matrix {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      .detail-score {
+        text-align: left;
+      }
+      .evidence-card header {
+        display: grid;
+      }
+      .evidence-meta {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">🧪 165 篇去重样本 + 60 篇评论深读 + 第三至第六轮 78 条重点复核</div>
+        <h1>板材环保与甲醛风险排名</h1>
+        <p class="lead">这不是“谁宣传最环保”的排名，而是把国标、品牌官方资料、小红书真实口碑、评论区分歧和踩坑点合在一起，给衣柜和橱柜做决策。</p>
+      </div>
+      <div class="summary-box">
+        <strong>一句话建议</strong>
+        <p>卧室衣柜优先爱格板、福人精板或华富立欧松/多层组合；橱柜水槽区优先防潮多层或更耐水体系。所有方案都要看授权、检测报告和现场封边。</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>🏁 现实下单综合排名</h2>
+      <p class="note">分数是“环保/甲醛少 + 气味投诉 + 真假/施工风险 + 衣柜橱柜适配”的综合分，不等于单块板实验室甲醛数值。</p>
+      <div class="ranking">
+        <article class="rank-card" data-brand="egger" role="button" tabindex="0" aria-label="查看爱格板证据详情">
+          <div class="place">1</div>
+          <div>
+            <div class="brand-title">爱格板</div>
+            <div class="tagline">综合最稳，适合卧室衣柜</div>
+          </div>
+          <div class="reason">品牌成熟度仍最好；五轮复核后，优势是花色和落地成熟，风险是真假授权、防伪难、检测负面和关柜门后的气味。</div>
+          <div class="score">
+            <div class="score-top"><span>综合分</span><span>86</span></div>
+            <div class="bar"><div class="fill" style="width:86%"></div></div>
+          </div>
+        </article>
+
+        <article class="rank-card" data-brand="furen" role="button" tabindex="0" aria-label="查看福人精板证据详情">
+          <div class="place">2</div>
+          <div>
+            <div class="brand-title">福人精板</div>
+            <div class="tagline">环保指标强，但要看结构适配</div>
+          </div>
+          <div class="reason">环保指标强，评论里也有低味反馈；第二轮进一步确认风险集中在授权工厂、防伪码、精板/普通板和官方封边。</div>
+          <div class="score">
+            <div class="score-top"><span>综合分</span><span>85</span></div>
+            <div class="bar"><div class="fill" style="width:85%"></div></div>
+          </div>
+        </article>
+
+        <article class="rank-card" data-brand="huali" role="button" tabindex="0" aria-label="查看华富立证据详情">
+          <div class="place">3</div>
+          <div>
+            <div class="brand-title">华富立欧松 + 多层</div>
+            <div class="tagline">组合合理，验货最关键</div>
+          </div>
+          <div class="reason">新增样本后，评论仍指向“识别与施工”：多层/柠芯/欧松切面、现场开孔、封边和气味差异要逐项验收。</div>
+          <div class="score">
+            <div class="score-top"><span>综合分</span><span>82</span></div>
+            <div class="bar"><div class="fill" style="width:82%"></div></div>
+          </div>
+        </article>
+
+        <article class="rank-card" data-brand="xiaosen" role="button" tabindex="0" aria-label="查看三棵树小森板证据详情">
+          <div class="place">4</div>
+          <div>
+            <div class="brand-title">三棵树小森板</div>
+            <div class="tagline">卖点强，风险偏交付和门店</div>
+          </div>
+          <div class="reason">补到 30 篇后仍少见大量甲醛实测负面；评论更多问授权、报价、花色、柜体/柜门材质和安装交付。</div>
+          <div class="score">
+            <div class="score-top"><span>综合分</span><span>78</span></div>
+            <div class="bar"><div class="fill" style="width:78%"></div></div>
+          </div>
+        </article>
+
+        <article class="rank-card" data-brand="dawangye" role="button" tabindex="0" aria-label="查看大王椰证据详情">
+          <div class="place">5</div>
+          <div>
+            <div class="brand-title">大王椰 HENF</div>
+            <div class="tagline">宣传强，负面样本不能忽略</div>
+          </div>
+          <div class="reason">30 篇品牌相关样本里，既有正向下车也有避雷；气味、等级、防伪、检测和批次识别仍反复出现，不能只看 HENF/ENF。</div>
+          <div class="score">
+            <div class="score-top"><span>综合分</span><span>74</span></div>
+            <div class="bar"><div class="fill" style="width:74%"></div></div>
+          </div>
+        </article>
+
+        <article class="rank-card" data-brand="wanhua" role="button" tabindex="0" aria-label="查看万华禾香板证据详情">
+          <div class="place">6</div>
+          <div>
+            <div class="brand-title">万华禾香板</div>
+            <div class="tagline">理论环保好，气味争议最大</div>
+          </div>
+          <div class="reason">检测报告和技术路线能讲通；但 30 篇样本里气味、TVOC、通风体验依旧密集，“甲醛低”不等于体感可接受。</div>
+          <div class="score">
+            <div class="score-top"><span>综合分</span><span>72</span></div>
+            <div class="bar"><div class="fill" style="width:72%"></div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>🧪 理想条件排名</h2>
+      <p class="note">假设都能买到正品，施工、封边、开孔补封也统一；这个表只看材料本身和稳定落地后的表现。</p>
+      <div class="callout">
+        <strong>理想条件下：福人精板反超爱格，华富立明显加分但仍排第 3。</strong>
+        <p>现实排名里，福人和华富立被扣最多的是授权、真伪、封边和施工不确定性；这些变量拿掉后，福人的低味优势最突出，华富立也从 82 提到 86。</p>
+      </div>
+      <table class="matrix" style="margin-top:16px">
+        <thead>
+          <tr>
+            <th>理想排名</th>
+            <th>品牌</th>
+            <th>现实分</th>
+            <th>理想分</th>
+            <th>变化</th>
+            <th>核心原因</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>福人精板</td>
+            <td>85</td>
+            <td>90</td>
+            <td>+5</td>
+            <td>低味样本更集中；正品、授权、官方封边确定后，最大扣分被拿掉。</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>爱格板</td>
+            <td>86</td>
+            <td>88</td>
+            <td>+2</td>
+            <td>成熟度仍强，但正品爱格也有开柜味、即装即住焦虑和长期气味反例。</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>华富立欧松 + 多层</td>
+            <td>82</td>
+            <td>86</td>
+            <td>+4</td>
+            <td>混板、封边、溯源扣分减少；但多层板气味评论分歧仍压住它。</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>三棵树小森板</td>
+            <td>78</td>
+            <td>82</td>
+            <td>+4</td>
+            <td>授权和门店施工问题被拿掉后受益；真实检测和低味样本厚度仍弱于前三。</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>大王椰 HENF</td>
+            <td>74</td>
+            <td>78</td>
+            <td>+4</td>
+            <td>假货、封边和其他材料叠加风险减少；但正品 ENF 仍有通风和检测争议。</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>万华禾香板</td>
+            <td>72</td>
+            <td>74</td>
+            <td>+2</td>
+            <td>正品假设只能减少验真风险，不能解决味道/TVOC 的核心争议。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="brandDetail" class="detail-page" aria-live="polite">
+      <div class="back-row">
+        <button class="back-button" type="button" id="backToRanking">← 返回排名</button>
+        <div class="note" id="detailHint">点击排名卡片查看品牌证据详情。</div>
+      </div>
+      <div id="brandDetailContent"></div>
+    </section>
+
+    <div class="modal-backdrop" id="evidenceModal" hidden role="dialog" aria-modal="true" aria-labelledby="evidenceModalTitle">
+      <div class="modal-panel">
+        <div class="modal-head">
+          <div>
+            <h3 id="evidenceModalTitle">帖子详情</h3>
+            <div class="modal-subtitle">基于已记录证据做结构化转述，不逐字复制小红书长正文和长评论。</div>
+          </div>
+          <button class="modal-close" type="button" id="closeEvidenceModal">关闭</button>
+        </div>
+        <div id="evidenceModalBody"></div>
+      </div>
+    </div>
+
+    <section>
+      <h2>📊 样本覆盖与评论深读</h2>
+      <p class="note">新增样本按帖子 ID 去重；当前共 165 篇小红书样本，60 篇评论深读。第三至第六轮额外复核 78 条高争议/检测/入住/验真类帖子，其中有部分是旧样本重读，所以不硬加到去重总数里。第六轮是“正品确定 + 施工统一”的理想条件复核。</p>
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>品牌</th>
+            <th>上轮合计</th>
+            <th>第二轮新增</th>
+            <th>合计</th>
+            <th>当前深读</th>
+            <th>第二轮后修正的判断</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>华富立</td>
+            <td>20</td>
+            <td>10</td>
+            <td>30</td>
+            <td>10 篇</td>
+            <td>评论继续指向识别与施工：欧松/柠芯/多层切面、现场开孔、封边和气味差异要逐项验收。</td>
+          </tr>
+          <tr>
+            <td>大王椰</td>
+            <td>20</td>
+            <td>10</td>
+            <td>30</td>
+            <td>10 篇</td>
+            <td>有正向下车样本，但真伪、等级、气味和检测仍高频出现，HENF/ENF 不能替代批次报告。</td>
+          </tr>
+          <tr>
+            <td>福人精板</td>
+            <td>19</td>
+            <td>10</td>
+            <td>29</td>
+            <td>10 篇</td>
+            <td>授权工厂、防伪码、精板/普通板、官方封边是核心；风险更像渠道与工艺风险。</td>
+          </tr>
+          <tr>
+            <td>禾香板</td>
+            <td>20</td>
+            <td>10</td>
+            <td>30</td>
+            <td>10 篇</td>
+            <td>检测报告和剖面图样本增加，但气味帖、TVOC/通风体验帖依然多，要区分甲醛指标和体感。</td>
+          </tr>
+          <tr>
+            <td>爱格板</td>
+            <td>20</td>
+            <td>10</td>
+            <td>30</td>
+            <td>10 篇</td>
+            <td>优势是落地成熟；主要风险是真假鉴定、授权链、价格和关柜门后的气味。</td>
+          </tr>
+          <tr>
+            <td>三棵树小森板</td>
+            <td>20</td>
+            <td>10</td>
+            <td>30</td>
+            <td>10 篇</td>
+            <td>新增样本仍以授权工厂、报价、花色、交付为主，真实甲醛/TVOC 深度讨论少。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>🧠 第三轮复核：排名是否要改</h2>
+      <div class="callout">
+        <strong>结论：排名不变，分数暂不调整。</strong>
+        <p>这轮重新登录小红书后，搜索页和帖子评论区已恢复可读。我重点打开了 18 条高争议、检测、入住类帖子，深读评论后看到的不是“某个品牌完全翻车”，而是风险归因更清楚：真假授权、封边开孔、混板、施工和其他软装叠加，比单个品牌名更能解释差异。</p>
+      </div>
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>品牌</th>
+            <th>第三轮读到的关键评论</th>
+            <th>对排名的影响</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>爱格板</td>
+            <td>新增读到“真假鉴别”“一年仍有气味”“整屋甲醛超标”等高评论帖；评论里也反复把问题拆成真伪、柜体搭配、加工厂和空间用量。</td>
+            <td>仍第 1，但不再写成“闭眼买”。它胜在成熟和正向样本多，扣分仍在授权链、加工和关柜门后的味道。</td>
+          </tr>
+          <tr>
+            <td>福人精板</td>
+            <td>负面帖集中在封边、防伪码、授权店拿不出证明；检测/入住帖又给出低味、低值正向反馈。</td>
+            <td>仍第 2。环保口径和低味反馈能支撑高分，但渠道和“是不是真精板”必须写进合同和验收。</td>
+          </tr>
+          <tr>
+            <td>华富立</td>
+            <td>强负面帖显示一年半仍超标，评论关键点落在未封边、打孔、背板和现场裁切；另有货不对板和正向检测样本。</td>
+            <td>仍第 3。组合方案实用，但落地风险比前两名高，尤其要防欧松/柠芯/多层混用和切口不补封。</td>
+          </tr>
+          <tr>
+            <td>三棵树小森板</td>
+            <td>评论更多是“真实案例少、是否有味、报价、门店服务、柜体柜门材质”；直接甲醛深度证据仍少。</td>
+            <td>仍第 4。不是因为它证据最强，而是目前污染物负面密度没有大王椰和万华高。</td>
+          </tr>
+          <tr>
+            <td>大王椰</td>
+            <td>两条强负面帖评论量高，集中在味道、拆柜、甲醛/苯检测，也有人提出假货、现场胶和其他材料叠加。</td>
+            <td>仍第 5。负面强度足够压低排名，但评论归因不完全指向品牌本身，暂不低于万华。</td>
+          </tr>
+          <tr>
+            <td>万华禾香板</td>
+            <td>味道敏感、TVOC、长期通风后仍有味的评论最密；也有检测解释说部分 TVOC 可能来自木材萜烯，不等于甲醛一定高。</td>
+            <td>仍第 6。不是说甲醛一定最高，而是“甲醛低”和“体感低味”分离最明显，气味敏感家庭风险最大。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>🔬 第四轮复核：检测类反证</h2>
+      <div class="callout warning">
+        <strong>结论：排序不变，但爱格分数应下修。</strong>
+        <p>第四轮重点读检测、超标、TVOC、封边和防伪类评论。爱格新增强负面最多，说明它不能再写成“低味稳定性很高”；但评论归因仍常落在检测条件、柜体搭配、授权真假、封边和整屋叠加，所以没有被福人反超。</p>
+      </div>
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>品牌</th>
+            <th>第四轮读到的关键评论</th>
+            <th>对分数的影响</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>爱格板</td>
+            <td>读到 CMA 双超标、柜内甲醛高、通风八个月仍担心等帖子；评论里同时讨论检测方法、正品追溯、柜体搭配和封边。</td>
+            <td>第一保留，但综合分从 88 下调到 86。</td>
+          </tr>
+          <tr>
+            <td>福人精板</td>
+            <td>读到低味、低检测值、激光码和正品鉴别帖；负面仍集中在授权、是否精板、原厂封边和商家混用。</td>
+            <td>分数不调，仍紧贴爱格。</td>
+          </tr>
+          <tr>
+            <td>华富立</td>
+            <td>激光封边/PUR 说法、封边条品牌、水印暗标、欧松/拧芯标签和整屋检测都反复出现。</td>
+            <td>第三不变，风险继续写成“混板封边”。</td>
+          </tr>
+          <tr>
+            <td>三棵树小森板</td>
+            <td>新增零散柜内甲醛和味道反馈，也有低味正向；评论更多还在报价、材质和门店交付。</td>
+            <td>第四不变，证据不够强到压到后段。</td>
+          </tr>
+          <tr>
+            <td>大王椰</td>
+            <td>切柜送检、材料替换、防伪模糊和 TVOC 讨论很强；也读到 TVOC 可能来自胶、木蜡油和木材本身。</td>
+            <td>继续第五，并在第五轮小幅下调。</td>
+          </tr>
+          <tr>
+            <td>万华禾香板</td>
+            <td>暗标、防伪、精板/非精板、惠民系列和“真货也要散味”同时出现。</td>
+            <td>第六不变，气味和验真仍是双重风险。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>🧭 第五轮复核：反例和盲区</h2>
+      <div class="callout">
+        <strong>结论：排名不变，分差收窄。</strong>
+        <p>第五轮补看正向下车、授权验真和小程序追溯。结果不是“某品牌稳赢”，而是越看越像供应链验证题：能不能追溯、有没有授权、封边条是否配套、现场是否混板，比品牌口号更重要。</p>
+      </div>
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>排名</th>
+            <th>品牌</th>
+            <th>新分数</th>
+            <th>第五轮判断</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>爱格板</td>
+            <td>86</td>
+            <td>成熟度仍最高，但检测负面和长期气味帖足够多，不能给 88。</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>福人精板</td>
+            <td>85</td>
+            <td>低味和激光码样本增加，但授权、防伪、精板/普通板边界仍压住它。</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>华富立欧松 + 多层</td>
+            <td>82</td>
+            <td>组合价值高，风险在封边、混板、切面和授权验证。</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>三棵树小森板</td>
+            <td>78</td>
+            <td>正向安全落地和零散负面并存，真实污染物负面密度仍低于大王椰和万华。</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>大王椰 HENF</td>
+            <td>74</td>
+            <td>正向下车存在，但防伪、批次、检测和强负面密度更重，小幅下修。</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>万华禾香板</td>
+            <td>72</td>
+            <td>无醛添加路线成立，但味道/TVOC/验真争议仍最集中。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>🧪 第六轮复核：正品和统一施工假设</h2>
+      <div class="callout">
+        <strong>结论：现实排名不变；理想条件下福人反超爱格，华富立仍第 3。</strong>
+        <p>本轮按每个品牌 5 篇继续读帖和评论。假设全部能买到正品、封边和开孔补封都统一后，福人的授权/真假扣分被拿掉，低味优势更突出；华富立也会明显加分，但多层板气味评论分歧仍压住它。</p>
+      </div>
+      <table class="matrix" style="margin-top:16px">
+        <thead>
+          <tr>
+            <th>理想排名</th>
+            <th>品牌</th>
+            <th>现实分</th>
+            <th>理想分</th>
+            <th>第六轮判断</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>福人精板</td>
+            <td>85</td>
+            <td>90</td>
+            <td>低味样本继续增加；正品、授权、官方封边确定后，最大扣分被拿掉。</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>爱格板</td>
+            <td>86</td>
+            <td>88</td>
+            <td>成熟度仍强，但正品爱格也有开柜味、即装即住焦虑和长期气味反例。</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>华富立欧松 + 多层</td>
+            <td>82</td>
+            <td>86</td>
+            <td>混板、封边、溯源扣分会明显减少；但多层板气味评论分歧仍在。</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>三棵树小森板</td>
+            <td>78</td>
+            <td>82</td>
+            <td>授权和门店施工问题被拿掉后受益；真实检测和低味样本厚度仍弱于前三。</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>大王椰 HENF</td>
+            <td>74</td>
+            <td>78</td>
+            <td>假货、封边和其他材料叠加风险减少；但正品 ENF 仍有通风和检测争议。</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>万华禾香板</td>
+            <td>72</td>
+            <td>74</td>
+            <td>正品假设只能减少验真风险，不能解决味道/TVOC 的核心争议。</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:12px">所以主页大卡片保留现实下单排序；这张表单独回答“如果都确定正品、施工统一，会怎么排”。</p>
+    </section>
+
+    <section>
+      <h2>📍 按位置怎么选</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>卧室衣柜柜体</h3>
+          <p>优先：爱格板、福人精板、华富立多层板。儿童房/主卧更建议 ENF 或 F4星，并要求同批次检测报告。</p>
+        </div>
+        <div class="card">
+          <h3>一门到顶柜门</h3>
+          <p>优先：华富立欧松板、爱格板。多层板做高柜门更容易变形，超过 1.6 米建议拉直器。</p>
+        </div>
+        <div class="card">
+          <h3>橱柜柜体</h3>
+          <p>环保不是唯一指标。水槽下和厨房潮湿区优先防潮多层板、金属或石材柜体；普通颗粒/禾香/精板要慎用。</p>
+        </div>
+        <div class="card">
+          <h3>橱柜门板</h3>
+          <p>看饰面耐污、耐热、封边和基材。不要只听“进口板”“无醛板”，合同里要写清基材和封边。</p>
+        </div>
+        <div class="card">
+          <h3>阳台/卫浴</h3>
+          <p>优先耐潮耐水。即使 ENF，也不代表适合长期潮湿；封边、开孔、背板比品牌口号更重要。</p>
+        </div>
+        <div class="card">
+          <h3>孕婴/气味敏感家庭</h3>
+          <p>慎选万华禾香板和大王椰中负面较多的批次。入住前做 CMA 室内空气检测，不靠手持仪决定。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>🧾 对比矩阵</h2>
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>板材</th>
+            <th>甲醛/环保可信度</th>
+            <th>低味稳定性</th>
+            <th>真伪/施工风险</th>
+            <th>衣柜</th>
+            <th>橱柜</th>
+            <th>一句话</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>爱格板</td>
+            <td><span class="grade">A</span></td>
+            <td><span class="grade">A-</span></td>
+            <td><span class="grade mid">B</span></td>
+            <td><span class="grade">A</span></td>
+            <td><span class="grade mid">B</span></td>
+            <td>适合卧室衣柜；橱柜要选对防潮体系。</td>
+          </tr>
+          <tr>
+            <td>福人精板</td>
+            <td><span class="grade">A</span></td>
+            <td><span class="grade">A-</span></td>
+            <td><span class="grade mid">B</span></td>
+            <td><span class="grade">A-</span></td>
+            <td><span class="grade mid">B</span></td>
+            <td>环保强，但柜体结构和本地施工要核验。</td>
+          </tr>
+          <tr>
+            <td>华富立欧松+多层</td>
+            <td><span class="grade">A-</span></td>
+            <td><span class="grade mid">B+</span></td>
+            <td><span class="grade low">C+</span></td>
+            <td><span class="grade">A-</span></td>
+            <td><span class="grade">A-</span></td>
+            <td>组合实用；必须防混板和补封边。</td>
+          </tr>
+          <tr>
+            <td>三棵树小森板</td>
+            <td><span class="grade mid">B+</span></td>
+            <td><span class="grade mid">B</span></td>
+            <td><span class="grade low">C+</span></td>
+            <td><span class="grade mid">B+</span></td>
+            <td><span class="grade mid">B</span></td>
+            <td>能进备选，但授权和交付要盯紧。</td>
+          </tr>
+          <tr>
+            <td>大王椰 HENF</td>
+            <td><span class="grade mid">B+</span></td>
+            <td><span class="grade low">C+</span></td>
+            <td><span class="grade mid">B-</span></td>
+            <td><span class="grade mid">B</span></td>
+            <td><span class="grade low">C+</span></td>
+            <td>有卖点，但负面样本足够多，别盲信 HENF。</td>
+          </tr>
+          <tr>
+            <td>万华禾香板</td>
+            <td><span class="grade mid">B+</span></td>
+            <td><span class="grade low">C</span></td>
+            <td><span class="grade mid">B-</span></td>
+            <td><span class="grade mid">B</span></td>
+            <td><span class="grade low">C</span></td>
+            <td>无醛添加不等于无味，气味敏感慎选。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>✅ 下单前必查清单</h2>
+      <div class="callout">
+        <strong>把这段直接发给商家：</strong>
+        <p>请在合同写明板材品牌、具体基材、环保等级、板厚、批次、授权门店、封边工艺、背板材质、现场开孔和裁切边是否补封，并提供同批次检测报告、防伪码或授权证明。验收时我会看切面、扫码、防伪、封边和现场补胶。</p>
+      </div>
+      <div class="grid" style="margin-top:16px">
+        <div class="card">
+          <h3>检测报告</h3>
+          <ul>
+            <li>看报告编号、送检单位、样品名称。</li>
+            <li>看是否是同型号、同批次、同厚度。</li>
+            <li>不要只看销售截图。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>现场验收</h3>
+          <ul>
+            <li>看柜体、柜门、背板是否同合同。</li>
+            <li>看打孔、裁边、背板是否补封。</li>
+            <li>看欧松/柠芯/多层切面是否一致。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>入住前</h3>
+          <ul>
+            <li>通风不能替代检测。</li>
+            <li>做 CMA 室内空气检测更稳。</li>
+            <li>甲醛之外也要关注 TVOC 和气味。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>⚠️ 我对这次排名的保守判断</h2>
+      <div class="callout warning">
+        <p>如果你只问“理论上哪种板甲醛少”，无醛添加、F4星、ENF 都很漂亮。但装修不是买一块实验室样品，而是大量板材、胶、封边、五金、背板、现场切割一起进家。小红书负面样本里，很多问题不是品牌名本身，而是混板、假授权、现场切口不封、其他材料叠加和检测条件不同。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>📚 证据文档</h2>
+      <p>我把打开过的小红书帖子和评论要点沉淀到了 Markdown 文档：<a href="./xiaohongshu-board-evidence.md">xiaohongshu-board-evidence.md</a>。当前证据文档包含 165 篇去重小红书样本、60 篇代表帖评论深读，以及第三至第六轮 78 条重点复核记录。78 条重点复核已另做成二次分析底稿：<a href="./xiaohongshu-board-review-pack.md">xiaohongshu-board-review-pack.md</a>。</p>
+      <div class="source-list">
+        <div>国家标准：<a href="https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=F5BCAEB886FB1417F12395B61AFDB178">GB/T 39600-2021 人造板及其制品甲醛释放量分级</a></div>
+        <div>大王椰：<a href="https://www.dwywood.com/material.html">大王椰新材料科技</a></div>
+        <div>华富立：<a href="https://www.dghuali.com/products/">华立/华富立产品页</a></div>
+        <div>福人精板：<a href="https://furenhome.com/">FUREN 福人精板台湾官网</a></div>
+        <div>万华禾香：<a href="https://www.whstby.cn/">万华禾香官网</a></div>
+        <div>爱格：<a href="https://www.egger.com/zh/?country=CN">EGGER 爱格官网</a></div>
+        <div>三棵树小森板：<a href="https://xiaosen.com.cn/web/index.html">三棵树小森板官网</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">仅作为装修选材研究建议，不替代最终合同、检测报告和室内空气检测。最稳的策略不是迷信某个品牌，而是“选对位置 + 验真 + 封边 + 入住前检测”。</div>
+  </footer>
+  <script>
+    const BRAND_EVIDENCE_DATA = {"brands":{"egger":{"name":"爱格板","rank":1,"score":86,"sampleTotal":30,"deepCount":10,"verdict":"综合仍最稳，但不能再写成闭眼买。核心优势是成熟花色和落地案例多；核心风险是真假授权、检测负面、价格和关柜门后的气味。","mainRisk":"真假授权","metrics":[{"label":"环保可信度","value":90},{"label":"低味稳定性","value":80},{"label":"真伪/施工风险控制","value":78},{"label":"衣柜橱柜适配","value":94}],"logic":["正向证据仍多：落地效果、花色成熟度和可追溯体系比多数板材更稳定。","新增高评论检测负面和长期气味帖不少，所以低味稳定性要下修。","很多评论把问题拆到真伪、封边、柜体搭配、检测条件和整屋叠加，不能简单归因为单一板材。","最终仍排第一，但分数从 88 调到 86，和福人精板的差距缩小。"],"posts":[{"no":22,"direction":"国产板材","title":"国产板材大集合，来看看有没有你心仪的","url":"https://www.xiaohongshu.com/explore/67fe505b000000001e00a5b0","comments":"54","summary":"提到多类国产环保板材；评论持续追问万华、福人、爱格、柜体材料选择。"},{"no":23,"direction":"爱格","title":"ENF vs F4星 爱格板，选对板材告别甲醛烦恼","url":"https://www.xiaohongshu.com/explore/67cfe0b2000000002903e77f","comments":"6","summary":"偏科普宣传，强调 F4星和 ENF 的比较；评论少，不能单独作为高权重证据。"},{"no":24,"direction":"爱格","title":"一屋子爱格板味道是真没有","url":"https://www.xiaohongshu.com/explore/67298148000000003c01ca55","comments":"54","summary":"强正面样本：用户反馈低味；评论里也有人讨论“真假爱格”和授权问题。"},{"no":25,"direction":"爱格","title":"爱格板避坑10条血泪经验+防坑指南","url":"https://www.xiaohongshu.com/explore/68a46264000000001d013f19","comments":"45","summary":"核心价值是避坑：授权、板材真假、封边、合同写清楚；支持“爱格好但必须验真”。"},{"no":26,"direction":"爱格","title":"所谓的F4星爱格板，都是博主吹出来的吧？","url":"https://www.xiaohongshu.com/explore/67023d54000000002c01496c","comments":"51","summary":"质疑样本：提醒不要迷信 F4星和博主宣传；评论推动我降低“品牌光环”权重。"},{"no":27,"direction":"爱格","title":"谁说爱格没味道的……","url":"https://www.xiaohongshu.com/explore/68ad1509000000001d00537c","comments":"54","summary":"负面样本：说明爱格也可能有气味或施工/其他材料叠加问题；不能保证整屋空气达标。"},{"no":28,"direction":"爱格","title":"悬着的心终于死了：爱格板一年甲醛超标","url":"https://www.xiaohongshu.com/explore/67e360da000000001c000b3f","comments":"44","summary":"关键评论显示问题可能来自兔宝宝多层板而非爱格本身；这说明整屋检测不能只归因于某一个门板品牌。"},{"no":66,"direction":"爱格板","title":"避雷爱格板","url":"https://www.xiaohongshu.com/explore/68dce433000000000301b3d5","comments":"13","summary":"负面/警示样本，评论涉及气味、检测和环保等级。"},{"no":67,"direction":"爱格板","title":"避坑！千万不要用爱格板做门！","url":"https://www.xiaohongshu.com/explore/6810b4c70000000022007446","comments":"3","summary":"门板适配争议样本。"},{"no":68,"direction":"爱格板","title":"我的爱格705 这骨骼线算是及格了吧","url":"https://www.xiaohongshu.com/explore/6a229614000000000702dc64","comments":"1","summary":"展示型样本，评论不足，低权重。"},{"no":69,"direction":"爱格板","title":"为什么对比了多款平替还是选了爱格1379","url":"https://www.xiaohongshu.com/explore/67a8c6140000000029014245","comments":"3","summary":"正向选择样本，评论涉及封边和价格。"},{"no":70,"direction":"爱格板","title":"爱格，当心","url":"https://www.xiaohongshu.com/explore/6964a32a000000000a02e6b3","comments":"10","summary":"评论集中在授权、真假、检测服务和维权路径。"},{"no":103,"direction":"爱格板","title":"全屋爱格到底值不值","url":"https://www.xiaohongshu.com/explore/69af7fe50000000016009227","comments":"7","summary":"评论涉及气味、封边和价格。"},{"no":104,"direction":"爱格板","title":"谁说家里小不能全屋爱格1379 落地效果绝了","url":"https://www.xiaohongshu.com/explore/68410a06000000002300f943","comments":"0","summary":"展示型样本，评论不足。"},{"no":110,"direction":"华富立","title":"放弃爱格1379平替，华富立更有性价比","url":"https://www.xiaohongshu.com/explore/675d2fb2000000000603cbed","comments":"146/信号4","summary":"中性/讨论；重点：材料/部位、环保等级；可见评论信号约 4 条。"},{"no":146,"direction":"爱格板","title":"爱格W1000安全下车，美到心坎上了！","url":"https://www.xiaohongshu.com/explore/6981ab32000000001a02e71b","comments":"88/信号2","summary":"中性/讨论；重点：封边/工艺、材料/部位；可见评论信号约 2 条。"},{"no":147,"direction":"爱格板","title":"2.7w的爱格全屋定制，历时小半年终于落地！","url":"https://www.xiaohongshu.com/explore/69da031d000000002302012f","comments":"74/信号5","summary":"中性/讨论；重点：气味/通风、材料/部位、封边/工艺、价格；可见评论信号约 5 条。"},{"no":148,"direction":"爱格板","title":"在上海用爱格做全屋定制/还好没让亲戚介绍","url":"https://www.xiaohongshu.com/explore/66eff9c0000000001e019e26","comments":"81/信号17","summary":"中性/讨论；重点：材料/部位、价格、环保等级、封边/工艺；可见评论信号约 17 条。"},{"no":149,"direction":"爱格板","title":"爱格H1379过时了，现在看H1369","url":"https://www.xiaohongshu.com/explore/68d54c52000000001300995c","comments":"27/信号1","summary":"中性/讨论；重点：封边/工艺；可见评论信号约 1 条。"},{"no":150,"direction":"爱格板","title":"为什么全屋定制的老板不推荐柜子用爱格板？","url":"https://www.xiaohongshu.com/explore/6916e96500000000070336b5","comments":"861/信号17","summary":"正面/认可；重点：授权/真假、价格、环保等级、材料/部位；可见评论信号约 17 条。"},{"no":151,"direction":"爱格板","title":"我的爱格1379好看吗","url":"https://www.xiaohongshu.com/explore/6948f55f000000001f00a5dd","comments":"41/信号1","summary":"负面/警示；重点：选材反馈；可见评论信号约 1 条。"},{"no":152,"direction":"爱格板","title":"求鉴定，真爱格板吗","url":"https://www.xiaohongshu.com/explore/69f1853f000000001b021c03","comments":"181/信号14","summary":"中性/讨论；重点：授权/真假、气味/通风、材料/部位、环保等级；可见评论信号约 14 条。"},{"no":153,"direction":"爱格板","title":"装修选爱格板，我被坑到怀疑人生！","url":"https://www.xiaohongshu.com/explore/688609ee000000001c033116","comments":"47/信号11","summary":"中性/讨论；重点：授权/真假、封边/工艺、环保等级；可见评论信号约 11 条。"},{"no":154,"direction":"爱格板","title":"爱格板有味道？（想选爱格的姐妹一定要看）","url":"https://www.xiaohongshu.com/explore/6870e9e2000000001202187e","comments":"588/信号26","summary":"中性/讨论；重点：气味/通风、材料/部位、封边/工艺、环保等级；可见评论信号约 26 条。"},{"no":155,"direction":"爱格板","title":"爱格板放了一年还有气味…","url":"https://www.xiaohongshu.com/explore/62d7f3e6000000000d0242d3","comments":"1087/信号15","summary":"中性/讨论；重点：授权/真假、气味/通风、材料/部位、检测/污染物；可见评论信号约 15 条。"}]},"furen":{"name":"福人精板","rank":2,"score":85,"sampleTotal":29,"deepCount":10,"verdict":"环保指标强，评论里也有低味反馈。真正要防的是“是不是精板、是不是授权、封边是不是配套”。","mainRisk":"授权防伪","metrics":[{"label":"环保可信度","value":91},{"label":"低味稳定性","value":83},{"label":"真伪/施工风险控制","value":74},{"label":"衣柜橱柜适配","value":86}],"logic":["官方环保指标和多篇科普/测试样本支撑它进入前二。","评论深读后，风险集中在授权工厂、防伪码、精板/普通板、官方封边。","负面样本不像是在说“材料必然差”，更像渠道混用或工艺没有按标准落地。","因此分数高于华富立，但低于爱格：环保口径强，渠道和施工不确定性更大。"],"posts":[{"no":7,"direction":"国产板材集合","title":"一张照片教你认识国产环保板材","url":"https://www.xiaohongshu.com/explore/664ede7c000000000c01b559","comments":"54","summary":"同时提到福人、水性科天、万华等；评论有用户问水性科天、万华、多层板怎么选，也有人提醒“无醛”不等于绝对无甲醛。"},{"no":18,"direction":"福人","title":"福人净醛板越来越多的选择","url":"https://www.xiaohongshu.com/explore/68d0b10e00000000130150c8","comments":"6","summary":"偏宣传样本，强调净醛和环保；评论较少，权重不高。"},{"no":20,"direction":"福人","title":"不要拿福人板材做柜体","url":"https://www.xiaohongshu.com/explore/6746e5cf000000000202a2bc","comments":"51","summary":"负面/反对样本：核心不是甲醛，而是柜体适配、强度、使用场景争议；说明福人精板不能只看环保指标。"},{"no":21,"direction":"福人","title":"一次性说清楚福人精板","url":"https://www.xiaohongshu.com/explore/68ecdc20000000000401203b","comments":"51","summary":"科普样本，评论多问福人精板真实定位、适合做什么；支持“环保好但要看结构适配”。"},{"no":22,"direction":"国产板材","title":"国产板材大集合，来看看有没有你心仪的","url":"https://www.xiaohongshu.com/explore/67fe505b000000001e00a5b0","comments":"54","summary":"提到多类国产环保板材；评论持续追问万华、福人、爱格、柜体材料选择。"},{"no":58,"direction":"福人精板","title":"福人精板让人太下头了","url":"https://www.xiaohongshu.com/explore/69c621af000000002202ac6e","comments":"7","summary":"中性讨论；重点是授权真假、封边工艺和价格。"},{"no":59,"direction":"福人精板","title":"福人精板-我给到一个夯","url":"https://www.xiaohongshu.com/explore/69e875d4000000002102d2ec","comments":"3","summary":"正向落地样本，但评论量少，只作低权重补充。"},{"no":60,"direction":"福人精板","title":"每天想去欣赏八百遍福人精板的柜子","url":"https://www.xiaohongshu.com/explore/69b3ff290000000023006beb","comments":"0","summary":"展示型样本，评论不足，不单独影响结论。"},{"no":61,"direction":"福人精板","title":"理工男板材实验测试【10】品牌：福人精板","url":"https://www.xiaohongshu.com/explore/681ad01f000000002301e8e0","comments":"5","summary":"测试/科普向样本，评论围绕环保等级和儿童家庭选材。"},{"no":62,"direction":"福人精板","title":"福人精板全屋定制避坑指南","url":"https://www.xiaohongshu.com/explore/680c9cdd000000001c00f8a7","comments":"10","summary":"讨论检测、授权、封边工艺和环保等级。"},{"no":63,"direction":"福人精板","title":"福人精板官方配套封边带亮点解析","url":"https://www.xiaohongshu.com/explore/6889867e0000000022038736","comments":"31","summary":"评论集中在官方封边、配套封边带和防伪识别。"},{"no":64,"direction":"福人精板","title":"菱花白+福人精板 有娃之家满分答卷","url":"https://www.xiaohongshu.com/explore/69bbc9a0000000002200f8fc","comments":"4","summary":"正向家庭场景样本，评论涉及授权和环保等级。"},{"no":65,"direction":"福人精板","title":"大家要的福人精板落地案例来啦！","url":"https://www.xiaohongshu.com/explore/68c14fc2000000001d0188bd","comments":"4","summary":"落地案例样本，评论涉及气味和封边。"},{"no":126,"direction":"福人精板","title":"首次装修板材就踩坑？福人精板耐用又可靠","url":"https://www.xiaohongshu.com/explore/68f60e920000000005012b3c","comments":"5/信号3","summary":"负面/警示；重点：材料/部位；可见评论信号约 3 条。"},{"no":127,"direction":"福人精板","title":"福人精板8222安全下车","url":"https://www.xiaohongshu.com/explore/698845e2000000001a0322b3","comments":"27/信号3","summary":"中性/讨论；重点：材料/部位、封边/工艺；可见评论信号约 3 条。"},{"no":128,"direction":"福人精板","title":"家装板材讲解福人精板优点与缺点","url":"https://www.xiaohongshu.com/explore/668e544f00000000250156c2","comments":"1/信号6","summary":"正面/认可；重点：材料/部位、环保等级、检测/污染物；可见评论信号约 6 条。"},{"no":129,"direction":"福人精板","title":"福人精板的松木味有点上头","url":"https://www.xiaohongshu.com/explore/687657a8000000000b02edc6","comments":"18/信号6","summary":"中性/讨论；重点：材料/部位、气味/通风；可见评论信号约 6 条。"},{"no":130,"direction":"福人精板","title":"内行人揭秘｜你买福人精板要知道的这几件事","url":"https://www.xiaohongshu.com/explore/68171d9d0000000022025dcb","comments":"2/信号20","summary":"中性/讨论；重点：授权/真假、材料/部位、环保等级；可见评论信号约 20 条。"},{"no":131,"direction":"福人精板","title":"福人家居精板优缺点","url":"https://www.xiaohongshu.com/explore/682207750000000021000f7f","comments":"信号7","summary":"中性/讨论；重点：材料/部位、检测/污染物、环保等级、价格；可见评论信号约 7 条。"},{"no":132,"direction":"福人精板","title":"全屋福人精板成功上岸！","url":"https://www.xiaohongshu.com/explore/685a3c23000000001c030118","comments":"7/信号5","summary":"中性/讨论；重点：材料/部位、环保等级、气味/通风；可见评论信号约 5 条。"},{"no":133,"direction":"福人精板","title":"福人精板味道大？原因在这！附正品鉴别攻略","url":"https://www.xiaohongshu.com/explore/67edf4d2000000000903b621","comments":"31/信号29","summary":"中性/讨论；重点：材料/部位、授权/真假、气味/通风、检测/污染物；可见评论信号约 29 条。"},{"no":134,"direction":"福人精板","title":"重要提醒！做福人精板一定要找授权工厂！","url":"https://www.xiaohongshu.com/explore/684391c8000000002002a567","comments":"96/信号44","summary":"正面/认可；重点：授权/真假、材料/部位、封边/工艺、环保等级；可见评论信号约 44 条。"},{"no":135,"direction":"福人精板","title":"福人精板防伪码模糊的真正原因！","url":"https://www.xiaohongshu.com/explore/66276d070000000004018728","comments":"138/信号4","summary":"中性/讨论；重点：材料/部位、授权/真假、封边/工艺、环保等级；可见评论信号约 4 条。"}]},"huali":{"name":"华富立欧松 + 多层","rank":3,"score":82,"sampleTotal":30,"deepCount":10,"verdict":"适合做“柜门欧松、柜体多层”的组合，但它的分歧最大在识别和施工：欧松、柠芯、多层、切口和封边都要看。","mainRisk":"混板封边","metrics":[{"label":"环保可信度","value":86},{"label":"低味稳定性","value":76},{"label":"真伪/施工风险控制","value":70},{"label":"衣柜橱柜适配","value":90}],"logic":["正向证据支持 ENF/F4星、无醛胶路线和欧松/多层组合的实用性。","负面评论集中在柜门关闭后气味、现场切口/打孔未封、欧松/柠芯/多层混淆。","它适配衣柜柜体和高柜门，但必须把合同、切面、封边和现场补封写死。","所以排名第三：组合价值高，但落地风险明显高于爱格和福人。"],"posts":[{"no":9,"direction":"华富立","title":"一图看懂华富立柠芯板和欧松板区别","url":"https://www.xiaohongshu.com/explore/67de4cfe000000001b03f898","comments":"31","summary":"评论重点不是甲醛，而是“柠芯板/欧松板是否被混用”；多人担心合同写欧松，落地变柠芯。"},{"no":10,"direction":"华富立","title":"A股上市公司华富立-ENF/F4星环保板材","url":"https://www.xiaohongshu.com/explore/67285b98000000003c01fa47","comments":"54","summary":"帖子称华富立多层、欧松、柠芯都有环保卖点；评论问广东气候、F4星、柜体材质，适配性讨论较多。"},{"no":11,"direction":"华富立/万华","title":"万华vs华富立","url":"https://www.xiaohongshu.com/explore/68ff1188000000000303a8f8","comments":"54","summary":"用户比较 ENF、多层柜体、欧松柜门、激光/PUR 封边和五金；评论更关心封边、价格、F4星/ENF差别。"},{"no":12,"direction":"华富立","title":"华富立欧松板和华富立拧芯板的区别在哪里？","url":"https://www.xiaohongshu.com/explore/69210636000000001e017d14","comments":"49","summary":"评论指出欧松板用 MDI 胶、刨片更大；多人问柜体能否用柠芯、如何肉眼区分，说明落地验货重要。"},{"no":40,"direction":"华富立","title":"装好一年半，基本每天通风，甲醛还是严重超","url":"https://www.xiaohongshu.com/explore/6a06980d000000003502f6f3","comments":"53","summary":"强警示样本：华富立 ENF 多层柜体+欧松门板仍超标；关键评论指出很多裁边、打孔、背板没有封边。"},{"no":41,"direction":"华富立","title":"华富立的板子咋样啊","url":"https://www.xiaohongshu.com/explore/6878eeaf0000000012033d7a","comments":"47","summary":"用户问华富立欧松柜门+多层柜体 850/平是否合理；评论提醒要看板厚、深度、铰链、背板、封边。"},{"no":42,"direction":"华富立","title":"宝子们选华富立的时候一定要分辨清楚哦","url":"https://www.xiaohongshu.com/explore/66deb844000000000c01a708","comments":"45","summary":"重点是真假/混板：多层、欧松、柠芯要分清；评论提到切面、胶水、柠芯/欧松差价和柜体适配。"},{"no":50,"direction":"华富立","title":"非要不停劝，全屋定制选了华富立，味道真的…","url":"https://www.xiaohongshu.com/explore/69e4468a000000001b02342c","comments":"14","summary":"用户型气味反馈，强化华富立也必须实测通风和室内空气。"},{"no":51,"direction":"华富立","title":"华富立柠芯板甲醛释放量测评","url":"https://www.xiaohongshu.com/explore/69e57ce0000000001a0265b6","comments":"31","summary":"检测/测评向样本，评论关注柠芯、欧松、甲醛释放量和适用位置。"},{"no":52,"direction":"华富立","title":"求做了华富立的真实反馈","url":"https://www.xiaohongshu.com/explore/69147dde000000000d03494e","comments":"50","summary":"真实反馈征集型样本，评论多为使用体验、味道和门板柜体搭配。"},{"no":53,"direction":"华富立","title":"华富立多层板做柜体味道大吗？","url":"https://www.xiaohongshu.com/explore/6863719c000000000d027bda","comments":"54","summary":"聚焦多层板柜体气味，评论体现地区、批次、封边和通风差异。"},{"no":54,"direction":"华富立","title":"华富立定制柜加软装的甲醛结果来咯","url":"https://www.xiaohongshu.com/explore/691e9048000000001f00f417","comments":"34","summary":"整屋检测向样本，提示不能把甲醛结果只归因于单一板材。"},{"no":81,"direction":"华富立","title":"华富立板材到底好不好？","url":"https://www.xiaohongshu.com/explore/67babb6d0000000009038ef4","comments":"7","summary":"评论涉及气味、授权、封边和价格。"},{"no":82,"direction":"华富立","title":"内行才知道｜华富立板材到底好不好？","url":"https://www.xiaohongshu.com/explore/67c6efbb000000000903ba50","comments":"3","summary":"偏宣传样本，评论涉及授权、封边、价格和环保等级。"},{"no":83,"direction":"华富立","title":"被客户问疯了的板材 华富立柠芯板","url":"https://www.xiaohongshu.com/explore/67c02210000000002901e7f7","comments":"1","summary":"柠芯板宣传/科普样本，评论少。"},{"no":84,"direction":"华富立","title":"华富立板材为什么好","url":"https://www.xiaohongshu.com/explore/681c0d870000000023003013","comments":"9","summary":"偏宣传样本，但评论涉及检测、授权、封边和环保等级。"},{"no":85,"direction":"华富立","title":"全屋定制实拍 华富立马代拉榆木","url":"https://www.xiaohongshu.com/explore/6a27bbef00000000170299ab","comments":"1","summary":"展示型样本，评论不足。"},{"no":96,"direction":"华富立","title":"西安全房华富立799落地啦！！我家真实落地","url":"https://www.xiaohongshu.com/explore/666911910000000006004b65","comments":"1","summary":"落地展示样本，评论不足。"},{"no":97,"direction":"华富立","title":"华富立你不要让我失望","url":"https://www.xiaohongshu.com/explore/68bd8766000000001c008f52","comments":"3","summary":"评论涉及气味和价格。"},{"no":98,"direction":"华富立","title":"到底是华富立的板子不好，还是颗粒板太脆弱","url":"https://www.xiaohongshu.com/explore/68fd6eca0000000007036ed8","comments":"1","summary":"工艺/材料争议样本。"},{"no":106,"direction":"华富立","title":"华富立亚马逊系列踩雷","url":"https://www.xiaohongshu.com/explore/6969b211000000000e03e656","comments":"36/信号10","summary":"中性/讨论；重点：材料/部位；可见评论信号约 10 条。"},{"no":107,"direction":"华富立","title":"听说这是大家爱用的多层实木板(华富立）！","url":"https://www.xiaohongshu.com/explore/67ee8e5b000000001d00a3e5","comments":"6/信号22","summary":"正面/认可；重点：材料/部位、环保等级、气味/通风、检测/污染物；可见评论信号约 22 条。"},{"no":108,"direction":"华富立","title":"华富立板材已进场","url":"https://www.xiaohongshu.com/explore/692bc72d000000001d03fc2c","comments":"50/信号6","summary":"正面/认可；重点：气味/通风、材料/部位、检测/污染物；可见评论信号约 6 条。"},{"no":109,"direction":"华富立","title":"华富立多层板","url":"https://www.xiaohongshu.com/explore/6868db5b00000000120161b6","comments":"6/信号3","summary":"中性/讨论；重点：材料/部位；可见评论信号约 3 条。"},{"no":110,"direction":"华富立","title":"放弃爱格1379平替，华富立更有性价比","url":"https://www.xiaohongshu.com/explore/675d2fb2000000000603cbed","comments":"146/信号4","summary":"中性/讨论；重点：材料/部位、环保等级；可见评论信号约 4 条。"},{"no":111,"direction":"华富立","title":"华富立板材","url":"https://www.xiaohongshu.com/explore/6936c49b000000001e03b6b0","comments":"信号1","summary":"中性/讨论；重点：气味/通风；可见评论信号约 1 条。"},{"no":112,"direction":"华富立","title":"华富立欧松板","url":"https://www.xiaohongshu.com/explore/6384b2d4000000001b027681","comments":"80/信号8","summary":"中性/讨论；重点：材料/部位、气味/通风、授权/真假、价格；可见评论信号约 8 条。"},{"no":113,"direction":"华富立","title":"这是华富立柠芯还是欧松","url":"https://www.xiaohongshu.com/explore/69206205000000000d03b495","comments":"47/信号11","summary":"中性/讨论；重点：材料/部位、价格、授权/真假；可见评论信号约 11 条。"},{"no":114,"direction":"华富立","title":"客户投诉华富立全屋定制有强烈气味我的分析","url":"https://www.xiaohongshu.com/explore/68f4db1e000000000302cd23","comments":"17/信号13","summary":"中性/讨论；重点：封边/工艺、气味/通风、授权/真假、材料/部位；可见评论信号约 13 条。"},{"no":115,"direction":"华富立","title":"华富立怎么样，有好的全屋定制介绍吗","url":"https://www.xiaohongshu.com/explore/6692416f0000000025002fe3","comments":"信号1","summary":"负面/警示；重点：封边/工艺；可见评论信号约 1 条。"}]},"xiaosen":{"name":"三棵树小森板","rank":4,"score":78,"sampleTotal":30,"deepCount":10,"verdict":"卖点强，但小红书证据更像在讨论授权、报价、花色、柜体/柜门材质和安装交付，直接甲醛负面不算多。","mainRisk":"门店交付","metrics":[{"label":"环保可信度","value":82},{"label":"低味稳定性","value":78},{"label":"真伪/施工风险控制","value":68},{"label":"衣柜橱柜适配","value":80}],"logic":["官方卖点和商家样本很多，但真实深度评论相对薄。","补样后依然少见大量甲醛/TVOC实测负面，负面更多是报价、授权、交付、安装拖延。","它能进备选，但不能只看品牌卖点，必须看授权门店、合同材质和安装验收。","因此排在大王椰前面：污染物负面证据少一些，但证据厚度不如前三。"],"posts":[{"no":29,"direction":"三棵树","title":"装修党别被“没味道”骗了","url":"https://www.xiaohongshu.com/explore/688c75d70000000025016b06","comments":"15","summary":"三棵树商家样本，强调甲醛无色无味和无醛胶；作为卖点证据，但不是用户检测证据。"},{"no":30,"direction":"三棵树","title":"谁懂啊！终于找到了这种板材！","url":"https://www.xiaohongshu.com/explore/6a0554f00000000038020b7c","comments":"26","summary":"提到小森板甲醛释放量优于 ENF 的具体数值；需结合官方/检测报告验证。"},{"no":31,"direction":"三棵树","title":"开启全屋“舒适模式”，只差这套装备！","url":"https://www.xiaohongshu.com/explore/6a1d598400000000080304de","comments":"6","summary":"偏品牌宣传，主张超 ENF 和抗菌；评论少，权重低。"},{"no":32,"direction":"三棵树","title":"全屋定制，三棵树小森板/水性科天怎么样？","url":"https://www.xiaohongshu.com/explore/66c58653000000001d0178c7","comments":"30","summary":"真实用户提问型样本；评论关心授权、价格、是否真材实料，说明渠道核验很关键。"},{"no":33,"direction":"三棵树","title":"“三棵树”的争议（一）","url":"https://www.xiaohongshu.com/explore/697ec854000000000a02b56c","comments":"13","summary":"争议点是柜门品牌、工艺、板材和环保等级不对；用于提醒合同和验收。"},{"no":43,"direction":"三棵树","title":"“三棵树”的争议（二）","url":"https://www.xiaohongshu.com/explore/697eca1d000000000b012188","comments":"27","summary":"与 #33 类似，争议集中在板材、工艺、环保等级不一致；说明三棵树体系要严查授权和合同。"},{"no":44,"direction":"三棵树","title":"巨坑三棵树小森板全屋定制文定路","url":"https://www.xiaohongshu.com/explore/681deed0000000002102c6a1","comments":"30","summary":"负面体验样本，评论提到柜体多层板、柜门欧松板；更多是门店服务/交付问题，不直接证明板材甲醛差。"},{"no":55,"direction":"三棵树小森板","title":"健康呼吸，不止此刻","url":"https://www.xiaohongshu.com/explore/6840023e000000002100e77e","comments":"6","summary":"偏品牌健康卖点，评论少，低权重。"},{"no":56,"direction":"三棵树小森板","title":"健康三棵树小森马上住！","url":"https://www.xiaohongshu.com/explore/682d68d50000000022006aa5","comments":"7","summary":"偏正向宣传，强调小森板环保和即住概念，需结合授权和检测。"},{"no":57,"direction":"三棵树小森板","title":"全屋定制三棵树小森板500一投影","url":"https://www.xiaohongshu.com/explore/67ed1aa2000000001200d44b","comments":"39","summary":"价格/落地样本，评论关注报价、材料真实性和门店交付。"},{"no":86,"direction":"三棵树小森板","title":"求分享三棵树小森板真实使用感受","url":"https://www.xiaohongshu.com/explore/665b2731000000001401a559","comments":"4","summary":"评论都是追问：气味、检测、封边工艺和报价。"},{"no":87,"direction":"三棵树小森板","title":"三棵树小森板暖白色麻面安全落地","url":"https://www.xiaohongshu.com/explore/665e906b000000001500a9c3","comments":"2","summary":"落地展示样本，评论涉及气味。"},{"no":88,"direction":"三棵树小森板","title":"三棵树小森板","url":"https://www.xiaohongshu.com/explore/6a1660d7000000003601855b","comments":"1","summary":"价格询问样本。"},{"no":89,"direction":"三棵树小森板","title":"三棵树小森板系列！质感与环保的空间叙事","url":"https://www.xiaohongshu.com/explore/693fcdbb000000001e02ec27","comments":"1","summary":"偏环保宣传，评论不足。"},{"no":90,"direction":"三棵树小森板","title":"三棵树给我开的内墙价格，怎么样","url":"https://www.xiaohongshu.com/explore/6821c084000000002301d584","comments":"3","summary":"价格讨论样本。"},{"no":99,"direction":"三棵树小森板","title":"联系的三棵树小森I 还真神还原落地了","url":"https://www.xiaohongshu.com/explore/69ec40200000000023006ff5","comments":"1","summary":"正向落地样本，评论涉及价格和封边。"},{"no":100,"direction":"三棵树小森板","title":"小森板高清实拍图！！满满的高级感，一眼沦陷","url":"https://www.xiaohongshu.com/explore/68834453000000001c030425","comments":"2","summary":"展示型样本，评论涉及封边和环保等级。"},{"no":101,"direction":"三棵树小森板","title":"三棵树 全屋定制 历时5个月，修修补补完工","url":"https://www.xiaohongshu.com/explore/689361f700000000040057f1","comments":"2","summary":"负面交付样本，评论集中在安装拖延和价格。"},{"no":102,"direction":"三棵树小森板","title":"三棵树鲜呼吸踩雷","url":"https://www.xiaohongshu.com/explore/690592dd00000000070354c2","comments":"4","summary":"评论涉及授权和价格，偏交付/渠道风险。"},{"no":156,"direction":"三棵树小森板","title":"三棵树小森板F4星板材","url":"https://www.xiaohongshu.com/explore/66570221000000000c01b0b5","comments":"1/信号3","summary":"中性/讨论；重点：环保等级、材料/部位、价格；可见评论信号约 3 条。"},{"no":157,"direction":"三棵树小森板","title":"三棵树马上住、强推","url":"https://www.xiaohongshu.com/explore/6933bd87000000001e005e5c","comments":"信号0","summary":"中性/讨论；重点：选材反馈；可见评论信号约 0 条。"},{"no":158,"direction":"三棵树小森板","title":"花2.6万定制小森板，这价格太值了！","url":"https://www.xiaohongshu.com/explore/696e3bbc0000000021033b8c","comments":"4/信号4","summary":"中性/讨论；重点：价格、环保等级、材料/部位；可见评论信号约 4 条。"},{"no":159,"direction":"三棵树小森板","title":"被问爆的全屋定制板材！小森板 4 款花色实测","url":"https://www.xiaohongshu.com/explore/69ce2994000000002003acbe","comments":"信号1","summary":"中性/讨论；重点：材料/部位、环保等级；可见评论信号约 1 条。"},{"no":160,"direction":"三棵树小森板","title":"如何买到正品三棵树小森板","url":"https://www.xiaohongshu.com/explore/66f0da4c000000002c0152e2","comments":"22/信号10","summary":"中性/讨论；重点：授权/真假、材料/部位、环保等级、价格；可见评论信号约 10 条。"},{"no":161,"direction":"三棵树小森板","title":"惠州三棵树小森板源头授权工厂｜出厂价到手","url":"https://www.xiaohongshu.com/explore/69faaf3a0000000022028a4e","comments":"信号8","summary":"中性/讨论；重点：授权/真假、环保等级、价格、封边/工艺；可见评论信号约 8 条。"},{"no":162,"direction":"三棵树小森板","title":"惠州三棵树小森板官方授权品牌方","url":"https://www.xiaohongshu.com/explore/6885dbc9000000001c03674a","comments":"信号8","summary":"中性/讨论；重点：环保等级、授权/真假、检测/污染物、价格；可见评论信号约 8 条。"},{"no":163,"direction":"三棵树小森板","title":"海南2024最新三棵树小森板板材色卡画册","url":"https://www.xiaohongshu.com/explore/664cbeab0000000016013c6d","comments":"10/信号2","summary":"中性/讨论；重点：材料/部位、封边/工艺、价格、环保等级；可见评论信号约 2 条。"},{"no":164,"direction":"三棵树小森板","title":"三棵树店没素质么？","url":"https://www.xiaohongshu.com/explore/69fd637000000000380365eb","comments":"13/信号1","summary":"负面/警示；重点：授权/真假；可见评论信号约 1 条。"},{"no":165,"direction":"三棵树小森板","title":"三棵树","url":"https://www.xiaohongshu.com/explore/68f847cd0000000007034c20","comments":"29/信号0","summary":"中性/讨论；重点：选材反馈；可见评论信号约 0 条。"}]},"dawangye":{"name":"大王椰 HENF","rank":5,"score":74,"sampleTotal":30,"deepCount":10,"verdict":"宣传和正向下车样本都有，但气味、等级、防伪、检测、通风周期和批次识别反复出现。HENF/ENF 只能作为入口，不能替代批次报告。","mainRisk":"气味检测","metrics":[{"label":"环保可信度","value":80},{"label":"低味稳定性","value":63},{"label":"真伪/施工风险控制","value":66},{"label":"衣柜橱柜适配","value":78}],"logic":["品牌宣传和部分安全下车样本存在，不能简单判定为差。","但强负面样本不少：味道、TVOC/甲醛检测、通风周期、拆柜、防伪都反复出现。","评论里也有人提醒可能是假货、批次或其他材料叠加，所以判断要保守。","最终排第五且小幅下调到 74：能用，但必须更严格查批次、授权、防伪和入住前检测。"],"posts":[{"no":13,"direction":"大王椰","title":"终于下定决心把大王椰的柜子都砸了","url":"https://www.xiaohongshu.com/explore/68c8cfb6000000001d021ac7","comments":"54","summary":"强负面样本：作者反馈味道大、通风数月仍无法接受；评论也有人说可能是假货或批次问题。"},{"no":14,"direction":"大王椰","title":"大王椰enf级板材要通风多久才可以入住","url":"https://www.xiaohongshu.com/explore/68abc5b0000000001c03268b","comments":"41","summary":"用户即使选 ENF 也不放心入住时间；评论里既有“评价不好”的担心，也有人反馈其他品牌也有味道。"},{"no":16,"direction":"大王椰","title":"大王耶板材甲醛，苯，两年了还是超标","url":"https://www.xiaohongshu.com/explore/66e54d1c000000001e01a00e","comments":"54","summary":"强负面样本：标题直接指向甲醛和苯问题；用于下调大王椰的低风险分，但不能证明所有批次都有问题。"},{"no":17,"direction":"HENF","title":"什么是HENF","url":"https://www.xiaohongshu.com/explore/69c20b9d000000001f0044e4","comments":"7","summary":"用来理解 HENF 的营销/检测语境；结论是 HENF 不是替代国标 ENF 的唯一依据，仍要看检测报告。"},{"no":45,"direction":"大王椰","title":"装修不想交智商税？这4个指标一个都不能少","url":"https://www.xiaohongshu.com/explore/6a18e9d8000000003501d43b","comments":"30","summary":"围绕 HENF/ENF、检测指标和装修避坑，评论讨论板材环保等级与实际落地。"},{"no":46,"direction":"大王椰","title":"大王椰旗舰系列·环保丨环保冲顶HENF级","url":"https://www.xiaohongshu.com/explore/68aede66000000001d02cd2d","comments":"6","summary":"偏品牌环保宣传，评论样本少，作为宣传口径低权重记录。"},{"no":47,"direction":"大王椰","title":"大家选板材总在问，HENF 级到底是啥？","url":"https://www.xiaohongshu.com/explore/68fc77b50000000003036c01","comments":"10","summary":"讨论 HENF 概念，支持“看检测报告而不是只看等级名”的判断。"},{"no":48,"direction":"大王椰","title":"装修不将就/要高级感，更要安心住","url":"https://www.xiaohongshu.com/explore/697974460000000009039009","comments":"25","summary":"偏正向/种草样本，评论关注环保等级、实际气味和装修选材。"},{"no":49,"direction":"大王椰","title":"各位老板，别再只看ENF啦！","url":"https://www.xiaohongshu.com/explore/6a01ac650000000036019416","comments":"6","summary":"强调不能只看 ENF，需同时看工艺、封边和检测。"},{"no":76,"direction":"大王椰","title":"大王椰的杉木生态板","url":"https://www.xiaohongshu.com/explore/691022510000000007022262","comments":"8","summary":"评论涉及气味、甲醛检测、封边工艺和环保等级。"},{"no":77,"direction":"大王椰","title":"大王椰生态板味道怎么也这么重的？","url":"https://www.xiaohongshu.com/explore/687f7c670000000013013ca3","comments":"6","summary":"负面气味样本。"},{"no":78,"direction":"大王椰","title":"大王椰板材辨真伪？","url":"https://www.xiaohongshu.com/explore/67dcd521000000000b0168ed","comments":"3","summary":"评论涉及防伪、真假和装后气味。"},{"no":79,"direction":"大王椰","title":"装修封神！大王椰锦瑟胡桃，高级感焊在家里","url":"https://www.xiaohongshu.com/explore/69d4a14500000000230041df","comments":"10","summary":"正向展示下仍出现气味、检测和封边讨论。"},{"no":80,"direction":"大王椰","title":"大王椰enf级板材甲醛严重超标","url":"https://www.xiaohongshu.com/explore/69cfbe410000000022025a6e","comments":"9","summary":"强警示样本，评论涉及气味、甲醛和封边。"},{"no":91,"direction":"大王椰","title":"避雷！大王椰","url":"https://www.xiaohongshu.com/explore/689964dc0000000025025db9","comments":"6","summary":"负面样本，评论围绕环保等级和避雷。"},{"no":92,"direction":"大王椰","title":"大王椰板材","url":"https://www.xiaohongshu.com/explore/682adefa0000000021008a74","comments":"3","summary":"评论涉及真假和价格。"},{"no":93,"direction":"大王椰","title":"保定装修人看这里！大王椰板材一站式服务","url":"https://www.xiaohongshu.com/explore/6a2a46a70000000021017f98","comments":"15","summary":"评论涉及气味、检测、封边和价格。"},{"no":94,"direction":"大王椰","title":"大王椰怎么样？","url":"https://www.xiaohongshu.com/explore/66b4dc1900000000050387a3","comments":"4","summary":"评论涉及气味、检测、封边和环保等级。"},{"no":95,"direction":"大王椰","title":"大王椰柜子甲醛tvoc 超标","url":"https://www.xiaohongshu.com/explore/6534000d000000001e03ede2","comments":"5","summary":"强警示样本，甲醛治理后 TVOC 仍是讨论重点。"},{"no":116,"direction":"大王椰","title":"杭州萧山装修避雷｜大王椰总店大坑！全屋板","url":"https://www.xiaohongshu.com/explore/6a2383d8000000001603e36a","comments":"2/信号5","summary":"负面/警示；重点：授权/真假、价格、材料/部位；可见评论信号约 5 条。"},{"no":117,"direction":"大王椰","title":"大王椰完美收官","url":"https://www.xiaohongshu.com/explore/6785082d000000000b020363","comments":"82/信号7","summary":"正面/认可；重点：气味/通风、材料/部位、封边/工艺；可见评论信号约 7 条。"},{"no":118,"direction":"大王椰","title":"被大王椰饰面板拿捏！儿童房改造稳了","url":"https://www.xiaohongshu.com/explore/688b01510000000004006f8d","comments":"46/信号3","summary":"中性/讨论；重点：检测/污染物、环保等级；可见评论信号约 3 条。"},{"no":119,"direction":"大王椰","title":"大家狠狠壁垒大王椰双饰面暖白","url":"https://www.xiaohongshu.com/explore/68a40bd0000000001b036be4","comments":"40/信号5","summary":"中性/讨论；重点：材料/部位；可见评论信号约 5 条。"},{"no":120,"direction":"大王椰","title":"大王椰防伪","url":"https://www.xiaohongshu.com/explore/688f5f4d0000000023035c9e","comments":"5/信号4","summary":"中性/讨论；重点：授权/真假、检测/污染物、材料/部位、环保等级；可见评论信号约 4 条。"},{"no":121,"direction":"大王椰","title":"大王椰铂雅白翻车吗","url":"https://www.xiaohongshu.com/explore/663f128d000000001e034a07","comments":"64/信号5","summary":"中性/讨论；重点：材料/部位、价格；可见评论信号约 5 条。"},{"no":122,"direction":"大王椰","title":"大王椰已安全下车！下一步撕膜！","url":"https://www.xiaohongshu.com/explore/67280b0c000000001a0373b9","comments":"15/信号7","summary":"中性/讨论；重点：材料/部位、气味/通风、环保等级；可见评论信号约 7 条。"},{"no":123,"direction":"大王椰","title":"大王椰柜体进场","url":"https://www.xiaohongshu.com/explore/676421fa000000000b02154e","comments":"44/信号10","summary":"中性/讨论；重点：材料/部位、环保等级、气味/通风、授权/真假；可见评论信号约 10 条。"},{"no":124,"direction":"大王椰","title":"大王椰板材的服务与效率","url":"https://www.xiaohongshu.com/explore/68ba855a000000001d01fc3b","comments":"9/信号1","summary":"中性/讨论；重点：气味/通风；可见评论信号约 1 条。"},{"no":125,"direction":"大王椰","title":"大王椰的原木色也太惊艳了","url":"https://www.xiaohongshu.com/explore/668de675000000000a0054c1","comments":"104/信号5","summary":"中性/讨论；重点：材料/部位、环保等级；可见评论信号约 5 条。"}]},"wanhua":{"name":"万华禾香板","rank":6,"score":72,"sampleTotal":30,"deepCount":10,"verdict":"无醛添加路线有技术基础，但评论区一直在提醒：甲醛低不等于没味道，气味/TVOC/通风体验是最大争议。","mainRisk":"气味TVOC","metrics":[{"label":"环保可信度","value":85},{"label":"低味稳定性","value":50},{"label":"真伪/施工风险控制","value":72},{"label":"衣柜橱柜适配","value":74}],"logic":["官方路线和检测报告样本支持“甲醛指标可能不错”。","但大量评论集中在刺鼻味、长期通风、TVOC和体感不可接受。","这类风险对孕婴和气味敏感家庭影响很大，不能被“无醛添加”四个字覆盖。","所以排名垫底：不是说必然甲醛最高，而是体验争议和风险不确定性最高。"],"posts":[{"no":7,"direction":"国产板材集合","title":"一张照片教你认识国产环保板材","url":"https://www.xiaohongshu.com/explore/664ede7c000000000c01b559","comments":"54","summary":"同时提到福人、水性科天、万华等；评论有用户问水性科天、万华、多层板怎么选，也有人提醒“无醛”不等于绝对无甲醛。"},{"no":11,"direction":"华富立/万华","title":"万华vs华富立","url":"https://www.xiaohongshu.com/explore/68ff1188000000000303a8f8","comments":"54","summary":"用户比较 ENF、多层柜体、欧松柜门、激光/PUR 封边和五金；评论更关心封边、价格、F4星/ENF差别。"},{"no":19,"direction":"禾香板","title":"万华禾香柜","url":"https://www.xiaohongshu.com/explore/6905728d000000000501256b","comments":"6","summary":"偏展示样本，缺少真实检测讨论，只作为低权重样本。"},{"no":22,"direction":"国产板材","title":"国产板材大集合，来看看有没有你心仪的","url":"https://www.xiaohongshu.com/explore/67fe505b000000001e00a5b0","comments":"54","summary":"提到多类国产环保板材；评论持续追问万华、福人、爱格、柜体材料选择。"},{"no":34,"direction":"万华禾香","title":"深圳定制卷疯了！万华禾香板ENF级只要599？","url":"https://www.xiaohongshu.com/explore/6a28daee000000002202e13b","comments":"6","summary":"偏商家价格宣传，强调 ENF、香杉实木芯和深圳潮湿适配；评论少，权重低。"},{"no":35,"direction":"万华禾香","title":"万华禾香板避雷！！！","url":"https://www.xiaohongshu.com/explore/68039df0000000001c02e1b1","comments":"54","summary":"强负面样本：作者称通风一年多仍有刺鼻味并检测超标；评论里也有“正品甲醛可能低但味道/VOC大”的观点。"},{"no":36,"direction":"万华禾香","title":"万华禾香板真的没甲醛吗？","url":"https://www.xiaohongshu.com/explore/66c98eb9000000001f01833b","comments":"22","summary":"用户称 ENF多层和万华禾香板组合下检测仍超标；评论提醒检测温度、实际室内环境会影响结果。"},{"no":37,"direction":"万华禾香","title":"万华禾香板精板 甲醛严重超标","url":"https://www.xiaohongshu.com/explore/696b2a1f000000000a029eec","comments":"53","summary":"负面样本，但评论分裂：有人也说超标，有人认为正品不应甲醛超标；结论是必须做第三方检测。"},{"no":38,"direction":"万华禾香","title":"万华禾香板能不能用？","url":"https://www.xiaohongshu.com/explore/689d4118000000001c036dd0","comments":"48","summary":"评论大量围绕“味道大但甲醛未必超标”；说明禾香板问题不只看甲醛，还要看 TVOC/气味接受度。"},{"no":39,"direction":"万华禾香","title":"装修真的千万不要选万华禾香板","url":"https://www.xiaohongshu.com/explore/66e5282200000000270036b6","comments":"53","summary":"标题负面，但可见要点更多集中在花色和使用体验；作为弱负面样本。"},{"no":71,"direction":"禾香板","title":"万华禾香一半完美，一半吐血","url":"https://www.xiaohongshu.com/explore/6809c7d0000000000903861e","comments":"5","summary":"分歧样本：有人反馈基本没味，也有人反馈味道大。"},{"no":72,"direction":"禾香板","title":"全屋定制 万华禾香板","url":"https://www.xiaohongshu.com/explore/67d374b2000000001c00c127","comments":"4","summary":"评论涉及气味、封边工艺和报价。"},{"no":73,"direction":"禾香板","title":"一篇说完，万华禾香板到底好不好","url":"https://www.xiaohongshu.com/explore/68a0856a000000001d027c3f","comments":"4","summary":"科普讨论样本，重点是环保等级。"},{"no":74,"direction":"禾香板","title":"避雷吧！万华禾香","url":"https://www.xiaohongshu.com/explore/6827552100000000210095f6","comments":"12","summary":"负面样本，评论涉及气味、甲醛检测、真假和供应商解释。"},{"no":75,"direction":"禾香板","title":"真无醛，真环保！万华禾香板，高温无忧！","url":"https://www.xiaohongshu.com/explore/68804343000000000b02db0c","comments":"8","summary":"正向宣传样本，评论围绕检测、授权和环保等级。"},{"no":105,"direction":"禾香板","title":"万华1009大板真实颜色和花纹","url":"https://www.xiaohongshu.com/explore/68dca18a0000000004000037","comments":"1","summary":"花色/封边展示样本，低权重。"},{"no":136,"direction":"禾香板","title":"万华禾香板的内部剖面图","url":"https://www.xiaohongshu.com/explore/69b6c4e100000000230236ab","comments":"60/信号24","summary":"正面/认可；重点：材料/部位、气味/通风、价格、检测/污染物；可见评论信号约 24 条。"},{"no":137,"direction":"禾香板","title":"万华禾香板2025年检测报告","url":"https://www.xiaohongshu.com/explore/680f1e67000000002100650e","comments":"信号8","summary":"正面/认可；重点：材料/部位、环保等级、检测/污染物；可见评论信号约 8 条。"},{"no":138,"direction":"禾香板","title":"果然万华弄错颜色这件事还是出现了在我身上","url":"https://www.xiaohongshu.com/explore/6a28ec4c000000001503e1cb","comments":"9/信号2","summary":"中性/讨论；重点：材料/部位；可见评论信号约 2 条。"},{"no":139,"direction":"禾香板","title":"被吹爆的万华禾香板到底香不香？一篇说完","url":"https://www.xiaohongshu.com/explore/673b2d540000000007038f0b","comments":"信号4","summary":"中性/讨论；重点：材料/部位、授权/真假、价格；可见评论信号约 4 条。"},{"no":140,"direction":"禾香板","title":"万华禾香板真的是性价比之王","url":"https://www.xiaohongshu.com/explore/6604e28200000000140072e5","comments":"9/信号13","summary":"中性/讨论；重点：材料/部位、环保等级、气味/通风、检测/污染物；可见评论信号约 13 条。"},{"no":141,"direction":"禾香板","title":"没听劝的后果，万华禾香板真的有味！","url":"https://www.xiaohongshu.com/explore/67094c36000000002c016aa1","comments":"160/信号17","summary":"正面/认可；重点：气味/通风、材料/部位、授权/真假、封边/工艺；可见评论信号约 17 条。"},{"no":142,"direction":"禾香板","title":"万华禾香板为什么有味道、源头工厂告诉你","url":"https://www.xiaohongshu.com/explore/688204cf000000002201fc42","comments":"3/信号8","summary":"中性/讨论；重点：材料/部位、气味/通风、价格、环保等级；可见评论信号约 8 条。"},{"no":143,"direction":"禾香板","title":"万华禾香板悔之不及，真想丢了","url":"https://www.xiaohongshu.com/explore/636292a0000000000601f3aa","comments":"504/信号11","summary":"中性/讨论；重点：检测/污染物、材料/部位、封边/工艺、气味/通风；可见评论信号约 11 条。"},{"no":144,"direction":"禾香板","title":"传说万华禾香板味道大","url":"https://www.xiaohongshu.com/explore/6761781f0000000013008d85","comments":"20/信号9","summary":"中性/讨论；重点：气味/通风、材料/部位、检测/污染物；可见评论信号约 9 条。"},{"no":145,"direction":"禾香板","title":"580一平的万华禾香板到了","url":"https://www.xiaohongshu.com/explore/68c78157000000001d02a389","comments":"91/信号9","summary":"中性/讨论；重点：气味/通风、材料/部位、封边/工艺、价格；可见评论信号约 9 条。"}]}}};
+
+    const brandDetail = document.getElementById('brandDetail');
+    const brandDetailContent = document.getElementById('brandDetailContent');
+    const backToRanking = document.getElementById('backToRanking');
+    const evidenceModal = document.getElementById('evidenceModal');
+    const evidenceModalBody = document.getElementById('evidenceModalBody');
+    const evidenceModalTitle = document.getElementById('evidenceModalTitle');
+    const closeEvidenceModalButton = document.getElementById('closeEvidenceModal');
+    let activeBrandKey = null;
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      })[char]);
+    }
+
+    function classifyEvidence(summary) {
+      const text = summary || '';
+      if (/负面|避雷|踩坑|超标|味道大|刺鼻|后悔|警示/.test(text)) return 'negative';
+      if (/正面|认可|没味|安全下车|合格|满意/.test(text)) return 'positive';
+      return 'neutral';
+    }
+
+    function parseEngagement(rawValue) {
+      const raw = String(rawValue || '').trim();
+      const commentMatch = raw.match(/^(\d+)/);
+      const signalMatch = raw.match(/信号(\d+)/);
+      return {
+        raw,
+        comments: commentMatch ? `${commentMatch[1]} 条` : '未记录',
+        signals: signalMatch ? `${signalMatch[1]} 条` : '未深读',
+        likes: '未记录',
+        saves: '未记录',
+        commentCount: commentMatch ? Number(commentMatch[1]) : 0,
+        signalCount: signalMatch ? Number(signalMatch[1]) : 0
+      };
+    }
+
+    function topicTags(post) {
+      const text = `${post.title || ''} ${post.summary || ''}`;
+      const rules = [
+        ['气味/通风', /味|刺鼻|通风|TVOC/i],
+        ['检测/污染物', /检测|甲醛|超标|CMA|苯|污染/i],
+        ['授权/真假', /授权|真假|防伪|正品|假货/i],
+        ['封边/工艺', /封边|开孔|裁边|背板|工艺|激光|PUR/i],
+        ['材料/部位', /柜体|柜门|多层|欧松|柠芯|颗粒|门板|板材/i],
+        ['环保等级', /ENF|F4|E0|E1|环保|无醛/i],
+        ['价格/报价', /价格|报价|性价比|平替|元|投影/i],
+        ['交付/服务', /门店|交付|安装|工厂|投诉|服务/i],
+        ['花色/效果', /花色|颜色|落地|实拍|高级感|白|胡桃/i]
+      ];
+      const tags = rules.filter(([, pattern]) => pattern.test(text)).map(([label]) => label);
+      return tags.length ? tags : ['选材反馈'];
+    }
+
+    function evidenceType(post) {
+      const text = `${post.title || ''} ${post.summary || ''}`;
+      if (/检测|测评|报告|CMA|甲醛结果|释放量/i.test(text)) return '检测/测评型';
+      if (/避雷|踩雷|被坑|投诉|砸了|超标|后悔|味道大|刺鼻/i.test(text)) return '用户负面亲历';
+      if (/下车|落地|实拍|我家|全屋|真实反馈|使用感受/i.test(text)) return '用户落地反馈';
+      if (/科普|讲解|一篇|一次性|看懂|区别|什么是/i.test(text)) return '科普解释型';
+      if (/官方|源头|品牌方|旗舰|环保冲顶|宣传|强推/i.test(text)) return '商家/品牌宣传';
+      if (/求|怎么样|问|分享/i.test(text)) return '求助讨论型';
+      return '普通讨论型';
+    }
+
+    function credibilityAssessment(post) {
+      const text = `${post.title || ''} ${post.summary || ''}`;
+      const engagement = parseEngagement(post.comments);
+      let score = 52;
+      const reasons = [];
+
+      if (/检测|测评|报告|CMA|甲醛|TVOC|苯|超标/i.test(text)) {
+        score += 16;
+        reasons.push('涉及检测、污染物或明确结果，比纯感受更有参考价值');
+      }
+      if (/真实|我家|装好|用|下车|落地|通风|入住|柜子/i.test(text)) {
+        score += 10;
+        reasons.push('更接近真实装修场景');
+      }
+      if (engagement.commentCount >= 50) {
+        score += 8;
+        reasons.push('评论量较高，能看到更多分歧');
+      } else if (engagement.commentCount > 0 && engagement.commentCount < 8) {
+        score -= 8;
+        reasons.push('评论量偏少，只能作弱信号');
+      }
+      if (engagement.signalCount >= 10) {
+        score += 8;
+        reasons.push('已记录较多可见评论信号');
+      } else if (/信号0|评论不足|评论少|低权重/.test(text) || engagement.signalCount === 0 && /信号/.test(String(post.comments || ''))) {
+        score -= 10;
+        reasons.push('可见评论信号弱');
+      }
+      if (/商家|宣传|种草|品牌|官方|源头工厂|旗舰/i.test(text)) {
+        score -= 10;
+        reasons.push('可能带有宣传或销售立场');
+      }
+      if (/分裂|不能证明|可能|不单独|只作为|弱佐证|低权重/i.test(text)) {
+        score -= 6;
+        reasons.push('证据本身存在归因不确定');
+      }
+
+      score = Math.max(30, Math.min(90, score));
+      const level = score >= 76 ? '高' : score >= 64 ? '中高' : score >= 50 ? '中' : '低';
+      return {
+        score,
+        level,
+        className: score >= 76 ? 'high' : score < 50 ? 'low' : '',
+        reasons: reasons.length ? reasons : ['证据可读，但缺少更多互动或检测细节']
+      };
+    }
+
+    function evidenceCompleteness(post) {
+      const engagement = parseEngagement(post.comments);
+      const hasCommentCount = engagement.commentCount > 0;
+      const hasSignals = engagement.signalCount > 0;
+      let score = 35;
+      const parts = [];
+      if (hasCommentCount) {
+        score += 25;
+        parts.push('已记录评论数');
+      } else {
+        parts.push('评论数未形成稳定数字');
+      }
+      if (hasSignals) {
+        score += 25;
+        parts.push('已记录可见评论信号');
+      } else {
+        parts.push('未记录可见评论信号数量');
+      }
+      parts.push('点赞/收藏未记录');
+      const level = score >= 80 ? '较完整' : score >= 60 ? '中等' : '偏弱';
+      return {
+        score,
+        level,
+        className: score >= 80 ? 'high' : score < 60 ? 'low' : '',
+        text: parts.join('；')
+      };
+    }
+
+    function themeExplanation(tag) {
+      const map = {
+        '气味/通风': '重点看用户是否提到开柜味、关门闷味、通风后变化、入住前体感，以及是否可能和胶、背板、软装叠加。',
+        '检测/污染物': '重点看有没有甲醛、TVOC、苯、CMA 或检测报告线索；这类证据权重高，但仍要看检测条件和归因。',
+        '授权/真假': '重点看授权门店、防伪码、正品识别、合同品牌是否一致；这通常影响“好板材能不能买到真货”。',
+        '封边/工艺': '重点看封边、开孔、裁切边、背板、现场补封和安装工艺；这会直接影响气味和释放风险。',
+        '材料/部位': '重点看柜体、柜门、背板、欧松、多层、柠芯、颗粒板等具体部位；不能只用品牌名代替材料判断。',
+        '环保等级': '重点看 ENF、F4星、E0/E1、无醛添加等口径；这些是入口条件，不等于整屋空气一定达标。',
+        '价格/报价': '重点看报价是否包含五金、背板、封边、安装、板材厚度和授权；低价样本只能和配置一起看。',
+        '交付/服务': '重点看门店、工厂、安装、售后和合同履约；它不一定说明板材差，但会影响最终落地风险。',
+        '花色/效果': '重点看落地效果、颜色、纹理和搭配；这类证据更多影响选择偏好，环保权重较低。',
+        '选材反馈': '重点看用户选择逻辑和实际反馈；如果缺少检测或高质量评论，只能作为辅助样本。'
+      };
+      return map[tag] || '作为辅助线索看，不能单独决定结论。';
+    }
+
+    function htmlList(items) {
+      return `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+    }
+
+    function postInterpretation(post, brandData) {
+      const kind = classifyEvidence(post.summary);
+      const tags = topicTags(post);
+      const type = evidenceType(post);
+      const engagement = parseEngagement(post.comments);
+      const brandName = brandData?.name || post.direction || '该品牌';
+      const direction = post.direction || post.brand || brandName;
+      const title = post.title || '未记录标题';
+      const summary = post.summary || '证据文档未记录更多摘要。';
+      const stance = kind === 'negative'
+        ? '这条更像风险样本，主要用来下调低味稳定性、真伪或施工风险。'
+        : kind === 'positive'
+          ? '这条更像正向样本，主要用来支撑落地效果、低味反馈或用户接受度。'
+          : '这条更像讨论样本，主要用来补充用户关心点和风险边界。';
+      const sourceLines = [
+        `帖子标题指向“${title}”，我把它放在“${direction}”这个场景下阅读。`,
+        `从证据表记录看，原帖主线可还原为：${summary}`,
+        `它不是单纯看品牌名，而是围绕 ${tags.join('、')} 这些具体问题提供信号。`,
+        `证据类型判断为“${type}”：这决定了它在排名里是强证据、辅助证据，还是只作为风险提示。`
+      ];
+      const commentLines = [
+        `评论区观点主要围绕 ${tags.join('、')} 展开。`,
+        engagement.signalCount > 0
+          ? `证据表记录了约 ${engagement.signalCount} 条可见评论信号，说明不只是标题信息，还看过评论区的讨论方向。`
+          : `证据表没有记录可见评论信号数量；这类帖子更多依赖标题、摘要和评论总量，评论观点要谨慎采信。`,
+        kind === 'negative'
+          ? '评论侧更需要关注是否有其他用户复现、是否提到检测或批次、是否可能是施工/假货/其他材料叠加。'
+          : kind === 'positive'
+            ? '评论侧更需要关注正向反馈是否只是审美/展示，还是确实涉及气味、检测、授权、封边等可验证细节。'
+            : '评论侧更像在补充用户关心点：哪些地方要问商家、哪些概念不能混用、哪些说法需要核验。',
+        ...tags.map(tag => `${tag}：${themeExplanation(tag)}`)
+      ];
+      const rankingLines = [
+        `${stance}`,
+        `我不会让它单独决定 ${brandName} 的排名，而是放进四个维度交叉判断：环保可信度、低味稳定性、真伪/施工风险、衣柜橱柜适配。`,
+        kind === 'negative'
+          ? '如果它涉及气味、检测、超标、真假或工艺，就会压低低味稳定性和风险控制分。'
+          : kind === 'positive'
+            ? '如果它涉及安全下车、低味、落地稳定或评论认可，就会支撑品牌的稳定性，但仍会被真假和施工风险抵消一部分。'
+            : '如果它只是讨论、科普或展示，就主要补充边界条件，不直接大幅加减分。',
+        /商家|宣传|官方|旗舰|源头|品牌方/.test(`${title} ${summary}`)
+          ? '这条带有宣传或销售倾向，所以更适合作为“品牌说法/卖点来源”，不能当作用户实测结论。'
+          : '这条更接近用户讨论或真实反馈，参考价值高于纯宣传，但仍要和其他帖子互相印证。'
+      ];
+      const missingLines = [
+        `评论数：${engagement.comments}；可见评论信号：${engagement.signals}。`,
+        `点赞数和收藏数：证据文档没有稳定记录，后续自动补抓也被小红书安全限制拦截，所以这里标“未记录”，不按 0 处理。`,
+        '这不是逐字搬运原帖，而是基于已记录标题、摘要和评论信号做结构化还原。'
+      ];
+      return {
+        type,
+        tags,
+        sourceLines,
+        commentLines,
+        rankingLines,
+        missingLines
+      };
+    }
+
+    function metricHtml(metric) {
+      return `
+        <div class="metric-row">
+          <div class="metric-head"><span>${escapeHtml(metric.label)}</span><span>${metric.value}</span></div>
+          <div class="bar"><div class="fill" style="width:${metric.value}%"></div></div>
+        </div>
+      `;
+    }
+
+    function detailBlocksHtml(post, brandData) {
+      const engagement = parseEngagement(post.comments);
+      const credibility = credibilityAssessment(post);
+      const completeness = evidenceCompleteness(post);
+      const view = postInterpretation(post, brandData);
+      return `
+        <div class="interaction-grid">
+          <div class="interaction-item">点赞<strong>${engagement.likes}</strong></div>
+          <div class="interaction-item">收藏<strong>${engagement.saves}</strong></div>
+          <div class="interaction-item">评论<strong>${engagement.comments}</strong></div>
+          <div class="interaction-item">可见评论信号<strong>${engagement.signals}</strong></div>
+        </div>
+        <div class="post-detail-grid">
+          <div class="post-detail-block">
+            <h4>原帖内容还原</h4>
+            ${htmlList(view.sourceLines)}
+          </div>
+          <div class="post-detail-block">
+            <h4>评论区观点还原</h4>
+            ${htmlList(view.commentLines)}
+          </div>
+          <div class="post-detail-block">
+            <h4>可信度判断</h4>
+            <p><span class="credibility-badge ${credibility.className}">${credibility.level} · ${credibility.score}/100</span></p>
+            <ul>${credibility.reasons.map(reason => `<li>${escapeHtml(reason)}</li>`).join('')}</ul>
+          </div>
+          <div class="post-detail-block">
+            <h4>证据完整度</h4>
+            <p><span class="credibility-badge ${completeness.className}">${completeness.level} · ${completeness.score}/100</span></p>
+            <p>${escapeHtml(completeness.text)}</p>
+          </div>
+          <div class="post-detail-block">
+            <h4>对排名的影响</h4>
+            ${htmlList(view.rankingLines)}
+            <p>主题标签：${view.tags.map(tag => `<span class="evidence-chip">${escapeHtml(tag)}</span>`).join(' ')}</p>
+          </div>
+          <div class="post-detail-block">
+            <h4>互动字段与缺失说明</h4>
+            ${htmlList(view.missingLines)}
+          </div>
+        </div>
+      `;
+    }
+
+    function postHtml(post, brandData) {
+      const kind = classifyEvidence(post.summary);
+      const chipText = kind === 'negative' ? '负面/警示' : kind === 'positive' ? '正面/认可' : '中性/讨论';
+      const engagement = parseEngagement(post.comments);
+      const credibility = credibilityAssessment(post);
+      const completeness = evidenceCompleteness(post);
+      return `
+        <article class="evidence-card" data-kind="${kind}" data-post-no="${post.no}">
+          <header>
+            <h3>${post.no}. <a href="${escapeHtml(post.url)}" target="_blank" rel="noreferrer">${escapeHtml(post.title)}</a></h3>
+            <div class="evidence-meta">评论 ${escapeHtml(engagement.comments)}</div>
+          </header>
+          <div class="evidence-topline">
+            <span class="evidence-chip ${kind}">${chipText}</span>
+            <span class="credibility-badge ${credibility.className}">可信度 ${credibility.level} · ${credibility.score}/100</span>
+            <span class="credibility-badge ${completeness.className}">证据完整度 ${completeness.level}</span>
+          </div>
+          <p><strong>帖子内容/场景：</strong>${escapeHtml(post.direction || post.brand || '品牌相关样本')}</p>
+          <p><strong>核心评论与沉淀：</strong>${escapeHtml(post.summary)}</p>
+          <div class="interaction-grid">
+            <div class="interaction-item">点赞<strong>${engagement.likes}</strong></div>
+            <div class="interaction-item">收藏<strong>${engagement.saves}</strong></div>
+            <div class="interaction-item">评论<strong>${engagement.comments}</strong></div>
+            <div class="interaction-item">可见评论信号<strong>${engagement.signals}</strong></div>
+          </div>
+          <details class="post-expand">
+            <summary>展开这条证据</summary>
+            ${detailBlocksHtml(post, brandData)}
+          </details>
+          <div class="evidence-actions">
+            <button class="detail-button" type="button" data-open-post="${post.no}">打开详细弹窗</button>
+          </div>
+        </article>
+      `;
+    }
+
+    function kindLabel(kind) {
+      if (kind === 'negative') return '负面/警示';
+      if (kind === 'positive') return '正面/认可';
+      if (kind === 'neutral') return '中性/讨论';
+      return '全部';
+    }
+
+    function filterPosts(posts, filter) {
+      if (filter === 'all') return posts;
+      return posts.filter((post) => classifyEvidence(post.summary) === filter);
+    }
+
+    function aggregateStats(posts) {
+      const stats = {
+        total: posts.length,
+        negative: 0,
+        positive: 0,
+        neutral: 0,
+        comments: 0,
+        signals: 0,
+        tags: new Map(),
+        types: new Map()
+      };
+
+      posts.forEach((post) => {
+        const kind = classifyEvidence(post.summary);
+        stats[kind] += 1;
+        const engagement = parseEngagement(post.comments);
+        stats.comments += engagement.commentCount || 0;
+        stats.signals += engagement.signalCount || 0;
+        topicTags(post).forEach((tag) => stats.tags.set(tag, (stats.tags.get(tag) || 0) + 1));
+        const type = evidenceType(post);
+        stats.types.set(type, (stats.types.get(type) || 0) + 1);
+      });
+
+      stats.topTags = Array.from(stats.tags.entries()).sort((a, b) => b[1] - a[1]).slice(0, 5);
+      stats.topTypes = Array.from(stats.types.entries()).sort((a, b) => b[1] - a[1]).slice(0, 4);
+      return stats;
+    }
+
+    function filterSummaryTone(filter, stats, brandData) {
+      if (!stats.total) return `当前筛选下没有 ${brandData.name} 的证据。`;
+      if (filter === 'negative') {
+        return `这组主要看最坏情形：气味、检测、真假、封边、交付这些风险是否重复出现。它不是为了证明 ${brandData.name} 一定差，而是看下单前必须防什么。`;
+      }
+      if (filter === 'positive') {
+        return `这组主要看正向支撑：安全下车、低味、落地效果、检测或用户认可。它能说明 ${brandData.name} 为什么还能留在当前排名。`;
+      }
+      if (filter === 'neutral') {
+        return `这组主要看讨论和边界：价格、材料部位、授权、概念解释和用户疑问。它不直接加减很多分，但能告诉你合同和验收要问什么。`;
+      }
+      return `这组把 ${brandData.name} 的 ${stats.total} 条相关证据合成一篇长文。先看结论，再看评论信号，最后逐条回到帖子摘要和对排名的影响。`;
+    }
+
+    function summaryEntryHtml(brandData, posts, filter) {
+      const stats = aggregateStats(posts);
+      const label = kindLabel(filter);
+      const topTags = stats.topTags.length
+        ? stats.topTags.map(([tag, count]) => `<span class="evidence-chip">${escapeHtml(tag)} ${count}</span>`).join(' ')
+        : '<span class="evidence-chip">暂无主题</span>';
+      const previewItems = posts.slice(0, 5).map((post) => {
+        const kind = classifyEvidence(post.summary);
+        return `<li>${post.no}. ${escapeHtml(post.title)} <span class="evidence-chip ${kind}">${kindLabel(kind)}</span></li>`;
+      }).join('');
+
+      return `
+        <article class="summary-entry-card" role="button" tabindex="0" data-open-summary="${filter}" aria-label="打开${escapeHtml(brandData.name)}${label}证据汇总">
+          <div class="summary-entry-head">
+            <div>
+              <h3>${escapeHtml(brandData.name)} · ${label}证据汇总</h3>
+              <div class="summary-entry-meta">点击查看完整长文</div>
+            </div>
+            <span class="credibility-badge high">${stats.total} 条证据</span>
+          </div>
+          <p class="summary-entry-lead">${escapeHtml(filterSummaryTone(filter, stats, brandData))}</p>
+          <div class="summary-stats">
+            <div class="summary-stat">总证据<strong>${stats.total}</strong></div>
+            <div class="summary-stat">负面/警示<strong>${stats.negative}</strong></div>
+            <div class="summary-stat">正面/认可<strong>${stats.positive}</strong></div>
+            <div class="summary-stat">中性/讨论<strong>${stats.neutral}</strong></div>
+          </div>
+          <div class="evidence-topline">${topTags}</div>
+          ${posts.length ? `<ul class="summary-preview-list">${previewItems}${posts.length > 5 ? `<li>还有 ${posts.length - 5} 条，点开看完整汇总。</li>` : ''}</ul>` : '<p class="summary-entry-lead">当前分类没有证据。</p>'}
+        </article>
+      `;
+    }
+
+    function summaryArticleHtml(brandData, posts, filter) {
+      const stats = aggregateStats(posts);
+      const label = kindLabel(filter);
+      if (!posts.length) {
+        return `
+          <div class="summary-article">
+            <div class="summary-article-section">
+              <h4>没有可汇总内容</h4>
+              <p>当前分类下没有 ${escapeHtml(brandData.name)} 的证据。</p>
+            </div>
+          </div>
+        `;
+      }
+
+      const tagLines = stats.topTags.map(([tag, count]) => `${tag}出现 ${count} 次：${themeExplanation(tag)}`);
+      const typeLines = stats.topTypes.map(([type, count]) => `${type} ${count} 条`);
+      const postItems = posts.map((post) => {
+        const kind = classifyEvidence(post.summary);
+        const engagement = parseEngagement(post.comments);
+        const view = postInterpretation(post, brandData);
+        return `
+          <div class="summary-post-item">
+            <h4>${post.no}. ${escapeHtml(post.title)}</h4>
+            <div class="evidence-topline">
+              <span class="evidence-chip ${kind}">${kindLabel(kind)}</span>
+              <span class="evidence-chip">${escapeHtml(view.type)}</span>
+              <span class="evidence-chip">评论 ${escapeHtml(engagement.comments)}</span>
+              <a class="evidence-chip" href="${escapeHtml(post.url)}" target="_blank" rel="noreferrer">打开原帖</a>
+            </div>
+            <p><strong>帖子内容：</strong>${escapeHtml(post.summary)}</p>
+            <p><strong>评论信号：</strong>${escapeHtml(view.commentLines.slice(0, 3).join('；'))}</p>
+            <p><strong>对判断的影响：</strong>${escapeHtml(view.rankingLines.join('；'))}</p>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="summary-article">
+          <div class="summary-article-section">
+            <h4>一段话结论</h4>
+            <p>${escapeHtml(filterSummaryTone(filter, stats, brandData))}</p>
+            <p>${escapeHtml(brandData.verdict)}</p>
+          </div>
+          <div class="summary-article-section">
+            <h4>数量结构</h4>
+            <ul>
+              <li>当前范围：${escapeHtml(label)}，共 ${stats.total} 条。</li>
+              <li>负面/警示 ${stats.negative} 条，正面/认可 ${stats.positive} 条，中性/讨论 ${stats.neutral} 条。</li>
+              <li>已记录评论数合计约 ${stats.comments} 条；可见评论信号合计约 ${stats.signals} 条。</li>
+              <li>点赞和收藏没有稳定记录，不参与排序加减分。</li>
+            </ul>
+          </div>
+          <div class="summary-article-section">
+            <h4>核心主题</h4>
+            ${htmlList(tagLines.length ? tagLines : ['当前范围主题信号较少，只能作为辅助证据。'])}
+          </div>
+          <div class="summary-article-section">
+            <h4>证据类型</h4>
+            ${htmlList(typeLines.length ? typeLines : ['当前范围没有形成稳定证据类型。'])}
+          </div>
+          <div class="summary-article-section">
+            <h4>对排名的合并影响</h4>
+            <ul>
+              ${brandData.logic.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+              <li>${filter === 'all' ? '全部证据用来校准综合排名。' : `${label}证据只校准其中一类风险或支撑，不单独决定排名。`}</li>
+            </ul>
+          </div>
+          <div class="summary-article-section">
+            <h4>逐条证据长文</h4>
+            <div class="summary-posts">${postItems}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function openEvidenceSummaryModal(brandData, posts, filter) {
+      const label = kindLabel(filter);
+      evidenceModalTitle.textContent = `${brandData.name} · ${label}证据汇总`;
+      evidenceModalBody.innerHTML = summaryArticleHtml(brandData, posts, filter);
+      evidenceModal.hidden = false;
+      closeEvidenceModalButton.focus();
+    }
+
+    function renderBrandDetail(key) {
+      const data = BRAND_EVIDENCE_DATA.brands[key];
+      if (!data) return;
+      activeBrandKey = key;
+      const posts = data.posts || [];
+      const relatedCount = posts.length;
+      const deepCount = data.deepCount || 0;
+      const filterCounts = {
+        negative: filterPosts(posts, 'negative').length,
+        positive: filterPosts(posts, 'positive').length,
+        neutral: filterPosts(posts, 'neutral').length
+      };
+      brandDetailContent.innerHTML = `
+        <div class="detail-hero">
+          <div class="detail-title-row">
+            <div>
+              <h2>${escapeHtml(data.name)}</h2>
+              <p class="lead">${escapeHtml(data.verdict)}</p>
+            </div>
+            <div class="detail-score">${data.score}<span>综合分 / 排名第 ${data.rank}</span></div>
+          </div>
+          <div class="detail-stats">
+            <div class="stat-pill">排名样本<strong>${data.sampleTotal} 篇</strong></div>
+            <div class="stat-pill">本页相关证据<strong>${relatedCount} 条</strong></div>
+            <div class="stat-pill">评论深读<strong>${deepCount} 篇</strong></div>
+            <div class="stat-pill">核心风险<strong>${escapeHtml(data.mainRisk)}</strong></div>
+          </div>
+        </div>
+
+        <div class="detail-layout">
+          <div class="card">
+            <h3>分数怎么来的</h3>
+            <p>综合分按四类证据判断：环保可信度 35%、低味稳定性 25%、真伪/施工风险 20%、衣柜橱柜适配 20%。它不是实验室数值，是把官方资料、帖子内容和评论信号合在一起后的决策分。</p>
+            <div class="score-breakdown">${data.metrics.map(metricHtml).join('')}</div>
+          </div>
+          <div class="card">
+            <h3>我怎么从证据推到这个排名</h3>
+            <ul>${data.logic.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>小红书帖子与核心评论证据</h3>
+          <p>这里展示证据文档里所有与该品牌/板材相关的帖子摘要和核心评论信号；对比帖和科普帖如果直接影响该品牌判断，也会放进来。点赞和收藏没有被证据文档记录，且自动补抓小红书详情页被平台安全限制拦截，所以统一标为“未记录”；评论数和可见评论信号按已记录证据展示。</p>
+          <div class="evidence-toolbar">
+            <button class="filter-button active" type="button" data-filter="all">全部 ${relatedCount}</button>
+            <button class="filter-button" type="button" data-filter="negative">负面/警示 ${filterCounts.negative}</button>
+            <button class="filter-button" type="button" data-filter="positive">正面/认可 ${filterCounts.positive}</button>
+            <button class="filter-button" type="button" data-filter="neutral">中性/讨论 ${filterCounts.neutral}</button>
+          </div>
+          <div class="evidence-list" id="evidenceList">${summaryEntryHtml(data, posts, 'all')}</div>
+        </div>
+      `;
+
+      const renderEvidenceSummary = (filter) => {
+        const selectedPosts = filterPosts(posts, filter);
+        const evidenceList = brandDetailContent.querySelector('#evidenceList');
+        evidenceList.innerHTML = summaryEntryHtml(data, selectedPosts, filter);
+        const card = evidenceList.querySelector('[data-open-summary]');
+        if (!card) return;
+        const open = () => openEvidenceSummaryModal(data, selectedPosts, filter);
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            open();
+          }
+        });
+      };
+
+      brandDetailContent.querySelectorAll('.filter-button').forEach((button) => {
+        button.addEventListener('click', () => {
+          const filter = button.dataset.filter;
+          brandDetailContent.querySelectorAll('.filter-button').forEach((item) => item.classList.remove('active'));
+          button.classList.add('active');
+          renderEvidenceSummary(filter);
+        });
+      });
+      renderEvidenceSummary('all');
+
+      document.body.classList.add('detail-mode');
+      brandDetail.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openEvidenceModal(post, brandData) {
+      const engagement = parseEngagement(post.comments);
+      const credibility = credibilityAssessment(post);
+      const view = postInterpretation(post, brandData);
+      const kind = classifyEvidence(post.summary);
+      const chipText = kind === 'negative' ? '负面/警示' : kind === 'positive' ? '正面/认可' : '中性/讨论';
+      evidenceModalTitle.textContent = `${post.no}. ${post.title}`;
+      evidenceModalBody.innerHTML = `
+        <div class="evidence-topline">
+          <span class="evidence-chip ${kind}">${chipText}</span>
+          <span class="credibility-badge ${credibility.className}">可信度 ${credibility.level} · ${credibility.score}/100</span>
+          <a class="evidence-chip" href="${escapeHtml(post.url)}" target="_blank" rel="noreferrer">打开小红书链接</a>
+        </div>
+        <p><strong>品牌/场景：</strong>${escapeHtml(post.direction || brandData.name)}</p>
+        <p><strong>证据类型：</strong>${escapeHtml(view.type)}</p>
+        ${detailBlocksHtml(post, brandData)}
+        <div class="post-detail-block" style="margin-top:12px">
+          <h4>原始记录</h4>
+          <p>互动原始字段：${escapeHtml(engagement.raw || '未记录')}</p>
+          <p>证据文档摘要：${escapeHtml(post.summary)}</p>
+        </div>
+      `;
+      evidenceModal.hidden = false;
+      closeEvidenceModalButton.focus();
+    }
+
+    function closeEvidenceModal() {
+      evidenceModal.hidden = true;
+      evidenceModalBody.innerHTML = '';
+    }
+
+    function openBrand(key) {
+      window.location.hash = `brand=${key}`;
+      renderBrandDetail(key);
+    }
+
+    function closeBrandDetail() {
+      document.body.classList.remove('detail-mode');
+      brandDetail.hidden = true;
+      activeBrandKey = null;
+      if (window.location.hash.startsWith('#brand=')) {
+        history.pushState('', document.title, window.location.pathname + window.location.search);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('.rank-card[data-brand]').forEach((card) => {
+      card.addEventListener('click', () => openBrand(card.dataset.brand));
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openBrand(card.dataset.brand);
+        }
+      });
+    });
+
+    backToRanking.addEventListener('click', closeBrandDetail);
+    closeEvidenceModalButton.addEventListener('click', closeEvidenceModal);
+    evidenceModal.addEventListener('click', (event) => {
+      if (event.target === evidenceModal) closeEvidenceModal();
+    });
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !evidenceModal.hidden) closeEvidenceModal();
+    });
+    window.addEventListener('hashchange', () => {
+      const match = window.location.hash.match(/^#brand=(.+)$/);
+      if (match) renderBrandDetail(match[1]);
+      else closeBrandDetail();
+    });
+
+    const initialMatch = window.location.hash.match(/^#brand=(.+)$/);
+    if (initialMatch) renderBrandDetail(initialMatch[1]);
+  </script>
+</body>
+</html>

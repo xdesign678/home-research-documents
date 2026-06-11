@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>板材打分逻辑可视化 · Fable 5 独立复核</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --paper: #faf9f5;
+      --card: #ffffff;
+      --ink: #1d2126;
+      --muted: #5d6670;
+      --line: #e4e1d8;
+      --accent: #2f4f8f;
+      --accent-deep: #243d70;
+      --accent-soft: #eef2f9;
+      --band: rgba(47, 79, 143, 0.14);
+      --track: #edebe3;
+      --down: #b3543e;
+      --up: #2e7d52;
+      --neutral: #8a8f96;
+      --serif: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      text-wrap: pretty;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { width: min(1080px, calc(100vw - 40px)); margin: 0 auto; }
+
+    /* ---------- masthead ---------- */
+    .masthead {
+      border-bottom: 1px solid var(--line);
+      padding: 60px 0 44px;
+      position: relative;
+      background:
+        linear-gradient(180deg, #f3f2ec 0%, var(--paper) 90%);
+    }
+
+    .kicker {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .masthead h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(34px, 5.4vw, 58px);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+    }
+
+    .masthead .lead {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .seal {
+      position: absolute;
+      right: max(24px, calc((100vw - 1080px) / 2));
+      top: 56px;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      font-family: var(--serif);
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      padding: 9px 14px;
+      transform: rotate(6deg);
+      line-height: 1.5;
+      text-align: center;
+      opacity: 0.85;
+      user-select: none;
+    }
+    .seal small {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      font-weight: 400;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 34px;
+    }
+
+    .meta-grid > div {
+      background: var(--card);
+      padding: 14px 16px;
+    }
+
+    .meta-grid span {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .meta-grid strong {
+      display: block;
+      font-size: 17px;
+      margin-top: 4px;
+      font-family: var(--serif);
+    }
+
+    .meta-grid em {
+      display: block;
+      font-style: normal;
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ---------- sections ---------- */
+    section { padding: 52px 0 8px; }
+
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 10px;
+      margin-bottom: 8px;
+    }
+
+    .sec-no {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+
+    .sec-head h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 900;
+    }
+
+    .sec-note {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 10px 0 22px;
+      max-width: 820px;
+    }
+
+    /* ---------- overview bars ---------- */
+    .legend {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+    .legend i { font-style: normal; display: inline-flex; align-items: center; gap: 7px; }
+    .swatch { width: 22px; height: 9px; border-radius: 2px; display: inline-block; }
+    .swatch.fill { background: var(--accent); }
+    .swatch.band { background: var(--band); }
+    .swatch.tick { width: 2px; height: 14px; background: var(--ink); border-radius: 0; }
+
+    .ov-row {
+      display: grid;
+      grid-template-columns: 30px 168px 1fr 150px;
+      gap: 14px;
+      align-items: center;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .ov-row:last-of-type { border-bottom: 0; }
+
+    .ov-rank {
+      font-family: var(--serif);
+      font-weight: 900;
+      font-size: 19px;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .ov-name { font-weight: 700; font-size: 15.5px; }
+    .ov-name small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+
+    .bar {
+      position: relative;
+      height: 12px;
+      background: var(--track);
+      border-radius: 999px;
+    }
+    .bar .band {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background: var(--band);
+      border-radius: 999px;
+    }
+    .bar .fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+    .bar .tick {
+      position: absolute;
+      top: -4px;
+      width: 2px;
+      height: 20px;
+      background: var(--ink);
+    }
+
+    .axis {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .ov-score {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .ov-score b {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 900;
+    }
+
+    .chip {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .chip.down { background: #f9ece8; color: var(--down); }
+    .chip.up { background: #e9f3ed; color: var(--up); }
+    .chip.flat { background: #efefec; color: var(--neutral); }
+
+    .ov-axis-row {
+      display: grid;
+      grid-template-columns: 30px 168px 1fr 150px;
+      gap: 14px;
+      margin-top: 2px;
+    }
+
+    /* ---------- pipeline ---------- */
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .step {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 16px;
+      position: relative;
+    }
+    .step::after {
+      content: "→";
+      position: absolute;
+      right: -13px;
+      top: 14px;
+      color: var(--accent);
+      font-weight: 700;
+      z-index: 2;
+    }
+    .step:last-child::after { content: none; }
+    .step b {
+      display: block;
+      font-family: var(--serif);
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .step i {
+      font-style: normal;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 8px;
+      letter-spacing: 0.08em;
+    }
+    .step p { margin: 0; font-size: 13px; color: var(--muted); }
+
+    /* ---------- weights ---------- */
+    .weight-bar {
+      display: flex;
+      height: 52px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      margin: 6px 0 8px;
+    }
+    .weight-bar div {
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .w1 { width: 35%; background: var(--accent-deep); }
+    .w2 { width: 25%; background: var(--accent); }
+    .w3 { width: 20%; background: #5f7cb4; }
+    .w4 { width: 20%; background: #93a8cd; }
+
+    .formula-line {
+      font-family: var(--mono);
+      font-size: 13.5px;
+      background: #f4f2ea;
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      margin: 14px 0 22px;
+      color: var(--ink);
+    }
+
+    .rules {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .rule {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 16px 18px;
+    }
+    .rule b {
+      font-family: var(--serif);
+      font-size: 15.5px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .rule b i {
+      font-style: normal;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      margin-right: 8px;
+    }
+    .rule p { margin: 0; font-size: 13.5px; color: var(--muted); }
+
+    /* ---------- brand cards ---------- */
+    .brand-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+    }
+
+    .brand-left {
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .brand-rank {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 23px;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .brand-score {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .brand-score b {
+      font-family: var(--serif);
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--accent-deep);
+    }
+    .brand-score span { font-size: 12px; color: var(--muted); }
+
+    .brand-verdict {
+      font-size: 13.5px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      margin-top: auto;
+    }
+
+    .brand-right { padding: 20px 22px; }
+
+    .dim { margin-bottom: 14px; }
+    .dim:last-of-type { margin-bottom: 0; }
+
+    .dim-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .dim-head i {
+      font-style: normal;
+      font-family: var(--mono);
+      font-weight: 400;
+      font-size: 11px;
+      color: var(--muted);
+      margin-left: 6px;
+    }
+    .dim-head b { font-family: var(--mono); font-size: 14px; }
+
+    .dim-bar {
+      height: 7px;
+      background: var(--track);
+      border-radius: 999px;
+      margin: 5px 0 4px;
+      overflow: hidden;
+    }
+    .dim-bar div { height: 100%; background: var(--accent); border-radius: 999px; }
+
+    .dim p { margin: 0; font-size: 12.5px; color: var(--muted); }
+
+    .brand-formula {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      background: #f4f2ea;
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      margin-top: 16px;
+      color: var(--ink);
+    }
+
+    /* ---------- ideal ---------- */
+    .knobs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .knob {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 16px 18px;
+    }
+    .knob b { font-family: var(--serif); font-size: 15.5px; display: block; margin-bottom: 6px; }
+    .knob p { margin: 0 0 8px; font-size: 13.5px; color: var(--muted); }
+    .knob .arrows {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px 14px;
+    }
+    .knob .arrows span em {
+      font-style: normal;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .ideal-row {
+      display: grid;
+      grid-template-columns: 168px 1fr 210px;
+      gap: 14px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .ideal-row:last-of-type { border-bottom: 0; }
+
+    .dualbar { display: grid; gap: 5px; }
+    .dualbar .bar { height: 9px; }
+    .dualbar .bar.real .fill { background: #b9bcb6; }
+
+    .ideal-nums {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      justify-content: flex-end;
+      font-family: var(--mono);
+    }
+    .ideal-nums .from { color: var(--neutral); font-size: 14px; }
+    .ideal-nums .arrow { color: var(--muted); font-size: 12px; }
+    .ideal-nums .to { font-family: var(--serif); font-weight: 900; font-size: 23px; color: var(--accent-deep); }
+
+    .callout {
+      border: 1px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 18px 22px;
+      margin-top: 20px;
+    }
+    .callout b { font-family: var(--serif); font-size: 16.5px; }
+    .callout p { margin: 6px 0 0; font-size: 14px; color: #2c3a55; }
+
+    /* ---------- disagreements ---------- */
+    .dis-list { counter-reset: dis; }
+    .dis {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 18px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+    .dis::before {
+      counter-increment: dis;
+      content: counter(dis, decimal-leading-zero);
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .dis b { font-family: var(--serif); font-size: 16px; display: block; margin-bottom: 4px; }
+    .dis p { margin: 0; font-size: 13.5px; color: var(--muted); }
+    .dis p code {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      background: #f4f2ea;
+      padding: 1px 5px;
+    }
+
+    /* ---------- limits ---------- */
+    .limits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .limit {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 16px 18px;
+    }
+    .limit b { font-family: var(--serif); font-size: 15.5px; display: block; margin-bottom: 6px; }
+    .limit ul { margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--muted); }
+    .limit li { margin: 4px 0; }
+
+    footer {
+      margin-top: 56px;
+      border-top: 2px solid var(--ink);
+      padding: 26px 0 48px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    footer .sig {
+      font-family: var(--serif);
+      color: var(--ink);
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 14.5px;
+    }
+
+    @media (max-width: 900px) {
+      .meta-grid, .pipeline, .rules, .knobs, .limits { grid-template-columns: 1fr; }
+      .step::after { content: none; }
+      .ov-row, .ov-axis-row { grid-template-columns: 24px 1fr; }
+      .ov-row .bar-cell, .ov-row .ov-score { grid-column: 1 / -1; }
+      .ov-axis-row { display: none; }
+      .brand-card { grid-template-columns: 1fr; }
+      .brand-left { border-right: 0; border-bottom: 1px solid var(--line); }
+      .ideal-row { grid-template-columns: 1fr; }
+      .ideal-nums { justify-content: flex-start; }
+      .seal { display: none; }
+      .knob .arrows { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="seal">FABLE 5<br>独立复核<small>2026·06·11</small></div>
+    <div class="wrap">
+      <div class="kicker">SECOND OPINION · 评分复核报告</div>
+      <h1>板材打分逻辑可视化</h1>
+      <p class="lead">对《板材环保与甲醛风险排名》的独立复核评分：同一份原始证据，换一套全程可复算、更克制的算分方式。两套排序与原报告一致，分数与置信度表述不同。</p>
+      <div class="meta-grid">
+        <div>
+          <span>评分主体</span>
+          <strong>Fable 5</strong>
+          <em>Claude 系列 AI 模型，于 Factory Droid 环境运行</em>
+        </div>
+        <div>
+          <span>评分依据</span>
+          <strong>仅原始资料</strong>
+          <em>未重新打开小红书，未新增采集任何数据</em>
+        </div>
+        <div>
+          <span>被复核对象</span>
+          <strong><a href="./board-ranking-report.html">原排名报告</a></strong>
+          <em>165 篇样本 + 60 篇深读 + 78 条复核</em>
+        </div>
+        <div>
+          <span>精度声明</span>
+          <strong>误差带 ±3 分</strong>
+          <em>1 分之差不构成排序依据</em>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- 01 总览 -->
+    <section>
+      <div class="sec-head"><span class="sec-no">01</span><h2>现实下单评分总览</h2></div>
+      <p class="sec-note">实心条是 Fable 5 的复核分，黑色竖线是原报告分，浅蓝色带是 ±3 误差带。横轴 60–90，放大显示差异。注意：前两名的误差带大面积重叠，这正是「并列第一梯队」的视觉含义。</p>
+      <div class="legend">
+        <i><span class="swatch fill"></span>Fable 5 复核分</i>
+        <i><span class="swatch tick"></span>原报告分</i>
+        <i><span class="swatch band"></span>±3 误差带</i>
+      </div>
+
+      <div class="ov-row">
+        <div class="ov-rank">1</div>
+        <div class="ov-name">爱格板<small>卧室衣柜首选，须验真</small></div>
+        <div class="bar-cell"><div class="bar"><div class="band" style="left:70%;width:20%"></div><div class="fill" style="width:80%"></div><div class="tick" style="left:86.67%"></div></div></div>
+        <div class="ov-score"><b>84</b><span class="chip down">原 86 · 下调 2</span></div>
+      </div>
+      <div class="ov-row">
+        <div class="ov-rank">2</div>
+        <div class="ov-name">福人精板<small>环保口径最强，渠道要盯</small></div>
+        <div class="bar-cell"><div class="bar"><div class="band" style="left:66.67%;width:20%"></div><div class="fill" style="width:76.67%"></div><div class="tick" style="left:83.33%"></div></div></div>
+        <div class="ov-score"><b>83</b><span class="chip down">原 85 · 下调 2</span></div>
+      </div>
+      <div class="ov-row">
+        <div class="ov-rank">3</div>
+        <div class="ov-name">华富立欧松 + 多层<small>组合实用，施工风险最重</small></div>
+        <div class="bar-cell"><div class="bar"><div class="band" style="left:56.67%;width:20%"></div><div class="fill" style="width:66.67%"></div><div class="tick" style="left:73.33%"></div></div></div>
+        <div class="ov-score"><b>80</b><span class="chip down">原 82 · 下调 2</span></div>
+      </div>
+      <div class="ov-row">
+        <div class="ov-rank">4</div>
+        <div class="ov-name">三棵树小森板<small>证据薄，靠「负面少」排第四</small></div>
+        <div class="bar-cell"><div class="bar"><div class="band" style="left:43.33%;width:20%"></div><div class="fill" style="width:53.33%"></div><div class="tick" style="left:60%"></div></div></div>
+        <div class="ov-score"><b>76</b><span class="chip down">原 78 · 下调 2</span></div>
+      </div>
+      <div class="ov-row">
+        <div class="ov-rank">5</div>
+        <div class="ov-name">大王椰 HENF<small>渠道型风险：假货与替换</small></div>
+        <div class="bar-cell"><div class="bar"><div class="band" style="left:26.67%;width:20%"></div><div class="fill" style="width:36.67%"></div><div class="tick" style="left:46.67%"></div></div></div>
+        <div class="ov-score"><b>71</b><span class="chip down">原 74 · 下调 3</span></div>
+      </div>
+      <div class="ov-row">
+        <div class="ov-rank">6</div>
+        <div class="ov-name">万华禾香板<small>材料型风险：固有气味</small></div>
+        <div class="bar-cell"><div class="bar"><div class="band" style="left:23.33%;width:20%"></div><div class="fill" style="width:33.33%"></div><div class="tick" style="left:40%"></div></div></div>
+        <div class="ov-score"><b>70</b><span class="chip down">原 72 · 下调 2</span></div>
+      </div>
+      <div class="ov-axis-row">
+        <div></div><div></div>
+        <div class="axis"><span>60</span><span>70</span><span>80</span><span>90</span></div>
+        <div></div>
+      </div>
+    </section>
+
+    <!-- 02 流程 -->
+    <section>
+      <div class="sec-head"><span class="sec-no">02</span><h2>评分是怎么产生的</h2></div>
+      <p class="sec-note">五步流水线。前两步处理证据质量，后三步把证据变成分数。任何一步的输入都来自本目录的三份原始文档，不引入新数据。</p>
+      <div class="pipeline">
+        <div class="step">
+          <i>STEP 1</i><b>原始资料</b>
+          <p>165 篇去重样本、60 篇评论深读、78 条重点复核，全部来自原报告沉淀的三份本地文档。</p>
+        </div>
+        <div class="step">
+          <i>STEP 2</i><b>证据降噪</b>
+          <p>降权商家宣传帖；识别评论数 54 截断值；纠正机器错标的情绪标签后再使用。</p>
+        </div>
+        <div class="step">
+          <i>STEP 3</i><b>四维评分</b>
+          <p>环保可信度、低味稳定性、真伪/施工、衣柜橱柜适配，各 0–100，每个分数写明依据。</p>
+        </div>
+        <div class="step">
+          <i>STEP 4</i><b>固定权重加权</b>
+          <p>35 / 25 / 20 / 20 加权求和后取整。公式全程透明，任何人可拿四维分复算综合分。</p>
+        </div>
+        <div class="step">
+          <i>STEP 5</i><b>误差带与排名</b>
+          <p>所有分数戴 ±3 误差带。差距小于 4 分视为同一梯队，不在结论里强分高下。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 权重与规则 -->
+    <section>
+      <div class="sec-head"><span class="sec-no">03</span><h2>权重与五条算分规则</h2></div>
+      <p class="sec-note">权重沿用原报告自己声明的口径，这样两边的分数可以直接对照。区别在于：本页的综合分严格等于加权结果，不做事后手调。</p>
+      <div class="weight-bar">
+        <div class="w1">环保可信度<br>35%</div>
+        <div class="w2">低味稳定性<br>25%</div>
+        <div class="w3">真伪/施工<br>20%</div>
+        <div class="w4">适配<br>20%</div>
+      </div>
+      <div class="formula-line">综合分 = 环保可信度 × 0.35 + 低味稳定性 × 0.25 + 真伪/施工 × 0.20 + 适配 × 0.20，四舍五入取整</div>
+      <div class="rules">
+        <div class="rule">
+          <b><i>R1</i>公式可复算</b>
+          <p>每个综合分都附完整计算式。维度分一旦确定，综合分没有自由裁量空间。原报告有三个分数用它自己的维度分算不出来，这是本页存在的直接原因。</p>
+        </div>
+        <div class="rule">
+          <b><i>R2</i>低评论正向只作弱支撑</b>
+          <p>评论数不足 20 的正向帖不抬分，只用来防止过度扣分。这条规则是原报告自己定的，本页把它执行到了福人的理想分上。</p>
+        </div>
+        <div class="rule">
+          <b><i>R3</i>负面先归因再扣分</b>
+          <p>超标帖、有味帖先拆解：材料本身、假货、施工封边、整屋叠加、检测条件。只有指向材料与渠道的部分计入该品牌扣分，其余记为通用施工风险。</p>
+        </div>
+        <div class="rule">
+          <b><i>R4</i>负面密度不等于风险密度</b>
+          <p>走量品牌负面帖天然更多，讨论度低的品牌「查无负面」不等于安全。对证据薄的品牌，正确做法是压低置信度，而不是给出接近头部的分数。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 现实分逐品牌 -->
+    <section>
+      <div class="sec-head"><span class="sec-no">04</span><h2>现实分：逐品牌拆解</h2></div>
+      <p class="sec-note">每张卡片右侧是四个维度的分数、依据和占比，底部计算式即综合分的全部来源。维度条为 0–100 满刻度。</p>
+
+      <!-- 爱格 -->
+      <article class="brand-card">
+        <div class="brand-left">
+          <div class="brand-rank">RANK 1 / 6</div>
+          <div class="brand-name">爱格板</div>
+          <div class="brand-score"><b>84</b><span>原报告 86<br>误差带 81–87</span></div>
+          <p class="brand-verdict">仍是第一，但「精确感」降一档：与福人的 1 分差在误差带内，实质是并列第一梯队，不是明确领先。</p>
+        </div>
+        <div class="brand-right">
+          <div class="dim">
+            <div class="dim-head"><span>环保可信度<i>权重 35%</i></span><b>88</b></div>
+            <div class="dim-bar"><div style="width:88%"></div></div>
+            <p>行业口碑与 F4星体系强，但本轮官方资料校验恰恰只到「中」，90 的依据不足。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>低味稳定性<i>权重 25%</i></span><b>78</b></div>
+            <div class="dim-bar"><div style="width:78%"></div></div>
+            <p>1087、682、364 评论级的负面帖存在，且有「文信正品仍有开柜味」的反例，不能只按口碑给分。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>真伪 / 施工<i>权重 20%</i></span><b>76</b></div>
+            <div class="dim-bar"><div style="width:76%"></div></div>
+            <p>假货与授权链复杂是最大现实扣分；但紫光灯、小程序溯源等验真工具相对成熟。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>衣柜橱柜适配<i>权重 20%</i></span><b>94</b></div>
+            <div class="dim-bar"><div style="width:94%"></div></div>
+            <p>花色、落地案例、门板柜体全场景成熟度六家最高。</p>
+          </div>
+          <div class="brand-formula">88×0.35 + 78×0.25 + 76×0.20 + 94×0.20 = 84.3 → 84</div>
+        </div>
+      </article>
+
+      <!-- 福人 -->
+      <article class="brand-card">
+        <div class="brand-left">
+          <div class="brand-rank">RANK 2 / 6</div>
+          <div class="brand-name">福人精板</div>
+          <div class="brand-score"><b>83</b><span>原报告 85<br>误差带 80–86</span></div>
+          <p class="brand-verdict">环保口径六家最强，低味反馈一致但样本太薄。真正压住它的是「买到的是不是真精板」这个渠道问题。</p>
+        </div>
+        <div class="brand-right">
+          <div class="dim">
+            <div class="dim-head"><span>环保可信度<i>权重 35%</i></span><b>90</b></div>
+            <div class="dim-bar"><div style="width:90%"></div></div>
+            <p>F1、F4星、ENF 多体系叠加，官方资料可信度「中高」，是六家里被硬资料支撑得最好的。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>低味稳定性<i>权重 25%</i></span><b>82</b></div>
+            <div class="dim-bar"><div style="width:82%"></div></div>
+            <p>正向反馈方向一致，但最大正向帖只有 64 条评论，按 R2 规则封顶，不能给更高。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>真伪 / 施工<i>权重 20%</i></span><b>72</b></div>
+            <div class="dim-bar"><div style="width:72%"></div></div>
+            <p>授权工厂、防伪码、精板与普通板边界模糊，是它最大的现实扣分来源。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>衣柜橱柜适配<i>权重 20%</i></span><b>84</b></div>
+            <div class="dim-bar"><div style="width:84%"></div></div>
+            <p>柜体强度与使用场景存在反对样本（证据表 #20），适配分不能比照爱格。</p>
+          </div>
+          <div class="brand-formula">90×0.35 + 82×0.25 + 72×0.20 + 84×0.20 = 83.2 → 83</div>
+        </div>
+      </article>
+
+      <!-- 华富立 -->
+      <article class="brand-card">
+        <div class="brand-left">
+          <div class="brand-rank">RANK 3 / 6</div>
+          <div class="brand-name">华富立欧松 + 多层</div>
+          <div class="brand-score"><b>80</b><span>原报告 82<br>误差带 77–83</span></div>
+          <p class="brand-verdict">「柜门欧松、柜体多层」的组合价值真实存在，但它的分数必须背上六家最重的施工与混板风险。</p>
+        </div>
+        <div class="brand-right">
+          <div class="dim">
+            <div class="dim-head"><span>环保可信度<i>权重 35%</i></span><b>86</b></div>
+            <div class="dim-bar"><div style="width:86%"></div></div>
+            <p>ENF 与 F4星双体系成立，MDI 胶路线有依据，官方资料可信度「中高」。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>低味稳定性<i>权重 25%</i></span><b>74</b></div>
+            <div class="dim-bar"><div style="width:74%"></div></div>
+            <p>多层柜体关门后气味的评论两极（151 评论帖），地区与批次差异明显。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>真伪 / 施工<i>权重 20%</i></span><b>68</b></div>
+            <div class="dim-bar"><div style="width:68%"></div></div>
+            <p>欧松、柠芯、多层混板，现场裁切开孔不补封，474 评论的超标帖归因正落在这里。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>衣柜橱柜适配<i>权重 20%</i></span><b>90</b></div>
+            <div class="dim-bar"><div style="width:90%"></div></div>
+            <p>高柜门用欧松、柜体用多层的组合在衣柜橱柜两个场景都实用。</p>
+          </div>
+          <div class="brand-formula">86×0.35 + 74×0.25 + 68×0.20 + 90×0.20 = 80.2 → 80</div>
+        </div>
+      </article>
+
+      <!-- 三棵树 -->
+      <article class="brand-card">
+        <div class="brand-left">
+          <div class="brand-rank">RANK 4 / 6</div>
+          <div class="brand-name">三棵树小森板</div>
+          <div class="brand-score"><b>76</b><span>原报告 78<br>误差带 73–79</span></div>
+          <p class="brand-verdict">第四名是「负面缺失」型而非「正面证据」型。这是本页对原分最有立场的一处下调：按 R4，证据薄就该压置信度。</p>
+        </div>
+        <div class="brand-right">
+          <div class="dim">
+            <div class="dim-head"><span>环保可信度<i>权重 35%</i></span><b>80</b></div>
+            <div class="dim-bar"><div style="width:80%"></div></div>
+            <p>官方卖点完整（康芯板 ENF、水性无醛胶），但第三方真实检测证据接近零。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>低味稳定性<i>权重 25%</i></span><b>76</b></div>
+            <div class="dim-bar"><div style="width:76%"></div></div>
+            <p>正负样本都少，只能给中位估计；30 篇样本里商家宣传帖占比偏高。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>真伪 / 施工<i>权重 20%</i></span><b>68</b></div>
+            <div class="dim-bar"><div style="width:68%"></div></div>
+            <p>授权门店、报价、交付与安装拖延的乱象密集，体系风险大于材料风险。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>衣柜橱柜适配<i>权重 20%</i></span><b>78</b></div>
+            <div class="dim-bar"><div style="width:78%"></div></div>
+            <p>真实落地案例厚度不足，适配判断缺少样本支撑。</p>
+          </div>
+          <div class="brand-formula">80×0.35 + 76×0.25 + 68×0.20 + 78×0.20 = 76.2 → 76</div>
+        </div>
+      </article>
+
+      <!-- 大王椰 -->
+      <article class="brand-card">
+        <div class="brand-left">
+          <div class="brand-rank">RANK 5 / 6</div>
+          <div class="brand-name">大王椰 HENF</div>
+          <div class="brand-score"><b>71</b><span>原报告 74<br>误差带 68–74</span></div>
+          <p class="brand-verdict">典型的渠道型风险：3151 评论的切柜送检帖指向材料替换。原 74 用它自己的维度分只能算出 72.6，本页直接给出可复算的 71。</p>
+        </div>
+        <div class="brand-right">
+          <div class="dim">
+            <div class="dim-head"><span>环保可信度<i>权重 35%</i></span><b>78</b></div>
+            <div class="dim-bar"><div style="width:78%"></div></div>
+            <p>HENF 是营销等级而非国标，最终仍要回到批次检测报告。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>低味稳定性<i>权重 25%</i></span><b>62</b></div>
+            <div class="dim-bar"><div style="width:62%"></div></div>
+            <p>强负面密集：砸柜帖 847 评论、甲醛苯两年超标帖 126 评论，通风周期被反复追问。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>真伪 / 施工<i>权重 20%</i></span><b>64</b></div>
+            <div class="dim-bar"><div style="width:64%"></div></div>
+            <p>假货、材料替换、防伪模糊，渠道可控性六家最差。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>衣柜橱柜适配<i>权重 20%</i></span><b>76</b></div>
+            <div class="dim-bar"><div style="width:76%"></div></div>
+            <p>生态板体系做全屋定制的适配一般，正向下车样本存在但不厚。</p>
+          </div>
+          <div class="brand-formula">78×0.35 + 62×0.25 + 64×0.20 + 76×0.20 = 70.8 → 71</div>
+        </div>
+      </article>
+
+      <!-- 万华 -->
+      <article class="brand-card">
+        <div class="brand-left">
+          <div class="brand-rank">RANK 6 / 6</div>
+          <div class="brand-name">万华禾香板</div>
+          <div class="brand-score"><b>70</b><span>原报告 72<br>误差带 67–73</span></div>
+          <p class="brand-verdict">典型的材料型风险：正品验真之后仍要散味。与大王椰只差 1 分，本质是同一梯队的两种不同风险形态。</p>
+        </div>
+        <div class="brand-right">
+          <div class="dim">
+            <div class="dim-head"><span>环保可信度<i>权重 35%</i></span><b>84</b></div>
+            <div class="dim-bar"><div style="width:84%"></div></div>
+            <p>无醛添加技术路线与检测报告成立，甲醛指标本身并非六家最差。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>低味稳定性<i>权重 25%</i></span><b>48</b></div>
+            <div class="dim-bar"><div style="width:48%"></div></div>
+            <p>六家最低。固有秸秆与 MDI 气味，495、143、146 评论级负面帖密集，「甲醛低」与「体感低味」明显分离。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>真伪 / 施工<i>权重 20%</i></span><b>70</b></div>
+            <div class="dim-bar"><div style="width:70%"></div></div>
+            <p>验真动作复杂（暗标、WH 标识、小程序），但官方防伪渠道本身是完整的。</p>
+          </div>
+          <div class="dim">
+            <div class="dim-head"><span>衣柜橱柜适配<i>权重 20%</i></span><b>74</b></div>
+            <div class="dim-bar"><div style="width:74%"></div></div>
+            <p>气味敏感家庭与潮湿场景受限，适配上限被材料属性锁住。</p>
+          </div>
+          <div class="brand-formula">84×0.35 + 48×0.25 + 70×0.20 + 74×0.20 = 70.2 → 70</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 05 理想条件 -->
+    <section>
+      <div class="sec-head"><span class="sec-no">05</span><h2>理想条件分：只动两个旋钮</h2></div>
+      <p class="sec-note">理想条件 = 正品确定、封边与开孔补封统一。本页不重新发明一套分数，只在现实分上调两个变量，其余维度原封不动，调整全程可追溯。</p>
+
+      <div class="knobs">
+        <div class="knob">
+          <b>旋钮一：真伪 / 施工 → 全员 92</b>
+          <p>正品与施工被假设解决后，这个维度在品牌间趋同。不给 100 是因为封边统一也无法消除材料切口的边缘释放差异。</p>
+          <div class="arrows">
+            <span>爱格 76<em> → 92</em></span>
+            <span>福人 72<em> → 92</em></span>
+            <span>华富立 68<em> → 92</em></span>
+            <span>三棵树 68<em> → 92</em></span>
+            <span>大王椰 64<em> → 92</em></span>
+            <span>万华 70<em> → 92</em></span>
+          </div>
+        </div>
+        <div class="knob">
+          <b>旋钮二：低味稳定性按「仅正品样本」重估</b>
+          <p>剔除可归因于假货和施工的气味负面，只保留指向正品材料本身的反馈。万华的固有气味属于材料属性，加分最少。</p>
+          <div class="arrows">
+            <span>爱格 78<em> → 80</em></span>
+            <span>福人 82<em> → 85</em></span>
+            <span>华富立 74<em> → 78</em></span>
+            <span>三棵树 76<em> → 76</em></span>
+            <span>大王椰 62<em> → 70</em></span>
+            <span>万华 48<em> → 55</em></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ideal-row">
+        <div class="ov-name">爱格板<small>88.0 = 30.8+20.0+18.4+18.8</small></div>
+        <div class="dualbar">
+          <div class="bar real"><div class="fill" style="width:80%"></div></div>
+          <div class="bar"><div class="fill" style="width:93.33%"></div></div>
+        </div>
+        <div class="ideal-nums"><span class="from">84</span><span class="arrow">→</span><span class="to">88</span><span class="chip flat">原 88 · 持平</span></div>
+      </div>
+      <div class="ideal-row">
+        <div class="ov-name">福人精板<small>87.95 = 31.5+21.25+18.4+16.8</small></div>
+        <div class="dualbar">
+          <div class="bar real"><div class="fill" style="width:76.67%"></div></div>
+          <div class="bar"><div class="fill" style="width:93.33%"></div></div>
+        </div>
+        <div class="ideal-nums"><span class="from">83</span><span class="arrow">→</span><span class="to">88</span><span class="chip down">原 90 · 下调 2</span></div>
+      </div>
+      <div class="ideal-row">
+        <div class="ov-name">华富立欧松 + 多层<small>86.0 = 30.1+19.5+18.4+18.0</small></div>
+        <div class="dualbar">
+          <div class="bar real"><div class="fill" style="width:66.67%"></div></div>
+          <div class="bar"><div class="fill" style="width:86.67%"></div></div>
+        </div>
+        <div class="ideal-nums"><span class="from">80</span><span class="arrow">→</span><span class="to">86</span><span class="chip flat">原 86 · 持平</span></div>
+      </div>
+      <div class="ideal-row">
+        <div class="ov-name">三棵树小森板<small>81.0 = 28.0+19.0+18.4+15.6</small></div>
+        <div class="dualbar">
+          <div class="bar real"><div class="fill" style="width:53.33%"></div></div>
+          <div class="bar"><div class="fill" style="width:70%"></div></div>
+        </div>
+        <div class="ideal-nums"><span class="from">76</span><span class="arrow">→</span><span class="to">81</span><span class="chip down">原 82 · 下调 1</span></div>
+      </div>
+      <div class="ideal-row">
+        <div class="ov-name">大王椰 HENF<small>78.4 = 27.3+17.5+18.4+15.2</small></div>
+        <div class="dualbar">
+          <div class="bar real"><div class="fill" style="width:36.67%"></div></div>
+          <div class="bar"><div class="fill" style="width:60%"></div></div>
+        </div>
+        <div class="ideal-nums"><span class="from">71</span><span class="arrow">→</span><span class="to">78</span><span class="chip flat">原 78 · 持平</span></div>
+      </div>
+      <div class="ideal-row">
+        <div class="ov-name">万华禾香板<small>76.35 = 29.4+13.75+18.4+14.8</small></div>
+        <div class="dualbar">
+          <div class="bar real"><div class="fill" style="width:33.33%"></div></div>
+          <div class="bar"><div class="fill" style="width:53.33%"></div></div>
+        </div>
+        <div class="ideal-nums"><span class="from">70</span><span class="arrow">→</span><span class="to">76</span><span class="chip up">原 74 · 上调 2</span></div>
+      </div>
+      <div class="legend" style="margin-top:14px">
+        <i><span class="swatch" style="background:#b9bcb6"></span>现实分</i>
+        <i><span class="swatch fill"></span>理想分</i>
+        <i>横轴 60–90</i>
+      </div>
+
+      <div class="callout">
+        <b>关键结论：理想条件下是「福人 88 = 爱格 88」并列，不是反超。</b>
+        <p>原报告写「福人 90 反超爱格 88」。本页不采纳：福人的正向样本最大只有 64 条评论，按 R2 撑不起 90；爱格则有 364 评论的「正品仍有味」反例压住上限。两个 88 的小数位分别是 88.0 和 87.95，这种差距在 ±3 误差带面前没有任何排序意义。能下的最强结论是：理想条件下福人追平爱格，反超超出了证据精度。</p>
+      </div>
+    </section>
+
+    <!-- 06 分歧 -->
+    <section>
+      <div class="sec-head"><span class="sec-no">06</span><h2>与原报告的五处分歧</h2></div>
+      <p class="sec-note">两套排序完全一致，分歧全部发生在「分数的精确感是否超过了证据的精确度」这一层。</p>
+      <div class="dis-list">
+        <div class="dis">
+          <div>
+            <b>原综合分与它自己的权重公式对不上</b>
+            <p>用原报告各品牌的四维分按 35/25/20/20 复算：华富立得 <code>81.1</code>（报 82）、大王椰得 <code>72.6</code>（报 74）、万华得 <code>71.5</code>（报 72）。说明综合分是先定的、维度分是后配的。本页所有分数可由公式直接复算。</p>
+          </div>
+        </div>
+        <div class="dis">
+          <div>
+            <b>「福人理想分 90」依据偏薄</b>
+            <p>支撑福人低味优势的正向帖评论量为 3、5、13、15、64 条，全部落在原报告自己定义的「弱支撑」区间。给出全场最高的 90 分，等于用最薄的证据下了最重的结论。本页改为 88，与爱格并列。</p>
+          </div>
+        </div>
+        <div class="dis">
+          <div>
+            <b>三棵树 78 偏宽松</b>
+            <p>它的第四名建立在「没找到污染物负面」之上，而非「找到了正面证据」；30 篇样本中商家宣传帖占比明显偏高，真实检测证据接近零。本页按 R4 下调至 76，与华富立的差距从 2 分拉开到 4 分。</p>
+          </div>
+        </div>
+        <div class="dis">
+          <div>
+            <b>大王椰与万华的差距被高估</b>
+            <p>原报告给 74 对 72。大王椰是渠道型风险（材料替换、假货、防伪模糊），万华是材料型风险（固有气味、TVOC 体感），性质不同但量级接近。本页压缩为 71 对 70：同一梯队，下单前都需要额外验证。</p>
+          </div>
+        </div>
+        <div class="dis">
+          <div>
+            <b>万华的理想分被低估</b>
+            <p>理想条件同时消除了万华的验真复杂度与封边差异，这部分扣分原报告只返还了一半（72→74）。本页给 70→76：受益更多，但 55 的低味分让它照样垫底。固有气味是材料属性，任何采购假设都救不了。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 证据基础与局限 -->
+    <section>
+      <div class="sec-head"><span class="sec-no">07</span><h2>证据基础与局限</h2></div>
+      <p class="sec-note">本页的分数继承了原始记录的所有缺陷。下面这些局限既是对原报告的提醒，也同样约束本页：这是 ±3 误差带存在的原因。</p>
+      <div class="limits">
+        <div class="limit">
+          <b>评分依据（全部为本目录文件）</b>
+          <ul>
+            <li><a href="./board-ranking-report.html">board-ranking-report.html</a> · 原排名报告与品牌证据数据</li>
+            <li><a href="./xiaohongshu-board-evidence.md">xiaohongshu-board-evidence.md</a> · 165 篇样本沉淀</li>
+            <li><a href="./xiaohongshu-board-review-pack.md">xiaohongshu-board-review-pack.md</a> · 78 条重点复核包</li>
+            <li>Fable 5 未重新访问小红书，未核验任何链接的当前状态。</li>
+          </ul>
+        </div>
+        <div class="limit">
+          <b>已知数据缺陷</b>
+          <ul>
+            <li>早期样本评论数存在 54 截断（同一砸柜帖：主表记 54，复核包记 847）。</li>
+            <li>点赞、收藏全程未记录，互动热度只能依赖评论数单一信号。</li>
+            <li>原网页的机器情绪标签存在错标（如 #141 负面帖被标为正面），本页评分前已人工纠正后再使用。</li>
+            <li>所有分数为装修选材的决策辅助，不构成检测结论；入住前请以 CMA 室内空气检测为准。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="sig">Fable 5 · 独立复核评分</div>
+      本页全部分数由 Fable 5（Claude 系列 AI 模型）于 2026-06-11 在 Factory Droid 环境中，仅基于上列三份原始资料独立复核得出；未重新采集任何数据，不代表任何品牌官方结论。两套排序与原报告一致：现实下单「爱格 > 福人 > 华富立 > 三棵树 > 大王椰 > 万华」；理想条件下福人追平爱格。最稳的策略不变：选对位置、验真、封边、入住前检测。
+    </div>
+  </footer>
+
+</body>
+</html>
