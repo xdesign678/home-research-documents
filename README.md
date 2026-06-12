@@ -19,6 +19,7 @@
 - [板材环保等级与检测术语速查（2026-06-12）](./board-environmental-terms-guide-2026-06-12.md)
 - [板材标准与室内空气检测口径边界（2026-06-12）](./board-standards-testing-boundary-2026-06-12.md)
 - [全屋定制板材证据可信度评分规则（2026-06-12）](./board-evidence-scoring-rubric-2026-06-12.md)
+- [全屋定制板材候选升级/降级判断矩阵（2026-06-12）](./board-candidate-upgrade-downgrade-matrix-2026-06-12.md)
 - [全屋定制板材官方口径与验真清单（2026-06-12）](./board-official-verification-checklist-2026-06-12.md)
 - [全屋定制板材报价与合同审核清单（2026-06-12）](./board-quote-contract-review-checklist-2026-06-12.md)
 - [全屋定制板材商家横向对比与决策记录表（2026-06-12）](./board-vendor-comparison-decision-template-2026-06-12.md)
