@@ -7,9 +7,10 @@
 1. 先看 `board-material-selection-brief-2026-06-12.md`：快速知道当前优先看谁、哪些情况暂停、问商家什么。
 2. 再看 `board-ranking-report.html`：看原 6 家主排名、补充候选观察层和每个品牌的证据入口。
 3. 看不懂 ENF、E0、F4星、CMA、TVOC 时，看 `board-environmental-terms-guide-2026-06-12.md`。
-4. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
-5. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
-6. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
+4. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
+5. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
+6. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
+7. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
 
 ## 文件用途总览
 
@@ -17,6 +18,7 @@
 |---|---|---|---|
 | `board-material-selection-brief-2026-06-12.md` | 快下单、和商家沟通前 | 主排名、新增候选、排除条件、12 个问题 | 短版，不展开原帖和评论 |
 | `board-environmental-terms-guide-2026-06-12.md` | 看报价单、检测报告、销售话术时 | ENF、E0、F4星、CMA、TVOC、无醛添加、净味板 | 只解释概念，不替代标准原文 |
+| `board-official-verification-checklist-2026-06-12.md` | 和商家核授权、报告、标签、合同时 | 官方入口、暂缺官方闭环对象、最小证据包、追问模板 | 不改排名，只补验真和合同颗粒度 |
 | `board-ranking-report.html` | 想看网页化主报告 | 原 6 家排名 + 新增候选观察层 | 主排名仍是原 6 家；新增候选不直接改排名 |
 | `fable5-board-score-review.html` | 想看独立评分复核 | 原 6 家 | 未纳入红棉花、博耐克、合生雅居、靓时靓面等新增候选 |
 | `xiaohongshu-board-evidence.md` | 查原始小红书证据沉淀 | 原 6 家、165 篇样本、60 篇深读 | 适合追溯主排名为什么这样排 |
@@ -34,6 +36,7 @@
 | 合生雅居怎么处理 | `xiaohongshu-board-extension-research-2026-06-12.md` 的 HSYJ 条目和 D16-D18 |
 | 靓时靓面怎么看 | `xiaohongshu-board-extension-research-2026-06-12.md` 的 LSLM 条目和 D19 |
 | 下单前怎么问商家 | `board-material-selection-brief-2026-06-12.md` 的“下单前问商家的 12 个问题” |
+| 官方授权、检测报告、标签和合同怎么核 | `board-official-verification-checklist-2026-06-12.md` |
 | ENF、CMA、TVOC 到底怎么理解 | `board-environmental-terms-guide-2026-06-12.md` |
 
 ## 证据覆盖矩阵
@@ -71,6 +74,7 @@
 - 2026-06-12 新增候选已单独做成细节账本，不强行塞进原 6 家排名。
 - 主报告页已加入“补充候选观察层”。
 - 已新增“选型决策简版”和“环保等级与检测术语速查”。
+- 已新增“官方口径与验真清单”，把小红书口碑问题落到授权、报告、标签和合同核验。
 - 小红书安全限制 300017 已记录，后续复查队列已写入补充研究文档。
 
 ## 当前未完成但已经排队的部分

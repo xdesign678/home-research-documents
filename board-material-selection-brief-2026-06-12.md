@@ -1,6 +1,6 @@
 # 全屋定制板材选型决策简版（2026-06-12）
 
-这份是给实际下单看的短版。详细证据仍以 `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` 为准；标准和检测名词先看 `board-environmental-terms-guide-2026-06-12.md`。
+这份是给实际下单看的短版。详细证据仍以 `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` 为准；标准和检测名词先看 `board-environmental-terms-guide-2026-06-12.md`；下单验授权、报告、标签和合同，先看 `board-official-verification-checklist-2026-06-12.md`。
 
 ## 一句话结论
 
@@ -83,3 +83,4 @@
 - 丽特曼、爱德板、伟业欧松板仍是下一轮待查对象。
 - 这份简版是决策辅助，不替代合同、到货验收和室内空气检测。
 - 如果看不懂 ENF、E0、F4星、CMA、TVOC，先读 `board-environmental-terms-guide-2026-06-12.md`。
+- 如果要和商家核官方授权、检测报告、到货标签和合同条款，先读 `board-official-verification-checklist-2026-06-12.md`。
