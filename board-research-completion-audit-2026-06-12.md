@@ -4,7 +4,7 @@
 
 ## 审计结论
 
-当前研究已经形成可用的阶段性决策资料：主排名、补充候选、帖子与评论证据、证据复盘索引、结论追溯、原始目标验收、一致性审查、证据可信度评分、评论防误读、帖子评论详细记录规范、帖子评论记录覆盖审计、逐对象补查卡、小红书证据转行动矩阵、候选升级/降级矩阵、候选证据缺口登记、低证据候选身份核查、新增观察对象官方入口补查、术语解释、检测报告快读、环保甲醛证据闭环、最终下单红黄绿判断、分房间用板配置、柜门饰面链风险、报价合同审核、商家横向对比表、商家问询脚本、商家证据收件判读、官方验真、官方资料交叉核验、下单问题清单、入住前空气检测、污染源归因、整改排查、小红书安全恢复边界、小红书手动补证流程和手动截图快填卡都已覆盖。
+当前研究已经形成可用的阶段性决策资料：主排名、补充候选、帖子与评论证据、D 区细节回填定位、证据复盘索引、结论追溯、原始目标验收、一致性审查、证据可信度评分、评论防误读、帖子评论详细记录规范、帖子评论记录覆盖审计、逐对象补查卡、小红书证据转行动矩阵、候选升级/降级矩阵、候选证据缺口登记、低证据候选身份核查、新增观察对象官方入口补查、术语解释、检测报告快读、环保甲醛证据闭环、最终下单红黄绿判断、付款节点闸门、分房间用板配置、柜门饰面链风险、报价合同审核、商家横向对比表、商家问询脚本、商家证据收件判读、官方验真、官方资料交叉核验、下单问题清单、入住前空气检测、污染源归因、整改排查、小红书安全恢复边界、小红书手动补证流程和手动截图快填卡都已覆盖。
 
 但它还不能标成“全量完成”。原因是小红书自动打开详情页时已经出现安全限制 300017，按项目规则必须停止继续自动浏览；丽特曼、爱德板、伟业欧松板等被评论带出的候选还没有独立完成帖子和评论深读。
 
@@ -17,10 +17,10 @@
 | 使用小红书搜索研究 | 阶段完成 | `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` | 已做公开搜索和只读记录；后续因安全限制暂停 |
 | 注意 AGENTS.md 小红书规则 | 已遵守 | `xiaohongshu-board-extension-research-2026-06-12.md` 的研究边界和安全限制记录 | 记录显示未登录、未互动，遇安全限制 300017 后停止 |
 | 不只看帖子，也看评论 | 已完成 | 原 6 家 60 篇评论深读、78 条重点复核、新增候选详细评论摘要 | 评论已经成为排名和风险判断的主要依据之一 |
-| 随时记录帖子内容和评论 | 已完成到可复盘程度 | `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md`、`xiaohongshu-board-post-comment-recording-standard-2026-06-12.md`、`xiaohongshu-board-record-detail-coverage-audit-2026-06-12.md`、`xiaohongshu-board-evidence-review-index-2026-06-12.md`、`board-evidence-scoring-rubric-2026-06-12.md`、`xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md`、`xiaohongshu-board-manual-evidence-intake-2026-06-12.md` | 已按标题、链接、评论量、正文摘要、评论分歧、证据权重记录；补充研究文档已新增复盘记录粒度要求和待补录对象卡片，帖子评论记录规范把搜索页线索、普通帖子和强证据深读分档，覆盖审计进一步标明哪些条目够深、哪些只是线索，截图快填卡用于安全限制后快速截正文和评论，手动补证表用于正式接收帖子、评论和截图 |
+| 随时记录帖子内容和评论 | 已完成到可复盘程度 | `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md`、`xiaohongshu-board-post-comment-recording-standard-2026-06-12.md`、`xiaohongshu-board-record-detail-coverage-audit-2026-06-12.md`、`xiaohongshu-board-evidence-review-index-2026-06-12.md`、`board-evidence-scoring-rubric-2026-06-12.md`、`xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md`、`xiaohongshu-board-manual-evidence-intake-2026-06-12.md` | 已按标题、链接、评论量、正文摘要、评论分歧、证据权重记录；补充研究文档已新增复盘记录粒度要求和待补录对象卡片，帖子评论记录规范把搜索页线索、普通帖子和强证据深读分档，覆盖审计进一步标明哪些条目够深、哪些只是线索，复盘索引已把 D1-D19 细节回填集中定位，截图快填卡用于安全限制后快速截正文和评论，手动补证表用于正式接收帖子、评论和截图 |
 | 看看除了已有对象还有没有值得推荐 | 已完成阶段判断 | `board-material-selection-brief-2026-06-12.md`、`board-research-navigation-2026-06-12.md`、补充研究阶段判断 | 新增对象进入观察层，但没有证据足够替代爱格、福人、华富立前三 |
 | 重点关注环保和甲醛 | 已完成 | 主报告、术语速查、证据包、补充研究、检测报告快读卡 | 甲醛、TVOC、气味、CMA、封边、批次、授权、整屋叠加、报告类型和样品对应关系都已纳入 |
-| 看资料还有没有需要补充优化 | 已持续优化 | 导航、短版、术语页、证据评分规则、检测报告快读卡、原始目标验收、一致性审查、商家问询脚本、官方验真清单、官方交叉核验笔记、复查队列 | 已从“证据多”补到“怎么读、怎么评、怎么验收原始目标、怎么核口径、怎么问、怎么验、怎么先判报告、怎么复查、怎么用官方资料校正小红书口碑” |
+| 看资料还有没有需要补充优化 | 已持续优化 | 导航、短版、术语页、证据评分规则、检测报告快读卡、D 区复盘定位、付款节点闸门、原始目标验收、一致性审查、商家问询脚本、官方验真清单、官方交叉核验笔记、复查队列 | 已从“证据多”补到“怎么读、怎么评、怎么验收原始目标、怎么核口径、怎么问、怎么验、怎么先判报告、怎么卡付款、怎么复查、怎么用官方资料校正小红书口碑” |
 | 把博耐克加入查询对象 | 已完成 | 补充研究 BK1-BK4、D8-D9，短版和验真清单 | 定位为高端柜门观察候选，关键缺口是北新木业授权、素板/精板、贴面链 |
 | 把合生雅居加入查询对象 | 已完成 | 补充研究 HSYJ1-HSYJ4、D16-D18，短版、验真清单、观察对象官方入口补查笔记 | 定位为定制渠道/门店风险，不按板材品牌排序 |
 | 看到口碑较好板材先记下来再查 | 阶段完成 | 滚动候选池、下一轮复查队列、补充候选观察层 | 红棉花、博耐克、靓时靓面、丽特曼、爱德板、伟业欧松板等已进入队列 |
@@ -49,12 +49,12 @@
 | `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md` | 把小红书里的低味、刺鼻、超标、假货、授权、延期等信号转成商家追问、合同条款、到货验收和暂停条件 |
 | `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md` | 小红书自动浏览受限后，手动打开单条帖子时的截图顺序、三分钟快填、十分钟评论采样和按对象补证重点 |
 | `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` | 小红书自动浏览受限后，手动提供帖子、评论、截图、检测或合同线索时的收集模板 |
-| `xiaohongshu-board-evidence-review-index-2026-06-12.md` | 按品牌、证据编号和问题类型反查小红书帖子与评论底稿 |
+| `xiaohongshu-board-evidence-review-index-2026-06-12.md` | 按品牌、证据编号、D 区细节回填和问题类型反查小红书帖子与评论底稿 |
 | `board-conclusion-traceability-matrix-2026-06-12.md` | 每条关键结论的支撑证据、当前弱点和可能改变结论的新证据 |
 | `board-original-goal-acceptance-audit-2026-06-12.md` | 按最初目标逐条核对当前证据、验收状态、缺口和下一轮证据动作 |
 | `board-research-consistency-audit-2026-06-12.md` | 横向核对主报告、短版、补充研究、候选缺口、完成度审计和追溯矩阵是否口径一致 |
 | `board-material-selection-brief-2026-06-12.md` | 实际下单短版，告诉你先看谁、暂停谁、问什么 |
-| `board-final-go-no-go-decision-checklist-2026-06-12.md` | 签合同前用红黄绿判断是否可以继续、需要补证还是暂停 |
+| `board-final-go-no-go-decision-checklist-2026-06-12.md` | 签合同或付款前用红黄绿和付款节点闸门判断是否可以继续、需要补证还是暂停 |
 | `board-room-by-room-material-schedule-2026-06-12.md` | 按房间和柜体部位记录实际用板、封边、检测和验收照片 |
 | `board-door-panel-surface-chain-risk-2026-06-12.md` | 拆清柜门基材、PET 膜、贴面、封边、异形件和到货验真 |
 | `board-environmental-terms-guide-2026-06-12.md` | ENF、E0、F4星、CMA、TVOC 等术语解释 |

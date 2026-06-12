@@ -55,11 +55,13 @@
 | 核多个文件是否互相矛盾 | `board-research-consistency-audit-2026-06-12.md` | 本轮新增并接入 | 负责防止不同入口口径漂移 |
 | 看当前研究是否完成 | `board-research-completion-audit-2026-06-12.md` | 已接入 README、导航、主报告 | 结论是阶段性完成，不是全量完成 |
 | 看新增候选细节 | `xiaohongshu-board-extension-research-2026-06-12.md` | 已接入 README、导航、主报告、证据索引 | 负责保留新增帖子与评论摘要 |
+| 快速定位新增候选最细记录 | `xiaohongshu-board-evidence-review-index-2026-06-12.md` 的 D 区细节回填快速定位 | 已接入证据复盘索引、记录覆盖审计 | 负责把 D1-D19 对应对象、问题和复盘重点集中起来 |
 | 小红书恢复后继续查 | `board-xiaohongshu-next-research-playbook-2026-06-12.md`、`xiaohongshu-board-targeted-followup-cards-2026-06-12.md` | 已接入 README、导航、主报告 | 先按安全恢复清单判断是否能继续 |
 | 用户手动打开单条帖子，先快速截正文和评论 | `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md` | 已接入 README、导航、主报告、手动补证表、完成度审计 | 适合 300017 后先做轻量补证 |
 | 用户手动提供完整帖子、评论或截图 | `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` | 已接入 README、导航、主报告、完成度审计 | 适合 300017 后正式整理补证 |
 | 把评论转成商家动作 | `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md` | 已接入 README、导航、主报告 | 避免只停留在“口碑好/口碑差” |
 | 商家发来检测报告或报告截图 | `board-test-report-quick-read-card-2026-06-12.md` | 已接入 README、导航、主报告、短版、商家收件表、官方验真清单 | 先判报告类型、样品对应、检测项目和红黄绿信号 |
+| 签合同或付款前最后收口 | `board-final-go-no-go-decision-checklist-2026-06-12.md` | 已接入 README、导航、短版、主报告 | 负责红黄绿判断和每次付款前的证据闸门 |
 | 看官方入口和索证缺口 | `board-official-source-crosscheck-notes-2026-06-12.md`、`board-observation-candidate-official-source-gap-notes-2026-06-12.md` | 已接入 README、导航、主报告 | 官方资料只用于核验，不直接替代小红书落地证据 |
 
 ## 仍不能标全量完成的原因

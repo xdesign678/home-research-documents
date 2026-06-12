@@ -5,7 +5,7 @@
 ## 推荐阅读顺序
 
 1. 先看 `board-material-selection-brief-2026-06-12.md`：快速知道当前优先看谁、哪些情况暂停、问商家什么。
-2. 签合同前看 `board-final-go-no-go-decision-checklist-2026-06-12.md`：用红黄绿判断能不能继续。
+2. 签合同或付款前看 `board-final-go-no-go-decision-checklist-2026-06-12.md`：用红黄绿和付款节点闸门判断能不能继续。
 3. 再看 `board-room-by-room-material-schedule-2026-06-12.md`：把房间、柜子、柜体、柜门、背板、抽屉底板拆清。
 4. 如果涉及 PET 欧松门、博耐克、宁丰、靓时靓面、丽特曼、贴面和异形件，看 `board-door-panel-surface-chain-risk-2026-06-12.md`。
 5. 再看 `board-ranking-report.html`：看原 6 家主排名、补充候选观察层和每个品牌的证据入口。
@@ -38,7 +38,7 @@
 32. 要按对象逐条补查红棉花、博耐克、合生雅居、靓时靓面、水性科天、露水河等，看 `xiaohongshu-board-targeted-followup-cards-2026-06-12.md`。
 33. 如果你手动打开了小红书帖子、评论或截图，先看 `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md`：按快填卡截正文、评论和检测/合同/标签线索。
 34. 如果这条帖子值得正式补证，再看 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md`：按表补证，方便我继续整理。
-35. 要按品牌或问题反查小红书证据编号，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
+35. 要按品牌、问题或 D 区细节编号反查小红书证据，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
 36. 要确认补充研究里的条目到底是搜索页线索、普通帖子还是强证据深读，看 `xiaohongshu-board-record-detail-coverage-audit-2026-06-12.md`。
 37. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
 38. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
@@ -88,7 +88,7 @@
 | `xiaohongshu-board-evidence.md` | 查原始小红书证据沉淀 | 原 6 家、165 篇样本、60 篇深读 | 适合追溯主排名为什么这样排 |
 | `xiaohongshu-board-review-pack.md` | 查 78 条重点复核 | 原 6 家高争议/检测/入住/验真样本 | 二次分析底稿，不是短结论 |
 | `xiaohongshu-board-extension-research-2026-06-12.md` | 查新增对象细节 | 水性科天、鲁丽、露水河、兔宝宝、千年舟、莫干山、克诺斯邦/可丽芙、芦花板、博耐克、红棉花、宁丰、鹏鸿、合生雅居、靓时靓面等 | 评论摘要最完整；含安全限制记录、复盘记录粒度要求、待补录对象卡片和下一轮队列 |
-| `xiaohongshu-board-evidence-review-index-2026-06-12.md` | 想按品牌、证据编号或风险类型快速复盘时 | 原 6 家 78 条复核、新增候选编号、低味/超标/验真/混板/渠道风险索引 | 它是索引，不新增帖子证据 |
+| `xiaohongshu-board-evidence-review-index-2026-06-12.md` | 想按品牌、证据编号、D 区细节回填或风险类型快速复盘时 | 原 6 家 78 条复核、新增候选编号、D1-D19 细节定位、低味/超标/验真/混板/渠道风险索引 | 它是索引，不新增帖子证据 |
 
 ## 当前主结论位置
 
@@ -104,7 +104,7 @@
 | 原 6 家排名为什么这么排 | `board-ranking-report.html` 的“现实下单综合排名”和品牌详情 |
 | 理想条件下排名会不会变 | `board-ranking-report.html` 的“理想条件排名”；`fable5-board-score-review.html` 的独立复核 |
 | 新增候选有没有比爱格/福人/华富立更推荐 | `xiaohongshu-board-extension-research-2026-06-12.md` 的“阶段判断” |
-| 某个品牌或问题对应哪些帖子编号 | `xiaohongshu-board-evidence-review-index-2026-06-12.md` |
+| 某个品牌、问题或 D 区细节对应哪些帖子编号 | `xiaohongshu-board-evidence-review-index-2026-06-12.md` |
 | 每个房间、每个柜子具体用什么板 | `board-room-by-room-material-schedule-2026-06-12.md` |
 | PET 欧松门、贴面、膜、异形件怎么拆 | `board-door-panel-surface-chain-risk-2026-06-12.md` |
 | 合生雅居怎么处理 | `xiaohongshu-board-extension-research-2026-06-12.md` 的 HSYJ 条目和 D16-D18 |
@@ -172,10 +172,10 @@
 - 原 6 家主排名网页化，并保留帖子和评论证据入口。
 - Fable 5 独立复核页已注明只覆盖原 6 家。
 - 2026-06-12 新增候选已单独做成细节账本，不强行塞进原 6 家排名。
-- 已新增“小红书板材证据复盘索引”，把原 6 家 78 条复核和新增候选编号按品牌、问题和风险类型串起来。
+- 已新增“小红书板材证据复盘索引”，把原 6 家 78 条复核、新增候选编号和 D1-D19 细节回填按品牌、问题和风险类型串起来。
 - 主报告页已加入“补充候选观察层”。
 - 已新增“选型决策简版”和“环保等级与检测术语速查”。
-- 已新增“最终下单红黄绿决策表”，把材料、证据、合同、付款、验收和空气检测压成签约前判断。
+- 已新增“最终下单红黄绿决策表”，把材料、证据、合同、付款节点闸门、验收和空气检测压成签约/付款前判断。
 - 已新增“分房间用板配置表”，把房间、柜子、柜体、柜门、背板、抽屉底板和检测优先级拆清。
 - 已新增“柜门与饰面链环保风险说明”，把基材、素板/精板、PET 膜、贴面、异形件、封边和到货验真拆清。
 - 已新增“官方口径与验真清单”，把小红书口碑问题落到授权、报告、标签和合同核验。
