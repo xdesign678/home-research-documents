@@ -26,12 +26,13 @@
 20. 到货或安装当天，看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
 21. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
 22. 如果检测异常或气味不稳，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
-23. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
-24. 如果你手动打开了小红书帖子、评论或截图，看 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md`：按表补证，方便我继续整理。
-25. 要按品牌或问题反查小红书证据编号，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
-26. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
-27. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
-28. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
+23. 小红书出现安全限制后，判断什么时候能恢复低频只读复查，看 `xiaohongshu-board-safe-resume-checklist-2026-06-12.md`。
+24. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
+25. 如果你手动打开了小红书帖子、评论或截图，看 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md`：按表补证，方便我继续整理。
+26. 要按品牌或问题反查小红书证据编号，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
+27. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
+28. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
+29. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
 
 ## 文件用途总览
 
@@ -58,6 +59,7 @@
 | `board-delivery-installation-acceptance-checklist-2026-06-12.md` | 到货当天、安装现场、付尾款前 | 必拍照片、暂停安装条件、分品牌现场重点、付款绑定 | 它是现场动作清单，不替代空气检测 |
 | `board-indoor-air-acceptance-checklist-2026-06-12.md` | 安装后、入住前、检测报告出来后 | 检测前准备、机构选择、报告解读、异常处理、合同条款 | 不替代检测机构意见，只给验收流程 |
 | `board-pollution-source-troubleshooting-checklist-2026-06-12.md` | 检测异常、气味不稳、需要和商家排查责任时 | 甲醛/TVOC/苯系物归因、空间定位、材料排查、证据包和复测顺序 | 不替代检测机构意见，只帮你把问题拆清 |
+| `xiaohongshu-board-safe-resume-checklist-2026-06-12.md` | 小红书曾出现安全限制，准备判断是否能恢复复查时 | 恢复前判断、允许动作、停止条件、单次节奏、异常记录模板 | 它是安全边界清单，不提供规避方案 |
 | `board-xiaohongshu-next-research-playbook-2026-06-12.md` | 小红书恢复可低频只读复查，或用户手动提供可见内容时 | 下一轮优先级、搜索词、评论记录模板、升级/降级规则 | 它是执行手册，不新增推荐结论 |
 | `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` | 小红书自动浏览受限，但你能手动打开帖子、评论或截图时 | 手动补证字段、评论截图优先级、各对象补证重点、接收后整理流程 | 它是手动补证中转表，不替代原始证据文档 |
 | `board-ranking-report.html` | 想看网页化主报告 | 原 6 家排名 + 新增候选观察层 | 主排名仍是原 6 家；新增候选不直接改排名 |
@@ -92,6 +94,7 @@
 | 到货和安装现场怎么验 | `board-delivery-installation-acceptance-checklist-2026-06-12.md` |
 | 入住前空气检测怎么做 | `board-indoor-air-acceptance-checklist-2026-06-12.md` |
 | 检测异常后怎么排查污染源 | `board-pollution-source-troubleshooting-checklist-2026-06-12.md` |
+| 小红书安全限制后什么时候能恢复复查 | `xiaohongshu-board-safe-resume-checklist-2026-06-12.md` |
 | 下一轮小红书该怎么继续查 | `board-xiaohongshu-next-research-playbook-2026-06-12.md` |
 | 手动打开帖子或截图后怎么交给我整理 | `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` |
 | 新证据出现后某个候选能不能升级推荐 | `board-candidate-upgrade-downgrade-matrix-2026-06-12.md` |
@@ -146,6 +149,7 @@
 - 已新增“结论追溯矩阵”，把主结论、重点对象、支撑证据、弱点和反证条件放到一张表里。
 - 已新增“入住前空气检测与验收清单”，把板材选择延伸到安装后检测和超标处理。
 - 已新增“污染源归因与整改排查清单”，把甲醛、TVOC、苯系物异常拆到报告条件、空间、材料、证据包和复测顺序。
+- 已新增“小红书安全恢复复查清单”，把 300017 后什么时候能恢复、怎么低频只读、遇异常怎么停写清楚。
 - 已新增“报价与合同审核清单”，把板材选择落到报价颗粒度、付款节点和验收责任。
 - 已新增“商家横向对比与决策记录表”，把多家报价、用板、证据、授权、付款和风险放到同一张表里。
 - 已新增“商家问询脚本”，把证据里的授权、混板、封边、检测和付款风险转成可直接复制的追问话术。
