@@ -13,6 +13,7 @@
 - [全屋定制板材研究导航与证据覆盖矩阵（2026-06-12）](./board-research-navigation-2026-06-12.md)
 - [全屋定制板材研究完成度审计（2026-06-12）](./board-research-completion-audit-2026-06-12.md)
 - [全屋定制板材选型决策简版（2026-06-12）](./board-material-selection-brief-2026-06-12.md)
+- [全屋定制分房间用板配置表（2026-06-12）](./board-room-by-room-material-schedule-2026-06-12.md)
 - [板材环保等级与检测术语速查（2026-06-12）](./board-environmental-terms-guide-2026-06-12.md)
 - [板材标准与室内空气检测口径边界（2026-06-12）](./board-standards-testing-boundary-2026-06-12.md)
 - [全屋定制板材证据可信度评分规则（2026-06-12）](./board-evidence-scoring-rubric-2026-06-12.md)

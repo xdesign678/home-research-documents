@@ -5,28 +5,30 @@
 ## 推荐阅读顺序
 
 1. 先看 `board-material-selection-brief-2026-06-12.md`：快速知道当前优先看谁、哪些情况暂停、问商家什么。
-2. 再看 `board-ranking-report.html`：看原 6 家主排名、补充候选观察层和每个品牌的证据入口。
-3. 要确认“哪些已完成、哪些还没法证实”，看 `board-research-completion-audit-2026-06-12.md`。
-4. 看不懂 ENF、E0、F4星、CMA、TVOC 时，看 `board-environmental-terms-guide-2026-06-12.md`。
-5. 要分清板材报告和室内空气报告，看 `board-standards-testing-boundary-2026-06-12.md`。
-6. 要判断一条帖子、评论或报告有多可信，看 `board-evidence-scoring-rubric-2026-06-12.md`。
-7. 已经拿到报价单或合同，看 `board-quote-contract-review-checklist-2026-06-12.md`。
-8. 已经有 2 到 4 家商家报价，要横向比较，看 `board-vendor-comparison-decision-template-2026-06-12.md`。
-9. 准备问商家、门店或设计师时，看 `board-merchant-question-script-2026-06-12.md`。
-10. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
-11. 到货或安装当天，看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
-12. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
-13. 如果检测异常或气味不稳，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
-14. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
-15. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
-16. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
-17. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
+2. 再看 `board-room-by-room-material-schedule-2026-06-12.md`：把房间、柜子、柜体、柜门、背板、抽屉底板拆清。
+3. 再看 `board-ranking-report.html`：看原 6 家主排名、补充候选观察层和每个品牌的证据入口。
+4. 要确认“哪些已完成、哪些还没法证实”，看 `board-research-completion-audit-2026-06-12.md`。
+5. 看不懂 ENF、E0、F4星、CMA、TVOC 时，看 `board-environmental-terms-guide-2026-06-12.md`。
+6. 要分清板材报告和室内空气报告，看 `board-standards-testing-boundary-2026-06-12.md`。
+7. 要判断一条帖子、评论或报告有多可信，看 `board-evidence-scoring-rubric-2026-06-12.md`。
+8. 已经拿到报价单或合同，看 `board-quote-contract-review-checklist-2026-06-12.md`。
+9. 已经有 2 到 4 家商家报价，要横向比较，看 `board-vendor-comparison-decision-template-2026-06-12.md`。
+10. 准备问商家、门店或设计师时，看 `board-merchant-question-script-2026-06-12.md`。
+11. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
+12. 到货或安装当天，看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
+13. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
+14. 如果检测异常或气味不稳，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
+15. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
+16. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
+17. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
+18. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
 
 ## 文件用途总览
 
 | 文件 | 适合什么时候看 | 覆盖范围 | 注意事项 |
 |---|---|---|---|
 | `board-material-selection-brief-2026-06-12.md` | 快下单、和商家沟通前 | 主排名、新增候选、排除条件、12 个问题 | 短版，不展开原帖和评论 |
+| `board-room-by-room-material-schedule-2026-06-12.md` | 量尺、复尺、报价、签合同前 | 按房间和柜子拆柜体、柜门、背板、抽屉、封边、检测和验收照片 | 它是配置表，不替代报价合同 |
 | `board-research-completion-audit-2026-06-12.md` | 想确认研究是否已经完成、还缺什么 | 原始要求逐项审计、资料体系、未完成缺口 | 它说明当前是阶段性完成，不是全量完成 |
 | `board-environmental-terms-guide-2026-06-12.md` | 看报价单、检测报告、销售话术时 | ENF、E0、F4星、CMA、TVOC、无醛添加、净味板 | 只解释概念，不替代标准原文 |
 | `board-standards-testing-boundary-2026-06-12.md` | 看检测报告、和检测机构沟通前 | GB/T 39600、GB/T 18883、GB 50325 的边界和追问模板 | 只做口径区分，不复刻标准全文 |
@@ -54,6 +56,7 @@
 | 原 6 家排名为什么这么排 | `board-ranking-report.html` 的“现实下单综合排名”和品牌详情 |
 | 理想条件下排名会不会变 | `board-ranking-report.html` 的“理想条件排名”；`fable5-board-score-review.html` 的独立复核 |
 | 新增候选有没有比爱格/福人/华富立更推荐 | `xiaohongshu-board-extension-research-2026-06-12.md` 的“阶段判断” |
+| 每个房间、每个柜子具体用什么板 | `board-room-by-room-material-schedule-2026-06-12.md` |
 | 合生雅居怎么处理 | `xiaohongshu-board-extension-research-2026-06-12.md` 的 HSYJ 条目和 D16-D18 |
 | 靓时靓面怎么看 | `xiaohongshu-board-extension-research-2026-06-12.md` 的 LSLM 条目和 D19 |
 | 下单前怎么问商家 | `board-material-selection-brief-2026-06-12.md` 的“下单前问商家的 12 个问题” |
@@ -104,6 +107,7 @@
 - 2026-06-12 新增候选已单独做成细节账本，不强行塞进原 6 家排名。
 - 主报告页已加入“补充候选观察层”。
 - 已新增“选型决策简版”和“环保等级与检测术语速查”。
+- 已新增“分房间用板配置表”，把房间、柜子、柜体、柜门、背板、抽屉底板和检测优先级拆清。
 - 已新增“官方口径与验真清单”，把小红书口碑问题落到授权、报告、标签和合同核验。
 - 已新增“完成度审计”，逐项核对原始研究目标和剩余证据缺口。
 - 已新增“入住前空气检测与验收清单”，把板材选择延伸到安装后检测和超标处理。

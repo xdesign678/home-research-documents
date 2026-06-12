@@ -1,6 +1,6 @@
 # 全屋定制板材选型决策简版（2026-06-12）
 
-这份是给实际下单看的短版。详细证据仍以 `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` 为准；标准和检测名词先看 `board-environmental-terms-guide-2026-06-12.md`；报价和合同先看 `board-quote-contract-review-checklist-2026-06-12.md`；准备问商家时，先看 `board-merchant-question-script-2026-06-12.md`；下单验授权、报告、标签和合同，先看 `board-official-verification-checklist-2026-06-12.md`；到货和安装现场，先看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`；安装后空气检测和验收，先看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
+这份是给实际下单看的短版。详细证据仍以 `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` 为准；按房间拆用板，先看 `board-room-by-room-material-schedule-2026-06-12.md`；标准和检测名词先看 `board-environmental-terms-guide-2026-06-12.md`；报价和合同先看 `board-quote-contract-review-checklist-2026-06-12.md`；准备问商家时，先看 `board-merchant-question-script-2026-06-12.md`；下单验授权、报告、标签和合同，先看 `board-official-verification-checklist-2026-06-12.md`；到货和安装现场，先看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`；安装后空气检测和验收，先看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
 
 ## 一句话结论
 
@@ -72,6 +72,7 @@
 ## 最稳的下单策略
 
 - 先定空间和部位，再选品牌，不要先迷信品牌名。
+- 用 `board-room-by-room-material-schedule-2026-06-12.md` 把每个房间、柜体、柜门、背板和抽屉底板拆清。
 - 第一轮报价只看结构是否透明，不急着比总价。
 - 问商家时直接用 `board-merchant-question-script-2026-06-12.md`，不要只问“环保吗”。
 - 第二轮才比价格，把五金、背板、封边、板厚、抽屉、见光板一起算。
@@ -84,6 +85,7 @@
 - 小红书自动浏览在靓时靓面详情页阶段出现安全限制 300017，已按项目规则停止继续自动打开。
 - 丽特曼、爱德板、伟业欧松板仍是下一轮待查对象。
 - 这份简版是决策辅助，不替代合同、到货验收和室内空气检测。
+- 如果要把每个房间和柜子的用板拆清，先读 `board-room-by-room-material-schedule-2026-06-12.md`。
 - 如果看不懂 ENF、E0、F4星、CMA、TVOC，先读 `board-environmental-terms-guide-2026-06-12.md`。
 - 如果已经拿到报价单或合同，先读 `board-quote-contract-review-checklist-2026-06-12.md`。
 - 如果要和商家核官方授权、检测报告、到货标签和合同条款，先读 `board-official-verification-checklist-2026-06-12.md`。

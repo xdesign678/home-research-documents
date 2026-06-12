@@ -8,6 +8,8 @@
 
 不要只测甲醛。全屋定制里，TVOC、苯系物、油漆、贴皮、PET 膜、胶、窗帘、床垫、墙布、沙发也可能影响结果。检测报告应写清采用的标准、采样条件、点位、关闭门窗时间、温湿度、检测项目和判定依据。
 
+检测点位可先参考 `board-room-by-room-material-schedule-2026-06-12.md` 的空气检测优先级，优先测板材用量大、停留时间长、气味敏感的房间。
+
 检测标准也要看清。板材释放等级、室内空气质量、工程验收不是同一个口径；具体边界见 `board-standards-testing-boundary-2026-06-12.md`。
 
 到货和安装现场的照片会影响后续追责。详细拍照清单和暂停安装条件见 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
