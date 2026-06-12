@@ -1,6 +1,6 @@
 # 小红书板材手动补证收集表（2026-06-12）
 
-这份表用于小红书自动浏览被安全限制后继续补证。它不要求登录，也不要求批量采集。你只要手动打开公开帖子，把可见内容、截图或链接给我，我再按同一套字段整理进 `xiaohongshu-board-extension-research-2026-06-12.md`。
+这份表用于小红书自动浏览被安全限制后继续补证。它不要求登录，也不要求批量采集。你只要手动打开公开帖子，把可见内容、截图或链接给我，我再按 `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md` 的粒度整理进 `xiaohongshu-board-extension-research-2026-06-12.md`。
 
 如果后续要判断能不能恢复低频只读复查，先看 `xiaohongshu-board-safe-resume-checklist-2026-06-12.md`。只要仍有登录、验证码、滑块、账号安全、访问异常或 300017，就继续使用本手动补证表。
 
@@ -109,10 +109,11 @@
 5. 再用 `board-environmental-evidence-chain-checklist-2026-06-12.md` 判断它属于小红书口碑、官方验真、报价合同、到货安装还是 CMA 检测证据。
 6. 用 `board-conclusion-traceability-matrix-2026-06-12.md` 判断它支撑或反驳哪一条现有结论。
 7. 有价值的帖子追加到 `xiaohongshu-board-extension-research-2026-06-12.md`。
-8. 如果只是线索，先放入滚动候选池或待补录卡片。
-9. 如果连续多条证据指向同一结论，先用 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md` 判断是否足够升级或降级。
-10. 如果足以改变候选层级，再更新导航、短版和主报告。
-11. 如果证据只说明某门店或某系列，不扩大成总品牌结论。
+8. 如果内容属于强证据深读，按 `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md` 补齐“本条能支持的结论”和“本条不能支持的结论”。
+9. 如果只是线索，先放入滚动候选池或待补录卡片。
+10. 如果连续多条证据指向同一结论，先用 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md` 判断是否足够升级或降级。
+11. 如果足以改变候选层级，再更新导航、短版和主报告。
+12. 如果证据只说明某门店或某系列，不扩大成总品牌结论。
 
 ## 快速判断：这条内容值不值得补
 

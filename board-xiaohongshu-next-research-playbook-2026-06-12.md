@@ -4,7 +4,7 @@
 
 如果小红书此前出现安全限制，先看 `xiaohongshu-board-safe-resume-checklist-2026-06-12.md`。只有确认公开页面可见、无需登录验证、无需任何规避、能低频只读时，才使用本手册继续复查。
 
-判断单条帖子、评论或检测报告的可信度，先看 `board-evidence-scoring-rubric-2026-06-12.md`。如果重点在评论区，先看 `xiaohongshu-board-comment-bias-checklist-2026-06-12.md`，避免被求价评论、商家号、治理号或情绪评论带偏。判断某个新增候选能不能升级或必须降级，再看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`；判断每个候选还差哪类证据，先看 `board-candidate-evidence-gap-register-2026-06-12.md`。这份手册负责“怎么记录”，评论清单负责“评论怎么防误读”，评分规则负责“记录后怎么判断权重”，升降级矩阵负责“证据变厚后怎么改候选层级”，缺口登记表负责“下一条证据先补什么”。
+判断单条帖子、评论或检测报告的可信度，先看 `board-evidence-scoring-rubric-2026-06-12.md`。如果重点在评论区，先看 `xiaohongshu-board-comment-bias-checklist-2026-06-12.md`，避免被求价评论、商家号、治理号或情绪评论带偏。判断后续记录是否足够细，先看 `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md`。判断某个新增候选能不能升级或必须降级，再看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`；判断每个候选还差哪类证据，先看 `board-candidate-evidence-gap-register-2026-06-12.md`。这份手册负责“下一轮查什么”，记录规范负责“帖子和评论写到什么粒度”，评论清单负责“评论怎么防误读”，评分规则负责“记录后怎么判断权重”，升降级矩阵负责“证据变厚后怎么改候选层级”，缺口登记表负责“下一条证据先补什么”。
 
 ## 使用边界
 
