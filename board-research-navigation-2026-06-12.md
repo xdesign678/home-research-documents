@@ -17,27 +17,28 @@
 11. 要判断一条帖子、评论或报告有多可信，看 `board-evidence-scoring-rubric-2026-06-12.md`。
 12. 要判断评论是否被商家号、治理号、求价评论或情绪评论带偏，看 `xiaohongshu-board-comment-bias-checklist-2026-06-12.md`。
 13. 要规定后续小红书帖子和评论到底记录到什么细度，看 `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md`。
-14. 要判断某个新增候选能不能升级或必须降级，看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`。
-15. 要判断每个候选还缺哪类帖子、评论、检测、授权或合同证据，看 `board-candidate-evidence-gap-register-2026-06-12.md`。
-16. 要核丽特曼、爱德板、伟业欧松板这类低证据对象到底是什么，看 `board-low-evidence-candidate-identity-check-2026-06-12.md`。
-17. 要看红棉花、水性科天、露水河、克诺斯邦/可丽芙、博耐克、合生雅居的官方入口和证据缺口，看 `board-observation-candidate-official-source-gap-notes-2026-06-12.md`。
-18. 已经拿到报价单或合同，看 `board-quote-contract-review-checklist-2026-06-12.md`。
-19. 准备问商家、门店或设计师时，看 `board-merchant-question-script-2026-06-12.md`。
-20. 商家发来报价、报告、授权、标签或截图后，看 `board-merchant-evidence-intake-log-2026-06-12.md`。
-21. 已经有 2 到 4 家商家报价，要横向比较，看 `board-vendor-comparison-decision-template-2026-06-12.md`。
-22. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
-23. 要把官方资料和小红书口碑交叉核验，看 `board-official-source-crosscheck-notes-2026-06-12.md`。
-24. 到货或安装当天，看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
-25. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
-26. 如果检测异常或气味不稳，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
-27. 小红书出现安全限制后，判断什么时候能恢复低频只读复查，看 `xiaohongshu-board-safe-resume-checklist-2026-06-12.md`。
-28. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
-29. 要按对象逐条补查红棉花、博耐克、合生雅居、靓时靓面、水性科天、露水河等，看 `xiaohongshu-board-targeted-followup-cards-2026-06-12.md`。
-30. 如果你手动打开了小红书帖子、评论或截图，看 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md`：按表补证，方便我继续整理。
-31. 要按品牌或问题反查小红书证据编号，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
-32. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
-33. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
-34. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
+14. 要把小红书帖子或评论转成商家追问、合同条款、到货验收和检测动作，看 `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md`。
+15. 要判断某个新增候选能不能升级或必须降级，看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`。
+16. 要判断每个候选还缺哪类帖子、评论、检测、授权或合同证据，看 `board-candidate-evidence-gap-register-2026-06-12.md`。
+17. 要核丽特曼、爱德板、伟业欧松板这类低证据对象到底是什么，看 `board-low-evidence-candidate-identity-check-2026-06-12.md`。
+18. 要看红棉花、水性科天、露水河、克诺斯邦/可丽芙、博耐克、合生雅居的官方入口和证据缺口，看 `board-observation-candidate-official-source-gap-notes-2026-06-12.md`。
+19. 已经拿到报价单或合同，看 `board-quote-contract-review-checklist-2026-06-12.md`。
+20. 准备问商家、门店或设计师时，看 `board-merchant-question-script-2026-06-12.md`。
+21. 商家发来报价、报告、授权、标签或截图后，看 `board-merchant-evidence-intake-log-2026-06-12.md`。
+22. 已经有 2 到 4 家商家报价，要横向比较，看 `board-vendor-comparison-decision-template-2026-06-12.md`。
+23. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
+24. 要把官方资料和小红书口碑交叉核验，看 `board-official-source-crosscheck-notes-2026-06-12.md`。
+25. 到货或安装当天，看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
+26. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
+27. 如果检测异常或气味不稳，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
+28. 小红书出现安全限制后，判断什么时候能恢复低频只读复查，看 `xiaohongshu-board-safe-resume-checklist-2026-06-12.md`。
+29. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
+30. 要按对象逐条补查红棉花、博耐克、合生雅居、靓时靓面、水性科天、露水河等，看 `xiaohongshu-board-targeted-followup-cards-2026-06-12.md`。
+31. 如果你手动打开了小红书帖子、评论或截图，看 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md`：按表补证，方便我继续整理。
+32. 要按品牌或问题反查小红书证据编号，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
+33. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
+34. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
+35. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
 
 ## 文件用途总览
 
@@ -55,6 +56,7 @@
 | `board-evidence-scoring-rubric-2026-06-12.md` | 复盘帖子、评论、报告、商家回复时 | 证据类型、可信度打分、升级/降级阈值、当前对象置信度 | 它是判断尺，不是新排名 |
 | `xiaohongshu-board-comment-bias-checklist-2026-06-12.md` | 复盘评论区，担心被求价评论、商家号、治理号或情绪评论带偏时 | 评论类型、升权/降权条件、正文和评论冲突处理、重点对象误读风险 | 它是评论防误读清单，不新增证据 |
 | `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md` | 后续补小红书帖子、评论、截图时，担心记录太概括 | 三种记录粒度、单帖 10 个字段、正文摘要写法、评论摘要写法、强证据深读模板 | 它是记录规范，不新增证据 |
+| `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md` | 看完小红书帖子或评论后，不知道下一步该问商家、写合同还是到货验收时 | 小红书信号、商家追问、合同条款、到货验收、暂停条件 | 它是证据转行动矩阵，不新增帖子证据 |
 | `board-candidate-upgrade-downgrade-matrix-2026-06-12.md` | 补到新帖子、新评论、新检测后，判断候选能否升级或必须降级 | 红棉花、水性科天、露水河、克诺斯邦/可丽芙、博耐克、靓时靓面、丽特曼、爱德板、伟业欧松板、合生雅居等 | 它是候选层级规则，不直接改排名 |
 | `board-candidate-evidence-gap-register-2026-06-12.md` | 复盘每个候选还缺哪类证据，或决定下一轮先查谁时 | 第一决策层、原 6 家中后位、新增观察对象、柜门链条、低证据候选、合生雅居 | 它是证据缺口总表，不新增小红书证据 |
 | `board-low-evidence-candidate-identity-check-2026-06-12.md` | 丽特曼、爱德板、伟业欧松板这类评论带出对象还没查清身份时 | 公开网页身份预核、误命中记录、商家必须补的完整名称/厂家/报告/标签 | 它是身份核查笔记，不替代小红书深读 |
@@ -114,6 +116,7 @@
 | ENF、CMA、TVOC 到底怎么理解 | `board-environmental-terms-guide-2026-06-12.md` |
 | 板材报告和室内空气报告有什么区别 | `board-standards-testing-boundary-2026-06-12.md` |
 | 小红书口碑怎么转成合同、到货和检测证据链 | `board-environmental-evidence-chain-checklist-2026-06-12.md` |
+| 某条帖子或评论下一步该变成什么动作 | `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md` |
 | 一条帖子、评论或报告够不够影响结论 | `board-evidence-scoring-rubric-2026-06-12.md` |
 | 评论区哪些内容该升权、哪些要降权 | `xiaohongshu-board-comment-bias-checklist-2026-06-12.md` |
 | 后续帖子和评论要详细记录到什么程度 | `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md` |
@@ -179,6 +182,7 @@
 - 已新增“证据可信度评分规则”，把小红书帖子、评论、检测报告和商家回复分成强证据、弱线索和待补证材料。
 - 已新增“小红书评论防误读清单”，把真实复核、追问补充、反驳归因、情绪共鸣、求价求链接和商业混入评论分开处理。
 - 已新增“小红书帖子与评论详细记录规范”，把搜索页线索、普通帖子记录、强证据深读的粒度固定下来，避免后续补录过度概括。
+- 已新增“小红书证据转行动矩阵”，把帖子和评论里的没味、刺鼻、超标、假货、授权、延期等信号转成商家追问、合同条款、到货验收和暂停条件。
 - 已新增“候选升级/降级判断矩阵”，把每个新增候选什么时候能升、什么时候要降、下一步补什么写成统一判断规则。
 - 已新增“候选证据缺口登记表”，把每个对象还差哪类小红书帖子、评论、检测、授权或合同证据集中到一张表里。
 - 已新增“低证据候选身份核查笔记”，把丽特曼、爱德板、伟业欧松板暂不能升级的原因写清，避免把评论线索误当板材推荐。
