@@ -1,6 +1,6 @@
 # 全屋定制板材选型决策简版（2026-06-12）
 
-这份是给实际下单看的短版。详细证据仍以 `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` 为准；要追溯当前结论由什么证据支撑、什么新证据会改变判断，先看 `board-conclusion-traceability-matrix-2026-06-12.md`；签合同前最后收口，先看 `board-final-go-no-go-decision-checklist-2026-06-12.md`；判断新增候选能否升级或必须降级，先看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`；判断每个候选还缺哪类帖子、评论、检测、授权或合同证据，先看 `board-candidate-evidence-gap-register-2026-06-12.md`；下一轮小红书按对象深挖，先看 `xiaohongshu-board-targeted-followup-cards-2026-06-12.md`；如果你手动打开公开帖子，先用 `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md` 快速留下正文和高信息评论，再用 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` 正式补证；要把小红书口碑、官方验真、合同、到货、安装和 CMA 检测串成证据链，先看 `board-environmental-evidence-chain-checklist-2026-06-12.md`；要把单条帖子或评论转成商家追问、合同条款、到货验收和暂停条件，先看 `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md`；按房间拆用板，先看 `board-room-by-room-material-schedule-2026-06-12.md`；涉及柜门、PET 膜、贴面和异形件，先看 `board-door-panel-surface-chain-risk-2026-06-12.md`；标准和检测名词先看 `board-environmental-terms-guide-2026-06-12.md`；报价和合同先看 `board-quote-contract-review-checklist-2026-06-12.md`；准备问商家时，先看 `board-merchant-question-script-2026-06-12.md`；商家发来资料后，先看 `board-merchant-evidence-intake-log-2026-06-12.md`；下单验授权、报告、标签和合同，先看 `board-official-verification-checklist-2026-06-12.md`；要把官方资料和小红书口碑交叉看，先看 `board-official-source-crosscheck-notes-2026-06-12.md`；到货和安装现场，先看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`；安装后空气检测和验收，先看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
+这份是给实际下单看的短版。详细证据仍以 `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` 为准；要追溯当前结论由什么证据支撑、什么新证据会改变判断，先看 `board-conclusion-traceability-matrix-2026-06-12.md`；签合同前最后收口，先看 `board-final-go-no-go-decision-checklist-2026-06-12.md`；判断新增候选能否升级或必须降级，先看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`；判断每个候选还缺哪类帖子、评论、检测、授权或合同证据，先看 `board-candidate-evidence-gap-register-2026-06-12.md`；下一轮小红书按对象深挖，先看 `xiaohongshu-board-targeted-followup-cards-2026-06-12.md`；如果你手动打开公开帖子，先用 `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md` 快速留下正文和高信息评论，再用 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` 正式补证；要把小红书口碑、官方验真、合同、到货、安装和 CMA 检测串成证据链，先看 `board-environmental-evidence-chain-checklist-2026-06-12.md`；要把单条帖子或评论转成商家追问、合同条款、到货验收和暂停条件，先看 `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md`；按房间拆用板，先看 `board-room-by-room-material-schedule-2026-06-12.md`；涉及柜门、PET 膜、贴面和异形件，先看 `board-door-panel-surface-chain-risk-2026-06-12.md`；标准和检测名词先看 `board-environmental-terms-guide-2026-06-12.md`；商家发检测报告后，先看 `board-test-report-quick-read-card-2026-06-12.md`；报价和合同先看 `board-quote-contract-review-checklist-2026-06-12.md`；准备问商家时，先看 `board-merchant-question-script-2026-06-12.md`；商家发来资料后，先看 `board-merchant-evidence-intake-log-2026-06-12.md`；下单验授权、报告、标签和合同，先看 `board-official-verification-checklist-2026-06-12.md`；要把官方资料和小红书口碑交叉看，先看 `board-official-source-crosscheck-notes-2026-06-12.md`；到货和安装现场，先看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`；安装后空气检测和验收，先看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
 
 如果担心不同文件结论口径不一致，先看 `board-research-consistency-audit-2026-06-12.md`。
 
@@ -18,6 +18,7 @@
 | 想继续手动补小红书 | `board-candidate-evidence-gap-register-2026-06-12.md` 和 `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md` | 先补博耐克、合生雅居、红棉花等最影响判断的证据 |
 | 准备问商家 | `board-merchant-question-script-2026-06-12.md` | 把“环保吗”改成柜体、柜门、背板、封边、检测、付款的具体问题 |
 | 商家已经发资料 | `board-merchant-evidence-intake-log-2026-06-12.md` | 判断收到什么、缺什么、能不能核验 |
+| 商家发来检测报告 | `board-test-report-quick-read-card-2026-06-12.md` | 先判断报告类型、样品对应关系、检测项目和能否支撑环保结论 |
 | 已经拿到报价单 | `board-quote-contract-review-checklist-2026-06-12.md` | 看报价是否拆清部位、等级、封边、付款和检测责任 |
 | 有 2 到 4 家商家可比 | `board-vendor-comparison-decision-template-2026-06-12.md` | 不只比总价，横向比证据、合同、付款和交付风险 |
 | 准备签合同 | `board-final-go-no-go-decision-checklist-2026-06-12.md` | 判断是绿灯、黄灯补证，还是红灯暂停 |
@@ -115,6 +116,7 @@
 - 如果后续手动打开公开帖子，先读 `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md`，把正文、截图顺序和高信息评论留下来。
 - 如果后续看到一条帖子或评论，不确定下一步怎么问商家、写合同或到货验收，先读 `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md`。
 - 如果看不懂 ENF、E0、F4星、CMA、TVOC，先读 `board-environmental-terms-guide-2026-06-12.md`。
+- 如果商家发来检测报告，先读 `board-test-report-quick-read-card-2026-06-12.md`，判断它是板材报告、空气报告还是宣传截图，能不能对应你家实际用板。
 - 如果已经拿到报价单或合同，先读 `board-quote-contract-review-checklist-2026-06-12.md`。
 - 如果要和商家核官方授权、检测报告、到货标签和合同条款，先读 `board-official-verification-checklist-2026-06-12.md`。
 - 如果到货或安装当天不知道怎么拍照验收，先读 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
