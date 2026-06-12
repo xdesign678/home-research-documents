@@ -45,6 +45,7 @@
 | `xiaohongshu-board-extension-research-2026-06-12.md` | 新增候选和合生雅居渠道风险的详细帖子与评论记录 |
 | `board-material-selection-brief-2026-06-12.md` | 实际下单短版，告诉你先看谁、暂停谁、问什么 |
 | `board-environmental-terms-guide-2026-06-12.md` | ENF、E0、F4星、CMA、TVOC 等术语解释 |
+| `board-standards-testing-boundary-2026-06-12.md` | 板材释放等级、室内空气质量和工程验收标准的边界说明 |
 | `board-quote-contract-review-checklist-2026-06-12.md` | 报价单颗粒度、合同条款、付款节点和比价表 |
 | `board-official-verification-checklist-2026-06-12.md` | 官方入口、授权、检测报告、标签和合同核验清单 |
 | `board-indoor-air-acceptance-checklist-2026-06-12.md` | 入住前空气检测、报告解读、异常排查和超标处理 |
