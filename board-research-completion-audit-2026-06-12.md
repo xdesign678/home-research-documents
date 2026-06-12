@@ -49,6 +49,7 @@
 | `board-official-verification-checklist-2026-06-12.md` | 官方入口、授权、检测报告、标签和合同核验清单 |
 | `board-indoor-air-acceptance-checklist-2026-06-12.md` | 入住前空气检测、报告解读、异常排查和超标处理 |
 | `board-research-navigation-2026-06-12.md` | 阅读导航和证据覆盖矩阵 |
+| `board-xiaohongshu-next-research-playbook-2026-06-12.md` | 下一轮小红书复查优先级、搜索词、评论记录模板和升级/降级规则 |
 
 ## 还不能算完成的部分
 
@@ -75,3 +76,5 @@
 ## 对当前目标的判断
 
 这轮研究已经足够支持阶段性选型和谈判，但还不适合宣布“全量完成”。合理状态是：主资料已成型，下一步只在安全条件允许时补查 A/B 队列。
+
+下一轮复查不要重新散着记。先按 `board-xiaohongshu-next-research-playbook-2026-06-12.md` 的优先级和模板记录，再决定是否更新主结论。
