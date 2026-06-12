@@ -1,6 +1,6 @@
 # 全屋定制板材选型决策简版（2026-06-12）
 
-这份是给实际下单看的短版。详细证据仍以 `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` 为准。
+这份是给实际下单看的短版。详细证据仍以 `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` 为准；标准和检测名词先看 `board-environmental-terms-guide-2026-06-12.md`。
 
 ## 一句话结论
 
@@ -82,3 +82,4 @@
 - 小红书自动浏览在靓时靓面详情页阶段出现安全限制 300017，已按项目规则停止继续自动打开。
 - 丽特曼、爱德板、伟业欧松板仍是下一轮待查对象。
 - 这份简版是决策辅助，不替代合同、到货验收和室内空气检测。
+- 如果看不懂 ENF、E0、F4星、CMA、TVOC，先读 `board-environmental-terms-guide-2026-06-12.md`。
