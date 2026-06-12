@@ -10,6 +10,8 @@
 
 检测标准也要看清。板材释放等级、室内空气质量、工程验收不是同一个口径；具体边界见 `board-standards-testing-boundary-2026-06-12.md`。
 
+到货和安装现场的照片会影响后续追责。详细拍照清单和暂停安装条件见 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
+
 ## 检测前准备
 
 | 时间点 | 要做什么 | 为什么 |

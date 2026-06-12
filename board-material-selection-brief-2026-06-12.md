@@ -1,6 +1,6 @@
 # 全屋定制板材选型决策简版（2026-06-12）
 
-这份是给实际下单看的短版。详细证据仍以 `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` 为准；标准和检测名词先看 `board-environmental-terms-guide-2026-06-12.md`；报价和合同先看 `board-quote-contract-review-checklist-2026-06-12.md`；下单验授权、报告、标签和合同，先看 `board-official-verification-checklist-2026-06-12.md`；安装后空气检测和验收，先看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
+这份是给实际下单看的短版。详细证据仍以 `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` 为准；标准和检测名词先看 `board-environmental-terms-guide-2026-06-12.md`；报价和合同先看 `board-quote-contract-review-checklist-2026-06-12.md`；下单验授权、报告、标签和合同，先看 `board-official-verification-checklist-2026-06-12.md`；到货和安装现场，先看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`；安装后空气检测和验收，先看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
 
 ## 一句话结论
 
@@ -85,4 +85,5 @@
 - 如果看不懂 ENF、E0、F4星、CMA、TVOC，先读 `board-environmental-terms-guide-2026-06-12.md`。
 - 如果已经拿到报价单或合同，先读 `board-quote-contract-review-checklist-2026-06-12.md`。
 - 如果要和商家核官方授权、检测报告、到货标签和合同条款，先读 `board-official-verification-checklist-2026-06-12.md`。
+- 如果到货或安装当天不知道怎么拍照验收，先读 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
 - 如果要安排入住前空气检测、看报告或处理超标，先读 `board-indoor-air-acceptance-checklist-2026-06-12.md`。

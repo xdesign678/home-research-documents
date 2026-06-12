@@ -48,6 +48,7 @@
 | `board-standards-testing-boundary-2026-06-12.md` | 板材释放等级、室内空气质量和工程验收标准的边界说明 |
 | `board-quote-contract-review-checklist-2026-06-12.md` | 报价单颗粒度、合同条款、付款节点和比价表 |
 | `board-official-verification-checklist-2026-06-12.md` | 官方入口、授权、检测报告、标签和合同核验清单 |
+| `board-delivery-installation-acceptance-checklist-2026-06-12.md` | 到货、安装、拍照、暂停安装和尾款绑定的现场验收清单 |
 | `board-indoor-air-acceptance-checklist-2026-06-12.md` | 入住前空气检测、报告解读、异常排查和超标处理 |
 | `board-research-navigation-2026-06-12.md` | 阅读导航和证据覆盖矩阵 |
 | `board-xiaohongshu-next-research-playbook-2026-06-12.md` | 下一轮小红书复查优先级、搜索词、评论记录模板和升级/降级规则 |
