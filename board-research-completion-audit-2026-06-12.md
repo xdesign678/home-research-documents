@@ -100,4 +100,4 @@
 
 这轮研究已经足够支持阶段性选型和谈判，但还不适合宣布“全量完成”。合理状态是：主资料已成型，下一步只在安全条件允许时补查 A/B 队列。
 
-下一轮复查不要重新散着记。先按 `board-xiaohongshu-next-research-playbook-2026-06-12.md` 的优先级和模板记录，再决定是否更新主结论。
+下一轮复查不要重新散着记。先按 `board-xiaohongshu-next-research-playbook-2026-06-12.md` 定优先级，再按 `xiaohongshu-board-targeted-followup-cards-2026-06-12.md` 逐对象看正文和评论，最后决定是否更新主结论。
