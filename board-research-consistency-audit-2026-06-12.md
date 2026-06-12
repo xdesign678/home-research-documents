@@ -11,7 +11,8 @@
 3. 博耐克是高端柜门/进口基材观察候选，核心缺口是国内授权链、素板/精板、贴面加工和异形件来源。
 4. 合生雅居已经加入查询对象，但它应按定制渠道、本地门店、付款、交付和实际用板审查，不按板材品牌排序。
 5. 靓时靓面、丽特曼、宁丰、博耐克等涉及柜门、饰面、PET 膜、贴面或异形件时，必须先拆清基材和加工链。
-6. 小红书自动浏览在靓时靓面详情页阶段出现安全限制 300017，当前只能做阶段性结论，不能写成全量完成。
+6. 商家发来的检测报告要先判断报告类型、样品对应关系和检测项目，不能只看“合格、ENF、CMA”。
+7. 小红书自动浏览在靓时靓面详情页阶段出现安全限制 300017，当前只能做阶段性结论，不能写成全量完成。
 
 ## 核心结论一致性表
 
@@ -21,6 +22,7 @@
 | 新增候选没有替代前三 | `xiaohongshu-board-extension-research-2026-06-12.md`、`board-candidate-upgrade-downgrade-matrix-2026-06-12.md`、`board-candidate-evidence-gap-register-2026-06-12.md` | 仍成立 | 一致 | 新增对象有观察价值，但证据厚度还不够 |
 | 小红书评论是重要证据，但不能单独决定下单 | `xiaohongshu-board-comment-bias-checklist-2026-06-12.md`、`board-evidence-scoring-rubric-2026-06-12.md`、`xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md` | 仍成立 | 一致 | 评论要转成追问、合同、到货验收和 CMA 检测 |
 | 官方资料不能替代真实落地证据 | `board-official-verification-checklist-2026-06-12.md`、`board-official-source-crosscheck-notes-2026-06-12.md`、`board-observation-candidate-official-source-gap-notes-2026-06-12.md` | 仍成立 | 一致 | 官网能核品牌和入口，不能证明你家批次和施工一定安全 |
+| 检测报告必须先判类型和对应关系 | `board-test-report-quick-read-card-2026-06-12.md`、`board-standards-testing-boundary-2026-06-12.md`、`board-merchant-evidence-intake-log-2026-06-12.md` | 仍成立 | 一致 | 板材报告、空气报告、工程验收报告不能互相替代 |
 | 合同和到货验收是下单前关键动作 | `board-final-go-no-go-decision-checklist-2026-06-12.md`、`board-quote-contract-review-checklist-2026-06-12.md`、`board-delivery-installation-acceptance-checklist-2026-06-12.md` | 仍成立 | 一致 | 不能只写“ENF、净味、进口板、即装即住” |
 | 安装后仍要做室内空气验收 | `board-indoor-air-acceptance-checklist-2026-06-12.md`、`board-pollution-source-troubleshooting-checklist-2026-06-12.md`、`board-standards-testing-boundary-2026-06-12.md` | 仍成立 | 一致 | 板材报告和室内空气报告不是一回事 |
 | 当前研究是阶段性可用，不是全量完成 | `board-research-completion-audit-2026-06-12.md`、`xiaohongshu-board-safe-resume-checklist-2026-06-12.md`、`board-xiaohongshu-next-research-playbook-2026-06-12.md` | 仍成立 | 一致 | 300017 后不能继续自动打开小红书详情页 |
@@ -57,6 +59,7 @@
 | 用户手动打开单条帖子，先快速截正文和评论 | `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md` | 已接入 README、导航、主报告、手动补证表、完成度审计 | 适合 300017 后先做轻量补证 |
 | 用户手动提供完整帖子、评论或截图 | `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` | 已接入 README、导航、主报告、完成度审计 | 适合 300017 后正式整理补证 |
 | 把评论转成商家动作 | `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md` | 已接入 README、导航、主报告 | 避免只停留在“口碑好/口碑差” |
+| 商家发来检测报告或报告截图 | `board-test-report-quick-read-card-2026-06-12.md` | 已接入 README、导航、主报告、短版、商家收件表、官方验真清单 | 先判报告类型、样品对应、检测项目和红黄绿信号 |
 | 看官方入口和索证缺口 | `board-official-source-crosscheck-notes-2026-06-12.md`、`board-observation-candidate-official-source-gap-notes-2026-06-12.md` | 已接入 README、导航、主报告 | 官方资料只用于核验，不直接替代小红书落地证据 |
 
 ## 仍不能标全量完成的原因
