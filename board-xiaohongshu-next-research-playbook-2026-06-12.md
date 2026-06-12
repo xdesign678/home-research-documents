@@ -204,4 +204,4 @@
 
 本轮小红书详情页浏览已经出现“安全限制 / 访问链接异常 / 300017”。按项目规则，不能继续自动打开详情页，也不能尝试规避。下一轮只能先按 `xiaohongshu-board-safe-resume-checklist-2026-06-12.md` 判断是否满足恢复条件；不满足时，由你手动打开帖子后，把可见内容交给我继续整理。
 
-如果你手动打开了公开帖子、评论或截图，先按 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` 收集。它会告诉你哪些评论、截图、链接和检测/合同信息最值得保留。
+如果你手动打开了公开帖子、评论或截图，先按 `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md` 快速留下链接、正文、截图和高信息评论；帖子值得深挖时，再按 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` 做正式补证。
