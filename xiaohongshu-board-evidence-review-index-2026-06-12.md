@@ -8,7 +8,8 @@
 
 1. 先用这份索引定位品牌和风险类型。
 2. 再回到 `xiaohongshu-board-extension-research-2026-06-12.md`、`xiaohongshu-board-review-pack.md` 或 `xiaohongshu-board-evidence.md` 看原始摘要。
-3. 最后才看 `board-material-selection-brief-2026-06-12.md` 和 `board-ranking-report.html` 的结论。
+3. 如果不确定某条记录够不够深，再看 `xiaohongshu-board-record-detail-coverage-audit-2026-06-12.md` 区分搜索页线索、普通帖子和强证据深读。
+4. 最后才看 `board-material-selection-brief-2026-06-12.md` 和 `board-ranking-report.html` 的结论。
 
 小红书自动浏览已因安全限制 300017 暂停。这份索引只整理已经可见并已记录的公开内容，不补编未看到的评论。
 
@@ -17,6 +18,7 @@
 | 想查什么 | 先看哪份 | 说明 |
 |---|---|---|
 | 新增候选的帖子和评论细节 | `xiaohongshu-board-extension-research-2026-06-12.md` | 水性科天、鲁丽、露水河、兔宝宝、千年舟、莫干山、克诺斯邦/可丽芙、芦花板、博耐克、红棉花、宁丰、鹏鸿、合生雅居、靓时靓面 |
+| 新增候选记录深度审计 | `xiaohongshu-board-record-detail-coverage-audit-2026-06-12.md` | 区分搜索页线索、普通帖子、强证据深读、中止/缺评论记录 |
 | 原 6 家的 78 条重点复核 | `xiaohongshu-board-review-pack.md` | 爱格、福人、华富立、三棵树、大王椰、万华的高争议、检测、入住、验真类条目 |
 | 原 6 家完整搜索和评论沉淀 | `xiaohongshu-board-evidence.md` | 165 篇去重样本、60 篇评论深读、六轮补样 |
 | 当前怎么判断证据强弱 | `board-evidence-scoring-rubric-2026-06-12.md` | 判断帖子、评论、检测报告和商家回复能不能影响结论 |
@@ -72,6 +74,7 @@
 5. “品牌正品”不等于所有部位都是同品牌同等级，背板、抽屉底板和柜门尤其要拆。
 6. 合生雅居这类对象先查门店、付款和实际用板，不参与板材品牌排名。
 7. 小红书内容只能做线索和风险地图，实际下单仍要靠合同、到货验真和入住前 CMA。
+8. 编号越多不等于证据越强。复盘前先确认它是搜索页线索、普通帖子，还是强证据深读。
 
 ## 下一轮补证入口
 

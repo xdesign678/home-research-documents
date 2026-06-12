@@ -10,7 +10,7 @@
 
 ## 记录方法
 
-为了后续复盘方便，从第二轮开始按“证据账本”记录，不只写结论。后续新补帖子和评论时，详细粒度按 `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md` 执行：搜索页线索、普通帖子记录、强证据深读分开写，避免把评论压缩成一句话。
+为了后续复盘方便，从第二轮开始按“证据账本”记录，不只写结论。后续新补帖子和评论时，详细粒度按 `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md` 执行：搜索页线索、普通帖子记录、强证据深读分开写，避免把评论压缩成一句话。若要判断本文件里哪些条目只是搜索页线索、哪些是普通帖子、哪些已经接近强证据深读，先看 `xiaohongshu-board-record-detail-coverage-audit-2026-06-12.md`。
 
 每个搜索对象尽量保留：
 

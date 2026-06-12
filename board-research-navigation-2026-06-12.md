@@ -38,9 +38,10 @@
 32. 要按对象逐条补查红棉花、博耐克、合生雅居、靓时靓面、水性科天、露水河等，看 `xiaohongshu-board-targeted-followup-cards-2026-06-12.md`。
 33. 如果你手动打开了小红书帖子、评论或截图，看 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md`：按表补证，方便我继续整理。
 34. 要按品牌或问题反查小红书证据编号，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
-35. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
-36. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
-37. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
+35. 要确认补充研究里的条目到底是搜索页线索、普通帖子还是强证据深读，看 `xiaohongshu-board-record-detail-coverage-audit-2026-06-12.md`。
+36. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
+37. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
+38. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
 
 ## 文件用途总览
 
@@ -60,6 +61,7 @@
 | `board-evidence-scoring-rubric-2026-06-12.md` | 复盘帖子、评论、报告、商家回复时 | 证据类型、可信度打分、升级/降级阈值、当前对象置信度 | 它是判断尺，不是新排名 |
 | `xiaohongshu-board-comment-bias-checklist-2026-06-12.md` | 复盘评论区，担心被求价评论、商家号、治理号或情绪评论带偏时 | 评论类型、升权/降权条件、正文和评论冲突处理、重点对象误读风险 | 它是评论防误读清单，不新增证据 |
 | `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md` | 后续补小红书帖子、评论、截图时，担心记录太概括 | 三种记录粒度、单帖 10 个字段、正文摘要写法、评论摘要写法、强证据深读模板 | 它是记录规范，不新增证据 |
+| `xiaohongshu-board-record-detail-coverage-audit-2026-06-12.md` | 复盘补充研究时，想知道哪些条目够深、哪些只是线索 | 搜索页线索、普通帖子、强证据深读、中止/缺评论记录分层 | 它是记录覆盖审计，不新增证据 |
 | `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md` | 看完小红书帖子或评论后，不知道下一步该问商家、写合同还是到货验收时 | 小红书信号、商家追问、合同条款、到货验收、暂停条件 | 它是证据转行动矩阵，不新增帖子证据 |
 | `board-candidate-upgrade-downgrade-matrix-2026-06-12.md` | 补到新帖子、新评论、新检测后，判断候选能否升级或必须降级 | 红棉花、水性科天、露水河、克诺斯邦/可丽芙、博耐克、靓时靓面、丽特曼、爱德板、伟业欧松板、合生雅居等 | 它是候选层级规则，不直接改排名 |
 | `board-candidate-evidence-gap-register-2026-06-12.md` | 复盘每个候选还缺哪类证据，或决定下一轮先查谁时 | 第一决策层、原 6 家中后位、新增观察对象、柜门链条、低证据候选、合生雅居 | 它是证据缺口总表，不新增小红书证据 |
@@ -126,6 +128,7 @@
 | 一条帖子、评论或报告够不够影响结论 | `board-evidence-scoring-rubric-2026-06-12.md` |
 | 评论区哪些内容该升权、哪些要降权 | `xiaohongshu-board-comment-bias-checklist-2026-06-12.md` |
 | 后续帖子和评论要详细记录到什么程度 | `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md` |
+| 补充研究里哪些记录够深、哪些只是线索 | `xiaohongshu-board-record-detail-coverage-audit-2026-06-12.md` |
 | 每个候选还缺哪类证据、下一轮先补什么 | `board-candidate-evidence-gap-register-2026-06-12.md` |
 | 丽特曼、爱德板、伟业欧松板到底能不能当候选 | `board-low-evidence-candidate-identity-check-2026-06-12.md` |
 
@@ -190,6 +193,7 @@
 - 已新增“证据可信度评分规则”，把小红书帖子、评论、检测报告和商家回复分成强证据、弱线索和待补证材料。
 - 已新增“小红书评论防误读清单”，把真实复核、追问补充、反驳归因、情绪共鸣、求价求链接和商业混入评论分开处理。
 - 已新增“小红书帖子与评论详细记录规范”，把搜索页线索、普通帖子记录、强证据深读的粒度固定下来，避免后续补录过度概括。
+- 已新增“小红书帖子评论记录细节覆盖审计”，把补充研究里的搜索页线索、普通帖子、强证据深读和中止/缺评论记录分层，防止复盘时误读证据深度。
 - 已新增“小红书证据转行动矩阵”，把帖子和评论里的没味、刺鼻、超标、假货、授权、延期等信号转成商家追问、合同条款、到货验收和暂停条件。
 - 已新增“候选升级/降级判断矩阵”，把每个新增候选什么时候能升、什么时候要降、下一步补什么写成统一判断规则。
 - 已新增“候选证据缺口登记表”，把每个对象还差哪类小红书帖子、评论、检测、授权或合同证据集中到一张表里。
