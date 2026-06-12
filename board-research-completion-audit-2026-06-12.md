@@ -17,7 +17,7 @@
 | 使用小红书搜索研究 | 阶段完成 | `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` | 已做公开搜索和只读记录；后续因安全限制暂停 |
 | 注意 AGENTS.md 小红书规则 | 已遵守 | `xiaohongshu-board-extension-research-2026-06-12.md` 的研究边界和安全限制记录 | 记录显示未登录、未互动，遇安全限制 300017 后停止 |
 | 不只看帖子，也看评论 | 已完成 | 原 6 家 60 篇评论深读、78 条重点复核、新增候选详细评论摘要 | 评论已经成为排名和风险判断的主要依据之一 |
-| 随时记录帖子内容和评论 | 已完成到可复盘程度 | `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md`、`xiaohongshu-board-evidence-review-index-2026-06-12.md`、`board-evidence-scoring-rubric-2026-06-12.md` | 已按标题、链接、评论量、正文摘要、评论分歧、证据权重记录；新增评分规则和复盘索引方便后续统一判断 |
+| 随时记录帖子内容和评论 | 已完成到可复盘程度 | `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md`、`xiaohongshu-board-evidence-review-index-2026-06-12.md`、`board-evidence-scoring-rubric-2026-06-12.md` | 已按标题、链接、评论量、正文摘要、评论分歧、证据权重记录；补充研究文档已新增复盘记录粒度要求和待补录对象卡片，避免后续只写高度概括结论 |
 | 看看除了已有对象还有没有值得推荐 | 已完成阶段判断 | `board-material-selection-brief-2026-06-12.md`、`board-research-navigation-2026-06-12.md`、补充研究阶段判断 | 新增对象进入观察层，但没有证据足够替代爱格、福人、华富立前三 |
 | 重点关注环保和甲醛 | 已完成 | 主报告、术语速查、证据包、补充研究 | 甲醛、TVOC、气味、CMA、封边、批次、授权、整屋叠加都已纳入 |
 | 看资料还有没有需要补充优化 | 已持续优化 | 导航、短版、术语页、证据评分规则、商家问询脚本、官方验真清单、复查队列 | 已从“证据多”补到“怎么读、怎么评、怎么问、怎么验、怎么复查” |
@@ -42,7 +42,7 @@
 | `fable5-board-score-review.html` | 另一套评分复核，只覆盖原 6 家 |
 | `xiaohongshu-board-evidence.md` | 原 6 家小红书证据沉淀，含 165 篇去重样本和 60 篇评论深读 |
 | `xiaohongshu-board-review-pack.md` | 原 6 家 78 条高争议、检测、入住、验真类重点复核 |
-| `xiaohongshu-board-extension-research-2026-06-12.md` | 新增候选和合生雅居渠道风险的详细帖子与评论记录 |
+| `xiaohongshu-board-extension-research-2026-06-12.md` | 新增候选和合生雅居渠道风险的详细帖子与评论记录，含复盘记录粒度要求和待补录对象卡片 |
 | `xiaohongshu-board-evidence-review-index-2026-06-12.md` | 按品牌、证据编号和问题类型反查小红书帖子与评论底稿 |
 | `board-material-selection-brief-2026-06-12.md` | 实际下单短版，告诉你先看谁、暂停谁、问什么 |
 | `board-final-go-no-go-decision-checklist-2026-06-12.md` | 签合同前用红黄绿判断是否可以继续、需要补证还是暂停 |
@@ -66,9 +66,9 @@
 | 缺口 | 为什么还缺 | 下一步怎么补 |
 |---|---|---|
 | 小红书详情页继续深挖 | 已出现安全限制 300017，按规则不能继续自动打开 | 等限制解除后低频只读复查，或由用户手动打开页面提供可见内容 |
-| 丽特曼 | 目前只是博耐克评论带出的候选 | 下一轮查“丽特曼 板材 甲醛”“丽特曼 博耐克”“丽特曼 韩国膜” |
-| 爱德板 | 目前只是红棉花评论带出的候选 | 下一轮查“爱德板 全屋定制 甲醛”“爱德板 柜体” |
-| 伟业欧松板 | 目前只是宁丰对比语境带出的候选 | 下一轮查“伟业 欧松板 甲醛”“伟业 宁丰 欧松 对比” |
+| 丽特曼 | 目前只是博耐克评论带出的候选 | 下一轮查“丽特曼 板材 甲醛”“丽特曼 博耐克”“丽特曼 韩国膜”；补录时按 P1 卡片拆清它是基材、膜、饰面还是门板体系 |
+| 爱德板 | 目前只是红棉花评论带出的候选 | 下一轮查“爱德板 全屋定制 甲醛”“爱德板 柜体”；补录时按 P2 卡片确认部位、地区、等级和真实评论复核 |
+| 伟业欧松板 | 目前只是宁丰对比语境带出的候选 | 下一轮查“伟业 欧松板 甲醛”“伟业 宁丰 欧松 对比”；补录时按 P3 卡片拆清素板/精板、贴面、PET 和验真 |
 | 红棉花具体系列 | 正向体感多，但系列拆分和检测证据还不够 | 重点查海德板、木香板、实木香杉板的长期入住和 CMA/TVOC |
 | 博耐克官方授权链 | 查到 Berneck 官方站，但国内北新木业授权链未闭环 | 需要商家提供进口链、授权链、报关/批次、贴面加工来源 |
 | 合生雅居本地门店 | 总品牌样本不能替代目标城市门店 | 真考虑时按城市、门店、付款结构、实际用板重新查 |
