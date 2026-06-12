@@ -6,17 +6,19 @@
 
 1. 先看 `board-material-selection-brief-2026-06-12.md`：快速知道当前优先看谁、哪些情况暂停、问商家什么。
 2. 再看 `board-ranking-report.html`：看原 6 家主排名、补充候选观察层和每个品牌的证据入口。
-3. 看不懂 ENF、E0、F4星、CMA、TVOC 时，看 `board-environmental-terms-guide-2026-06-12.md`。
-4. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
-5. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
-6. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
-7. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
+3. 要确认“哪些已完成、哪些还没法证实”，看 `board-research-completion-audit-2026-06-12.md`。
+4. 看不懂 ENF、E0、F4星、CMA、TVOC 时，看 `board-environmental-terms-guide-2026-06-12.md`。
+5. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
+6. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
+7. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
+8. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
 
 ## 文件用途总览
 
 | 文件 | 适合什么时候看 | 覆盖范围 | 注意事项 |
 |---|---|---|---|
 | `board-material-selection-brief-2026-06-12.md` | 快下单、和商家沟通前 | 主排名、新增候选、排除条件、12 个问题 | 短版，不展开原帖和评论 |
+| `board-research-completion-audit-2026-06-12.md` | 想确认研究是否已经完成、还缺什么 | 原始要求逐项审计、资料体系、未完成缺口 | 它说明当前是阶段性完成，不是全量完成 |
 | `board-environmental-terms-guide-2026-06-12.md` | 看报价单、检测报告、销售话术时 | ENF、E0、F4星、CMA、TVOC、无醛添加、净味板 | 只解释概念，不替代标准原文 |
 | `board-official-verification-checklist-2026-06-12.md` | 和商家核授权、报告、标签、合同时 | 官方入口、暂缺官方闭环对象、最小证据包、追问模板 | 不改排名，只补验真和合同颗粒度 |
 | `board-ranking-report.html` | 想看网页化主报告 | 原 6 家排名 + 新增候选观察层 | 主排名仍是原 6 家；新增候选不直接改排名 |
@@ -30,6 +32,7 @@
 | 问题 | 直接看哪里 |
 |---|---|
 | 现在最推荐哪几类板材 | `board-material-selection-brief-2026-06-12.md` 的“选型优先级” |
+| 当前研究到底完成到什么程度 | `board-research-completion-audit-2026-06-12.md` |
 | 原 6 家排名为什么这么排 | `board-ranking-report.html` 的“现实下单综合排名”和品牌详情 |
 | 理想条件下排名会不会变 | `board-ranking-report.html` 的“理想条件排名”；`fable5-board-score-review.html` 的独立复核 |
 | 新增候选有没有比爱格/福人/华富立更推荐 | `xiaohongshu-board-extension-research-2026-06-12.md` 的“阶段判断” |
@@ -75,6 +78,7 @@
 - 主报告页已加入“补充候选观察层”。
 - 已新增“选型决策简版”和“环保等级与检测术语速查”。
 - 已新增“官方口径与验真清单”，把小红书口碑问题落到授权、报告、标签和合同核验。
+- 已新增“完成度审计”，逐项核对原始研究目标和剩余证据缺口。
 - 小红书安全限制 300017 已记录，后续复查队列已写入补充研究文档。
 
 ## 当前未完成但已经排队的部分
