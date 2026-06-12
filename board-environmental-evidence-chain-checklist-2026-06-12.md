@@ -26,6 +26,7 @@
 | 评论复核 | 不只看正文，要看评论是否补充事实 | 评论提到同款、同门店、标签、检测、付款、延期或作者回复 | `xiaohongshu-board-comment-bias-checklist-2026-06-12.md` |
 | 候选缺口 | 明确这个对象还缺什么证据 | 知道下一条要补的是系列、授权、检测、合同还是门店交付 | `board-candidate-evidence-gap-register-2026-06-12.md` |
 | 官方验真 | 有官方入口或商家给出可核路径 | 授权链、批次、报告编号、防伪码、标签能相互对应 | `board-official-verification-checklist-2026-06-12.md` |
+| 商家收件 | 商家发来的报价、报告、授权、标签和合同草稿先登记 | 每份资料能说明什么、能否核验、缺口是什么 | `board-merchant-evidence-intake-log-2026-06-12.md` |
 | 分房间配置 | 每个空间和部位都写清 | 柜体、柜门、背板、抽屉底板、见光板、封边、开孔补封逐项明确 | `board-room-by-room-material-schedule-2026-06-12.md` |
 | 报价合同 | 承诺能写进合同附件 | 材料、付款、延期、错板、检测不合格处理都可追责 | `board-quote-contract-review-checklist-2026-06-12.md` |
 | 到货安装记录 | 到货当天能拍照验收 | 标签、切面、防伪、封边、开孔、异形件都有照片 | `board-delivery-installation-acceptance-checklist-2026-06-12.md` |

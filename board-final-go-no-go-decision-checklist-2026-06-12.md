@@ -85,6 +85,7 @@
 - 用 `board-door-panel-surface-chain-risk-2026-06-12.md` 拆柜门链条。
 - 用 `board-quote-contract-review-checklist-2026-06-12.md` 审报价和合同。
 - 用 `board-vendor-comparison-decision-template-2026-06-12.md` 比多家商家。
+- 用 `board-merchant-evidence-intake-log-2026-06-12.md` 先判读商家发来的报价、报告、授权、标签和合同草稿。
 - 用 `board-delivery-installation-acceptance-checklist-2026-06-12.md` 做到货验收。
 - 用 `board-indoor-air-acceptance-checklist-2026-06-12.md` 做入住前空气检测。
 

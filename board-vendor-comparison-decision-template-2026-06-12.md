@@ -11,10 +11,11 @@
 ## 使用方法
 
 1. 每家商家先按 `board-merchant-question-script-2026-06-12.md` 问一轮。
-2. 拿到报价后，按 `board-quote-contract-review-checklist-2026-06-12.md` 审颗粒度。
-3. 把能核验的证据填进本表。
-4. 缺项不要自己脑补，直接写“未提供”。
-5. 最后只在 A/B/C/D 四档里做决策，不要被销售催着当场交钱。
+2. 商家发来资料后，先用 `board-merchant-evidence-intake-log-2026-06-12.md` 做收件和初步判读。
+3. 拿到报价后，按 `board-quote-contract-review-checklist-2026-06-12.md` 审颗粒度。
+4. 把能核验的证据填进本表。
+5. 缺项不要自己脑补，直接写“未提供”。
+6. 最后只在 A/B/C/D 四档里做决策，不要被销售催着当场交钱。
 
 签合同前，再用 `board-final-go-no-go-decision-checklist-2026-06-12.md` 过一遍红黄绿判断。只要有红灯，就先暂停。
 

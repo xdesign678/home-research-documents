@@ -18,18 +18,19 @@
 12. 要判断某个新增候选能不能升级或必须降级，看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`。
 13. 要判断每个候选还缺哪类帖子、评论、检测、授权或合同证据，看 `board-candidate-evidence-gap-register-2026-06-12.md`。
 14. 已经拿到报价单或合同，看 `board-quote-contract-review-checklist-2026-06-12.md`。
-15. 已经有 2 到 4 家商家报价，要横向比较，看 `board-vendor-comparison-decision-template-2026-06-12.md`。
-16. 准备问商家、门店或设计师时，看 `board-merchant-question-script-2026-06-12.md`。
-17. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
-18. 到货或安装当天，看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
-19. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
-20. 如果检测异常或气味不稳，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
-21. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
-22. 如果你手动打开了小红书帖子、评论或截图，看 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md`：按表补证，方便我继续整理。
-23. 要按品牌或问题反查小红书证据编号，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
-24. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
-25. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
-26. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
+15. 准备问商家、门店或设计师时，看 `board-merchant-question-script-2026-06-12.md`。
+16. 商家发来报价、报告、授权、标签或截图后，看 `board-merchant-evidence-intake-log-2026-06-12.md`。
+17. 已经有 2 到 4 家商家报价，要横向比较，看 `board-vendor-comparison-decision-template-2026-06-12.md`。
+18. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
+19. 到货或安装当天，看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
+20. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
+21. 如果检测异常或气味不稳，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
+22. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
+23. 如果你手动打开了小红书帖子、评论或截图，看 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md`：按表补证，方便我继续整理。
+24. 要按品牌或问题反查小红书证据编号，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
+25. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
+26. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
+27. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
 
 ## 文件用途总览
 
@@ -50,6 +51,7 @@
 | `board-quote-contract-review-checklist-2026-06-12.md` | 拿到报价单、准备签合同前 | 报价颗粒度、不能接受的写法、环保条款、比价表、付款节点 | 不替代法律意见，只帮你把合同写到可验收 |
 | `board-vendor-comparison-decision-template-2026-06-12.md` | 已经拿到多家报价、要决定选谁时 | 商家横向对比、板材拆分、检测证据、授权防伪、付款交付、红旗和最终决策 | 它是记录表，不替代合同 |
 | `board-merchant-question-script-2026-06-12.md` | 准备问商家、门店、设计师时 | 可复制话术、合格/危险回答、分对象追问、商家回答分级 | 它把证据风险翻译成沟通问题，不新增排名 |
+| `board-merchant-evidence-intake-log-2026-06-12.md` | 商家已经发来报价、检测报告、授权、标签截图或合同草稿后 | 收件清单、分部位判读、环保甲醛判读、重点对象额外判读、缺口追问 | 它是商家资料收件表，不替代横向对比 |
 | `board-official-verification-checklist-2026-06-12.md` | 和商家核授权、报告、标签、合同时 | 官方入口、暂缺官方闭环对象、最小证据包、追问模板 | 不改排名，只补验真和合同颗粒度 |
 | `board-delivery-installation-acceptance-checklist-2026-06-12.md` | 到货当天、安装现场、付尾款前 | 必拍照片、暂停安装条件、分品牌现场重点、付款绑定 | 它是现场动作清单，不替代空气检测 |
 | `board-indoor-air-acceptance-checklist-2026-06-12.md` | 安装后、入住前、检测报告出来后 | 检测前准备、机构选择、报告解读、异常处理、合同条款 | 不替代检测机构意见，只给验收流程 |
@@ -82,6 +84,7 @@
 | 具体怎么追问每个品牌、哪些回答算危险 | `board-merchant-question-script-2026-06-12.md` |
 | 报价单和合同怎么审 | `board-quote-contract-review-checklist-2026-06-12.md` |
 | 多家商家怎么横向比较 | `board-vendor-comparison-decision-template-2026-06-12.md` |
+| 商家发来的资料怎么收件和判读 | `board-merchant-evidence-intake-log-2026-06-12.md` |
 | 官方授权、检测报告、标签和合同怎么核 | `board-official-verification-checklist-2026-06-12.md` |
 | 到货和安装现场怎么验 | `board-delivery-installation-acceptance-checklist-2026-06-12.md` |
 | 入住前空气检测怎么做 | `board-indoor-air-acceptance-checklist-2026-06-12.md` |
@@ -142,6 +145,7 @@
 - 已新增“报价与合同审核清单”，把板材选择落到报价颗粒度、付款节点和验收责任。
 - 已新增“商家横向对比与决策记录表”，把多家报价、用板、证据、授权、付款和风险放到同一张表里。
 - 已新增“商家问询脚本”，把证据里的授权、混板、封边、检测和付款风险转成可直接复制的追问话术。
+- 已新增“商家证据收件与判读表”，把商家发来的报价、报告、授权、标签和合同草稿先收件再判读。
 - 已新增“到货与安装现场验收清单”，把标签、防伪、切面、封边、开孔和尾款绑定成现场动作。
 - 已新增“小红书下一轮复查手册”，把候选队列、搜索词、评论记录模板和升级/降级规则固定下来。
 - 已新增“小红书手动补证收集表”，把安全限制后由用户手动提供帖子、评论、截图时的记录字段固定下来。
