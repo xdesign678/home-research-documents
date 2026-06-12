@@ -2,7 +2,7 @@
 
 这份不是新结论，而是下一轮继续查小红书时的执行清单。它解决一个问题：已经记录了很多帖子和评论，后续再查时不能重新变成零散摘录，要按同一套字段继续积累证据。
 
-判断单条帖子、评论或检测报告的可信度，先看 `board-evidence-scoring-rubric-2026-06-12.md`。如果重点在评论区，先看 `xiaohongshu-board-comment-bias-checklist-2026-06-12.md`，避免被求价评论、商家号、治理号或情绪评论带偏。判断某个新增候选能不能升级或必须降级，再看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`。这份手册负责“怎么记录”，评论清单负责“评论怎么防误读”，评分规则负责“记录后怎么判断权重”，升降级矩阵负责“证据变厚后怎么改候选层级”。
+判断单条帖子、评论或检测报告的可信度，先看 `board-evidence-scoring-rubric-2026-06-12.md`。如果重点在评论区，先看 `xiaohongshu-board-comment-bias-checklist-2026-06-12.md`，避免被求价评论、商家号、治理号或情绪评论带偏。判断某个新增候选能不能升级或必须降级，再看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`；判断每个候选还差哪类证据，先看 `board-candidate-evidence-gap-register-2026-06-12.md`。这份手册负责“怎么记录”，评论清单负责“评论怎么防误读”，评分规则负责“记录后怎么判断权重”，升降级矩阵负责“证据变厚后怎么改候选层级”，缺口登记表负责“下一条证据先补什么”。
 
 ## 使用边界
 
