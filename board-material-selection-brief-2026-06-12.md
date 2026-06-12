@@ -113,7 +113,7 @@
 - 如果要把每个房间和柜子的用板拆清，先读 `board-room-by-room-material-schedule-2026-06-12.md`。
 - 如果方案里有 PET 欧松门、进口基材、第三方贴面、韩国膜、丽特曼或异形件，先读 `board-door-panel-surface-chain-risk-2026-06-12.md`。
 - 如果后续小红书补到新证据、想判断某个候选能不能升级推荐，先读 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`。
-- 如果后续要按红棉花、博耐克、合生雅居、靓时靓面等对象继续深挖评论，先读 `xiaohongshu-board-targeted-followup-cards-2026-06-12.md`。
+- 如果后续要按博耐克、合生雅居、红棉花、靓时靓面等对象继续深挖评论，先读 `xiaohongshu-board-targeted-followup-cards-2026-06-12.md`。
 - 如果后续手动打开公开帖子，先读 `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md`，把正文、截图顺序和高信息评论留下来。
 - 如果后续看到一条帖子或评论，不确定下一步怎么问商家、写合同或到货验收，先读 `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md`。
 - 如果看不懂 ENF、E0、F4星、CMA、TVOC，先读 `board-environmental-terms-guide-2026-06-12.md`。
