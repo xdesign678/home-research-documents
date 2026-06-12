@@ -27,6 +27,7 @@
 - [全屋定制入住前空气检测与验收清单（2026-06-12）](./board-indoor-air-acceptance-checklist-2026-06-12.md)
 - [全屋定制安装后污染源归因与整改排查清单（2026-06-12）](./board-pollution-source-troubleshooting-checklist-2026-06-12.md)
 - [小红书板材下一轮复查手册（2026-06-12）](./board-xiaohongshu-next-research-playbook-2026-06-12.md)
+- [小红书板材手动补证收集表（2026-06-12）](./xiaohongshu-board-manual-evidence-intake-2026-06-12.md)
 - [板材打分逻辑可视化](./fable5-board-score-review.html)（仅复核原 6 家主排名）
 - [小红书板材环保研究证据沉淀](./xiaohongshu-board-evidence.md)
 - [小红书板材 78 条重点复核证据包](./xiaohongshu-board-review-pack.md)
