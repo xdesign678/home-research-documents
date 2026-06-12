@@ -24,16 +24,17 @@
 18. 商家发来报价、报告、授权、标签或截图后，看 `board-merchant-evidence-intake-log-2026-06-12.md`。
 19. 已经有 2 到 4 家商家报价，要横向比较，看 `board-vendor-comparison-decision-template-2026-06-12.md`。
 20. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
-21. 到货或安装当天，看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
-22. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
-23. 如果检测异常或气味不稳，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
-24. 小红书出现安全限制后，判断什么时候能恢复低频只读复查，看 `xiaohongshu-board-safe-resume-checklist-2026-06-12.md`。
-25. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
-26. 如果你手动打开了小红书帖子、评论或截图，看 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md`：按表补证，方便我继续整理。
-27. 要按品牌或问题反查小红书证据编号，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
-28. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
-29. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
-30. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
+21. 要把官方资料和小红书口碑交叉核验，看 `board-official-source-crosscheck-notes-2026-06-12.md`。
+22. 到货或安装当天，看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
+23. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
+24. 如果检测异常或气味不稳，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
+25. 小红书出现安全限制后，判断什么时候能恢复低频只读复查，看 `xiaohongshu-board-safe-resume-checklist-2026-06-12.md`。
+26. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
+27. 如果你手动打开了小红书帖子、评论或截图，看 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md`：按表补证，方便我继续整理。
+28. 要按品牌或问题反查小红书证据编号，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
+29. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
+30. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
+31. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
 
 ## 文件用途总览
 
@@ -58,6 +59,7 @@
 | `board-merchant-question-script-2026-06-12.md` | 准备问商家、门店、设计师时 | 可复制话术、合格/危险回答、分对象追问、商家回答分级 | 它把证据风险翻译成沟通问题，不新增排名 |
 | `board-merchant-evidence-intake-log-2026-06-12.md` | 商家已经发来报价、检测报告、授权、标签截图或合同草稿后 | 收件清单、分部位判读、环保甲醛判读、重点对象额外判读、缺口追问 | 它是商家资料收件表，不替代横向对比 |
 | `board-official-verification-checklist-2026-06-12.md` | 和商家核授权、报告、标签、合同时 | 官方入口、暂缺官方闭环对象、最小证据包、追问模板 | 不改排名，只补验真和合同颗粒度 |
+| `board-official-source-crosscheck-notes-2026-06-12.md` | 想把官方页面、国家标准和小红书口碑放在一起判断时 | 标准入口、爱格、华富立、福人、大王椰、Berneck、小森板等官方资料能说明什么、不能说明什么 | 它是交叉核验笔记，不替代商家实际资料 |
 | `board-delivery-installation-acceptance-checklist-2026-06-12.md` | 到货当天、安装现场、付尾款前 | 必拍照片、暂停安装条件、分品牌现场重点、付款绑定 | 它是现场动作清单，不替代空气检测 |
 | `board-indoor-air-acceptance-checklist-2026-06-12.md` | 安装后、入住前、检测报告出来后 | 检测前准备、机构选择、报告解读、异常处理、合同条款 | 不替代检测机构意见，只给验收流程 |
 | `board-pollution-source-troubleshooting-checklist-2026-06-12.md` | 检测异常、气味不稳、需要和商家排查责任时 | 甲醛/TVOC/苯系物归因、空间定位、材料排查、证据包和复测顺序 | 不替代检测机构意见，只帮你把问题拆清 |
@@ -93,6 +95,7 @@
 | 多家商家怎么横向比较 | `board-vendor-comparison-decision-template-2026-06-12.md` |
 | 商家发来的资料怎么收件和判读 | `board-merchant-evidence-intake-log-2026-06-12.md` |
 | 官方授权、检测报告、标签和合同怎么核 | `board-official-verification-checklist-2026-06-12.md` |
+| 官方资料和小红书口碑怎么交叉看 | `board-official-source-crosscheck-notes-2026-06-12.md` |
 | 到货和安装现场怎么验 | `board-delivery-installation-acceptance-checklist-2026-06-12.md` |
 | 入住前空气检测怎么做 | `board-indoor-air-acceptance-checklist-2026-06-12.md` |
 | 检测异常后怎么排查污染源 | `board-pollution-source-troubleshooting-checklist-2026-06-12.md` |
@@ -157,6 +160,7 @@
 - 已新增“商家横向对比与决策记录表”，把多家报价、用板、证据、授权、付款和风险放到同一张表里。
 - 已新增“商家问询脚本”，把证据里的授权、混板、封边、检测和付款风险转成可直接复制的追问话术。
 - 已新增“商家证据收件与判读表”，把商家发来的报价、报告、授权、标签和合同草稿先收件再判读。
+- 已新增“官方资料交叉核验笔记”，把国家标准、品牌官方入口和小红书口碑之间的边界写清，避免把官网宣传当成下单证据。
 - 已新增“到货与安装现场验收清单”，把标签、防伪、切面、封边、开孔和尾款绑定成现场动作。
 - 已新增“小红书下一轮复查手册”，把候选队列、搜索词、评论记录模板和升级/降级规则固定下来。
 - 已新增“小红书手动补证收集表”，把安全限制后由用户手动提供帖子、评论、截图时的记录字段固定下来。
