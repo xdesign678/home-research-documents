@@ -4,7 +4,7 @@
 
 如果小红书此前出现安全限制，先看 `xiaohongshu-board-safe-resume-checklist-2026-06-12.md`。只有确认公开页面可见、无需登录验证、无需任何规避、能低频只读时，才使用本手册继续复查。
 
-判断单条帖子、评论或检测报告的可信度，先看 `board-evidence-scoring-rubric-2026-06-12.md`。如果重点在评论区，先看 `xiaohongshu-board-comment-bias-checklist-2026-06-12.md`，避免被求价评论、商家号、治理号或情绪评论带偏。判断后续记录是否足够细，先看 `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md`。判断某个新增候选能不能升级或必须降级，再看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`；判断每个候选还差哪类证据，先看 `board-candidate-evidence-gap-register-2026-06-12.md`。这份手册负责“下一轮查什么”，记录规范负责“帖子和评论写到什么粒度”，评论清单负责“评论怎么防误读”，评分规则负责“记录后怎么判断权重”，升降级矩阵负责“证据变厚后怎么改候选层级”，缺口登记表负责“下一条证据先补什么”。
+判断单条帖子、评论或检测报告的可信度，先看 `board-evidence-scoring-rubric-2026-06-12.md`。如果重点在评论区，先看 `xiaohongshu-board-comment-bias-checklist-2026-06-12.md`，避免被求价评论、商家号、治理号或情绪评论带偏。判断后续记录是否足够细，先看 `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md`。如果要按对象逐条补查红棉花、博耐克、合生雅居、靓时靓面等，直接看 `xiaohongshu-board-targeted-followup-cards-2026-06-12.md`。判断某个新增候选能不能升级或必须降级，再看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`；判断每个候选还差哪类证据，先看 `board-candidate-evidence-gap-register-2026-06-12.md`。这份手册负责“下一轮查什么”，逐对象补查卡负责“每个对象打开帖子后具体看什么”，记录规范负责“帖子和评论写到什么粒度”，评论清单负责“评论怎么防误读”，评分规则负责“记录后怎么判断权重”，升降级矩阵负责“证据变厚后怎么改候选层级”，缺口登记表负责“下一条证据先补什么”。
 
 ## 使用边界
 
@@ -193,11 +193,12 @@
 ## 复查完成后怎么更新资料
 
 1. 新帖子和评论先追加到 `xiaohongshu-board-extension-research-2026-06-12.md`。
-2. 先按 `board-evidence-scoring-rubric-2026-06-12.md` 给单条证据打可信度分。
-3. 如果某个对象证据变厚，再更新 `board-research-navigation-2026-06-12.md` 的覆盖矩阵。
-4. 如果结论足以影响下单优先级，再更新 `board-material-selection-brief-2026-06-12.md`。
-5. 如果只是合同或验真问题，优先更新 `board-quote-contract-review-checklist-2026-06-12.md` 或 `board-official-verification-checklist-2026-06-12.md`。
-6. 只有证据足够强，才改 `board-ranking-report.html` 的主结论；不要因为单条帖子改排名。
+2. 按 `xiaohongshu-board-targeted-followup-cards-2026-06-12.md` 检查对象卡里的评论采样顺序有没有补齐。
+3. 再按 `board-evidence-scoring-rubric-2026-06-12.md` 给单条证据打可信度分。
+4. 如果某个对象证据变厚，再更新 `board-research-navigation-2026-06-12.md` 的覆盖矩阵。
+5. 如果结论足以影响下单优先级，再更新 `board-material-selection-brief-2026-06-12.md`。
+6. 如果只是合同或验真问题，优先更新 `board-quote-contract-review-checklist-2026-06-12.md` 或 `board-official-verification-checklist-2026-06-12.md`。
+7. 只有证据足够强，才改 `board-ranking-report.html` 的主结论；不要因为单条帖子改排名。
 
 ## 当前不能继续自动查的原因
 
