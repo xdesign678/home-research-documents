@@ -57,7 +57,7 @@
 | 看新增候选细节 | `xiaohongshu-board-extension-research-2026-06-12.md` | 已接入 README、导航、主报告、证据索引 | 负责保留新增帖子与评论摘要 |
 | 快速定位新增候选最细记录 | `xiaohongshu-board-evidence-review-index-2026-06-12.md` 的 D 区细节回填快速定位 | 已接入证据复盘索引、记录覆盖审计 | 负责把 D1-D19 对应对象、问题和复盘重点集中起来 |
 | 小红书恢复后继续查 | `board-xiaohongshu-next-research-playbook-2026-06-12.md`、`xiaohongshu-board-targeted-followup-cards-2026-06-12.md` | 已接入 README、导航、主报告 | 先按安全恢复清单判断是否能继续 |
-| 用户手动打开单条帖子，先快速截正文和评论 | `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md` | 已接入 README、导航、主报告、手动补证表、完成度审计 | 适合 300017 后先做轻量补证 |
+| 用户手动打开单条帖子，先快速截正文和评论 | `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md` | 已接入 README、导航、主报告、手动补证表、完成度审计 | 适合 300017 后先做轻量补证；少量补证顺序已同步为博耐克、合生雅居、红棉花优先 |
 | 用户手动提供完整帖子、评论或截图 | `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` | 已接入 README、导航、主报告、完成度审计 | 适合 300017 后正式整理补证；手动补证优先级已与缺口登记表一致，先补博耐克、合生雅居、红棉花 |
 | 把评论转成商家动作 | `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md` | 已接入 README、导航、主报告 | 避免只停留在“口碑好/口碑差” |
 | 商家发来检测报告或报告截图 | `board-test-report-quick-read-card-2026-06-12.md` | 已接入 README、导航、主报告、短版、商家收件表、官方验真清单 | 先判报告类型、样品对应、检测项目和红黄绿信号 |
