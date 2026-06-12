@@ -1117,5 +1117,19 @@
     </div>
   </footer>
 
+  <script>
+    function markdownViewerHref(rawHref) {
+      if (!rawHref || /^(https?:|mailto:|tel:|#)/i.test(rawHref)) return null;
+      const [pathPart, hashPart] = rawHref.split('#');
+      const fileName = pathPart.split('/').pop();
+      if (!/^[A-Za-z0-9._-]+\.md$/i.test(fileName || '')) return null;
+      return `./doc-viewer.html?file=${encodeURIComponent(fileName)}${hashPart ? `#${encodeURIComponent(hashPart)}` : ''}`;
+    }
+
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const routedHref = markdownViewerHref(link.getAttribute('href'));
+      if (routedHref) link.href = routedHref;
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文档阅读器</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --ink: #17201b;
+      --muted: #5b6b63;
+      --line: #dfe7e2;
+      --paper: #fbfcfa;
+      --card: #ffffff;
+      --green: #1f8a5b;
+      --blue: #3867d6;
+      --soft: #f2f7f1;
+      --code: #f5f7f5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.72;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(251, 252, 250, .94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      width: min(1160px, calc(100vw - 32px));
+      margin: 0 auto;
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .brand strong {
+      font-size: 15px;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 7px 11px;
+      background: var(--card);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .button.primary {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .layout {
+      width: min(1160px, calc(100vw - 32px));
+      margin: 28px auto 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: clamp(20px, 4vw, 44px);
+      overflow: hidden;
+      box-shadow: 0 16px 38px rgba(31, 74, 48, .06);
+    }
+
+    .article h1,
+    .article h2,
+    .article h3,
+    .article h4 {
+      line-height: 1.28;
+      letter-spacing: 0;
+      scroll-margin-top: 84px;
+    }
+
+    .article h1 {
+      margin: 0 0 22px;
+      font-size: clamp(30px, 4.8vw, 46px);
+    }
+
+    .article h2 {
+      margin: 34px 0 14px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+      font-size: 25px;
+    }
+
+    .article h3 {
+      margin: 26px 0 10px;
+      font-size: 20px;
+    }
+
+    .article h4 {
+      margin: 20px 0 8px;
+      font-size: 17px;
+    }
+
+    .article p {
+      margin: 12px 0;
+      color: #26352e;
+    }
+
+    .article ul,
+    .article ol {
+      margin: 10px 0 16px;
+      padding-left: 24px;
+    }
+
+    .article li { margin: 6px 0; }
+
+    .article blockquote {
+      margin: 18px 0;
+      padding: 12px 16px;
+      border-left: 4px solid var(--green);
+      background: var(--soft);
+      color: var(--muted);
+    }
+
+    .article code {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      background: var(--code);
+      border: 1px solid #e5ebe7;
+      border-radius: 6px;
+      padding: 1px 5px;
+      font-size: .92em;
+    }
+
+    .article pre {
+      margin: 18px 0;
+      padding: 16px;
+      overflow: auto;
+      background: #111b16;
+      color: #edf7f0;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.62;
+    }
+
+    .article pre code {
+      display: block;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: 18px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+      background: var(--card);
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 11px 12px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f3f7f4;
+      color: #42534a;
+      font-weight: 800;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .toc {
+      position: sticky;
+      top: 82px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      max-height: calc(100vh - 104px);
+      overflow: auto;
+    }
+
+    .toc strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .toc a {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+      padding: 6px 0;
+      border-top: 1px solid #edf2ef;
+    }
+
+    .toc a:hover { color: var(--blue); }
+    .toc .level-3 { padding-left: 12px; }
+    .toc .level-4 { padding-left: 24px; }
+
+    .state {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      color: var(--muted);
+    }
+
+    .state strong {
+      display: block;
+      color: var(--ink);
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .toc { position: static; max-height: none; }
+      .topbar-inner { align-items: flex-start; padding: 12px 0; flex-direction: column; }
+      .actions { justify-content: flex-start; }
+    }
+
+    @media print {
+      .topbar,
+      .toc { display: none; }
+      .layout { display: block; width: auto; margin: 0; }
+      .article { border: 0; box-shadow: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <strong id="docTitle">文档阅读器</strong>
+        <span id="docPath">正在读取 Markdown...</span>
+      </div>
+      <div class="actions">
+        <a class="button" href="./board-ranking-report.html">返回主报告</a>
+        <a class="button" id="sourceLink" href="#" aria-disabled="true">打开源文件</a>
+        <button class="button primary" type="button" onclick="window.print()">打印 / 存 PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="layout">
+    <article class="article" id="content">
+      <div class="state"><strong>正在读取</strong>正在加载 Markdown 文档。</div>
+    </article>
+    <nav class="toc" id="toc" aria-label="文档目录">
+      <strong>文档目录</strong>
+      <span style="color: var(--muted); font-size: 13px;">加载后自动生成。</span>
+    </nav>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const requestedFile = params.get('file') || 'README.md';
+    const content = document.getElementById('content');
+    const toc = document.getElementById('toc');
+    const docTitle = document.getElementById('docTitle');
+    const docPath = document.getElementById('docPath');
+    const sourceLink = document.getElementById('sourceLink');
+
+    function cleanFileName(value) {
+      const withoutHash = String(value || '').split('#')[0].split('?')[0].replace(/^\.\//, '');
+      if (!/^[A-Za-z0-9._-]+\.md$/i.test(withoutHash)) return null;
+      return withoutHash;
+    }
+
+    const fileName = cleanFileName(requestedFile);
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function slugify(text, used) {
+      const base = text
+        .toLowerCase()
+        .replace(/<[^>]+>/g, '')
+        .replace(/[^\p{L}\p{N}]+/gu, '-')
+        .replace(/^-+|-+$/g, '') || 'section';
+      const count = used.get(base) || 0;
+      used.set(base, count + 1);
+      return count ? `${base}-${count + 1}` : base;
+    }
+
+    function normalizeMarkdownHref(rawHref) {
+      const href = String(rawHref || '').trim();
+      if (!href) return '#';
+      if (/^(https?:|mailto:|tel:)/i.test(href)) return href;
+      if (href.startsWith('#')) return href;
+      const [pathPart, hashPart] = href.split('#');
+      const targetFile = cleanFileName(pathPart);
+      if (targetFile) {
+        return `./doc-viewer.html?file=${encodeURIComponent(targetFile)}${hashPart ? `#${encodeURIComponent(hashPart)}` : ''}`;
+      }
+      return href;
+    }
+
+    function renderInline(markdown) {
+      const tokens = [];
+      let text = String(markdown || '');
+
+      text = text.replace(/`([^`]+)`/g, (_, code) => {
+        const token = `\u0000CODE${tokens.length}\u0000`;
+        tokens.push(`<code>${escapeHtml(code)}</code>`);
+        return token;
+      });
+
+      text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, href) => {
+        const url = normalizeMarkdownHref(href);
+        const isExternal = /^(https?:|mailto:|tel:)/i.test(url);
+        const token = `\u0000LINK${tokens.length}\u0000`;
+        tokens.push(`<a href="${escapeHtml(url)}"${isExternal ? ' target="_blank" rel="noreferrer"' : ''}>${escapeHtml(label)}</a>`);
+        return token;
+      });
+
+      text = escapeHtml(text)
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/__([^_]+)__/g, '<strong>$1</strong>');
+
+      tokens.forEach((html, index) => {
+        text = text.replace(new RegExp(`\\u0000(?:CODE|LINK)${index}\\u0000`, 'g'), html);
+      });
+      return text;
+    }
+
+    function isTableDivider(line) {
+      return /^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(line);
+    }
+
+    function splitTableRow(line) {
+      let value = line.trim();
+      if (value.startsWith('|')) value = value.slice(1);
+      if (value.endsWith('|')) value = value.slice(0, -1);
+      return value.split('|').map((cell) => cell.trim());
+    }
+
+    function renderTable(lines, start) {
+      const head = splitTableRow(lines[start]);
+      let cursor = start + 2;
+      const body = [];
+      while (cursor < lines.length && lines[cursor].includes('|') && lines[cursor].trim()) {
+        body.push(splitTableRow(lines[cursor]));
+        cursor += 1;
+      }
+      const html = [
+        '<div class="table-wrap"><table>',
+        '<thead><tr>',
+        ...head.map((cell) => `<th>${renderInline(cell)}</th>`),
+        '</tr></thead><tbody>',
+        ...body.map((row) => `<tr>${head.map((_, index) => `<td>${renderInline(row[index] || '')}</td>`).join('')}</tr>`),
+        '</tbody></table></div>'
+      ].join('');
+      return { html, cursor };
+    }
+
+    function renderMarkdown(markdown) {
+      const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
+      const output = [];
+      const headings = [];
+      const usedSlugs = new Map();
+      let index = 0;
+
+      while (index < lines.length) {
+        const line = lines[index];
+        const trimmed = line.trim();
+
+        if (!trimmed) {
+          index += 1;
+          continue;
+        }
+
+        if (trimmed.startsWith('```')) {
+          const lang = trimmed.slice(3).trim();
+          const code = [];
+          index += 1;
+          while (index < lines.length && !lines[index].trim().startsWith('```')) {
+            code.push(lines[index]);
+            index += 1;
+          }
+          index += 1;
+          output.push(`<pre><code data-lang="${escapeHtml(lang)}">${escapeHtml(code.join('\n'))}</code></pre>`);
+          continue;
+        }
+
+        const heading = trimmed.match(/^(#{1,4})\s+(.+)$/);
+        if (heading) {
+          const level = heading[1].length;
+          const title = heading[2].replace(/\s+#*$/, '');
+          const id = slugify(title, usedSlugs);
+          headings.push({ level, title, id });
+          output.push(`<h${level} id="${id}">${renderInline(title)}</h${level}>`);
+          index += 1;
+          continue;
+        }
+
+        if (/^---+$/.test(trimmed)) {
+          output.push('<hr>');
+          index += 1;
+          continue;
+        }
+
+        if (index + 1 < lines.length && line.includes('|') && isTableDivider(lines[index + 1])) {
+          const table = renderTable(lines, index);
+          output.push(table.html);
+          index = table.cursor;
+          continue;
+        }
+
+        if (/^>\s?/.test(trimmed)) {
+          const quote = [];
+          while (index < lines.length && /^>\s?/.test(lines[index].trim())) {
+            quote.push(lines[index].trim().replace(/^>\s?/, ''));
+            index += 1;
+          }
+          output.push(`<blockquote>${quote.map(renderInline).join('<br>')}</blockquote>`);
+          continue;
+        }
+
+        const unordered = trimmed.match(/^[-*+]\s+(.+)$/);
+        const ordered = trimmed.match(/^\d+\.\s+(.+)$/);
+        if (unordered || ordered) {
+          const tag = ordered ? 'ol' : 'ul';
+          const items = [];
+          while (index < lines.length) {
+            const current = lines[index].trim();
+            const match = tag === 'ol' ? current.match(/^\d+\.\s+(.+)$/) : current.match(/^[-*+]\s+(.+)$/);
+            if (!match) break;
+            items.push(`<li>${renderInline(match[1])}</li>`);
+            index += 1;
+          }
+          output.push(`<${tag}>${items.join('')}</${tag}>`);
+          continue;
+        }
+
+        const paragraph = [];
+        while (index < lines.length) {
+          const current = lines[index];
+          const currentTrimmed = current.trim();
+          const nextIsTable = index + 1 < lines.length && current.includes('|') && isTableDivider(lines[index + 1]);
+          if (
+            !currentTrimmed ||
+            currentTrimmed.startsWith('```') ||
+            /^(#{1,4})\s+/.test(currentTrimmed) ||
+            /^[-*+]\s+/.test(currentTrimmed) ||
+            /^\d+\.\s+/.test(currentTrimmed) ||
+            /^>\s?/.test(currentTrimmed) ||
+            nextIsTable
+          ) break;
+          paragraph.push(currentTrimmed);
+          index += 1;
+        }
+        output.push(`<p>${renderInline(paragraph.join(' '))}</p>`);
+      }
+
+      return { html: output.join('\n'), headings };
+    }
+
+    function renderToc(headings) {
+      const usefulHeadings = headings.filter((heading) => heading.level <= 4);
+      if (!usefulHeadings.length) {
+        toc.innerHTML = '<strong>文档目录</strong><span style="color: var(--muted); font-size: 13px;">这份文档没有明显标题层级。</span>';
+        return;
+      }
+      toc.innerHTML = [
+        '<strong>文档目录</strong>',
+        ...usefulHeadings.map((heading) => `<a class="level-${heading.level}" href="#${heading.id}">${escapeHtml(heading.title)}</a>`)
+      ].join('');
+    }
+
+    async function loadDocument() {
+      if (!fileName) {
+        content.innerHTML = '<div class="state"><strong>无法打开</strong>文档路径不合法。请从主报告里的文档链接进入。</div>';
+        return;
+      }
+
+      docPath.textContent = fileName;
+      sourceLink.href = `./${fileName}`;
+
+      try {
+        const response = await fetch(`./${fileName}`, { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const markdown = await response.text();
+        const rendered = renderMarkdown(markdown);
+        content.innerHTML = rendered.html || '<div class="state"><strong>空文档</strong>没有读取到内容。</div>';
+        const firstHeading = rendered.headings[0];
+        docTitle.textContent = firstHeading ? firstHeading.title : fileName;
+        document.title = `${docTitle.textContent} · 文档阅读器`;
+        renderToc(rendered.headings);
+        if (window.location.hash) {
+          const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+          if (target) target.scrollIntoView();
+        }
+      } catch (error) {
+        content.innerHTML = `
+          <div class="state">
+            <strong>读取失败</strong>
+            <p>没有成功读取 <code>${escapeHtml(fileName)}</code>。如果你现在是用 <code>file://</code> 直接打开网页，浏览器通常不允许页面读取旁边的 Markdown 文件。</p>
+            <p>本地预览请用一个本地服务打开；上传后用 GitHub Pages 访问时会正常渲染。</p>
+          </div>
+        `;
+        toc.innerHTML = '<strong>文档目录</strong><span style="color: var(--muted); font-size: 13px;">读取成功后显示。</span>';
+      }
+    }
+
+    loadDocument();
+  </script>
+</body>
+</html>
