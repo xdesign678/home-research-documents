@@ -21,7 +21,7 @@
 | 商家发来检测报告 | `board-test-report-quick-read-card-2026-06-12.md` | 先判断报告类型、样品对应关系、检测项目和能否支撑环保结论 |
 | 已经拿到报价单 | `board-quote-contract-review-checklist-2026-06-12.md` | 看报价是否拆清部位、等级、封边、付款和检测责任 |
 | 有 2 到 4 家商家可比 | `board-vendor-comparison-decision-template-2026-06-12.md` | 不只比总价，横向比证据、合同、付款和交付风险 |
-| 准备签合同 | `board-final-go-no-go-decision-checklist-2026-06-12.md` | 判断是绿灯、黄灯补证，还是红灯暂停 |
+| 准备签合同或付款 | `board-final-go-no-go-decision-checklist-2026-06-12.md` | 判断是绿灯、黄灯补证、红灯暂停，以及每次付款前该卡什么证据 |
 | 到货或安装当天 | `board-delivery-installation-acceptance-checklist-2026-06-12.md` | 拍标签、防伪、切面、封边、开孔和边角料 |
 | 安装后准备入住 | `board-indoor-air-acceptance-checklist-2026-06-12.md` | 安排 CMA 室内空气检测，看甲醛、TVOC 和苯系物 |
 | 检测异常或味道明显 | `board-pollution-source-troubleshooting-checklist-2026-06-12.md` | 分清是板材、柜门膜、胶、封边、软装还是检测条件问题 |
