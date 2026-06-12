@@ -93,6 +93,50 @@
       color: var(--muted);
     }
 
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .workflow-step {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 178px;
+    }
+
+    .workflow-kicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #e8f3ec;
+      color: var(--green);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .workflow-step strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .workflow-step p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .workflow-step a {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
     section { padding: 34px 0; }
 
     h2 {
@@ -797,6 +841,7 @@
       .hero-grid,
       .rank-card,
       .grid,
+      .workflow-grid,
       .candidate-grid,
       .detail-layout,
       .detail-stats {
@@ -843,6 +888,37 @@
   </header>
 
   <main class="wrap">
+    <section>
+      <h2>🧭 先按这个顺序用</h2>
+      <p class="note">如果是为了真实下单，不要只看排名。先判断候选，再审报价，再验授权，最后用空气检测收口。</p>
+      <div class="workflow-grid">
+        <article class="workflow-step">
+          <div class="workflow-kicker">1</div>
+          <strong>先定候选</strong>
+          <p>快速看当前优先项、观察项和暂停项，避免一上来被销售话术带走。</p>
+          <a href="./board-material-selection-brief-2026-06-12.md">看选型决策简版</a>
+        </article>
+        <article class="workflow-step">
+          <div class="workflow-kicker">2</div>
+          <strong>再审报价</strong>
+          <p>柜体、柜门、背板、封边、五金和付款节点必须拆清，缺项就不能比价。</p>
+          <a href="./board-quote-contract-review-checklist-2026-06-12.md">看报价合同清单</a>
+        </article>
+        <article class="workflow-step">
+          <div class="workflow-kicker">3</div>
+          <strong>核授权和到货</strong>
+          <p>把品牌名落到授权链、检测报告、标签、防伪、批次和切面照片。</p>
+          <a href="./board-official-verification-checklist-2026-06-12.md">看官方验真清单</a>
+        </article>
+        <article class="workflow-step">
+          <div class="workflow-kicker">4</div>
+          <strong>入住前检测</strong>
+          <p>安装后看第三方室内空气检测，甲醛、TVOC 和苯系物都要纳入。</p>
+          <a href="./board-indoor-air-acceptance-checklist-2026-06-12.md">看空气验收清单</a>
+        </article>
+      </div>
+    </section>
+
     <section>
       <h2>🏁 现实下单综合排名</h2>
       <p class="note">分数是“环保/甲醛少 + 气味投诉 + 真假/施工风险 + 衣柜橱柜适配”的综合分，不等于单块板实验室甲醛数值。</p>
