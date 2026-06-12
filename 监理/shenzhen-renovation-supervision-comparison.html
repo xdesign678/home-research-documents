@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>深圳装修监理决策报告：装小蜜 vs 牛角监</title>
-  <meta name="description" content="基于小红书公开帖子和评论整理的深圳半包装修监理对比报告。">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>深圳南山装修监理决策报告：装小蜜指定监理与品牌对比</title>
+  <meta name="description" content="基于小红书公开帖子和评论整理的深圳南山半包装修监理对比报告，重点分析装小蜜能否指定监理与候选监理口碑。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,6 +29,8 @@
       --state-warning: #c4923a;
       --state-error: #b85b44;
       --state-info: #5a7d9b;
+      --accent-warm: #c4834a;
+      --accent-warm-soft: #f3e3d0;
       --color-olive: #788c5d;
       --color-cactus: #bcd1ca;
       --color-sky: #6a9bcc;
@@ -42,6 +44,29 @@
       --radius: 8px;
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
       --shadow-md: 0 4px 12px rgba(0,0,0,0.10);
+    }
+
+    .dark {
+      --bg-primary: #1a1a18;
+      --bg-secondary: #232320;
+      --bg-card: #232320;
+      --bg-muted: #2a2a27;
+      --bg-hover: #2a2a27;
+      --bg-button: #ece9e1;
+      --text-primary: #ece9e1;
+      --text-body: rgba(236,233,225,0.85);
+      --text-secondary: #9b9b95;
+      --text-tertiary: #6b6b66;
+      --text-on-button: #1a1a18;
+      --border-light: rgba(236,233,225,0.08);
+      --border-default: rgba(236,233,225,0.12);
+      --border-section: rgba(236,233,225,0.06);
+      --state-success: #7aab87;
+      --state-warning: #d4a06a;
+      --state-error: #d4826a;
+      --state-info: #8ba9c6;
+      --accent-warm: #d4a06a;
+      --accent-warm-soft: #2e2e2b;
     }
 
     * { box-sizing: border-box; }
@@ -60,6 +85,11 @@
       line-height: 1.62;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+    }
+
+    ::selection {
+      background: rgba(204,120,92,0.5);
+      color: inherit;
     }
 
     a {
@@ -204,14 +234,14 @@
       gap: 8px;
       padding: 8px 10px;
       border: 1px solid var(--border-light);
-      border-radius: 999px;
+      border-radius: 4px;
       background: var(--bg-card);
     }
 
     .verdict-panel {
       border: 1px solid rgba(196,146,58,0.28);
       border-radius: var(--radius);
-      background: #fff8e8;
+      background: var(--accent-warm-soft);
       padding: 24px;
       box-shadow: var(--shadow-sm);
     }
@@ -326,7 +356,7 @@
       display: inline-flex;
       margin-top: 8px;
       padding: 4px 8px;
-      border-radius: 999px;
+      border-radius: 4px;
       background: var(--bg-muted);
       color: var(--text-secondary);
       font-family: var(--font-sans);
@@ -335,8 +365,8 @@
     }
 
     .tag.strong {
-      color: #7a4a34;
-      background: #f5dfcf;
+      color: var(--text-primary);
+      background: var(--accent-warm-soft);
     }
 
     .score-ring {
@@ -363,7 +393,7 @@
 
     .track {
       height: 7px;
-      border-radius: 999px;
+      border-radius: 4px;
       background: rgba(20,20,19,0.08);
       overflow: hidden;
     }
@@ -371,12 +401,12 @@
     .fill {
       display: block;
       height: 100%;
-      border-radius: 999px;
+      border-radius: 4px;
       background: var(--text-primary);
     }
 
     .score-card.recommended .fill {
-      background: var(--brand-clay);
+      background: var(--accent-warm);
     }
 
     .score-summary {
@@ -384,6 +414,180 @@
       padding-top: 18px;
       border-top: 1px solid var(--border-section);
       color: var(--text-body);
+    }
+
+    .supervisor-brief {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 20px;
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+
+    .brief-panel {
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brief-panel.important {
+      border-color: rgba(196,131,74,0.35);
+      background: var(--accent-warm-soft);
+    }
+
+    .brief-panel h3 {
+      margin: 0 0 10px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 20px;
+      line-height: 1.28;
+      letter-spacing: 0;
+    }
+
+    .brief-panel p {
+      margin: 0;
+      color: var(--text-body);
+    }
+
+    .supervisor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .supervisor-card {
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .supervisor-card.primary {
+      border-color: rgba(196,131,74,0.38);
+    }
+
+    .supervisor-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .rank-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--bg-muted);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .supervisor-card.primary .rank-badge {
+      background: var(--accent-warm-soft);
+      border: 1px solid rgba(196,131,74,0.35);
+    }
+
+    .supervisor-name {
+      margin: 0;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .supervisor-subtitle {
+      margin-top: 6px;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .supervisor-score {
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+      min-width: 58px;
+    }
+
+    .supervisor-score span {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .meter-group {
+      display: grid;
+      gap: 10px;
+      margin: 12px 0 18px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .meter-row {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr) 28px;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .meter-track {
+      height: 6px;
+      border-radius: 4px;
+      background: rgba(20,20,19,0.08);
+      overflow: hidden;
+    }
+
+    .meter-fill {
+      display: block;
+      height: 100%;
+      border-radius: 4px;
+      background: var(--accent-warm);
+    }
+
+    .supervisor-card p {
+      margin: 0;
+      color: var(--text-body);
+      font-size: 15.5px;
+      line-height: 1.62;
+    }
+
+    .evidence-pills {
+      margin-top: auto;
+      padding-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .evidence-pill {
+      padding: 5px 8px;
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      background: var(--bg-muted);
     }
 
     .chart-grid {
@@ -474,11 +678,11 @@
       width: 9px;
       height: 9px;
       border-radius: 50%;
-      background: var(--brand-clay);
+      background: var(--accent-warm);
     }
 
     .dot.gray {
-      background: #7b7a75;
+      background: var(--text-secondary);
     }
 
     .comparison-grid {
@@ -740,7 +944,7 @@
     .stars {
       display: inline-flex;
       gap: 3px;
-      color: var(--brand-clay);
+      color: var(--accent-warm);
       letter-spacing: 0;
       font-size: 14px;
     }
@@ -812,12 +1016,14 @@
       .chart-grid,
       .comparison-grid,
       .score-grid,
+      .supervisor-brief,
       .questions,
       .recommendation-grid {
         grid-template-columns: 1fr;
       }
 
-      .evidence-grid {
+      .evidence-grid,
+      .supervisor-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -868,6 +1074,7 @@
       }
 
       .evidence-grid,
+      .supervisor-grid,
       .risk-grid,
       .timeline {
         grid-template-columns: 1fr;
@@ -910,6 +1117,7 @@
         <span>装修监理决策报告<small>深圳 · 半包 · 小白友好</small></span>
       </a>
       <div class="nav-links">
+        <a href="#supervisors">监理</a>
         <a href="#scores">评分</a>
         <a href="#pros">优缺点</a>
         <a href="#evidence">证据</a>
@@ -923,27 +1131,182 @@
     <section class="page-section hero" aria-labelledby="hero-title">
       <div class="hero-grid">
         <div>
-          <h1 class="h1" id="hero-title">深圳装修监理服务对比：<span class="nowrap">装小蜜</span> vs <span class="nowrap">牛角监</span></h1>
-          <p class="lead">这份页面把小红书公开帖子和可见评论整理成一个决策报告。它不替任何品牌背书，只回答一个具体问题：你在深圳做半包、没太多时间盯工地、也不懂施工，谁更适合作为第三方监理入口。2026-06-12 已补充两轮续搜。</p>
+          <h1 class="h1" id="hero-title">深圳南山半包，装小蜜监理怎么选</h1>
+          <p class="lead">这份页面把小红书公开帖子和可见评论整理成一个决策报告。它不替任何品牌背书，只回答你的具体问题：大致选装小蜜后，深圳南山能不能指定监理，优先争取谁，以及下单前哪些坑必须问清楚。</p>
           <div class="meta-row" aria-label="调研范围">
-            <span class="meta-chip">31 条有效线索</span>
-            <span class="meta-chip">深圳本地案例优先</span>
+            <span class="meta-chip">60 条证据记录</span>
+            <span class="meta-chip">19 条南山专项记录</span>
             <span class="meta-chip">公开帖子与评论</span>
-            <span class="meta-chip">两轮续搜补充</span>
-            <span class="meta-chip">2026-06-11 整理</span>
+            <span class="meta-chip">具体监理名字优先</span>
+            <span class="meta-chip">2026-06-12 更新</span>
           </div>
         </div>
         <aside class="verdict-panel" aria-label="核心结论">
           <h2>先给结论</h2>
-          <p>两轮续搜后，结论不翻转：装小蜜仍略优先。原因不是品牌绝对更强，而是深圳公开样本更多，具体监理被用户点名的次数更多；牛角监仍可选，但更依赖分配到的具体监理、节点安排、价格和客服体验。</p>
+          <p>装小蜜可以作为第一入口，但不能默认一定能指定监理。深圳南山目前没有看到“南山专属王牌监理”的硬证据；更稳的做法是争取深圳口碑监理，优先问杨则喜，其次王海波。</p>
           <div class="verdict-score">
             <div>
-              <strong class="tag strong">建议先约装小蜜</strong>
-              <p style="margin-top:10px;font-family:var(--font-sans);font-size:13px;color:var(--text-secondary);">同时拿牛角监报价和节点表做交叉对比。</p>
+              <strong class="tag strong">先争取杨则喜</strong>
+              <p style="margin-top:10px;font-family:var(--font-sans);font-size:13px;color:var(--text-secondary);">争取不到，再问王海波或同等级深圳半包经验监理。</p>
             </div>
-            <div class="big-number">82<span>/100</span></div>
+            <div class="big-number">91<span>/100</span></div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section class="page-section" id="supervisors" aria-labelledby="supervisors-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="supervisors-title">深圳南山装小蜜候选监理</h2>
+          <p>这个排序只基于小红书公开样本质量：深圳相关性、具体姓名、施工细节、评论互证和可指定线索。它不是官方评级。</p>
+        </div>
+        <div class="source-note">本轮新增 13 篇详情帖和 6 个搜索结果页；页面可见评论数合计约 206 条。</div>
+      </div>
+
+      <div class="supervisor-brief">
+        <article class="brief-panel important">
+          <h3>能不能指定监理</h3>
+          <p>不能默认能指定。杨则喜核心帖里，作者说自己是派单，并建议别人问客服“能不能指定杨老师”。也有其他城市用户提到曾经指定过口碑监理，所以结论是：可以争取，但必须让客服写清楚不能指定时的换人、退款和备注机制。</p>
+        </article>
+        <article class="brief-panel">
+          <h3>南山怎么落地</h3>
+          <p>没有看到南山专属装小蜜监理的硬证据。南山业主更现实的策略是争取深圳口碑监理，并备注“南山半包、上班族、需要强沟通和报告留痕”。</p>
+        </article>
+      </div>
+
+      <div class="supervisor-grid">
+        <article class="supervisor-card primary">
+          <div class="supervisor-head">
+            <div>
+              <span class="rank-badge">1</span>
+              <h3 class="supervisor-name">杨则喜</h3>
+              <div class="supervisor-subtitle">深圳福田强样本，可优先争取</div>
+            </div>
+            <div class="supervisor-score">91<span>建议分</span></div>
+          </div>
+          <div class="meter-group" aria-label="杨则喜评分">
+            <div class="meter-row"><span>深圳相关</span><span class="meter-track"><span class="meter-fill" style="width:94%"></span></span><span>94</span></div>
+            <div class="meter-row"><span>评论互证</span><span class="meter-track"><span class="meter-fill" style="width:90%"></span></span><span>90</span></div>
+            <div class="meter-row"><span>指定线索</span><span class="meter-track"><span class="meter-fill" style="width:82%"></span></span><span>82</span></div>
+          </div>
+          <p>当前最强候选。深圳福田老破小案例里，作者说签装修公司前下单装小蜜，杨则喜会提前交代工艺、预判隐患、细致检查，并把问题反馈到小程序。评论区有多名广东用户正向呼应。</p>
+          <div class="evidence-pills">
+            <span class="evidence-pill">深圳本地</span>
+            <span class="evidence-pill">23 条评论</span>
+            <span class="evidence-pill">作者建议问能否指定</span>
+          </div>
+        </article>
+
+        <article class="supervisor-card">
+          <div class="supervisor-head">
+            <div>
+              <span class="rank-badge">2</span>
+              <h3 class="supervisor-name">王海波</h3>
+              <div class="supervisor-subtitle">深圳样本明确，适合做第二选择</div>
+            </div>
+            <div class="supervisor-score">84<span>建议分</span></div>
+          </div>
+          <div class="meter-group" aria-label="王海波评分">
+            <div class="meter-row"><span>深圳相关</span><span class="meter-track"><span class="meter-fill" style="width:88%"></span></span><span>88</span></div>
+            <div class="meter-row"><span>评论互证</span><span class="meter-track"><span class="meter-fill" style="width:68%"></span></span><span>68</span></div>
+            <div class="meter-row"><span>施工细节</span><span class="meter-track"><span class="meter-fill" style="width:86%"></span></span><span>86</span></div>
+          </div>
+          <p>有两篇深圳/广东正面样本。帖子提到墙面基层、水电布线、墙砖空鼓、防水细节、闭水测试等具体问题，也提到能解释整改后果、站在业主角度沟通。弱点是评论互证少。</p>
+          <div class="evidence-pills">
+            <span class="evidence-pill">两篇样本</span>
+            <span class="evidence-pill">关键节点到场</span>
+            <span class="evidence-pill">评论较少</span>
+          </div>
+        </article>
+
+        <article class="supervisor-card">
+          <div class="supervisor-head">
+            <div>
+              <span class="rank-badge">3</span>
+              <h3 class="supervisor-name">宋玉龙</h3>
+              <div class="supervisor-subtitle">工艺解释清楚，但缺少评论互证</div>
+            </div>
+            <div class="supervisor-score">78<span>建议分</span></div>
+          </div>
+          <div class="meter-group" aria-label="宋玉龙评分">
+            <div class="meter-row"><span>深圳相关</span><span class="meter-track"><span class="meter-fill" style="width:84%"></span></span><span>84</span></div>
+            <div class="meter-row"><span>评论互证</span><span class="meter-track"><span class="meter-fill" style="width:45%"></span></span><span>45</span></div>
+            <div class="meter-row"><span>施工细节</span><span class="meter-track"><span class="meter-fill" style="width:82%"></span></span><span>82</span></div>
+          </div>
+          <p>深圳帖子里提到旧房外墙裂缝、天花空鼓、灰缝饱满、龙骨封板、墙砖油工等节点，说明专业表达不错。但评论区为空，所以只能作为备选，不能排第一。</p>
+          <div class="evidence-pills">
+            <span class="evidence-pill">深圳样本</span>
+            <span class="evidence-pill">评论为空</span>
+            <span class="evidence-pill">适合备选</span>
+          </div>
+        </article>
+
+        <article class="supervisor-card">
+          <div class="supervisor-head">
+            <div>
+              <span class="rank-badge">4</span>
+              <h3 class="supervisor-name">涂工</h3>
+              <div class="supervisor-subtitle">深圳正面样本，全名不足</div>
+            </div>
+            <div class="supervisor-score">72<span>建议分</span></div>
+          </div>
+          <div class="meter-group" aria-label="涂工评分">
+            <div class="meter-row"><span>深圳相关</span><span class="meter-track"><span class="meter-fill" style="width:82%"></span></span><span>82</span></div>
+            <div class="meter-row"><span>评论互证</span><span class="meter-track"><span class="meter-fill" style="width:58%"></span></span><span>58</span></div>
+            <div class="meter-row"><span>信息完整</span><span class="meter-track"><span class="meter-fill" style="width:52%"></span></span><span>52</span></div>
+          </div>
+          <p>深圳帖称涂工上门准时、能据理力争，非验收节点也能电话答疑。可作为客服给不到前两位时的备选方向，但需要先问全名、服务区域和报告样例。</p>
+          <div class="evidence-pills">
+            <span class="evidence-pill">深圳样本</span>
+            <span class="evidence-pill">7 条评论</span>
+            <span class="evidence-pill">需确认全名</span>
+          </div>
+        </article>
+
+        <article class="supervisor-card">
+          <div class="supervisor-head">
+            <div>
+              <span class="rank-badge">5</span>
+              <h3 class="supervisor-name">邝晓鹏</h3>
+              <div class="supervisor-subtitle">工艺细节强，城市证据不足</div>
+            </div>
+            <div class="supervisor-score">68<span>建议分</span></div>
+          </div>
+          <div class="meter-group" aria-label="邝晓鹏评分">
+            <div class="meter-row"><span>深圳相关</span><span class="meter-track"><span class="meter-fill" style="width:55%"></span></span><span>55</span></div>
+            <div class="meter-row"><span>评论互证</span><span class="meter-track"><span class="meter-fill" style="width:40%"></span></span><span>40</span></div>
+            <div class="meter-row"><span>施工细节</span><span class="meter-track"><span class="meter-fill" style="width:84%"></span></span><span>84</span></div>
+          </div>
+          <p>帖子提到排水坡度、防水铲除、墙面不平、地面落差、吊顶承重等具体问题，专业细节不错。缺点是未确认深圳南山服务，也没有评论互证。</p>
+          <div class="evidence-pills">
+            <span class="evidence-pill">细节具体</span>
+            <span class="evidence-pill">评论为空</span>
+            <span class="evidence-pill">需继续核验</span>
+          </div>
+        </article>
+
+        <article class="supervisor-card">
+          <div class="supervisor-head">
+            <div>
+              <span class="rank-badge">备</span>
+              <h3 class="supervisor-name">独立魏工</h3>
+              <div class="supervisor-subtitle">可询价，不建议替代首选</div>
+            </div>
+            <div class="supervisor-score">60<span>建议分</span></div>
+          </div>
+          <div class="meter-group" aria-label="魏工评分">
+            <div class="meter-row"><span>南山相关</span><span class="meter-track"><span class="meter-fill" style="width:68%"></span></span><span>68</span></div>
+            <div class="meter-row"><span>评论数量</span><span class="meter-track"><span class="meter-fill" style="width:78%"></span></span><span>78</span></div>
+            <div class="meter-row"><span>口碑质量</span><span class="meter-track"><span class="meter-fill" style="width:45%"></span></span><span>45</span></div>
+          </div>
+          <p>魏工是深圳独立监理自我介绍，评论里有南山西丽用户咨询，价格线索是 130 平内约 2100 元、11 次上门。但评论多为询价，不是完工复盘，适合拿来比价。</p>
+          <div class="evidence-pills">
+            <span class="evidence-pill">独立备选</span>
+            <span class="evidence-pill">83 条评论多为咨询</span>
+            <span class="evidence-pill">先看报告样例</span>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -965,7 +1328,7 @@
             </div>
             <svg class="score-ring" viewBox="0 0 120 120" aria-label="装小蜜综合评分 82 分">
               <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(20,20,19,0.08)" stroke-width="12"></circle>
-              <circle cx="60" cy="60" r="48" fill="none" stroke="#d97757" stroke-width="12" stroke-linecap="round" stroke-dasharray="247 302" transform="rotate(-90 60 60)"></circle>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="var(--accent-warm)" stroke-width="12" stroke-linecap="round" stroke-dasharray="247 302" transform="rotate(-90 60 60)"></circle>
               <text x="60" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="28" font-weight="800" fill="#141413">82</text>
               <text x="60" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#5e5d59">综合分</text>
             </svg>
@@ -988,7 +1351,7 @@
             </div>
             <svg class="score-ring" viewBox="0 0 120 120" aria-label="牛角监综合评分 76 分">
               <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(20,20,19,0.08)" stroke-width="12"></circle>
-              <circle cx="60" cy="60" r="48" fill="none" stroke="#7b7a75" stroke-width="12" stroke-linecap="round" stroke-dasharray="229 302" transform="rotate(-90 60 60)"></circle>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="var(--text-secondary)" stroke-width="12" stroke-linecap="round" stroke-dasharray="229 302" transform="rotate(-90 60 60)"></circle>
               <text x="60" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="28" font-weight="800" fill="#141413">76</text>
               <text x="60" y="78" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#5e5d59">综合分</text>
             </svg>
@@ -1040,13 +1403,13 @@
               <line x1="0" y1="0" x2="65.8" y2="90.5" stroke="rgba(20,20,19,0.08)"></line>
               <line x1="0" y1="0" x2="-65.8" y2="90.5" stroke="rgba(20,20,19,0.08)"></line>
               <line x1="0" y1="0" x2="-106.5" y2="-34.6" stroke="rgba(20,20,19,0.08)"></line>
-              <polygon points="0,-89.3 82.1,-26.7 50.6,69.6 -50,68.8 -77.9,-25.3" fill="rgba(217,119,87,0.18)" stroke="#d97757" stroke-width="2"></polygon>
-              <polygon points="0,-77.7 74.8,-24.3 47.5,65.4 -44.5,61.2 -79.9,-26" fill="rgba(20,20,19,0.10)" stroke="#7b7a75" stroke-width="2"></polygon>
-              <circle cx="0" cy="-89.3" r="3" fill="#d97757"></circle>
-              <circle cx="82.1" cy="-26.7" r="3" fill="#d97757"></circle>
-              <circle cx="50.6" cy="69.6" r="3" fill="#d97757"></circle>
-              <circle cx="-50" cy="68.8" r="3" fill="#d97757"></circle>
-              <circle cx="-77.9" cy="-25.3" r="3" fill="#d97757"></circle>
+              <polygon points="0,-89.3 82.1,-26.7 50.6,69.6 -50,68.8 -77.9,-25.3" fill="rgba(196,131,74,0.18)" stroke="var(--accent-warm)" stroke-width="2"></polygon>
+              <polygon points="0,-77.7 74.8,-24.3 47.5,65.4 -44.5,61.2 -79.9,-26" fill="rgba(20,20,19,0.10)" stroke="var(--text-secondary)" stroke-width="2"></polygon>
+              <circle cx="0" cy="-89.3" r="3" fill="var(--accent-warm)"></circle>
+              <circle cx="82.1" cy="-26.7" r="3" fill="var(--accent-warm)"></circle>
+              <circle cx="50.6" cy="69.6" r="3" fill="var(--accent-warm)"></circle>
+              <circle cx="-50" cy="68.8" r="3" fill="var(--accent-warm)"></circle>
+              <circle cx="-77.9" cy="-25.3" r="3" fill="var(--accent-warm)"></circle>
               <text x="0" y="-128" text-anchor="middle">服务体验</text>
               <text x="124" y="-36" text-anchor="start">专业性</text>
               <text x="77" y="112" text-anchor="start">验收覆盖</text>
@@ -1139,8 +1502,26 @@
 
         <article class="evidence-card">
           <h3>深圳福田装小蜜杨则喜</h3>
-          <p>作者描述 20 次上门、送陪签、合同逐页核对、施工节点小程序反馈。评论里多人正面提到同一位监理。</p>
+          <p>作者描述 20 次上门、送陪签、合同逐页核对、施工节点小程序反馈。评论里多人正面提到同一位监理，作者也建议问客服能否指定杨老师。</p>
           <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/6769705f0000000013008548" target="_blank" rel="noreferrer">查看来源</a><span class="strength">强证据</span></div>
+        </article>
+
+        <article class="evidence-card">
+          <h3>深圳装小蜜王海波</h3>
+          <p>两篇公开样本都点名王海波。帖子提到墙面基层、水电布线、墙砖空鼓、防水疏漏、闭水测试等问题，说明案例细节较具体，但评论互证少。</p>
+          <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/6a1bbd470000000008032839" target="_blank" rel="noreferrer">查看来源</a><span class="strength">中强证据</span></div>
+        </article>
+
+        <article class="evidence-card">
+          <h3>深圳宋玉龙监理</h3>
+          <p>作者称宋玉龙能解释外墙裂缝、天花空鼓、灰缝不饱满等问题，也会梳理龙骨、封板、墙砖、油工节点。评论区为空，权重低于王海波。</p>
+          <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/692a8964000000000d03b323" target="_blank" rel="noreferrer">查看来源</a><span class="strength">中证据</span></div>
+        </article>
+
+        <article class="evidence-card">
+          <h3>深圳装小蜜涂工</h3>
+          <p>作者称涂工下单后主动电话沟通，上门准时，能站在业主角度据理力争，非验收节点也能电话答疑。缺口是只有“涂工”称呼，需问全名。</p>
+          <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/69df7ee00000000021010d07" target="_blank" rel="noreferrer">查看来源</a><span class="strength">中证据</span></div>
         </article>
 
         <article class="evidence-card">
@@ -1184,13 +1565,25 @@
           <p>用户反馈平台关于“免费监理”的说法前后不一致；评论也偏谨慎。土巴兔可询价，但不能把口头承诺当作第三方监理服务。</p>
           <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/6863985600000000110027b3" target="_blank" rel="noreferrer">查看来源</a><span class="strength">中强证据</span></div>
         </article>
+
+        <article class="evidence-card">
+          <h3>监理挑选攻略</h3>
+          <p>高互动帖对比节点：装小蜜基础档多报价审核，牛角监拆旧砌墙节点更密。作者后续说牛角监“不推荐”，也提醒家人每天在工地时监理价值会下降。</p>
+          <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/6745b79e000000000703501e" target="_blank" rel="noreferrer">查看来源</a><span class="strength">强证据</span></div>
+        </article>
+
+        <article class="evidence-card">
+          <h3>深圳独立魏工</h3>
+          <p>独立监理自我介绍，评论里有南山西丽用户咨询，价格线索约 2100 元、11 次上门。评论多为询价，不是完工复盘，适合作为比价参照。</p>
+          <div class="evidence-meta"><a href="https://www.xiaohongshu.com/explore/65a907c4000000002a006c5e" target="_blank" rel="noreferrer">查看来源</a><span class="strength">中证据</span></div>
+        </article>
       </div>
 
       <div class="detail-table" aria-label="更多证据摘要">
         <details>
           <summary>更多正面线索</summary>
           <div class="detail-body">
-            <p>装小蜜：王海波、蔡仁学、韩争、邝晓鹏等名字在深圳相关搜索里出现；杨则喜样本质量最高。</p>
+            <p>装小蜜：杨则喜样本质量最高；王海波有两篇深圳/广东正面样本；宋玉龙、涂工、邝晓鹏可作为备选线索。</p>
             <p>牛角监：温光照有自我介绍和用户评价，用户提到水电验收逐条看回路、地面拆除不合格会要求整改。</p>
           </div>
         </details>
@@ -1205,6 +1598,7 @@
           <summary>替代方案</summary>
           <div class="detail-body">
             <p>土巴兔/本地个人监理可作为询价对照。公开帖里有 11 次约 29 元/㎡、20 次约 49 元/㎡的线索，但这是自我介绍，缺少完工口碑。</p>
+            <p>独立魏工有南山西丽咨询和价格线索，但主要是自我介绍和询价评论，适合拿来比价，不适合直接替代装小蜜首选。</p>
             <p>土巴兔相关续搜提示：不要只听“免费监理”或“三管服务”这类口头承诺，必须写进合同或服务清单。</p>
             <p>千家监理在评论区被提到，但深圳本地强证据不足，暂不建议排在装小蜜和牛角监前面。</p>
           </div>
@@ -1266,7 +1660,7 @@
         </div>
       </div>
       <div class="questions">
-        <div class="question"><span class="question-number">1</span><div><strong>深圳能不能指定监理？</strong><span>如果不能，能否指定区域、资历、服务案例类型。</span></div></div>
+        <div class="question"><span class="question-number">1</span><div><strong>深圳南山能不能指定杨则喜或王海波？</strong><span>如果不能，能否备注优先派同等级深圳半包经验监理。</span></div></div>
         <div class="question"><span class="question-number">2</span><div><strong>不满意怎么换人？</strong><span>第一次不满意退款的前置条件是什么，是否要求未开工。</span></div></div>
         <div class="question"><span class="question-number">3</span><div><strong>剩余次数怎么退？</strong><span>按套餐均价退，还是按单次价格扣，户型变大会不会加价。</span></div></div>
         <div class="question"><span class="question-number">4</span><div><strong>每次上门验什么？</strong><span>10、15、20 次分别覆盖哪些节点，交底和验收要分清。</span></div></div>
@@ -1274,6 +1668,8 @@
         <div class="question"><span class="question-number">6</span><div><strong>材料进场怎么验？</strong><span>是否核品牌、型号、规格、等级，并拍照留痕。</span></div></div>
         <div class="question"><span class="question-number">7</span><div><strong>观感问题算不算整改？</strong><span>墙顶平整度、瓷砖空鼓、收口、油漆观感按什么标准验。</span></div></div>
         <div class="question"><span class="question-number">8</span><div><strong>监理能否进装修群？</strong><span>施工方不配合时，是否直接沟通并写整改记录。</span></div></div>
+        <div class="question"><span class="question-number">9</span><div><strong>能不能提前看报告样例？</strong><span>看清问题是否有照片、整改建议、责任边界和复验记录。</span></div></div>
+        <div class="question"><span class="question-number">10</span><div><strong>监理和装修公司是否有旧关系？</strong><span>如果曾在同一公司任职或长期合作，能否主动回避并换人。</span></div></div>
       </div>
     </section>
 
@@ -1286,23 +1682,23 @@
       </div>
       <div class="recommendation-grid">
         <article class="recommend-card">
-          <h3>先选装小蜜，如果</h3>
+          <h3>先选装小蜜，但这样下单</h3>
           <ul class="compact-list">
-            <li>能指定或尽量争取深圳口碑监理。</li>
+            <li>先问能否指定杨则喜。</li>
+            <li>争取不到时问王海波。</li>
+            <li>再不行，要求深圳半包经验监理。</li>
             <li>客服能明确换人、退款、剩余次数规则。</li>
-            <li>愿意让监理签约前审报价和合同。</li>
-            <li>你更看重服务稳定和留痕。</li>
           </ul>
           <div class="rating"><span>推荐度</span><span class="stars">★★★★★</span></div>
         </article>
 
         <article class="recommend-card">
-          <h3>选牛角监，如果</h3>
+          <h3>转向牛角监，如果</h3>
           <ul class="compact-list">
+            <li>装小蜜完全不能指定或备注。</li>
+            <li>第一次不满意换人/退款说不清。</li>
             <li>价格明显更合适，套餐节点表也清楚。</li>
             <li>能分配到有公开正面线索的深圳监理。</li>
-            <li>你能接受体验更依赖具体人。</li>
-            <li>你愿意提前盯住节点，避免次数浪费。</li>
           </ul>
           <div class="rating"><span>推荐度</span><span class="stars">★★★★<span class="stars muted">★</span></span></div>
         </article>
@@ -1310,10 +1706,10 @@
         <article class="recommend-card">
           <h3>考虑独立监理，如果</h3>
           <ul class="compact-list">
+            <li>你想强指定具体人。</li>
             <li>你能面谈并核验真实完工案例。</li>
             <li>能拿到报告样例、合同责任和报价明细。</li>
             <li>能确认不卖材料、不和施工方绑定。</li>
-            <li>你想更强地指定具体人。</li>
           </ul>
           <div class="rating"><span>推荐度</span><span class="stars">★★★<span class="stars muted">★★</span></span></div>
         </article>
