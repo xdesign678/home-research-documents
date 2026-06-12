@@ -17,6 +17,7 @@
 - [板材标准与室内空气检测口径边界（2026-06-12）](./board-standards-testing-boundary-2026-06-12.md)
 - [全屋定制板材官方口径与验真清单（2026-06-12）](./board-official-verification-checklist-2026-06-12.md)
 - [全屋定制板材报价与合同审核清单（2026-06-12）](./board-quote-contract-review-checklist-2026-06-12.md)
+- [全屋定制板材商家问询脚本（2026-06-12）](./board-merchant-question-script-2026-06-12.md)
 - [全屋定制板材到货与安装现场验收清单（2026-06-12）](./board-delivery-installation-acceptance-checklist-2026-06-12.md)
 - [全屋定制入住前空气检测与验收清单（2026-06-12）](./board-indoor-air-acceptance-checklist-2026-06-12.md)
 - [小红书板材下一轮复查手册（2026-06-12）](./board-xiaohongshu-next-research-playbook-2026-06-12.md)
