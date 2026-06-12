@@ -54,7 +54,7 @@
 | `xiaohongshu-board-extension-research-2026-06-12.md` | 新增候选和合生雅居渠道风险的详细帖子与评论记录，含 D 区复盘总账、复盘记录粒度要求和待补录对象卡片 |
 | `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md` | 后续补录小红书帖子和评论时的详细记录标准，防止只留下高度概括 |
 | `xiaohongshu-board-record-detail-coverage-audit-2026-06-12.md` | 审计补充研究里的条目深度，区分搜索页线索、普通帖子、强证据深读和中止/缺评论记录 |
-| `xiaohongshu-board-targeted-followup-cards-2026-06-12.md` | 下一轮恢复小红书详情复查后，按对象补查红棉花、博耐克、合生雅居、靓时靓面等的正文重点、评论采样和升降级信号 |
+| `xiaohongshu-board-targeted-followup-cards-2026-06-12.md` | 下一轮恢复小红书详情复查后，按对象补查博耐克、合生雅居、红棉花、靓时靓面等的正文重点、评论采样和升降级信号 |
 | `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md` | 把小红书里的低味、刺鼻、超标、假货、授权、延期等信号转成商家追问、合同条款、到货验收和暂停条件 |
 | `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md` | 小红书自动浏览受限后，手动打开单条帖子时的截图顺序、三分钟快填、十分钟评论采样和按对象补证重点 |
 | `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` | 小红书自动浏览受限后，手动提供帖子、评论、截图、检测或合同线索时的收集模板 |
