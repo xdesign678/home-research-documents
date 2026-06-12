@@ -24,6 +24,7 @@
 - [全屋定制板材候选升级/降级判断矩阵（2026-06-12）](./board-candidate-upgrade-downgrade-matrix-2026-06-12.md)
 - [全屋定制板材候选证据缺口登记表（2026-06-12）](./board-candidate-evidence-gap-register-2026-06-12.md)
 - [全屋定制低证据候选身份核查笔记（2026-06-12）](./board-low-evidence-candidate-identity-check-2026-06-12.md)
+- [全屋定制新增观察对象官方入口补查笔记（2026-06-12）](./board-observation-candidate-official-source-gap-notes-2026-06-12.md)
 - [小红书板材评论防误读清单（2026-06-12）](./xiaohongshu-board-comment-bias-checklist-2026-06-12.md)
 - [小红书板材帖子与评论详细记录规范（2026-06-12）](./xiaohongshu-board-post-comment-recording-standard-2026-06-12.md)
 - [全屋定制板材官方口径与验真清单（2026-06-12）](./board-official-verification-checklist-2026-06-12.md)
