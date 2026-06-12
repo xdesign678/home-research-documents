@@ -105,11 +105,12 @@
 3. 再按 `board-evidence-scoring-rubric-2026-06-12.md` 给证据初评分。
 4. 用 `board-candidate-evidence-gap-register-2026-06-12.md` 判断它补的是哪一个候选缺口。
 5. 再用 `board-environmental-evidence-chain-checklist-2026-06-12.md` 判断它属于小红书口碑、官方验真、报价合同、到货安装还是 CMA 检测证据。
-6. 有价值的帖子追加到 `xiaohongshu-board-extension-research-2026-06-12.md`。
-7. 如果只是线索，先放入滚动候选池或待补录卡片。
-8. 如果连续多条证据指向同一结论，先用 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md` 判断是否足够升级或降级。
-9. 如果足以改变候选层级，再更新导航、短版和主报告。
-10. 如果证据只说明某门店或某系列，不扩大成总品牌结论。
+6. 用 `board-conclusion-traceability-matrix-2026-06-12.md` 判断它支撑或反驳哪一条现有结论。
+7. 有价值的帖子追加到 `xiaohongshu-board-extension-research-2026-06-12.md`。
+8. 如果只是线索，先放入滚动候选池或待补录卡片。
+9. 如果连续多条证据指向同一结论，先用 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md` 判断是否足够升级或降级。
+10. 如果足以改变候选层级，再更新导航、短版和主报告。
+11. 如果证据只说明某门店或某系列，不扩大成总品牌结论。
 
 ## 快速判断：这条内容值不值得补
 

@@ -10,27 +10,28 @@
 4. 如果涉及 PET 欧松门、博耐克、宁丰、靓时靓面、丽特曼、贴面和异形件，看 `board-door-panel-surface-chain-risk-2026-06-12.md`。
 5. 再看 `board-ranking-report.html`：看原 6 家主排名、补充候选观察层和每个品牌的证据入口。
 6. 要确认“哪些已完成、哪些还没法证实”，看 `board-research-completion-audit-2026-06-12.md`。
-7. 看不懂 ENF、E0、F4星、CMA、TVOC 时，看 `board-environmental-terms-guide-2026-06-12.md`。
-8. 要分清板材报告和室内空气报告，看 `board-standards-testing-boundary-2026-06-12.md`。
-9. 要把小红书口碑、官方验真、合同、到货、安装和 CMA 检测串成一条证据链，看 `board-environmental-evidence-chain-checklist-2026-06-12.md`。
-10. 要判断一条帖子、评论或报告有多可信，看 `board-evidence-scoring-rubric-2026-06-12.md`。
-11. 要判断评论是否被商家号、治理号、求价评论或情绪评论带偏，看 `xiaohongshu-board-comment-bias-checklist-2026-06-12.md`。
-12. 要判断某个新增候选能不能升级或必须降级，看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`。
-13. 要判断每个候选还缺哪类帖子、评论、检测、授权或合同证据，看 `board-candidate-evidence-gap-register-2026-06-12.md`。
-14. 已经拿到报价单或合同，看 `board-quote-contract-review-checklist-2026-06-12.md`。
-15. 准备问商家、门店或设计师时，看 `board-merchant-question-script-2026-06-12.md`。
-16. 商家发来报价、报告、授权、标签或截图后，看 `board-merchant-evidence-intake-log-2026-06-12.md`。
-17. 已经有 2 到 4 家商家报价，要横向比较，看 `board-vendor-comparison-decision-template-2026-06-12.md`。
-18. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
-19. 到货或安装当天，看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
-20. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
-21. 如果检测异常或气味不稳，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
-22. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
-23. 如果你手动打开了小红书帖子、评论或截图，看 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md`：按表补证，方便我继续整理。
-24. 要按品牌或问题反查小红书证据编号，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
-25. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
-26. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
-27. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
+7. 要反查“每条关键结论由什么证据支撑、什么证据会推翻”，看 `board-conclusion-traceability-matrix-2026-06-12.md`。
+8. 看不懂 ENF、E0、F4星、CMA、TVOC 时，看 `board-environmental-terms-guide-2026-06-12.md`。
+9. 要分清板材报告和室内空气报告，看 `board-standards-testing-boundary-2026-06-12.md`。
+10. 要把小红书口碑、官方验真、合同、到货、安装和 CMA 检测串成一条证据链，看 `board-environmental-evidence-chain-checklist-2026-06-12.md`。
+11. 要判断一条帖子、评论或报告有多可信，看 `board-evidence-scoring-rubric-2026-06-12.md`。
+12. 要判断评论是否被商家号、治理号、求价评论或情绪评论带偏，看 `xiaohongshu-board-comment-bias-checklist-2026-06-12.md`。
+13. 要判断某个新增候选能不能升级或必须降级，看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`。
+14. 要判断每个候选还缺哪类帖子、评论、检测、授权或合同证据，看 `board-candidate-evidence-gap-register-2026-06-12.md`。
+15. 已经拿到报价单或合同，看 `board-quote-contract-review-checklist-2026-06-12.md`。
+16. 准备问商家、门店或设计师时，看 `board-merchant-question-script-2026-06-12.md`。
+17. 商家发来报价、报告、授权、标签或截图后，看 `board-merchant-evidence-intake-log-2026-06-12.md`。
+18. 已经有 2 到 4 家商家报价，要横向比较，看 `board-vendor-comparison-decision-template-2026-06-12.md`。
+19. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
+20. 到货或安装当天，看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
+21. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
+22. 如果检测异常或气味不稳，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
+23. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
+24. 如果你手动打开了小红书帖子、评论或截图，看 `xiaohongshu-board-manual-evidence-intake-2026-06-12.md`：按表补证，方便我继续整理。
+25. 要按品牌或问题反查小红书证据编号，看 `xiaohongshu-board-evidence-review-index-2026-06-12.md`。
+26. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
+27. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
+28. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
 
 ## 文件用途总览
 
@@ -41,6 +42,7 @@
 | `board-room-by-room-material-schedule-2026-06-12.md` | 量尺、复尺、报价、签合同前 | 按房间和柜子拆柜体、柜门、背板、抽屉、封边、检测和验收照片 | 它是配置表，不替代报价合同 |
 | `board-door-panel-surface-chain-risk-2026-06-12.md` | 看到 PET 欧松门、进口基材、贴面、膜、异形件时 | 柜门基材、精板/素板、PET 膜、饰面、封边、异形件和到货验真 | 它解释柜门链条，不新增品牌排名 |
 | `board-research-completion-audit-2026-06-12.md` | 想确认研究是否已经完成、还缺什么 | 原始要求逐项审计、资料体系、未完成缺口 | 它说明当前是阶段性完成，不是全量完成 |
+| `board-conclusion-traceability-matrix-2026-06-12.md` | 想复盘每条关键结论是否有证据支撑，或新证据能不能推翻结论时 | 主结论、重点品牌和候选、结论变更规则、常见判断偏差 | 它是结论追溯表，不新增证据 |
 | `board-environmental-terms-guide-2026-06-12.md` | 看报价单、检测报告、销售话术时 | ENF、E0、F4星、CMA、TVOC、无醛添加、净味板 | 只解释概念，不替代标准原文 |
 | `board-standards-testing-boundary-2026-06-12.md` | 看检测报告、和检测机构沟通前 | GB/T 39600、GB/T 18883、GB 50325 的边界和追问模板 | 只做口径区分，不复刻标准全文 |
 | `board-environmental-evidence-chain-checklist-2026-06-12.md` | 想把小红书口碑、官方验真、合同、到货、安装和 CMA 检测串起来时 | 证据闭环、可下单证据包、小红书信号如何转合同条款、品牌闭环重点 | 它是证据链总控，不新增排名 |
@@ -72,6 +74,7 @@
 | 现在最推荐哪几类板材 | `board-material-selection-brief-2026-06-12.md` 的“选型优先级” |
 | 到底能不能继续签约或下单 | `board-final-go-no-go-decision-checklist-2026-06-12.md` |
 | 当前研究到底完成到什么程度 | `board-research-completion-audit-2026-06-12.md` |
+| 当前结论由什么证据支撑、什么证据会推翻 | `board-conclusion-traceability-matrix-2026-06-12.md` |
 | 原 6 家排名为什么这么排 | `board-ranking-report.html` 的“现实下单综合排名”和品牌详情 |
 | 理想条件下排名会不会变 | `board-ranking-report.html` 的“理想条件排名”；`fable5-board-score-review.html` 的独立复核 |
 | 新增候选有没有比爱格/福人/华富立更推荐 | `xiaohongshu-board-extension-research-2026-06-12.md` 的“阶段判断” |
@@ -140,6 +143,7 @@
 - 已新增“柜门与饰面链环保风险说明”，把基材、素板/精板、PET 膜、贴面、异形件、封边和到货验真拆清。
 - 已新增“官方口径与验真清单”，把小红书口碑问题落到授权、报告、标签和合同核验。
 - 已新增“完成度审计”，逐项核对原始研究目标和剩余证据缺口。
+- 已新增“结论追溯矩阵”，把主结论、重点对象、支撑证据、弱点和反证条件放到一张表里。
 - 已新增“入住前空气检测与验收清单”，把板材选择延伸到安装后检测和超标处理。
 - 已新增“污染源归因与整改排查清单”，把甲醛、TVOC、苯系物异常拆到报告条件、空间、材料、证据包和复测顺序。
 - 已新增“报价与合同审核清单”，把板材选择落到报价颗粒度、付款节点和验收责任。
