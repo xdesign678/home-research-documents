@@ -10,6 +10,7 @@
 ## 板材环保与甲醛风险
 
 - [板材环保与甲醛风险排名](./board-ranking-report.html)
+- [全屋定制板材研究导航与证据覆盖矩阵（2026-06-12）](./board-research-navigation-2026-06-12.md)
 - [全屋定制板材选型决策简版（2026-06-12）](./board-material-selection-brief-2026-06-12.md)
 - [板材环保等级与检测术语速查（2026-06-12）](./board-environmental-terms-guide-2026-06-12.md)
 - [板材打分逻辑可视化](./fable5-board-score-review.html)（仅复核原 6 家主排名）
