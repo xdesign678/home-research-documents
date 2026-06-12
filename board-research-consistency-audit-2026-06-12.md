@@ -58,7 +58,7 @@
 | 快速定位新增候选最细记录 | `xiaohongshu-board-evidence-review-index-2026-06-12.md` 的 D 区细节回填快速定位 | 已接入证据复盘索引、记录覆盖审计 | 负责把 D1-D19 对应对象、问题和复盘重点集中起来 |
 | 小红书恢复后继续查 | `board-xiaohongshu-next-research-playbook-2026-06-12.md`、`xiaohongshu-board-targeted-followup-cards-2026-06-12.md` | 已接入 README、导航、主报告 | 先按安全恢复清单判断是否能继续 |
 | 用户手动打开单条帖子，先快速截正文和评论 | `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md` | 已接入 README、导航、主报告、手动补证表、完成度审计 | 适合 300017 后先做轻量补证 |
-| 用户手动提供完整帖子、评论或截图 | `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` | 已接入 README、导航、主报告、完成度审计 | 适合 300017 后正式整理补证 |
+| 用户手动提供完整帖子、评论或截图 | `xiaohongshu-board-manual-evidence-intake-2026-06-12.md` | 已接入 README、导航、主报告、完成度审计 | 适合 300017 后正式整理补证；手动补证优先级已与缺口登记表一致，先补博耐克、合生雅居、红棉花 |
 | 把评论转成商家动作 | `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md` | 已接入 README、导航、主报告 | 避免只停留在“口碑好/口碑差” |
 | 商家发来检测报告或报告截图 | `board-test-report-quick-read-card-2026-06-12.md` | 已接入 README、导航、主报告、短版、商家收件表、官方验真清单 | 先判报告类型、样品对应、检测项目和红黄绿信号 |
 | 签合同或付款前最后收口 | `board-final-go-no-go-decision-checklist-2026-06-12.md` | 已接入 README、导航、短版、主报告 | 负责红黄绿判断和每次付款前的证据闸门 |
@@ -74,6 +74,6 @@
 
 ## 本轮审查后的处理
 
-本轮不改排名，不升级候选，也不新增小红书证据。只新增一致性审查入口，并确认当前资料体系的口径是稳定的：前三优先、观察层继续补证、渠道品牌按门店审、柜门链条拆基材和加工、遇小红书安全限制即停。
+本轮不改排名，不升级候选，也不新增小红书证据。当前资料体系的口径是稳定的：前三优先、观察层继续补证、渠道品牌按门店审、柜门链条拆基材和加工、遇小红书安全限制即停。手动补证入口也应按同一优先级执行：先补最可能影响实际决策的博耐克、合生雅居和红棉花，再补靓时靓面、水性科天、露水河及低证据候选。
 
 后续如果补到新帖子、评论、官方资料、商家报价或 CMA 报告，先看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md` 和 `board-conclusion-traceability-matrix-2026-06-12.md`，再决定是否改主结论。
