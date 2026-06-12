@@ -179,6 +179,28 @@
       font-size: .92em;
     }
 
+    .article a.code-doc-link {
+      display: inline-block;
+      max-width: 100%;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      background: var(--code);
+      border: 1px solid #d9e7df;
+      border-radius: 6px;
+      padding: 1px 5px;
+      color: var(--blue);
+      font-size: .92em;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+      vertical-align: baseline;
+      white-space: normal;
+    }
+
+    .article a.code-doc-link:hover {
+      background: #eaf3ee;
+      border-color: #bad6c6;
+      text-decoration: none;
+    }
+
     .article pre {
       margin: 18px 0;
       padding: 16px;
@@ -371,7 +393,12 @@
 
       text = text.replace(/`([^`]+)`/g, (_, code) => {
         const token = `\u0000CODE${tokens.length}\u0000`;
-        tokens.push(`<code>${escapeHtml(code)}</code>`);
+        const file = cleanFileName(code.trim());
+        if (file) {
+          tokens.push(`<a class="code-doc-link" href="./doc-viewer.html?file=${encodeURIComponent(file)}">${escapeHtml(code)}</a>`);
+        } else {
+          tokens.push(`<code>${escapeHtml(code)}</code>`);
+        }
         return token;
       });
 
