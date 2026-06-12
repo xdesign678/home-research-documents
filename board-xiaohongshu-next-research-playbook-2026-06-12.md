@@ -2,6 +2,8 @@
 
 这份不是新结论，而是下一轮继续查小红书时的执行清单。它解决一个问题：已经记录了很多帖子和评论，后续再查时不能重新变成零散摘录，要按同一套字段继续积累证据。
 
+判断单条帖子、评论或检测报告的可信度，先看 `board-evidence-scoring-rubric-2026-06-12.md`。这份手册负责“怎么记录”，评分规则负责“记录后怎么判断权重”。
+
 ## 使用边界
 
 - 只看公开搜索页、公开帖子和公开评论。
@@ -133,6 +135,8 @@
   - 商家或治理账号是否混入：
   - 多人重复出现的信号：
 - 证据权重：高 / 中 / 低
+- 可信度评分：__/25
+- 评分理由：场景清楚度 __；材料颗粒度 __；检测可信度 __；评论复核 __；归因清楚度 __。
 - 对选材影响：
 - 后续要补：
 ```
@@ -169,10 +173,11 @@
 ## 复查完成后怎么更新资料
 
 1. 新帖子和评论先追加到 `xiaohongshu-board-extension-research-2026-06-12.md`。
-2. 如果某个对象证据变厚，再更新 `board-research-navigation-2026-06-12.md` 的覆盖矩阵。
-3. 如果结论足以影响下单优先级，再更新 `board-material-selection-brief-2026-06-12.md`。
-4. 如果只是合同或验真问题，优先更新 `board-quote-contract-review-checklist-2026-06-12.md` 或 `board-official-verification-checklist-2026-06-12.md`。
-5. 只有证据足够强，才改 `board-ranking-report.html` 的主结论；不要因为单条帖子改排名。
+2. 先按 `board-evidence-scoring-rubric-2026-06-12.md` 给单条证据打可信度分。
+3. 如果某个对象证据变厚，再更新 `board-research-navigation-2026-06-12.md` 的覆盖矩阵。
+4. 如果结论足以影响下单优先级，再更新 `board-material-selection-brief-2026-06-12.md`。
+5. 如果只是合同或验真问题，优先更新 `board-quote-contract-review-checklist-2026-06-12.md` 或 `board-official-verification-checklist-2026-06-12.md`。
+6. 只有证据足够强，才改 `board-ranking-report.html` 的主结论；不要因为单条帖子改排名。
 
 ## 当前不能继续自动查的原因
 
