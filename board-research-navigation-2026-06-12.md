@@ -15,10 +15,11 @@
 9. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
 10. 到货或安装当天，看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
 11. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
-12. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
-13. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
-14. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
-15. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
+12. 如果检测异常或气味不稳，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
+13. 下一轮要继续查小红书，看 `board-xiaohongshu-next-research-playbook-2026-06-12.md`。
+14. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
+15. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
+16. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
 
 ## 文件用途总览
 
@@ -34,6 +35,7 @@
 | `board-official-verification-checklist-2026-06-12.md` | 和商家核授权、报告、标签、合同时 | 官方入口、暂缺官方闭环对象、最小证据包、追问模板 | 不改排名，只补验真和合同颗粒度 |
 | `board-delivery-installation-acceptance-checklist-2026-06-12.md` | 到货当天、安装现场、付尾款前 | 必拍照片、暂停安装条件、分品牌现场重点、付款绑定 | 它是现场动作清单，不替代空气检测 |
 | `board-indoor-air-acceptance-checklist-2026-06-12.md` | 安装后、入住前、检测报告出来后 | 检测前准备、机构选择、报告解读、异常处理、合同条款 | 不替代检测机构意见，只给验收流程 |
+| `board-pollution-source-troubleshooting-checklist-2026-06-12.md` | 检测异常、气味不稳、需要和商家排查责任时 | 甲醛/TVOC/苯系物归因、空间定位、材料排查、证据包和复测顺序 | 不替代检测机构意见，只帮你把问题拆清 |
 | `board-xiaohongshu-next-research-playbook-2026-06-12.md` | 小红书恢复可低频只读复查，或用户手动提供可见内容时 | 下一轮优先级、搜索词、评论记录模板、升级/降级规则 | 它是执行手册，不新增推荐结论 |
 | `board-ranking-report.html` | 想看网页化主报告 | 原 6 家排名 + 新增候选观察层 | 主排名仍是原 6 家；新增候选不直接改排名 |
 | `fable5-board-score-review.html` | 想看独立评分复核 | 原 6 家 | 未纳入红棉花、博耐克、合生雅居、靓时靓面等新增候选 |
@@ -58,6 +60,7 @@
 | 官方授权、检测报告、标签和合同怎么核 | `board-official-verification-checklist-2026-06-12.md` |
 | 到货和安装现场怎么验 | `board-delivery-installation-acceptance-checklist-2026-06-12.md` |
 | 入住前空气检测怎么做 | `board-indoor-air-acceptance-checklist-2026-06-12.md` |
+| 检测异常后怎么排查污染源 | `board-pollution-source-troubleshooting-checklist-2026-06-12.md` |
 | 下一轮小红书该怎么继续查 | `board-xiaohongshu-next-research-playbook-2026-06-12.md` |
 | ENF、CMA、TVOC 到底怎么理解 | `board-environmental-terms-guide-2026-06-12.md` |
 | 板材报告和室内空气报告有什么区别 | `board-standards-testing-boundary-2026-06-12.md` |
@@ -101,6 +104,7 @@
 - 已新增“官方口径与验真清单”，把小红书口碑问题落到授权、报告、标签和合同核验。
 - 已新增“完成度审计”，逐项核对原始研究目标和剩余证据缺口。
 - 已新增“入住前空气检测与验收清单”，把板材选择延伸到安装后检测和超标处理。
+- 已新增“污染源归因与整改排查清单”，把甲醛、TVOC、苯系物异常拆到报告条件、空间、材料、证据包和复测顺序。
 - 已新增“报价与合同审核清单”，把板材选择落到报价颗粒度、付款节点和验收责任。
 - 已新增“商家问询脚本”，把证据里的授权、混板、封边、检测和付款风险转成可直接复制的追问话术。
 - 已新增“到货与安装现场验收清单”，把标签、防伪、切面、封边、开孔和尾款绑定成现场动作。

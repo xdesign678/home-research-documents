@@ -12,6 +12,8 @@
 
 到货和安装现场的照片会影响后续追责。详细拍照清单和暂停安装条件见 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
 
+如果检测已经异常，或报告合格但气味仍明显，污染源排查和整改顺序见 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
+
 ## 检测前准备
 
 | 时间点 | 要做什么 | 为什么 |
@@ -82,6 +84,8 @@
 5. 联系商家：拿合同、到货标签、检测报告、现场照片一起沟通。
 6. 必要时复测：在相同或更规范条件下复测，避免一次异常被对方质疑。
 
+详细到“甲醛、TVOC、苯系物分别优先查哪里”，看 `board-pollution-source-troubleshooting-checklist-2026-06-12.md`。
+
 ## 合同里提前写什么
 
 可以要求商家写进补充条款：
@@ -110,3 +114,5 @@
 3. 安装后通风，再做一次第三方室内空气检测。
 4. 报告里同时看甲醛和 TVOC。
 5. 结果不稳时，不急着入住，不急着治理，先定位污染源。
+
+如果已经出现异常，先按 `board-pollution-source-troubleshooting-checklist-2026-06-12.md` 整理报告条件、异常项目、异常房间、材料来源和商家沟通证据包。
