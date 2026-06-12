@@ -4,7 +4,7 @@
 
 ## 审计结论
 
-当前研究已经形成可用的阶段性决策资料：主排名、补充候选、帖子与评论证据、证据可信度评分、术语解释、分房间用板配置、报价合同审核、商家横向对比表、商家问询脚本、官方验真、下单问题清单、入住前空气检测、污染源归因和整改排查都已覆盖。
+当前研究已经形成可用的阶段性决策资料：主排名、补充候选、帖子与评论证据、证据复盘索引、证据可信度评分、术语解释、分房间用板配置、报价合同审核、商家横向对比表、商家问询脚本、官方验真、下单问题清单、入住前空气检测、污染源归因和整改排查都已覆盖。
 
 但它还不能标成“全量完成”。原因是小红书自动打开详情页时已经出现安全限制 300017，按项目规则必须停止继续自动浏览；丽特曼、爱德板、伟业欧松板等被评论带出的候选还没有独立完成帖子和评论深读。
 
@@ -17,7 +17,7 @@
 | 使用小红书搜索研究 | 阶段完成 | `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` | 已做公开搜索和只读记录；后续因安全限制暂停 |
 | 注意 AGENTS.md 小红书规则 | 已遵守 | `xiaohongshu-board-extension-research-2026-06-12.md` 的研究边界和安全限制记录 | 记录显示未登录、未互动，遇安全限制 300017 后停止 |
 | 不只看帖子，也看评论 | 已完成 | 原 6 家 60 篇评论深读、78 条重点复核、新增候选详细评论摘要 | 评论已经成为排名和风险判断的主要依据之一 |
-| 随时记录帖子内容和评论 | 已完成到可复盘程度 | `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md`、`board-evidence-scoring-rubric-2026-06-12.md` | 已按标题、链接、评论量、正文摘要、评论分歧、证据权重记录；新增评分规则方便后续统一判断 |
+| 随时记录帖子内容和评论 | 已完成到可复盘程度 | `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md`、`xiaohongshu-board-evidence-review-index-2026-06-12.md`、`board-evidence-scoring-rubric-2026-06-12.md` | 已按标题、链接、评论量、正文摘要、评论分歧、证据权重记录；新增评分规则和复盘索引方便后续统一判断 |
 | 看看除了已有对象还有没有值得推荐 | 已完成阶段判断 | `board-material-selection-brief-2026-06-12.md`、`board-research-navigation-2026-06-12.md`、补充研究阶段判断 | 新增对象进入观察层，但没有证据足够替代爱格、福人、华富立前三 |
 | 重点关注环保和甲醛 | 已完成 | 主报告、术语速查、证据包、补充研究 | 甲醛、TVOC、气味、CMA、封边、批次、授权、整屋叠加都已纳入 |
 | 看资料还有没有需要补充优化 | 已持续优化 | 导航、短版、术语页、证据评分规则、商家问询脚本、官方验真清单、复查队列 | 已从“证据多”补到“怎么读、怎么评、怎么问、怎么验、怎么复查” |
@@ -43,6 +43,7 @@
 | `xiaohongshu-board-evidence.md` | 原 6 家小红书证据沉淀，含 165 篇去重样本和 60 篇评论深读 |
 | `xiaohongshu-board-review-pack.md` | 原 6 家 78 条高争议、检测、入住、验真类重点复核 |
 | `xiaohongshu-board-extension-research-2026-06-12.md` | 新增候选和合生雅居渠道风险的详细帖子与评论记录 |
+| `xiaohongshu-board-evidence-review-index-2026-06-12.md` | 按品牌、证据编号和问题类型反查小红书帖子与评论底稿 |
 | `board-material-selection-brief-2026-06-12.md` | 实际下单短版，告诉你先看谁、暂停谁、问什么 |
 | `board-room-by-room-material-schedule-2026-06-12.md` | 按房间和柜体部位记录实际用板、封边、检测和验收照片 |
 | `board-environmental-terms-guide-2026-06-12.md` | ENF、E0、F4星、CMA、TVOC 等术语解释 |
