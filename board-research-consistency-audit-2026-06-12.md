@@ -12,7 +12,7 @@
 4. 合生雅居已经加入查询对象，但它应按定制渠道、本地门店、付款、交付和实际用板审查，不按板材品牌排序。
 5. 靓时靓面、丽特曼、宁丰、博耐克等涉及柜门、饰面、PET 膜、贴面或异形件时，必须先拆清基材和加工链。
 6. 商家发来的检测报告要先判断报告类型、样品对应关系和检测项目，不能只看“合格、ENF、CMA”。
-7. 小红书曾在靓时靓面详情页阶段出现安全限制 300017；后续已恢复 R7-R10 低频只读复查，但当前仍只能做阶段性结论，不能写成全量完成。
+7. 小红书曾在靓时靓面详情页阶段出现安全限制 300017；后续已恢复 R7-R11 低频只读复查，但当前仍只能做阶段性结论，不能写成全量完成。
 
 ## 核心结论一致性表
 
@@ -25,7 +25,7 @@
 | 检测报告必须先判类型和对应关系 | `board-test-report-quick-read-card-2026-06-12.md`、`board-standards-testing-boundary-2026-06-12.md`、`board-merchant-evidence-intake-log-2026-06-12.md` | 仍成立 | 一致 | 板材报告、空气报告、工程验收报告不能互相替代 |
 | 合同和到货验收是下单前关键动作 | `board-final-go-no-go-decision-checklist-2026-06-12.md`、`board-quote-contract-review-checklist-2026-06-12.md`、`board-delivery-installation-acceptance-checklist-2026-06-12.md` | 仍成立 | 一致 | 不能只写“ENF、净味、进口板、即装即住” |
 | 安装后仍要做室内空气验收 | `board-indoor-air-acceptance-checklist-2026-06-12.md`、`board-pollution-source-troubleshooting-checklist-2026-06-12.md`、`board-standards-testing-boundary-2026-06-12.md` | 仍成立 | 一致 | 板材报告和室内空气报告不是一回事 |
-| 当前研究是阶段性可用，不是全量完成 | `board-research-completion-audit-2026-06-12.md`、`xiaohongshu-board-safe-resume-checklist-2026-06-12.md`、`board-xiaohongshu-next-research-playbook-2026-06-12.md` | 仍成立 | 一致 | 300017 后已恢复 R7-R10 低频只读，但仍不能批量打开或绕过 |
+| 当前研究是阶段性可用，不是全量完成 | `board-research-completion-audit-2026-06-12.md`、`xiaohongshu-board-safe-resume-checklist-2026-06-12.md`、`board-xiaohongshu-next-research-playbook-2026-06-12.md` | 仍成立 | 一致 | 300017 后已恢复 R7-R11 低频只读，但仍不能批量打开或绕过 |
 
 ## 候选定位一致性表
 
@@ -66,7 +66,7 @@
 
 ## 仍不能标全量完成的原因
 
-1. 小红书曾被安全限制 300017 打断，后续已恢复 R7-R10 低频只读；仍不能批量打开、绕过或高频采集。
+1. 小红书曾被安全限制 300017 打断，后续已恢复 R7-R11 低频只读；仍不能批量打开、绕过或高频采集。
 2. 丽特曼、爱德板、伟业欧松板已完成 R8 初筛，但仍缺能改变推荐层级的身份、部位、检测和验真闭环。
 3. 博耐克虽然已加入查询对象并补到 R9 授权线索，但国内授权链、贴面加工和异形件闭环仍未补齐。
 4. 合生雅居虽然已加入查询对象并补到 R9 实际用板搜索/耐水展示，但还缺目标城市门店、实际用板、付款和交付口碑。
