@@ -48,7 +48,7 @@
 
 | 文件 | 适合什么时候看 | 覆盖范围 | 注意事项 |
 |---|---|---|---|
-| `board-material-selection-brief-2026-06-12.md` | 快下单、和商家沟通前 | 主排名、新增候选、排除条件、12 个问题 | 短版，不展开原帖和评论 |
+| `board-material-selection-brief-2026-06-12.md` | 快下单、和商家沟通前 | 主排名、新增候选、排除条件、下一步路径、12 个问题 | 短版，不展开原帖和评论 |
 | `board-final-go-no-go-decision-checklist-2026-06-12.md` | 签合同前最后复核 | 红黄绿判断、10 个必须通过的问题、品牌初始灯号、能否继续下单 | 它是收口表，不替代合同 |
 | `board-room-by-room-material-schedule-2026-06-12.md` | 量尺、复尺、报价、签合同前 | 按房间和柜子拆柜体、柜门、背板、抽屉、封边、检测和验收照片 | 它是配置表，不替代报价合同 |
 | `board-door-panel-surface-chain-risk-2026-06-12.md` | 看到 PET 欧松门、进口基材、贴面、膜、异形件时 | 柜门基材、精板/素板、PET 膜、饰面、封边、异形件和到货验真 | 它解释柜门链条，不新增品牌排名 |
@@ -94,6 +94,7 @@
 | 问题 | 直接看哪里 |
 |---|---|
 | 现在最推荐哪几类板材 | `board-material-selection-brief-2026-06-12.md` 的“选型优先级” |
+| 我现在不知道下一步该看哪份表 | `board-material-selection-brief-2026-06-12.md` 的“你现在该走哪条路径” |
 | 到底能不能继续签约或下单 | `board-final-go-no-go-decision-checklist-2026-06-12.md` |
 | 当前研究到底完成到什么程度 | `board-research-completion-audit-2026-06-12.md` |
 | 最初目标逐条看完成了没有 | `board-original-goal-acceptance-audit-2026-06-12.md` |

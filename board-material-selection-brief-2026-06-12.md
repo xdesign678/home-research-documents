@@ -8,6 +8,23 @@
 
 如果最关注环保和甲醛，当前仍建议把爱格、福人精板、华富立欧松/多层组合放在第一决策层。新增补查对象里，红棉花、水性科天、露水河、克诺斯邦/可丽芙、博耐克值得继续看，但还没有足够证据替代前三。合生雅居不是板材品牌，应按本地门店和实际用板审查。
 
+## 你现在该走哪条路径
+
+资料已经很多，先按你当前状态选路径，不要从头重读。
+
+| 你现在的状态 | 先看哪份 | 这一步要得到什么 |
+|---|---|---|
+| 只想快速知道先看谁 | 本文“选型优先级” | 第一决策层、观察层、暂停对象 |
+| 想继续手动补小红书 | `board-candidate-evidence-gap-register-2026-06-12.md` 和 `xiaohongshu-board-manual-screenshot-quick-sheet-2026-06-12.md` | 先补博耐克、合生雅居、红棉花等最影响判断的证据 |
+| 准备问商家 | `board-merchant-question-script-2026-06-12.md` | 把“环保吗”改成柜体、柜门、背板、封边、检测、付款的具体问题 |
+| 商家已经发资料 | `board-merchant-evidence-intake-log-2026-06-12.md` | 判断收到什么、缺什么、能不能核验 |
+| 已经拿到报价单 | `board-quote-contract-review-checklist-2026-06-12.md` | 看报价是否拆清部位、等级、封边、付款和检测责任 |
+| 有 2 到 4 家商家可比 | `board-vendor-comparison-decision-template-2026-06-12.md` | 不只比总价，横向比证据、合同、付款和交付风险 |
+| 准备签合同 | `board-final-go-no-go-decision-checklist-2026-06-12.md` | 判断是绿灯、黄灯补证，还是红灯暂停 |
+| 到货或安装当天 | `board-delivery-installation-acceptance-checklist-2026-06-12.md` | 拍标签、防伪、切面、封边、开孔和边角料 |
+| 安装后准备入住 | `board-indoor-air-acceptance-checklist-2026-06-12.md` | 安排 CMA 室内空气检测，看甲醛、TVOC 和苯系物 |
+| 检测异常或味道明显 | `board-pollution-source-troubleshooting-checklist-2026-06-12.md` | 分清是板材、柜门膜、胶、封边、软装还是检测条件问题 |
+
 ## 选型优先级
 
 | 层级 | 对象 | 可以怎么用 | 必须满足什么条件 |
