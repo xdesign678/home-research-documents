@@ -8,11 +8,12 @@
 2. 再看 `board-ranking-report.html`：看原 6 家主排名、补充候选观察层和每个品牌的证据入口。
 3. 要确认“哪些已完成、哪些还没法证实”，看 `board-research-completion-audit-2026-06-12.md`。
 4. 看不懂 ENF、E0、F4星、CMA、TVOC 时，看 `board-environmental-terms-guide-2026-06-12.md`。
-5. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
-6. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
-7. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
-8. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
-9. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
+5. 已经拿到报价单或合同，看 `board-quote-contract-review-checklist-2026-06-12.md`。
+6. 要核官方授权、检测报告、到货标签和合同条款，看 `board-official-verification-checklist-2026-06-12.md`。
+7. 要安排入住前空气检测、看报告或处理超标，看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
+8. 要复盘新增品牌和评论细节，看 `xiaohongshu-board-extension-research-2026-06-12.md`。
+9. 要复盘原 6 家全部小红书证据，看 `xiaohongshu-board-evidence.md` 和 `xiaohongshu-board-review-pack.md`。
+10. 要看另一套独立评分逻辑，看 `fable5-board-score-review.html`。注意它只覆盖原 6 家，不覆盖 2026-06-12 新增候选。
 
 ## 文件用途总览
 
@@ -21,6 +22,7 @@
 | `board-material-selection-brief-2026-06-12.md` | 快下单、和商家沟通前 | 主排名、新增候选、排除条件、12 个问题 | 短版，不展开原帖和评论 |
 | `board-research-completion-audit-2026-06-12.md` | 想确认研究是否已经完成、还缺什么 | 原始要求逐项审计、资料体系、未完成缺口 | 它说明当前是阶段性完成，不是全量完成 |
 | `board-environmental-terms-guide-2026-06-12.md` | 看报价单、检测报告、销售话术时 | ENF、E0、F4星、CMA、TVOC、无醛添加、净味板 | 只解释概念，不替代标准原文 |
+| `board-quote-contract-review-checklist-2026-06-12.md` | 拿到报价单、准备签合同前 | 报价颗粒度、不能接受的写法、环保条款、比价表、付款节点 | 不替代法律意见，只帮你把合同写到可验收 |
 | `board-official-verification-checklist-2026-06-12.md` | 和商家核授权、报告、标签、合同时 | 官方入口、暂缺官方闭环对象、最小证据包、追问模板 | 不改排名，只补验真和合同颗粒度 |
 | `board-indoor-air-acceptance-checklist-2026-06-12.md` | 安装后、入住前、检测报告出来后 | 检测前准备、机构选择、报告解读、异常处理、合同条款 | 不替代检测机构意见，只给验收流程 |
 | `board-ranking-report.html` | 想看网页化主报告 | 原 6 家排名 + 新增候选观察层 | 主排名仍是原 6 家；新增候选不直接改排名 |
@@ -41,6 +43,7 @@
 | 合生雅居怎么处理 | `xiaohongshu-board-extension-research-2026-06-12.md` 的 HSYJ 条目和 D16-D18 |
 | 靓时靓面怎么看 | `xiaohongshu-board-extension-research-2026-06-12.md` 的 LSLM 条目和 D19 |
 | 下单前怎么问商家 | `board-material-selection-brief-2026-06-12.md` 的“下单前问商家的 12 个问题” |
+| 报价单和合同怎么审 | `board-quote-contract-review-checklist-2026-06-12.md` |
 | 官方授权、检测报告、标签和合同怎么核 | `board-official-verification-checklist-2026-06-12.md` |
 | 入住前空气检测怎么做 | `board-indoor-air-acceptance-checklist-2026-06-12.md` |
 | ENF、CMA、TVOC 到底怎么理解 | `board-environmental-terms-guide-2026-06-12.md` |
@@ -83,6 +86,7 @@
 - 已新增“官方口径与验真清单”，把小红书口碑问题落到授权、报告、标签和合同核验。
 - 已新增“完成度审计”，逐项核对原始研究目标和剩余证据缺口。
 - 已新增“入住前空气检测与验收清单”，把板材选择延伸到安装后检测和超标处理。
+- 已新增“报价与合同审核清单”，把板材选择落到报价颗粒度、付款节点和验收责任。
 - 小红书安全限制 300017 已记录，后续复查队列已写入补充研究文档。
 
 ## 当前未完成但已经排队的部分

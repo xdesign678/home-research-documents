@@ -4,7 +4,7 @@
 
 ## 审计结论
 
-当前研究已经形成可用的阶段性决策资料：主排名、补充候选、帖子与评论证据、术语解释、官方验真、下单问题清单、入住前空气检测与验收清单都已覆盖。
+当前研究已经形成可用的阶段性决策资料：主排名、补充候选、帖子与评论证据、术语解释、报价合同审核、官方验真、下单问题清单、入住前空气检测与验收清单都已覆盖。
 
 但它还不能标成“全量完成”。原因是小红书自动打开详情页时已经出现安全限制 300017，按项目规则必须停止继续自动浏览；丽特曼、爱德板、伟业欧松板等被评论带出的候选还没有独立完成帖子和评论深读。
 
@@ -45,6 +45,7 @@
 | `xiaohongshu-board-extension-research-2026-06-12.md` | 新增候选和合生雅居渠道风险的详细帖子与评论记录 |
 | `board-material-selection-brief-2026-06-12.md` | 实际下单短版，告诉你先看谁、暂停谁、问什么 |
 | `board-environmental-terms-guide-2026-06-12.md` | ENF、E0、F4星、CMA、TVOC 等术语解释 |
+| `board-quote-contract-review-checklist-2026-06-12.md` | 报价单颗粒度、合同条款、付款节点和比价表 |
 | `board-official-verification-checklist-2026-06-12.md` | 官方入口、授权、检测报告、标签和合同核验清单 |
 | `board-indoor-air-acceptance-checklist-2026-06-12.md` | 入住前空气检测、报告解读、异常排查和超标处理 |
 | `board-research-navigation-2026-06-12.md` | 阅读导航和证据覆盖矩阵 |
