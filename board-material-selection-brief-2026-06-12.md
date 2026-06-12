@@ -2,6 +2,8 @@
 
 这份是给实际下单看的短版。详细证据仍以 `xiaohongshu-board-evidence.md`、`xiaohongshu-board-review-pack.md`、`xiaohongshu-board-extension-research-2026-06-12.md` 为准；要追溯当前结论由什么证据支撑、什么新证据会改变判断，先看 `board-conclusion-traceability-matrix-2026-06-12.md`；签合同前最后收口，先看 `board-final-go-no-go-decision-checklist-2026-06-12.md`；判断新增候选能否升级或必须降级，先看 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md`；判断每个候选还缺哪类帖子、评论、检测、授权或合同证据，先看 `board-candidate-evidence-gap-register-2026-06-12.md`；下一轮小红书按对象深挖，先看 `xiaohongshu-board-targeted-followup-cards-2026-06-12.md`；要把小红书口碑、官方验真、合同、到货、安装和 CMA 检测串成证据链，先看 `board-environmental-evidence-chain-checklist-2026-06-12.md`；要把单条帖子或评论转成商家追问、合同条款、到货验收和暂停条件，先看 `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md`；按房间拆用板，先看 `board-room-by-room-material-schedule-2026-06-12.md`；涉及柜门、PET 膜、贴面和异形件，先看 `board-door-panel-surface-chain-risk-2026-06-12.md`；标准和检测名词先看 `board-environmental-terms-guide-2026-06-12.md`；报价和合同先看 `board-quote-contract-review-checklist-2026-06-12.md`；准备问商家时，先看 `board-merchant-question-script-2026-06-12.md`；商家发来资料后，先看 `board-merchant-evidence-intake-log-2026-06-12.md`；下单验授权、报告、标签和合同，先看 `board-official-verification-checklist-2026-06-12.md`；要把官方资料和小红书口碑交叉看，先看 `board-official-source-crosscheck-notes-2026-06-12.md`；到货和安装现场，先看 `board-delivery-installation-acceptance-checklist-2026-06-12.md`；安装后空气检测和验收，先看 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
 
+如果担心不同文件结论口径不一致，先看 `board-research-consistency-audit-2026-06-12.md`。
+
 ## 一句话结论
 
 如果最关注环保和甲醛，当前仍建议把爱格、福人精板、华富立欧松/多层组合放在第一决策层。新增补查对象里，红棉花、水性科天、露水河、克诺斯邦/可丽芙、博耐克值得继续看，但还没有足够证据替代前三。合生雅居不是板材品牌，应按本地门店和实际用板审查。

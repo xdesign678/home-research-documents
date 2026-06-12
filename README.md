@@ -12,6 +12,7 @@
 - [板材环保与甲醛风险排名](./board-ranking-report.html)
 - [全屋定制板材研究导航与证据覆盖矩阵（2026-06-12）](./board-research-navigation-2026-06-12.md)
 - [全屋定制板材研究完成度审计（2026-06-12）](./board-research-completion-audit-2026-06-12.md)
+- [全屋定制板材研究一致性审查（2026-06-12）](./board-research-consistency-audit-2026-06-12.md)
 - [全屋定制板材结论追溯矩阵（2026-06-12）](./board-conclusion-traceability-matrix-2026-06-12.md)
 - [全屋定制板材选型决策简版（2026-06-12）](./board-material-selection-brief-2026-06-12.md)
 - [全屋定制板材最终下单红黄绿决策表（2026-06-12）](./board-final-go-no-go-decision-checklist-2026-06-12.md)
