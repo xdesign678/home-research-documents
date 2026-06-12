@@ -247,6 +247,42 @@
       gap: 16px;
     }
 
+    .candidate-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .candidate-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .candidate-card strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .candidate-card p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .candidate-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .candidate-card li {
+      margin: 6px 0;
+    }
+
     .card {
       background: var(--card);
       border: 1px solid var(--line);
@@ -761,6 +797,7 @@
       .hero-grid,
       .rank-card,
       .grid,
+      .candidate-grid,
       .detail-layout,
       .detail-stats {
         grid-template-columns: 1fr;
@@ -887,6 +924,55 @@
             <div class="bar"><div class="fill" style="width:72%"></div></div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>🧭 补充候选观察层</h2>
+      <p class="note">2026-06-12 继续按小红书公开搜索和评论补查了更多板材/渠道。结论是：新增对象可以进入观察池，但证据还不够改动上面的 6 家主排名。</p>
+      <div class="candidate-grid">
+        <article class="candidate-card">
+          <strong>可认真观察</strong>
+          <p>有一定真实讨论或正向落地信号，但还缺少稳定检测证据。</p>
+          <ul>
+            <li>红棉花：低味反馈较多，系列要拆开。</li>
+            <li>水性科天：无醛/水性胶话术强，需核具体系列。</li>
+            <li>露水河：老牌备选，关键是授权和批次。</li>
+            <li>克诺斯邦/可丽芙：进口体系可看，但不能神化。</li>
+            <li>博耐克：适合柜门观察，重点验北新木业授权和贴面链条。</li>
+          </ul>
+        </article>
+        <article class="candidate-card">
+          <strong>普通备选</strong>
+          <p>可以谈，但不应只凭品牌名或环保等级下单。</p>
+          <ul>
+            <li>兔宝宝、千年舟、莫干山：老牌常见，合同和到货一致性更关键。</li>
+            <li>鹏鸿：有低味反馈，也有甲醛异常样本，系列要分开看。</li>
+            <li>靓时靓面：更像花色/爱格平替候选，环保证据仍薄。</li>
+          </ul>
+        </article>
+        <article class="candidate-card">
+          <strong>谨慎看性价比</strong>
+          <p>如果价格或供应链优势明显再谈，必须把柜门、基材和饰面拆清。</p>
+          <ul>
+            <li>鲁丽欧松板：常见欧松选择，但素板/精板/贴面容易混淆。</li>
+            <li>宁丰欧松/PET 柜门：更多体现换板、暗标和合同验收风险。</li>
+            <li>SK 膜/PET 膜：柜门饰面也会影响真实落地，不只看基材。</li>
+          </ul>
+        </article>
+        <article class="candidate-card">
+          <strong>暂不放进板材推荐</strong>
+          <p>不是完全不能用，而是现有小红书证据不足以支持“环保优先推荐”。</p>
+          <ul>
+            <li>芦花板：负面密度高，气味、咳嗽、通风后仍高等样本集中。</li>
+            <li>合生雅居：更像定制渠道/门店风险，不是单一板材品牌。</li>
+            <li>丽特曼、爱德板、伟业欧松板：已进入候选池，因平台安全限制暂未继续查。</li>
+          </ul>
+        </article>
+      </div>
+      <div class="callout" style="margin-top:16px">
+        <strong>新增候选的使用方式</strong>
+        <p>它们适合作为谈方案时的备选清单，不适合直接替代主排名。后续要继续补的是：具体系列、授权链、到货标签、柜体/柜门/背板拆分、安装后气味和 CMA 检测。</p>
       </div>
     </section>
 
@@ -1413,7 +1499,7 @@
 
     <section>
       <h2>📚 证据文档</h2>
-      <p>我把打开过的小红书帖子和评论要点沉淀到了 Markdown 文档：<a href="./xiaohongshu-board-evidence.md">xiaohongshu-board-evidence.md</a>。当前证据文档包含 165 篇去重小红书样本、60 篇代表帖评论深读，以及第三至第六轮 78 条重点复核记录。78 条重点复核已另做成二次分析底稿：<a href="./xiaohongshu-board-review-pack.md">xiaohongshu-board-review-pack.md</a>。</p>
+      <p>我把打开过的小红书帖子和评论要点沉淀到了 Markdown 文档：<a href="./xiaohongshu-board-evidence.md">xiaohongshu-board-evidence.md</a>。当前证据文档包含 165 篇去重小红书样本、60 篇代表帖评论深读，以及第三至第六轮 78 条重点复核记录。78 条重点复核已另做成二次分析底稿：<a href="./xiaohongshu-board-review-pack.md">xiaohongshu-board-review-pack.md</a>；新增候选和合生雅居渠道风险单独记录在 <a href="./xiaohongshu-board-extension-research-2026-06-12.md">2026-06-12 补充研究</a>。</p>
       <div class="source-list">
         <div>国家标准：<a href="https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=F5BCAEB886FB1417F12395B61AFDB178">GB/T 39600-2021 人造板及其制品甲醛释放量分级</a></div>
         <div>大王椰：<a href="https://www.dwywood.com/material.html">大王椰新材料科技</a></div>
@@ -1422,6 +1508,7 @@
         <div>万华禾香：<a href="https://www.whstby.cn/">万华禾香官网</a></div>
         <div>爱格：<a href="https://www.egger.com/zh/?country=CN">EGGER 爱格官网</a></div>
         <div>三棵树小森板：<a href="https://xiaosen.com.cn/web/index.html">三棵树小森板官网</a></div>
+        <div>补充研究：<a href="./xiaohongshu-board-extension-research-2026-06-12.md">小红书板材补充研究记录（2026-06-12）</a></div>
       </div>
     </section>
   </main>

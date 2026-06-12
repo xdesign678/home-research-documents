@@ -10,10 +10,10 @@
 ## 板材环保与甲醛风险
 
 - [板材环保与甲醛风险排名](./board-ranking-report.html)
-- [板材打分逻辑可视化](./fable5-board-score-review.html)
+- [板材打分逻辑可视化](./fable5-board-score-review.html)（仅复核原 6 家主排名）
 - [小红书板材环保研究证据沉淀](./xiaohongshu-board-evidence.md)
 - [小红书板材 78 条重点复核证据包](./xiaohongshu-board-review-pack.md)
-- [小红书板材补充研究记录（2026-06-12）](./xiaohongshu-board-extension-research-2026-06-12.md)
+- [小红书板材补充研究记录（2026-06-12）](./xiaohongshu-board-extension-research-2026-06-12.md)（红棉花、博耐克、合生雅居、靓时靓面等新增候选）
 
 ## 项目说明
 
