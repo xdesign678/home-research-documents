@@ -101,12 +101,13 @@
 ## 我收到内容后怎么处理
 
 1. 先判断是否符合公开可见和必要记录边界。
-2. 再按 `board-evidence-scoring-rubric-2026-06-12.md` 给证据初评分。
-3. 有价值的帖子追加到 `xiaohongshu-board-extension-research-2026-06-12.md`。
-4. 如果只是线索，先放入滚动候选池或待补录卡片。
-5. 如果连续多条证据指向同一结论，先用 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md` 判断是否足够升级或降级。
-6. 如果足以改变候选层级，再更新导航、短版和主报告。
-7. 如果证据只说明某门店或某系列，不扩大成总品牌结论。
+2. 评论先按 `xiaohongshu-board-comment-bias-checklist-2026-06-12.md` 区分真实复核、追问补充、情绪共鸣、求价求链接和商业混入。
+3. 再按 `board-evidence-scoring-rubric-2026-06-12.md` 给证据初评分。
+4. 有价值的帖子追加到 `xiaohongshu-board-extension-research-2026-06-12.md`。
+5. 如果只是线索，先放入滚动候选池或待补录卡片。
+6. 如果连续多条证据指向同一结论，先用 `board-candidate-upgrade-downgrade-matrix-2026-06-12.md` 判断是否足够升级或降级。
+7. 如果足以改变候选层级，再更新导航、短版和主报告。
+8. 如果证据只说明某门店或某系列，不扩大成总品牌结论。
 
 ## 快速判断：这条内容值不值得补
 
