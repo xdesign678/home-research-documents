@@ -65,7 +65,7 @@
 | `xiaohongshu-board-record-detail-coverage-audit-2026-06-12.md` | 复盘补充研究时，想知道哪些条目够深、哪些只是线索 | 搜索页线索、普通帖子、强证据深读、中止/缺评论记录分层 | 它是记录覆盖审计，不新增证据 |
 | `xiaohongshu-board-evidence-to-action-matrix-2026-06-12.md` | 看完小红书帖子或评论后，不知道下一步该问商家、写合同还是到货验收时 | 小红书信号、商家追问、合同条款、到货验收、暂停条件 | 它是证据转行动矩阵，不新增帖子证据 |
 | `board-candidate-upgrade-downgrade-matrix-2026-06-12.md` | 补到新帖子、新评论、新检测后，判断候选能否升级或必须降级 | 红棉花、水性科天、露水河、克诺斯邦/可丽芙、博耐克、靓时靓面、丽特曼、爱德板、伟业欧松板、合生雅居等 | 它是候选层级规则，不直接改排名 |
-| `board-candidate-evidence-gap-register-2026-06-12.md` | 复盘每个候选还缺哪类证据，或决定下一轮先查谁时 | 第一决策层、原 6 家中后位、新增观察对象、柜门链条、低证据候选、合生雅居 | 它是证据缺口总表，不新增小红书证据 |
+| `board-candidate-evidence-gap-register-2026-06-12.md` | 复盘每个候选还缺哪类证据，或决定下一轮先查谁时 | 第一决策层、原 6 家中后位、新增观察对象、柜门链条、低证据候选、合生雅居、只补 1/3/5 条时的优先顺序 | 它是证据缺口总表，不新增小红书证据 |
 | `board-low-evidence-candidate-identity-check-2026-06-12.md` | 丽特曼、爱德板、伟业欧松板这类评论带出对象还没查清身份时 | 公开网页身份预核、误命中记录、商家必须补的完整名称/厂家/报告/标签 | 它是身份核查笔记，不替代小红书深读 |
 | `board-observation-candidate-official-source-gap-notes-2026-06-12.md` | 想看新增观察对象官方入口有没有闭合、合生雅居为什么不按板材推荐时 | 红棉花、水性科天、露水河、克诺斯邦/可丽芙、博耐克、合生雅居 | 它是官方入口和索证缺口笔记，不新增排名 |
 | `board-quote-contract-review-checklist-2026-06-12.md` | 拿到报价单、准备签合同前 | 报价颗粒度、不能接受的写法、环保条款、比价表、付款节点 | 不替代法律意见，只帮你把合同写到可验收 |
@@ -133,6 +133,7 @@
 | 后续帖子和评论要详细记录到什么程度 | `xiaohongshu-board-post-comment-recording-standard-2026-06-12.md` |
 | 补充研究里哪些记录够深、哪些只是线索 | `xiaohongshu-board-record-detail-coverage-audit-2026-06-12.md` |
 | 每个候选还缺哪类证据、下一轮先补什么 | `board-candidate-evidence-gap-register-2026-06-12.md` |
+| 如果这次只来得及手动补 1 到 5 条小红书证据 | `board-candidate-evidence-gap-register-2026-06-12.md` 的“如果这次只能补很少内容” |
 | 丽特曼、爱德板、伟业欧松板到底能不能当候选 | `board-low-evidence-candidate-identity-check-2026-06-12.md` |
 
 ## 证据覆盖矩阵
