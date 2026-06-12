@@ -270,6 +270,7 @@
 
 - 先用 `board-material-selection-brief-2026-06-12.md` 定候选。
 - 拿报价时用 `board-quote-contract-review-checklist-2026-06-12.md` 审颗粒度。
+- 多家报价横向比较时，用 `board-vendor-comparison-decision-template-2026-06-12.md` 记录。
 - 核授权和报告时用 `board-official-verification-checklist-2026-06-12.md`。
 - 到货安装当天用 `board-delivery-installation-acceptance-checklist-2026-06-12.md`。
 - 入住前检测用 `board-indoor-air-acceptance-checklist-2026-06-12.md`。
