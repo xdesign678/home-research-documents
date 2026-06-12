@@ -80,6 +80,7 @@
 
 ## 资料怎么配合使用
 
+- 用 `board-environmental-evidence-chain-checklist-2026-06-12.md` 检查小红书口碑、官方验真、合同、到货、安装和 CMA 检测是否已经串成闭环。
 - 用 `board-room-by-room-material-schedule-2026-06-12.md` 填房间和部位。
 - 用 `board-door-panel-surface-chain-risk-2026-06-12.md` 拆柜门链条。
 - 用 `board-quote-contract-review-checklist-2026-06-12.md` 审报价和合同。
