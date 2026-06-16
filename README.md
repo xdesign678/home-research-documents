@@ -7,6 +7,11 @@
 - [深圳装修监理决策报告：装小蜜 vs 牛角监](./shenzhen-renovation-supervision-comparison.html)
 - [深圳装修监理调研记录](./xiaohongshu-shenzhen-renovation-supervision.md)
 
+## 中央空调与新风
+
+- [103平一拖四中央空调决策：日立 mini2 vs COLMO 图灵2](./central-ac-hitachi-colmo-decision-report-2026-06-16.html)
+- [小红书中央空调选型证据沉淀：日立 mini2 + 新风 vs COLMO 图灵2 + 新风](./xiaohongshu-central-ac-hitachi-colmo-evidence-2026-06-16.md)
+
 ## 板材环保与甲醛风险
 
 当前板材研究已能支持阶段性选型、商家沟通、合同审查、到货验收和入住前检测。小红书详情页自动复查曾出现 `300017` 安全限制，后续已恢复 R7-R11 低频只读复查；继续补证时仍先看安全恢复清单和手动截图快填卡。网页端打开主报告时，Markdown 文档会通过 `doc-viewer.html` 渲染成阅读页面。
