@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中央空调噪音深度决策报告：日立 mini2 vs COLMO 图灵2</title>
+  <style>
+    :root {
+      --bg: #f5f6f2;
+      --paper: #ffffff;
+      --ink: #17211f;
+      --muted: #5e6a66;
+      --line: #dfe5dd;
+      --hitachi: #2f7a5c;
+      --colmo: #316bc6;
+      --warn: #b56a1f;
+      --risk: #b64034;
+      --soft-green: #e6f2ec;
+      --soft-blue: #e8eef8;
+      --soft-warn: #f8eee2;
+      --soft-risk: #f6e8e5;
+      --shadow: 0 16px 40px rgba(24, 37, 34, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.68;
+    }
+
+    a { color: inherit; text-underline-offset: 3px; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      background: linear-gradient(180deg, #edf4ef 0%, #f5f6f2 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.8fr);
+      gap: 28px;
+      padding: 54px 0 40px;
+      align-items: end;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.05;
+      letter-spacing: 0;
+      max-width: 920px;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 820px;
+    }
+
+    .verdict {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--hitachi);
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .verdict strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .verdict p { margin: 0; color: var(--muted); }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(245, 246, 242, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 10px 0;
+      scrollbar-width: none;
+    }
+
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-inner a {
+      flex: 0 0 auto;
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 999px;
+      padding: 8px 13px;
+    }
+
+    section { padding: 38px 0; }
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+      line-height: 1.32;
+    }
+
+    .note {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .panel,
+    .metric,
+    .evidence,
+    .clause,
+    details {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(24, 37, 34, 0.05);
+    }
+
+    .panel { padding: 22px; }
+    .panel p { margin: 0; color: var(--muted); }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      background: #eef1ed;
+      color: #31413c;
+    }
+
+    .badge.good { background: var(--soft-green); color: var(--hitachi); }
+    .badge.info { background: var(--soft-blue); color: var(--colmo); }
+    .badge.warn { background: var(--soft-warn); color: var(--warn); }
+    .badge.risk { background: var(--soft-risk); color: var(--risk); }
+
+    .metric {
+      padding: 18px;
+      min-height: 124px;
+    }
+
+    .metric .num {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .metric .label { color: var(--muted); font-size: 14px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    th, td {
+      text-align: left;
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: #edf2ee;
+      color: #2b3935;
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .score-table td:first-child,
+    .score-table th:first-child { width: 150px; }
+
+    .score-line {
+      display: grid;
+      grid-template-columns: 54px minmax(110px, 1fr) 38px;
+      align-items: center;
+      gap: 8px;
+      margin: 5px 0;
+      min-width: 0;
+    }
+
+    .brand-name { font-weight: 800; font-size: 13px; color: #33413e; }
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: #edf0ee;
+      overflow: hidden;
+      min-width: 90px;
+    }
+
+    .bar span {
+      display: block;
+      width: calc(var(--v) * 10%);
+      height: 100%;
+      background: var(--colmo);
+      border-radius: inherit;
+    }
+
+    .bar.hitachi span { background: var(--hitachi); }
+    .score-num { font-weight: 900; font-size: 13px; text-align: right; }
+
+    .risk-map {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .risk-box {
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      padding: 16px;
+      min-height: 180px;
+    }
+
+    .risk-box strong { display: block; margin-bottom: 8px; }
+    .risk-box p { margin: 0; color: var(--muted); font-size: 14px; }
+    .risk-box.high { border-color: #e1b0a9; background: #fff8f6; }
+    .risk-box.mid { border-color: #e7c99f; background: #fffaf0; }
+    .risk-box.low { border-color: #b9d9ca; background: #f3fbf7; }
+
+    .evidence-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .evidence {
+      padding: 16px;
+      min-height: 220px;
+    }
+
+    .evidence .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .evidence p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+    .evidence a { font-weight: 800; color: #263b35; }
+
+    details { padding: 0; overflow: hidden; }
+    summary {
+      cursor: pointer;
+      padding: 16px 18px;
+      font-weight: 900;
+      background: #edf2ee;
+      border-bottom: 1px solid var(--line);
+    }
+
+    details[open] summary { border-bottom-color: var(--line); }
+    .details-body { padding: 16px 18px 18px; }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .step .dot {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: #fff;
+      background: var(--colmo);
+    }
+
+    .step p { margin: 0; color: var(--muted); }
+
+    .clauses {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .clause { padding: 16px; }
+    .clause p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .quote {
+      border-left: 4px solid var(--warn);
+      padding: 12px 14px;
+      background: #fffaf0;
+      border-radius: 0 8px 8px 0;
+      color: #473d31;
+      margin: 18px 0 0;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 28px 0 42px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid-3,
+      .grid-2,
+      .risk-map,
+      .evidence-list,
+      .clauses {
+        grid-template-columns: 1fr;
+      }
+      .wrap { width: min(100% - 28px, 1180px); }
+      section { padding: 30px 0; }
+      .score-line { grid-template-columns: 48px minmax(86px, 1fr) 34px; }
+      table { display: block; overflow-x: auto; }
+      th, td { min-width: 150px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div>
+        <h1>中央空调噪音深度报告</h1>
+        <p class="lead">专门围绕“会不会吵到睡不着”整理。基于 2026-06-16 小红书公开只读搜索与已沉淀证据：累计 115 条详情样本、3272 条页面评论口径、253 个展开回复入口。</p>
+      </div>
+      <aside class="verdict">
+        <div class="eyebrow">结论先行</div>
+        <strong>空调本体仍偏 COLMO 图灵2；日立噪音负面更直接。</strong>
+        <p>但这不是“COLMO一定安静”。真正要防的是：主卧低风风噪、水泵/排水声、冷媒咕噜声、三管制回流声、外机低频和新风风口噪音。</p>
+      </aside>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap nav-inner">
+      <a href="#summary">核心判断</a>
+      <a href="#scores">噪音评分</a>
+      <a href="#noise-types">噪音类型</a>
+      <a href="#hitachi">日立证据</a>
+      <a href="#colmo">COLMO证据</a>
+      <a href="#fresh-air">新风噪音</a>
+      <a href="#acceptance">验收条款</a>
+      <a href="#final">最终建议</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="summary">
+      <div class="wrap">
+        <h2>核心判断</h2>
+        <p class="note">如果只问“谁更不容易吵到睡不着”，当前证据更支持 COLMO 小幅领先；如果把新风一起算，COLMO 新风必须额外补证。</p>
+        <div class="grid-3">
+          <article class="panel">
+            <h3>1. 日立负面更贴近睡眠场景</h3>
+            <p>日立样本里反复出现“夜里”“主卧”“低风量仍吵”“冷媒声”“水泵声”“外机扰民”“售后说正常”。这些不是抽象噪音，而是直接影响入睡的声音。</p>
+            <div class="badge-row">
+              <span class="badge risk">睡眠风险高</span>
+              <span class="badge warn">水泵/冷媒多</span>
+            </div>
+          </article>
+          <article class="panel">
+            <h3>2. COLMO不是无风险</h3>
+            <p>COLMO图灵2样本里强负面少一些，但三管制、提升泵、回流声、水声、线控器、售后调试都要验。COLMO新风还要单独审得风率。</p>
+            <div class="badge-row">
+              <span class="badge info">空调本体略优</span>
+              <span class="badge warn">新风不确定</span>
+            </div>
+          </article>
+          <article class="panel">
+            <h3>3. 噪音的根因不是品牌名</h3>
+            <p>真正决定卧室安静度的是内机型号、风口位置、静压设置、排水方式、提升泵、管路焊接、吊顶减震、外机位和售后是否负责定位。</p>
+            <div class="badge-row">
+              <span class="badge good">合同写清</span>
+              <span class="badge good">现场实测</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="grid-3">
+          <div class="metric">
+            <div class="num">115</div>
+            <div class="label">累计打开详情样本</div>
+          </div>
+          <div class="metric">
+            <div class="num">3272</div>
+            <div class="label">页面评论口径</div>
+          </div>
+          <div class="metric">
+            <div class="num">253</div>
+            <div class="label">展开回复入口</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scores">
+      <div class="wrap">
+        <h2>噪音维度评分</h2>
+        <p class="note">满分 10 分，分数越高代表噪音风险越低。它不是实验室分贝，而是按用户投诉强度、评论共性、机型相关性、维修难度和对睡眠影响综合判断。</p>
+        <table class="score-table">
+          <thead>
+            <tr>
+              <th>维度</th>
+              <th>日立 mini2</th>
+              <th>COLMO 图灵2</th>
+              <th>解释</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>睡眠噪音</td>
+              <td>
+                <div class="score-line"><span class="brand-name">日立</span><div class="bar hitachi" style="--v:5.1"><span></span></div><span class="score-num">5.1</span></div>
+              </td>
+              <td>
+                <div class="score-line"><span class="brand-name">COLMO</span><div class="bar" style="--v:6.5"><span></span></div><span class="score-num">6.5</span></div>
+              </td>
+              <td>日立“睡不着”样本更密集，COLMO强负面少一些。</td>
+            </tr>
+            <tr>
+              <td>低频/共振</td>
+              <td><div class="score-line"><span class="brand-name">日立</span><div class="bar hitachi" style="--v:5.0"><span></span></div><span class="score-num">5.0</span></div></td>
+              <td><div class="score-line"><span class="brand-name">COLMO</span><div class="bar" style="--v:6.2"><span></span></div><span class="score-num">6.2</span></div></td>
+              <td>日立样本更多指向水泵、吊顶、外机和待机低频。</td>
+            </tr>
+            <tr>
+              <td>风噪/内机声</td>
+              <td><div class="score-line"><span class="brand-name">日立</span><div class="bar hitachi" style="--v:5.3"><span></span></div><span class="score-num">5.3</span></div></td>
+              <td><div class="score-line"><span class="brand-name">COLMO</span><div class="bar" style="--v:6.3"><span></span></div><span class="score-num">6.3</span></div></td>
+              <td>两边都吃内机配型、风口距离、静压和回风口设计。</td>
+            </tr>
+            <tr>
+              <td>冷媒/咕噜声</td>
+              <td><div class="score-line"><span class="brand-name">日立</span><div class="bar hitachi" style="--v:5.2"><span></span></div><span class="score-num">5.2</span></div></td>
+              <td><div class="score-line"><span class="brand-name">COLMO</span><div class="bar" style="--v:6.0"><span></span></div><span class="score-num">6.0</span></div></td>
+              <td>日立冷媒维修案例更具体；COLMO要防三管制回流和冷媒咕声。</td>
+            </tr>
+            <tr>
+              <td>水泵/排水</td>
+              <td><div class="score-line"><span class="brand-name">日立</span><div class="bar hitachi" style="--v:5.0"><span></span></div><span class="score-num">5.0</span></div></td>
+              <td><div class="score-line"><span class="brand-name">COLMO</span><div class="bar" style="--v:6.0"><span></span></div><span class="score-num">6.0</span></div></td>
+              <td>日立水泵咕噜、切管换泵、吸水管调整样本更多。</td>
+            </tr>
+            <tr>
+              <td>外机/邻里</td>
+              <td><div class="score-line"><span class="brand-name">日立</span><div class="bar hitachi" style="--v:5.4"><span></span></div><span class="score-num">5.4</span></div></td>
+              <td><div class="score-line"><span class="brand-name">COLMO</span><div class="bar" style="--v:6.4"><span></span></div><span class="score-num">6.4</span></div></td>
+              <td>日立外机投诉样本更多；COLMO仍需看机位散热和减震。</td>
+            </tr>
+            <tr>
+              <td>新风噪音</td>
+              <td><div class="score-line"><span class="brand-name">日立</span><div class="bar hitachi" style="--v:6.6"><span></span></div><span class="score-num">6.6</span></div></td>
+              <td><div class="score-line"><span class="brand-name">COLMO</span><div class="bar" style="--v:5.2"><span></span></div><span class="score-num">5.2</span></div></td>
+              <td>日立新风资料更透明；COLMO新风强负面集中在得风率和安装。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="noise-types">
+      <div class="wrap">
+        <h2>噪音类型地图</h2>
+        <p class="note">你真正要听的不是“声音大不大”，而是哪一种声音。不同声音对应不同责任人和不同维修难度。</p>
+        <div class="risk-map">
+          <article class="risk-box high">
+            <strong>低频嗡声 / 共振</strong>
+            <p>最容易影响睡眠。可能来自外机、压缩机、水泵、吊顶木方、排水管硬连接。日立样本更多。</p>
+          </article>
+          <article class="risk-box high">
+            <strong>冷媒咕噜 / 嘶嘶声</strong>
+            <p>间歇出现，夜里很明显。和铜管焊接、冷媒量、抽真空、膨胀阀、分歧管有关。</p>
+          </article>
+          <article class="risk-box mid">
+            <strong>风噪 / 回风口呼呼声</strong>
+            <p>常见但可控。重点看内机选型、风口尺寸、床头距离、低风量档位和静压设置。</p>
+          </article>
+          <article class="risk-box high">
+            <strong>水泵 / 排水声</strong>
+            <p>包括抽水尾声、咕噜声、滴水声。卧室优先自然排水；必须用泵就要验防虹吸和软接。</p>
+          </article>
+          <article class="risk-box mid">
+            <strong>电机 / 风轮 / 蜗壳异响</strong>
+            <p>尖锐、周期性，可能来自轴承、螺丝、线束异物、蜗壳松动。通常要拆机定位。</p>
+          </article>
+          <article class="risk-box mid">
+            <strong>三管制回流声</strong>
+            <p>COLMO图灵2关注点。三管制不是原罪，但管路更多、调试点更多，必须现场听。</p>
+          </article>
+          <article class="risk-box mid">
+            <strong>新风风口噪音</strong>
+            <p>核心不是品牌，而是多管道、低风速、消音管、风口位置和主机检修空间。</p>
+          </article>
+          <article class="risk-box low">
+            <strong>可维修异响</strong>
+            <p>比如电机问题、异物、蜗壳松动。只要售后愿意定位，通常比低频和冷媒声更好处理。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="hitachi">
+      <div class="wrap">
+        <h2>日立噪音证据链</h2>
+        <p class="note">日立不是不能买，但公开样本里“真实入住后影响睡眠”的噪音更密集。下面只做语义沉淀，不长篇搬运评论。</p>
+        <div class="evidence-list">
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">卧室风噪</span><span>73评论</span><span>H01</span></div>
+            <h3>低风量仍吵，售后解释不一</h3>
+            <p>用户反馈微风仍吵，评论讨论 40-45 分贝、房间差异、进回风位置和售后说正常。说明宣传分贝不能等于床头分贝。</p>
+            <a href="https://www.xiaohongshu.com/explore/66b39dda000000001e01cb63">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">冷媒声</span><span>106评论</span><span>H02</span></div>
+            <h3>制冷噪音修前修后差异明显</h3>
+            <p>用户通过处理蒸发器铜管后冷媒声减轻，但最低风和静音模式风噪仍在。评论讨论抽真空、焊接、冷媒、床头分贝。</p>
+            <a href="https://www.xiaohongshu.com/explore/6881f1c6000000000b02d83a">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">拆修折腾</span><span>197评论</span><span>H03</span></div>
+            <h3>请十多位师傅才解决冷媒噪音</h3>
+            <p>通过拆内机、换蒸发器、重接铜管、重新焊接和抽真空，冷媒噪音从约 40 分贝改善到 25-30 分贝，但过程很折腾。</p>
+            <a href="https://www.xiaohongshu.com/explore/6852bc7500000000100103c5">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge warn">内机异响</span><span>66评论</span><span>H04</span></div>
+            <h3>唧唧声最后定位到蜗壳/异物</h3>
+            <p>间歇尖锐声可能来自电机轴承、支架、风轮、蜗壳或线束异物。这个类型可修，但要售后愿意拆开查。</p>
+            <a href="https://www.xiaohongshu.com/explore/6863e077000000000b02ff94">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">低频+制冷</span><span>92评论</span><span>H05</span></div>
+            <h3>噪音、霉味、不制冷互相牵扯</h3>
+            <p>低频噪音修三次后又出现制冷问题，评论里也有酸霉味、25度以上不制冷、售后扯皮等反馈。</p>
+            <a href="https://www.xiaohongshu.com/explore/6867f9640000000010024426">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">内机大声</span><span>50评论</span><span>H06</span></div>
+            <h3>宣传 19 分贝与真实听感差距大</h3>
+            <p>作者质疑实际声音远高于宣传。评论提到提升泵、水流声、软接、冷媒检测、吊顶距离和减震。</p>
+            <a href="https://www.xiaohongshu.com/explore/68430c4e000000000303817b">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">低频待机</span><span>11评论</span><span>H07</span></div>
+            <h3>没开机也有低频和水流声</h3>
+            <p>开发商统一安装日立，空调没开也有低频嗡声。评论提示可能与供电、待机、电控阀件或水泵有关。</p>
+            <a href="https://www.xiaohongshu.com/explore/68c09dde000000001d01cc47">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">外机扰民</span><span>30评论</span><span>H08</span></div>
+            <h3>外机声音大到被投诉</h3>
+            <p>售后调压力后只稍好，评论讨论压缩机、换外机、减震垫、配比、风扇罩共振和邻居投诉。</p>
+            <a href="https://www.xiaohongshu.com/explore/66bc96ed000000001e019a6b">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge warn">水泵尾声</span><span>15评论</span><span>H09</span></div>
+            <h3>冷凝水抽水尾声受不了</h3>
+            <p>评论指向虹吸、排水末端高度、防虹吸、缓冲和取消水泵。卧室如果必须用泵，这类声音要专项验收。</p>
+            <a href="https://www.xiaohongshu.com/explore/69da134d000000002301f3ca">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">低频共振</span><span>82评论</span><span>H10</span></div>
+            <h3>水泵与吊顶/木条/管道共振</h3>
+            <p>官方售后通过处理木条、隔音棉、捆绑管道后改善。这是正向售后样本，也证明低频风险真实存在。</p>
+            <a href="https://www.xiaohongshu.com/explore/6840fe570000000003039db5">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">直接睡眠</span><span>76评论</span><span>H11</span></div>
+            <h3>低风量时杂音更明显</h3>
+            <p>作者直接说日立中央空调太吵。评论有人怀疑水泵空转、电机或安装，且有人说同样吵到睡不着。</p>
+            <a href="https://www.xiaohongshu.com/explore/682f1efc0000000021004946">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">重度负面</span><span>129评论</span><span>H13</span></div>
+            <h3>水泵、外机、内机、管路声叠加</h3>
+            <p>强负面集中在水泵、外机、尖锐异响和管路漏气类声音，多次维修未彻底解决，拉低日立睡眠噪音评分。</p>
+            <a href="https://www.xiaohongshu.com/explore/68518dd50000000023010e3b">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">主卧异响</span><span>127评论</span><span>H18</span></div>
+            <h3>滴答声和水泵口哨声影响睡眠</h3>
+            <p>多次上门、重做系统、更换内机后仍有周期性水泵声。评论涉及换电机、提升泵、3D风口和取消泵。</p>
+            <a href="https://www.xiaohongshu.com/explore/6874cc45000000001203f513">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">mini相关</span><span>80评论</span><span>H19</span></div>
+            <h3>日立 mini 声音巨大，睡觉戴耳塞</h3>
+            <p>不一定是 mini2，但与 mini 系列相关。评论怀疑蜗壳松动、螺丝、风轮或装配问题，必须要求同型号实测。</p>
+            <a href="https://www.xiaohongshu.com/explore/68936aa90000000025024d14">查看来源</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="colmo">
+      <div class="wrap">
+        <h2>COLMO噪音证据链</h2>
+        <p class="note">COLMO的强负面更少，但风险更偏“系统复杂”和“安装调试”。尤其要分清普通图灵2中央空调、天氟地水、壁挂机、新风空调，不要混为一谈。</p>
+        <div class="evidence-list">
+          <article class="evidence">
+            <div class="meta"><span class="badge warn">内机故障</span><span>21评论</span><span>C01</span></div>
+            <h3>Evo中央空调内机近距离约 50 分贝</h3>
+            <p>后续确认是电机问题，换电机解决。说明 COLMO不是没有噪音故障，但这类更像零部件问题。</p>
+            <a href="https://www.xiaohongshu.com/explore/68b9bc84000000001b03c501">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">系统调试</span><span>51评论</span><span>C02</span></div>
+            <h3>低风量仍响，内外机异响</h3>
+            <p>用户反馈低风量仍响、压力限频、耗电和温湿度不准。风险在复杂系统调试和售后协同。</p>
+            <a href="https://www.xiaohongshu.com/explore/693ac741000000001e016b37">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge warn">回流声</span><span>11评论</span><span>C03</span></div>
+            <h3>夜间回流声影响睡眠</h3>
+            <p>更多涉及天氟地水，不完全等同普通图灵2，但“夜间回流声”必须纳入验收。</p>
+            <a href="https://www.xiaohongshu.com/explore/6975560d000000001a03421c">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge warn">总部介入</span><span>33评论</span><span>C04</span></div>
+            <h3>长期异响后重新安装/设置/抽真空</h3>
+            <p>发帖后总部介入，重新安装、设置、抽真空并调数据后暂时解决。要确认本地网点能不能解决。</p>
+            <a href="https://www.xiaohongshu.com/explore/6a1da5c9000000000602084c">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge info">三管制关注</span><span>110评论</span><span>C05</span></div>
+            <h3>评论直接提醒三管制噪音</h3>
+            <p>用户询价图灵二代，评论既有“三管制噪音要注意”，也有已安装用户说调试后舒服、无噪音。</p>
+            <a href="https://www.xiaohongshu.com/explore/682437ed0000000023015585">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge warn">水泵/水声</span><span>19评论</span><span>C06</span></div>
+            <h3>带泵内机冷凝水管向上弯折</h3>
+            <p>评论解释图灵三管冷媒和冷凝水管接法，也有人提到异响、水声和更换直流棒后仍有声音。</p>
+            <a href="https://www.xiaohongshu.com/explore/68f08a6d000000000503a3f8">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge good">正向静音</span><span>67评论</span><span>C07</span></div>
+            <h3>作者反馈内外机都安静</h3>
+            <p>开机测试制冷制热，作者说有时听不出是否开机。正向样本，但长期制热和除湿体验仍需区分。</p>
+            <a href="https://www.xiaohongshu.com/explore/675ed4b9000000000603bd69">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge warn">风倒灌</span><span>74评论</span><span>C08</span></div>
+            <h3>没开机也响，多指向孔洞/管路/风压</h3>
+            <p>不是图灵2中央空调，但提醒新风和空调孔洞、排水、室外风压会造成“没开也响”。</p>
+            <a href="https://www.xiaohongshu.com/explore/6a2c2c230000000035024891">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge risk">售后响应</span><span>150评论</span><span>C09</span></div>
+            <h3>挂机异响影响睡眠，售后拖延</h3>
+            <p>不是中央空调，但提高 COLMO售后响应风险权重。若选 COLMO，噪音故障上门和处理时限要写清。</p>
+            <a href="https://www.xiaohongshu.com/explore/6a2e839a000000000702c095">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge info">直接中央空调</span><span>11评论</span><span>C12</span></div>
+            <h3>图灵二代体验正向，但评论有风噪反例</h3>
+            <p>作者整体偏正向，评论有人说自家出风口噪音很大；说明图灵2也可能因风口/风量/安装导致噪音。</p>
+            <a href="https://www.xiaohongshu.com/explore/6825b963000000002202c7af">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge good">风口风声</span><span>41评论</span><span>C16</span></div>
+            <h3>声音主要来自回风口风声</h3>
+            <p>作者不觉得吵，认为不是机器本体噪声。说明 COLMO主要听感可能是风口设计，而非故障声。</p>
+            <a href="https://www.xiaohongshu.com/explore/69a10d5c0000000001b02391b">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge info">精确型号</span><span>3评论</span><span>BC-C08</span></div>
+            <h3>图灵2宣传针对四类噪音升级</h3>
+            <p>外机嗡声、内机咔声、管内咕声、风口呼声都有降噪口径；但评论里也有“二代有异响”。</p>
+            <a href="https://www.xiaohongshu.com/explore/67862a2b000000002002d631">查看来源</a>
+          </article>
+          <article class="evidence">
+            <div class="meta"><span class="badge good">用户正向</span><span>16评论</span><span>BC-C11</span></div>
+            <h3>50%风量几乎听不到声音</h3>
+            <p>一位图灵2用户反馈刚装完，风量不开100%时，50%风量几乎听不到。价值高，但仍是刚装样本。</p>
+            <a href="https://www.xiaohongshu.com/explore/68512803000000002001d2a4">查看来源</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="fresh-air">
+      <div class="wrap">
+        <h2>新风噪音单独看</h2>
+        <p class="note">新风会影响噪音、滤芯成本、吊顶层高和风量。它不应该作为“空调附赠项”一起糊过去。</p>
+        <div class="grid-2">
+          <article class="panel">
+            <h3>日立新风：资料更多，风险更透明</h3>
+            <p>日立新风样本集中在滤芯贵、售后上门费、第三方滤芯、检修口、滤芯数量和密封效果。它不一定便宜，但你更容易把风险问清楚。</p>
+            <div class="quote">重点问：云镜/云净/天净完整型号、滤芯几片、原厂滤芯价格、上门费、是否可自行更换、检修口位置。</div>
+          </article>
+          <article class="panel">
+            <h3>COLMO新风：最大风险是得风率</h3>
+            <p>COLMO新风强负面集中在设计安装：110/160 管径、外墙孔、打孔、整改、得风率和售后专业度。这个风险比滤芯贵更难处理。</p>
+            <div class="quote">重点问：设计风量、每房间实测风量、得风率验收、风量仪还是风速仪、低于多少必须整改。</div>
+          </article>
+        </div>
+        <table style="margin-top:18px">
+          <thead>
+            <tr>
+              <th>新风问题</th>
+              <th>最可能后果</th>
+              <th>验收方法</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>风速过高</td>
+              <td>送风口呼呼声、夜里明显</td>
+              <td>低档/中档都听，测床头和风口，不只听主机。</td>
+            </tr>
+            <tr>
+              <td>管道少、管径小</td>
+              <td>噪音高、得风率低、效果差</td>
+              <td>让商家给风量设计表，验收用风量仪实测。</td>
+            </tr>
+            <tr>
+              <td>主机位置差</td>
+              <td>厨房/过道吊顶压低，检修麻烦</td>
+              <td>看吊顶最低点、检修口尺寸、滤芯抽拉空间。</td>
+            </tr>
+            <tr>
+              <td>滤芯维护复杂</td>
+              <td>后期成本高，最后不开机</td>
+              <td>写明滤芯型号、片数、单价、上门费和更换周期。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="acceptance">
+      <div class="wrap">
+        <h2>噪音验收条款</h2>
+        <p class="note">这部分可以直接发给商家。谁不愿意写，谁的风险就先升一级。</p>
+        <div class="clauses">
+          <article class="clause">
+            <h3>卧室低风量验收</h3>
+            <p>主卧内机最低风量连续运行 30 分钟，关窗，在床头位置测噪音和主观听感；不能只测出风口。</p>
+          </article>
+          <article class="clause">
+            <h3>除湿模式验收</h3>
+            <p>制冷、除湿、静音、夜间模式都要听。尤其看除湿时有没有冷媒声、回流声、水泵声。</p>
+          </article>
+          <article class="clause">
+            <h3>冷媒声验收</h3>
+            <p>听启动、降温停止、再次启动三个阶段。间歇咕噜、嘶嘶、喷气声都要记录。</p>
+          </article>
+          <article class="clause">
+            <h3>水泵排水验收</h3>
+            <p>制冷 30-60 分钟后听抽水尾声、咕噜声、滴水声。卧室优先自然排水，必须用泵要写防虹吸。</p>
+          </article>
+          <article class="clause">
+            <h3>外机低频验收</h3>
+            <p>外机减震、机位通风、固定、邻里距离都要验。夜间低频比白天更容易暴露。</p>
+          </article>
+          <article class="clause">
+            <h3>维修责任验收</h3>
+            <p>因噪音需拆吊顶、拆检修口、换电机、换水泵、重焊铜管、抽真空，责任和费用提前写清。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>现场 30 分钟测试流程</h2>
+        <div class="timeline">
+          <div class="step">
+            <div class="dot">1</div>
+            <p><strong>先测背景噪音。</strong> 关窗、关电视、关其他设备，在主卧床头记录环境底噪。</p>
+          </div>
+          <div class="step">
+            <div class="dot">2</div>
+            <p><strong>开主卧最低风。</strong> 连续 10 分钟，不只听风口，要坐在床头听有没有风噪、低频、共振。</p>
+          </div>
+          <div class="step">
+            <div class="dot">3</div>
+            <p><strong>切换除湿模式。</strong> 听 10 分钟，重点捕捉冷媒咕噜、回流声、水泵抽水尾声。</p>
+          </div>
+          <div class="step">
+            <div class="dot">4</div>
+            <p><strong>开全屋低负荷。</strong> 只开一间、开两间、开全屋分别听，看外机和管路是否频繁启停。</p>
+          </div>
+          <div class="step">
+            <div class="dot">5</div>
+            <p><strong>开新风低档和中档。</strong> 听主卧、客厅、走廊风口，确认有没有风口啸叫和主机传声。</p>
+          </div>
+          <div class="step">
+            <div class="dot">6</div>
+            <p><strong>把异常写进验收单。</strong> 不接受“正常声音”四个字，要求写原因、处理动作、复测时间。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="final">
+      <div class="wrap">
+        <h2>最终建议</h2>
+        <div class="grid-2">
+          <article class="panel">
+            <h3>如果空调和新风必须整包买</h3>
+            <p>我仍偏 COLMO 图灵2，但前提是 COLMO 新风补完整证据：型号、滤芯、得风率、管径、孔径、风量仪验收、噪音验收、售后整改责任。补不出来，日立整包虽然贵，但新风风险更透明。</p>
+          </article>
+          <article class="panel">
+            <h3>如果可以拆开买</h3>
+            <p>更稳的打法是：空调按 COLMO 图灵2继续谈价，新风单独拿日立、松下或专业新风商家再比一次。空调看噪音和除湿，新风看风量、噪音、滤芯和得风率。</p>
+          </article>
+        </div>
+        <div class="quote">一句话：不要问“哪个品牌静音”，要问“主卧床头最低风量、除湿模式、水泵尾声、冷媒咕噜声和新风中档风口声，谁敢写进验收”。</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      数据来源：本地沉淀文档 <a href="./xiaohongshu-central-ac-noise-special-evidence-2026-06-16.md">噪音专项证据</a>、<a href="./xiaohongshu-central-ac-freshair-model-noise-evidence-2026-06-16.md">新风成本与精确型号噪音证据</a>、<a href="./central-ac-hitachi-colmo-decision-report-2026-06-16.html">中央空调决策页</a>。页面只做公开信息语义整理，不逐字搬运评论。
+    </div>
+  </footer>
+</body>
+</html>

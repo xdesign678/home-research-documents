@@ -9,6 +9,7 @@
 
 ## 中央空调与新风
 
+- [中央空调噪音深度报告：日立 mini2 vs COLMO 图灵2](./central-ac-noise-deep-dive-report-2026-06-16.html)
 - [103平一拖四中央空调决策：日立 mini2 vs COLMO 图灵2](./central-ac-hitachi-colmo-decision-report-2026-06-16.html)
 - [小红书中央空调 B/C 精准补搜证据：新风成本与精确型号噪音](./xiaohongshu-central-ac-freshair-model-noise-evidence-2026-06-16.md)
 - [小红书中央空调噪音专项证据：日立 mini2 vs COLMO 图灵2](./xiaohongshu-central-ac-noise-special-evidence-2026-06-16.md)
