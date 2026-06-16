@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>103平一拖四：中央空调 + 除湿新风决策页</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --bg: #f5f7f2;
+      --paper: #ffffff;
+      --ink: #172027;
+      --muted: #5f6c72;
+      --line: #dce5df;
+      --green: #23745b;
+      --blue: #2f66b3;
+      --orange: #b96f22;
+      --red: #b84b4b;
+      --teal: #177e89;
+      --shadow: 0 14px 34px rgba(25, 42, 54, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { width: min(1180px, calc(100vw - 32px)); margin: 0 auto; }
+
+    header {
+      padding: 42px 0 28px;
+      border-bottom: 1px solid var(--line);
+      background: #eef4ed;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    .lead {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 780px;
+    }
+    .verdict {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .verdict .tag {
+      display: inline-flex;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--green);
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    .verdict strong {
+      display: block;
+      font-size: 27px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .verdict p { margin: 0; color: var(--muted); }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: rgba(245, 247, 242, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    nav .wrap {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+    nav a {
+      flex: 0 0 auto;
+      color: #31434d;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    section { padding: 34px 0; }
+    h2 { margin: 0 0 16px; font-size: 27px; line-height: 1.2; }
+    h3 { margin: 0 0 8px; font-size: 18px; }
+    .note { color: var(--muted); margin: -6px 0 18px; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .stat, .card, .evidence-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(25, 42, 54, .05);
+    }
+    .stat { padding: 16px; }
+    .stat b { display: block; font-size: 28px; line-height: 1; }
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .card { padding: 18px; }
+    .card p { margin: 0; color: var(--muted); }
+    .label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      background: #e8f2ec;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+    .label.warn { color: var(--orange); background: #fff0dc; }
+    .label.risk { color: var(--red); background: #fae9e7; }
+    .label.info { color: var(--blue); background: #e9f0fb; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+      font-size: 14px;
+    }
+    th { background: #edf3f0; color: #2e4149; }
+    tr:last-child td { border-bottom: 0; }
+    .score {
+      display: inline-flex;
+      min-width: 44px;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 2px 8px;
+      color: #fff;
+      background: var(--green);
+      font-weight: 900;
+    }
+    .score.mid { background: var(--orange); }
+    .score.low { background: var(--red); }
+
+    .bars { display: grid; gap: 12px; }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 190px 1fr 48px;
+      gap: 12px;
+      align-items: center;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .meter {
+      height: 12px;
+      border-radius: 999px;
+      background: #e7ece8;
+      overflow: hidden;
+    }
+    .meter span {
+      display: block;
+      width: calc(var(--v) * 1%);
+      height: 100%;
+      background: var(--green);
+      border-radius: inherit;
+    }
+    .bar-row:nth-child(2) .meter span { background: var(--teal); }
+    .bar-row:nth-child(3) .meter span { background: var(--orange); }
+    .bar-row:nth-child(4) .meter span, .bar-row:nth-child(5) .meter span { background: var(--red); }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .evidence-card { padding: 15px; }
+    .evidence-card p { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+    .evidence-card a { font-weight: 800; }
+    .impact {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #edf3f0;
+      color: #31434d;
+      font-size: 12px;
+      font-weight: 800;
+      margin-top: 10px;
+    }
+
+    .contract {
+      background: #172027;
+      color: #f8faf7;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .contract p { margin: 0 0 12px; }
+    .contract p:last-child { margin-bottom: 0; }
+    footer {
+      padding: 28px 0 42px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 860px) {
+      .hero, .grid-2 { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .evidence-grid { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 1fr; }
+      th, td { font-size: 13px; padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div>
+        <h1>103 平一拖四：两管制 + 除湿新风，不应直接升为首选</h1>
+        <p class="lead">本轮新增 45 条小红书详情页，重点看除湿新风、风量验收、滤芯维护、冷凝水、吊顶除湿机和主卧独立空调。结论不是「除湿新风没用」，而是它不能替代主卧睡眠的确定性。</p>
+      </div>
+      <div class="verdict">
+        <span class="tag">最终推荐</span>
+        <strong>主卧独立低噪挂机 + 客餐厅两管制中央/风管机 + 普通新风 + 独立除湿设备</strong>
+        <p>如果外机位、电源和排水允许，这是最符合「睡眠安静 > 除湿舒适 > 少拆吊顶」的方案。</p>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap">
+      <a href="#scope">浏览量</a>
+      <a href="#decision">方案评分</a>
+      <a href="#why">核心判断</a>
+      <a href="#evidence">证据链接</a>
+      <a href="#contract">合同条款</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="scope">
+      <div class="wrap">
+        <h2>本轮到底看了多少</h2>
+        <p class="note">本轮没有登录、没有互动、没有绕过验证；只读公开页面。</p>
+        <div class="stats">
+          <div class="stat"><b>45</b><span>新增详情页</span></div>
+          <div class="stat"><b>65</b><span>合计详情页约数，含上一轮 20 条</span></div>
+          <div class="stat"><b>2062</b><span>新增页面显示评论合计</span></div>
+          <div class="stat"><b>701</b><span>本轮抓到的评论/回复线索行</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="decision">
+      <div class="wrap">
+        <h2>方案评分</h2>
+        <p class="note">按你的权重：睡眠噪音 30%，除湿舒适 20%，安装漏水 15%，售后维修 10%，耗材 10%，初装价格 10%，长期稳定性 5%。</p>
+        <div class="bars">
+          <div class="bar-row">
+            <strong>E 主卧独立空调 + 客餐厅中央/风管机 + 普通新风 + 独立除湿</strong>
+            <div class="meter"><span style="--v:84"></span></div>
+            <strong>84</strong>
+          </div>
+          <div class="bar-row">
+            <strong>D 两管制中央空调 + 普通新风 + 独立除湿机</strong>
+            <div class="meter"><span style="--v:77"></span></div>
+            <strong>77</strong>
+          </div>
+          <div class="bar-row">
+            <strong>C 两管制中央空调 + 独立可除湿新风</strong>
+            <div class="meter"><span style="--v:69"></span></div>
+            <strong>69</strong>
+          </div>
+          <div class="bar-row">
+            <strong>B 日立 mini2 + 日立新风</strong>
+            <div class="meter"><span style="--v:63"></span></div>
+            <strong>63</strong>
+          </div>
+          <div class="bar-row">
+            <strong>A COLMO 图灵2 三管制 + 新风</strong>
+            <div class="meter"><span style="--v:57"></span></div>
+            <strong>57</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="wrap">
+        <h2>核心判断</h2>
+        <div class="grid-2">
+          <article class="card">
+            <span class="label risk">C 的主要问题</span>
+            <h3>除湿新风把风险转移到了吊顶主机</h3>
+            <p>它可能有除湿效果，但主机通常有风机、压缩机、排水、滤芯、检修口。扩搜里噪音、冷凝水、得风率缩水和售后维护都反复出现。</p>
+          </article>
+          <article class="card">
+            <span class="label info">D 的正确用法</span>
+            <h3>独立除湿机要错峰用</h3>
+            <p>梅雨季除湿机确实有用，但噪音和低频也很真实。它适合白天、无人、阳台、衣帽间、客厅等非睡眠时段，不适合默认放主卧整夜运行。</p>
+          </article>
+          <article class="card">
+            <span class="label">E 的优势</span>
+            <h3>把主卧从复杂系统里拆出来</h3>
+            <p>你的第一权重是睡眠。主卧独立挂机的优势不是高级，而是可控、可修、可换；中央空调或风管机一旦夜间异响，维修常常牵涉吊顶。</p>
+          </article>
+          <article class="card">
+            <span class="label warn">A/B 的保留意见</span>
+            <h3>品牌不能替代验收</h3>
+            <p>日立有正向样本，也有卧室噪音和滤芯贵；COLMO 控湿理论强，但三管制和异响风险与你的睡眠权重冲突。两者都不能闭眼买。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>关键问题回答</h2>
+        <table>
+          <thead>
+            <tr><th>问题</th><th>当前判断</th><th>你要怎么做</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>可除湿新风能不能全屋除湿？</td>
+              <td>不能默认。它能处理新风湿负荷，也可能局部除湿；全屋效果取决于循环风量、回风路径和除湿量。</td>
+              <td>要求商家提供湿度曲线、除湿量、循环风量和每个房间送回风设计。</td>
+            </tr>
+            <tr>
+              <td>能不能除湿不降温？</td>
+              <td>只有具备等温/再热/直膨等明确技术时才可能。普通冷冻除湿通常会伴随冷凝水和温度变化。</td>
+              <td>合同写明是否等温除湿，不能只写「可除湿」。</td>
+            </tr>
+            <tr>
+              <td>噪音来自哪里？</td>
+              <td>主机、风机、压缩机、风管风速、风口、检修口漏风、管道共振都可能贡献。</td>
+              <td>封板前测主机下方、主卧床头、每个风口的低噪档噪音。</td>
+            </tr>
+            <tr>
+              <td>冷凝水和漏水风险大吗？</td>
+              <td>除湿设备必然绕不开排水。新风管、冷凝水管、外墙主管保温不当都会引发滴水和吊顶风险。</td>
+              <td>写明排水路径、坡度、存水弯、防虹吸、防倒灌、防臭、防漏水保护。</td>
+            </tr>
+            <tr>
+              <td>110 管和 160 管要不要在意？</td>
+              <td>要。缩径、弯头、长管、风帽都会影响得风率和噪音。</td>
+              <td>要求图纸标管径，验收逐口测风量，不只看主机额定风量。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="evidence">
+      <div class="wrap">
+        <h2>高权重证据链接</h2>
+        <p class="note">完整 45 条证据见 Markdown 底稿：<a href="./xiaohongshu-central-ac-dehumidifying-freshair-expanded-evidence-2026-06-17.md">扩搜证据库</a>。</p>
+        <div class="evidence-grid">
+          <article class="evidence-card">
+            <a href="https://www.xiaohongshu.com/explore/65a69d2f0000000028020964">新风除湿一体机噪音实测</a>
+            <p>绿岛风 400 风量，地面 50 多分贝，机器边约 70 分贝；漏风和检修口影响噪音。</p>
+            <span class="impact">强：C 噪音风险</span>
+          </article>
+          <article class="evidence-card">
+            <a href="https://www.xiaohongshu.com/explore/6294f0d1000000000102c608">松下新风 24 小时除湿记录</a>
+            <p>湿度约 80% 到 48%，证明除湿新风有效果；但阈值控制和场景适配仍需核验。</p>
+            <span class="impact">中强：C 正向</span>
+          </article>
+          <article class="evidence-card">
+            <a href="https://www.xiaohongshu.com/explore/68b52caf000000001d01ce7b">松下新风除湿避雷</a>
+            <p>下叠地下室，一体机位置不对时几乎无效；后续电费高、湿度仍偏高。</p>
+            <span class="impact">强：C 效果风险</span>
+          </article>
+          <article class="evidence-card">
+            <a href="https://www.xiaohongshu.com/explore/691fc2be000000001e033435">松下新风得风率 40% 求助</a>
+            <p>进风管过长和测量方法影响得风率，整改后守住约 80%。</p>
+            <span class="impact">强：验收依据</span>
+          </article>
+          <article class="evidence-card">
+            <a href="https://www.xiaohongshu.com/explore/6724b5c6000000003c018c88">108 平新风得风率 119%</a>
+            <p>25ZDP2C、5 进 4 出，最小风量睡觉可接受；说明新风能做好，但要设计和验收。</p>
+            <span class="impact">强：正向边界</span>
+          </article>
+          <article class="evidence-card">
+            <a href="https://www.xiaohongshu.com/explore/677a0870000000000800da85">松下新风滤芯耗材</a>
+            <p>25ZDP2C 用户估算一年滤芯约 940 元，后期耗材不能忽略。</p>
+            <span class="impact">强：维护成本</span>
+          </article>
+          <article class="evidence-card">
+            <a href="https://www.xiaohongshu.com/explore/668a35b100000000030260cd">主卧中央空调太吵</a>
+            <p>416 条评论，主卧夜间噪音、售后说正常、调风压和消音争议集中。</p>
+            <span class="impact">极强：E 上升</span>
+          </article>
+          <article class="evidence-card">
+            <a href="https://www.xiaohongshu.com/explore/6a2b9e1a0000000035023ca0">因为中央空调房子都不想要了</a>
+            <p>作者想拆吊顶、卧室改挂机；评论里有用户已经把中央空调换成分体。</p>
+            <span class="impact">极强：主卧隔离</span>
+          </article>
+          <article class="evidence-card">
+            <a href="https://www.xiaohongshu.com/explore/64a1b056000000002701059c">卧室风管机噪音</a>
+            <p>卧室 1.5P 风管机比客厅更吵，换电机仍不能静音。</p>
+            <span class="impact">强：主卧别轻选风管机</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contract">
+      <div class="wrap">
+        <h2>可直接发给商家的合同/验收条款</h2>
+        <div class="contract">
+          <p>请在报价单和合同附件中列明中央空调、新风、除湿设备的完整品牌、型号、外机/内机/线控器/主机/滤芯型号；不得只写系列名。</p>
+          <p>新风或除湿新风需提供施工图，标明主机位置、检修口尺寸、滤芯抽拉方向、送回风口位置、主管/支管管径、弯头数量、每个风口设计风量。</p>
+          <p>若采用除湿新风，必须书面说明是否内置压缩机、额定除湿量、循环风量、是否等温/再热除湿、冷凝水排水路径、排水坡度、防虹吸、防倒灌和漏水保护。</p>
+          <p>主机不得布置在主卧吊顶或紧邻主卧墙体。封板前必须做低噪档运行测试，主卧床头夜间实测噪音明显影响睡眠，或出现低频、啸叫、水声、共振，不予验收。</p>
+          <p>完工验收必须用风量仪逐口测量，记录每个送风口和回风口风量；总得风率不得低于设计值约 80%，且不能出现卧室明显无风或风速过大噪音明显。</p>
+          <p>保修期内若出现噪音、漏水、冷凝水、除湿无效、风量不达标、滤芯无法抽出、主机无法检修，由商家负责整改并承担拆吊顶和恢复费用。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>本页基于 2026-06-17 小红书公开只读扩搜生成。小红书评论属于经验样本，不等同于实验室测试；最终下单仍需以型号、图纸、合同和现场验收为准。</p>
+    </div>
+  </footer>
+</body>
+</html>
