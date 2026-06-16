@@ -9,6 +9,7 @@
 
 ## 中央空调与新风
 
+- [三管制噪音专项网页：COLMO 图灵2 vs 日立三管](./central-ac-three-pipe-noise-report-2026-06-16.html)
 - [小红书中央空调三管制噪音专项证据：COLMO 图灵2 / 日立三管](./xiaohongshu-central-ac-three-pipe-noise-evidence-2026-06-16.md)
 - [中央空调噪音深度报告：日立 mini2 vs COLMO 图灵2](./central-ac-noise-deep-dive-report-2026-06-16.html)
 - [103平一拖四中央空调决策：日立 mini2 vs COLMO 图灵2](./central-ac-hitachi-colmo-decision-report-2026-06-16.html)
