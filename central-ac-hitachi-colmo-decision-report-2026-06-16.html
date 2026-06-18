@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>103平一拖四中央空调决策：日立 mini2 vs COLMO 图灵2</title>
+  <title>103平一拖四中央空调决策：COLMO 图灵2 vs 日立尊睿2 vs 日立 mini2</title>
   <link rel="icon" href="data:,">
   <style>
     :root {
@@ -107,9 +107,9 @@
       font-size: 14px;
     }
 
-    .grid-2 {
+    .option-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
@@ -190,7 +190,7 @@
 
     .score-row {
       display: grid;
-      grid-template-columns: 150px 54px 1fr 48px 68px 1fr 48px;
+      grid-template-columns: 150px repeat(3, 54px minmax(76px, 1fr) 48px);
       gap: 12px;
       align-items: center;
       background: var(--card);
@@ -215,6 +215,7 @@
     }
 
     .bar.hitachi span { background: var(--green); }
+    .bar.zunrui span { background: var(--violet); }
     .score-num {
       font-weight: 800;
       color: #263640;
@@ -225,6 +226,14 @@
       color: var(--muted);
       font-size: 13px;
       font-weight: 800;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+    }
+
+    .comparison-table {
+      min-width: 980px;
     }
 
     .evidence {
@@ -321,7 +330,7 @@
 
     @media (max-width: 860px) {
       .hero,
-      .grid-2,
+      .option-grid,
       .evidence,
       .checklist {
         grid-template-columns: 1fr;
@@ -343,39 +352,50 @@
   <header>
     <div class="wrap hero">
       <div>
-        <h1>103平一拖四：日立 mini2 vs COLMO 图灵2</h1>
-        <p class="lead">基于小红书公开搜索、115 条详情样本、3272 条页面评论口径和 253 个展开回复入口的决策页。结论很直接：空调本体仍倾向 COLMO 图灵2；但新风必须单独审，COLMO新风不能当作赠品糊弄过去。</p>
+        <h1>103平一拖四：COLMO 图灵2 vs 日立尊睿2 vs 日立 mini2</h1>
+        <p class="lead">新增日立尊睿2 + 新风 49000 元后，结论变成三方案排序：COLMO 仍暂排第一，尊睿2作为高配备选排第二，mini2排第三。尊睿2能进决赛圈，但不能因为更贵就默认更稳。</p>
       </div>
       <aside class="verdict">
-        <div class="label">✅ 推荐倾向</div>
+        <div class="label">推荐倾向</div>
         <strong>COLMO 图灵2 + 新风</strong>
-        <p>空调本体仍更适合你，但前提变硬了：COLMO新风要写清型号、滤芯、得风率、打孔管径和噪音验收。写不清，新风就单独比。</p>
+        <p>尊睿2的温湿平衡更贴题，但 49000 元要买到完整三管内机、低负荷稳定和夜间安静才成立。写不清，先别加钱。</p>
       </aside>
     </div>
   </header>
 
   <main>
     <section>
-      <div class="wrap grid-2">
+      <div class="wrap option-grid">
         <article class="card">
-          <h2>日立 mini2 + 新风</h2>
-          <div class="price"><b>¥42,500</b><span>6 匹，双风扇，一拖四</span></div>
-          <p>优势是匹数余量、品牌成熟、日立新风样本更多，滤芯和维护风险更透明。风险是卧室风噪、冷媒声、水泵共振、外机低频和售后反复案例更集中。</p>
+          <h2>COLMO 图灵2 + 新风</h2>
+          <div class="price"><b>¥38,000</b><span>约 5.6 匹，双风扇，一拖四</span></div>
+          <p>排第一。优势是便宜、三管制/双蒸发器/控湿卖点清晰，更适合你关注除湿。风险是新风证据不足，必须验得风率、管径、回流声、水声和售后调试。</p>
           <div class="pill-row">
-            <span class="pill good">匹数余量更足</span>
-            <span class="pill warn">新风滤芯成本要问</span>
-            <span class="pill risk">卧室噪音重点核验</span>
+            <span class="pill good">性价比最高</span>
+            <span class="pill good">除湿更贴题</span>
+            <span class="pill warn">新风必须补证</span>
           </div>
         </article>
 
         <article class="card">
-          <h2>COLMO 图灵2 + 新风</h2>
-          <div class="price"><b>¥38,000</b><span>约 5.6 匹，双风扇，一拖四</span></div>
-          <p>优势是便宜、三管制/双蒸发器/控湿卖点清晰，更适合你关注除湿。风险是新风信息不足，必须验三管制、得风率、回流声、水声、内机风噪和售后调试能力。</p>
+          <h2>日立尊睿2 + 新风</h2>
+          <div class="price"><b>¥49,000</b><span>新增候选，配置需拆单确认</span></div>
+          <p>排第二。优势是温湿平衡、日立新风资料更透明，比 mini2 更贴近除湿。风险是价格高、真实入住样本少，夜里低负荷可能频繁启停、忽冷忽热或有冷媒/水声。</p>
           <div class="pill-row">
-            <span class="pill good">性价比更高</span>
-            <span class="pill good">除湿更贴题</span>
-            <span class="pill warn">型号必须写死</span>
+            <span class="pill good">温湿平衡更强</span>
+            <span class="pill warn">三管内机要写死</span>
+            <span class="pill risk">低负荷要实测</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>日立 mini2 + 新风</h2>
+          <div class="price"><b>¥42,500</b><span>6 匹，双风扇，一拖四</span></div>
+          <p>排第三。优势是匹数余量、品牌成熟、日立新风样本多。风险是除湿不是强项，卧室风噪、冷媒声、水泵共振、外机低频和售后反复案例更集中。</p>
+          <div class="pill-row">
+            <span class="pill good">匹数余量更足</span>
+            <span class="pill warn">新风滤芯成本要问</span>
+            <span class="pill risk">卧室噪音重点核验</span>
           </div>
         </article>
       </div>
@@ -384,63 +404,79 @@
     <section>
       <div class="wrap">
         <h2>综合评分</h2>
-        <p class="note">满分 10 分。不是机器实验室测评，是按小红书 115 条详情样本、B/C精准补搜 18 个关键词、308 张候选卡片和你的 103 平一拖四需求做的实用决策分。</p>
+        <p class="note">满分 10 分。不是机器实验室测评，是按原有 115 条详情样本，以及本轮尊睿2补搜的 18 组关键词、110 个去重候选、34 条详情页和你的 103 平一拖四需求做的实用决策分。</p>
         <div class="score-grid">
           <div class="score-row">
             <strong class="metric">价格/性价比</strong>
-            <span class="score-brand">日立</span>
-            <div class="bar hitachi" style="--v:7.0"><span></span></div><div class="score-num">7.0</div>
             <span class="score-brand">COLMO</span>
             <div class="bar" style="--v:8.8"><span></span></div><div class="score-num">8.8</div>
+            <span class="score-brand">尊睿2</span>
+            <div class="bar zunrui" style="--v:5.8"><span></span></div><div class="score-num">5.8</div>
+            <span class="score-brand">mini2</span>
+            <div class="bar hitachi" style="--v:7.0"><span></span></div><div class="score-num">7.0</div>
           </div>
           <div class="score-row">
             <strong class="metric">面积与匹数余量</strong>
-            <span class="score-brand">日立</span>
-            <div class="bar hitachi" style="--v:8.8"><span></span></div><div class="score-num">8.8</div>
             <span class="score-brand">COLMO</span>
             <div class="bar" style="--v:8.2"><span></span></div><div class="score-num">8.2</div>
+            <span class="score-brand">尊睿2</span>
+            <div class="bar zunrui" style="--v:8.6"><span></span></div><div class="score-num">8.6</div>
+            <span class="score-brand">mini2</span>
+            <div class="bar hitachi" style="--v:8.8"><span></span></div><div class="score-num">8.8</div>
           </div>
           <div class="score-row">
             <strong class="metric">除湿/控湿</strong>
-            <span class="score-brand">日立</span>
-            <div class="bar hitachi" style="--v:7.0"><span></span></div><div class="score-num">7.0</div>
             <span class="score-brand">COLMO</span>
             <div class="bar" style="--v:8.7"><span></span></div><div class="score-num">8.7</div>
+            <span class="score-brand">尊睿2</span>
+            <div class="bar zunrui" style="--v:8.4"><span></span></div><div class="score-num">8.4</div>
+            <span class="score-brand">mini2</span>
+            <div class="bar hitachi" style="--v:7.0"><span></span></div><div class="score-num">7.0</div>
           </div>
           <div class="score-row">
             <strong class="metric">新风方案</strong>
-            <span class="score-brand">日立</span>
-            <div class="bar hitachi" style="--v:7.9"><span></span></div><div class="score-num">7.9</div>
             <span class="score-brand">COLMO</span>
             <div class="bar" style="--v:5.2"><span></span></div><div class="score-num">5.2</div>
+            <span class="score-brand">尊睿2</span>
+            <div class="bar zunrui" style="--v:8.0"><span></span></div><div class="score-num">8.0</div>
+            <span class="score-brand">mini2</span>
+            <div class="bar hitachi" style="--v:7.9"><span></span></div><div class="score-num">7.9</div>
           </div>
           <div class="score-row">
             <strong class="metric">噪音风险</strong>
-            <span class="score-brand">日立</span>
-            <div class="bar hitachi" style="--v:5.1"><span></span></div><div class="score-num">5.1</div>
             <span class="score-brand">COLMO</span>
             <div class="bar" style="--v:6.5"><span></span></div><div class="score-num">6.5</div>
+            <span class="score-brand">尊睿2</span>
+            <div class="bar zunrui" style="--v:5.9"><span></span></div><div class="score-num">5.9</div>
+            <span class="score-brand">mini2</span>
+            <div class="bar hitachi" style="--v:5.1"><span></span></div><div class="score-num">5.1</div>
           </div>
           <div class="score-row">
-            <strong class="metric">漏水/冷凝/排水</strong>
-            <span class="score-brand">日立</span>
-            <div class="bar hitachi" style="--v:6.2"><span></span></div><div class="score-num">6.2</div>
+            <strong class="metric">低负荷稳定</strong>
             <span class="score-brand">COLMO</span>
-            <div class="bar" style="--v:6.8"><span></span></div><div class="score-num">6.8</div>
+            <div class="bar" style="--v:6.4"><span></span></div><div class="score-num">6.4</div>
+            <span class="score-brand">尊睿2</span>
+            <div class="bar zunrui" style="--v:5.6"><span></span></div><div class="score-num">5.6</div>
+            <span class="score-brand">mini2</span>
+            <div class="bar hitachi" style="--v:5.9"><span></span></div><div class="score-num">5.9</div>
           </div>
           <div class="score-row">
             <strong class="metric">皮实稳定</strong>
-            <span class="score-brand">日立</span>
-            <div class="bar hitachi" style="--v:6.0"><span></span></div><div class="score-num">6.0</div>
             <span class="score-brand">COLMO</span>
             <div class="bar" style="--v:6.3"><span></span></div><div class="score-num">6.3</div>
+            <span class="score-brand">尊睿2</span>
+            <div class="bar zunrui" style="--v:6.2"><span></span></div><div class="score-num">6.2</div>
+            <span class="score-brand">mini2</span>
+            <div class="bar hitachi" style="--v:6.0"><span></span></div><div class="score-num">6.0</div>
           </div>
           <div class="score-row">
             <strong class="metric">综合</strong>
-            <span class="score-brand">日立</span>
-            <div class="bar hitachi" style="--v:6.8"><span></span></div><div class="score-num">6.8</div>
             <span class="score-brand">COLMO</span>
             <div class="bar" style="--v:7.2"><span></span></div><div class="score-num">7.2</div>
+            <span class="score-brand">尊睿2</span>
+            <div class="bar zunrui" style="--v:6.9"><span></span></div><div class="score-num">6.9</div>
+            <span class="score-brand">mini2</span>
+            <div class="bar hitachi" style="--v:6.8"><span></span></div><div class="score-num">6.8</div>
           </div>
         </div>
       </div>
@@ -449,48 +485,107 @@
     <section>
       <div class="wrap">
         <h2>核心对比</h2>
+        <div class="table-scroll">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>维度</th>
+                <th>COLMO 图灵2</th>
+                <th>日立尊睿2</th>
+                <th>日立 mini2</th>
+                <th>判断</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>价格</td>
+                <td>38000 元，最低。</td>
+                <td>49000 元，最高。</td>
+                <td>42500 元，中间。</td>
+                <td>尊睿2必须证明温湿内机、新风和验收责任值 11000 元差价。</td>
+              </tr>
+              <tr>
+                <td>103平一拖四</td>
+                <td>5.6 匹大概率够用。</td>
+                <td>需确认外机匹数和内机配置。</td>
+                <td>6 匹更有余量。</td>
+                <td>匹数不是唯一重点，夜里主卧低负荷更关键。</td>
+              </tr>
+              <tr>
+                <td>除湿/控湿</td>
+                <td>图灵2卖点集中在三管制、双蒸发器、控温控湿。</td>
+                <td>温湿平衡更贴题，但必须确认主卧是否三管温湿内机。</td>
+                <td>更依赖制冷除湿、内机和调试。</td>
+                <td>COLMO和尊睿2都贴题，mini2弱一些。</td>
+              </tr>
+              <tr>
+                <td>主卧噪音</td>
+                <td>风险在三管制回流声、水声、电机和调试。</td>
+                <td>本轮看到低风风噪、冷媒/水声、频繁启停样本。</td>
+                <td>卧室风噪、冷媒声、水泵共振样本更集中。</td>
+                <td>尊睿2不能免检，必须做夜间低风连续测试。</td>
+              </tr>
+              <tr>
+                <td>低负荷稳定</td>
+                <td>证据不完整，但价格低，容错更高。</td>
+                <td>暖通拆机和用户样本都提醒只开卧室时可能启停。</td>
+                <td>普通多联机也要看最低频和内机匹配。</td>
+                <td>你的主卧睡眠场景正好踩在低负荷风险区。</td>
+              </tr>
+              <tr>
+                <td>新风</td>
+                <td>资料较少，重点防得风率、孔径、管径和整改售后。</td>
+                <td>日立新风资料更透明，但要问型号、滤芯、管径和风量仪验收。</td>
+                <td>同属日立新风体系，滤芯和维护样本更多。</td>
+                <td>日立新风胜在更容易问清，仍不能当赠品糊弄。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="callout">
+          <div class="icon">🔎</div>
+          <div>
+            <h2>尊睿2专项补搜</h2>
+            <p>本轮新增 18 组关键词、110 个去重候选、34 条详情页，页面显示评论口径约 1295 条。结论是：尊睿2可以进决赛圈，但必须证明完整三管温湿内机、低负荷稳定、主卧夜间安静和新风得风率。</p>
+          </div>
+        </div>
         <table>
           <thead>
             <tr>
-              <th>维度</th>
-              <th>日立 mini2</th>
-              <th>COLMO 图灵2</th>
-              <th>判断</th>
+              <th>补搜方向</th>
+              <th>看到的信号</th>
+              <th>对 49000 元报价的影响</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>103平一拖四</td>
-              <td>6匹更有余量。</td>
-              <td>5.6匹大概率够用。</td>
-              <td>日立略稳，但不是决定项。</td>
+              <td>价格</td>
+              <td>尊睿一拖四多在 3.0-4.2 万讨论；一拖五/一拖六带新风或高配内机会到 4.6-5.9 万。</td>
+              <td>49000 不算离谱，但必须拆出空调、新风、安装、升级温湿内机和线控器价格。</td>
             </tr>
             <tr>
-              <td>除湿</td>
-              <td>更依赖制冷除湿、内机和调试。</td>
-              <td>图灵2卖点集中在三管制、双蒸发器、控温控湿。</td>
-              <td>COLMO明显更贴合你的关注点。</td>
+              <td>三管制/温湿平衡</td>
+              <td>评论反复提醒：尊睿全效外机不等于每台内机都是三管温湿平衡内机。</td>
+              <td>主卧若不是温湿平衡内机，尊睿2相对 mini2 的价值会明显下降。</td>
             </tr>
             <tr>
-              <td>噪音</td>
-              <td>卧室风噪、冷媒声、水泵共振、外机低频样本更集中。</td>
-              <td>主要风险是三管制回流声、水声、电机和系统调试。</td>
-              <td>按已深读证据，COLMO略优；两者都要做夜间低风量测试。</td>
-            </tr>
-            <tr>
-              <td>漏水/冷凝水</td>
-              <td>水泵、水滴声、冷凝水滴落、酸臭维修样本较多。</td>
-              <td>更多是异响、回流声和复杂系统调试。</td>
-              <td>安装验收决定大于品牌。</td>
+              <td>低负荷与噪音</td>
+              <td>看到频繁启停、忽冷忽热、低风风噪、冷媒/水声样本，也有拆机内容提醒夜里只开卧室风险更高。</td>
+              <td>封板前必须做主卧最低风量、除湿模式、启停和水声验收。</td>
             </tr>
             <tr>
               <td>新风</td>
-              <td>滤芯、检修、第三方耗材和售后费用样本更多，风险更透明。</td>
-              <td>资料较少，强负面集中在得风率、孔径、管径和整改售后。</td>
-              <td>日立新风更稳；COLMO新风必须补完整证据。</td>
+              <td>日立新风资料更透明，有 10800 元报价和自己换滤芯省钱样本，但管径、点位和得风率仍关键。</td>
+              <td>新风必须独立写型号、滤芯、风量、管径、检修口和风量仪验收。</td>
             </tr>
           </tbody>
         </table>
+        <p class="note">尊睿2专项底稿见 <a href="./xiaohongshu-central-ac-hitachi-zunrui2-evidence-2026-06-18.md">小红书补搜证据库：日立尊睿2 + 新风</a>。</p>
       </div>
     </section>
 
@@ -517,7 +612,7 @@
               <td>新风滤芯成本</td>
               <td>样本显示售后更换约 400-791 元，自己换或第三方滤芯可降到几十到数百元，但要看型号和密封。</td>
               <td>样本少，能自己换滤芯，但具体新风型号、滤芯单价和维护方式不透明。</td>
-              <td>让两家写明滤芯型号、片数、单价、上门费和是否可自行更换。</td>
+              <td>让商家写明滤芯型号、片数、单价、上门费和是否可自行更换。</td>
             </tr>
             <tr>
               <td>新风噪音/得风率</td>
@@ -549,45 +644,52 @@
           <div class="icon">🔇</div>
           <div>
             <h2>噪音专项结论</h2>
-            <p>这一轮专门补搜了睡不着、低频、冷媒、三管制、回流声、水声、水泵和外机噪音。扫码验证后继续深读 25 条新增详情、892 条页面评论口径和 71 个展开回复入口；新增证据继续指向：日立强噪音样本更直接，COLMO风险更偏系统复杂和安装调试。</p>
+            <p>原噪音专项指向：日立 mini2 强噪音样本更直接，COLMO风险更偏系统复杂和安装调试。尊睿2补搜后新增一个判断：尊睿2不能免检，低负荷启停、冷媒/水声和主卧低风风噪要单独验。</p>
           </div>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>噪音来源</th>
-              <th>日立 mini2 风险</th>
-              <th>COLMO 图灵2 风险</th>
-              <th>你的处理方式</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>卧室风噪</td>
-              <td>多条样本提到低风量、静音模式仍吵。</td>
-              <td>有风大和内机电机案例，但强度少一些。</td>
-              <td>主卧床头最低风量连续测 30 分钟。</td>
-            </tr>
-            <tr>
-              <td>冷媒/膨胀阀声</td>
-              <td>有拆内机、换蒸发器、重焊铜管才改善的案例。</td>
-              <td>三管制更复杂，需防回流声和调试不到位。</td>
-              <td>启动、停机、再启动三个阶段都听。</td>
-            </tr>
-            <tr>
-              <td>水泵/排水声</td>
-              <td>水泵、吊顶、木条、排水管共振案例多。</td>
-              <td>带泵内机和提升段要重点验收。</td>
-              <td>优先自然排水；必须用泵就写防虹吸、软接和检修口。</td>
-            </tr>
-            <tr>
-              <td>低频/外机</td>
-              <td>看到外机扰民、待机低频、开机震动样本。</td>
-              <td>本轮图灵2中央空调强负面较少，但不能免检。</td>
-              <td>外机减震、机位通风、邻里距离都要验。</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-scroll">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>噪音来源</th>
+                <th>日立 mini2 风险</th>
+                <th>日立尊睿2 风险</th>
+                <th>COLMO 图灵2 风险</th>
+                <th>你的处理方式</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>卧室风噪</td>
+                <td>多条样本提到低风量、静音模式仍吵。</td>
+                <td>看到微风仍吵、冷气冲出、风噪反复的尊睿样本。</td>
+                <td>有风大和内机电机案例，但强度少一些。</td>
+                <td>主卧床头最低风量连续测 30 分钟。</td>
+              </tr>
+              <tr>
+                <td>冷媒/膨胀阀声</td>
+                <td>有拆内机、换蒸发器、重焊铜管才改善的案例。</td>
+                <td>低负荷启停可能放大冷媒声、膨胀阀声和水声。</td>
+                <td>三管制更复杂，需防回流声和调试不到位。</td>
+                <td>启动、停机、再启动三个阶段都听。</td>
+              </tr>
+              <tr>
+                <td>水泵/排水声</td>
+                <td>水泵、吊顶、木条、排水管共振案例多。</td>
+                <td>温湿内机和排水提升段仍要重点听水声。</td>
+                <td>带泵内机和提升段要重点验收。</td>
+                <td>优先自然排水；必须用泵就写防虹吸、软接和检修口。</td>
+              </tr>
+              <tr>
+                <td>低频/外机</td>
+                <td>看到外机扰民、待机低频、开机震动样本。</td>
+                <td>拆机和住后样本都提醒 1-2 个卧室低负荷启停风险。</td>
+                <td>本轮图灵2中央空调强负面较少，但不能免检。</td>
+                <td>外机减震、机位通风、邻里距离都要验。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p class="note">噪音专项底稿见 <a href="./xiaohongshu-central-ac-noise-special-evidence-2026-06-16.md">小红书中央空调噪音专项证据</a>。里面已区分“已深读详情”和“剩余未深读候选”，避免把搜索卡片当成评论证据。</p>
       </div>
     </section>
@@ -597,6 +699,42 @@
         <h2>重点证据</h2>
         <p class="note">以下是打开详情页并点开可见回复后的摘要，不是原文搬运。完整语义证据库见 Markdown。</p>
         <div class="evidence">
+          <article>
+            <div class="brand">尊睿2 / 新增排名</div>
+            <h3>mini2 加价约 3000 升级尊睿2的样本</h3>
+            <p>用户原本看 mini2 双风扇 + 云净二代新风，因尊睿2差价约 3000 且活动升级温湿平衡内机，最终改选尊睿2。</p>
+            <a href="https://www.xiaohongshu.com/explore/6a04858900000000360303d7">查看来源</a>
+          </article>
+          <article>
+            <div class="brand">尊睿2 / 价格</div>
+            <h3>一拖五 180 + 新风全包约 4.8 万</h3>
+            <p>高互动样本里，一拖五 180 送日立新风并包安装约 4.8 万；你的 4.9 万若是一拖四，就必须拆清配置和升级项。</p>
+            <a href="https://www.xiaohongshu.com/explore/6725f53a0000000019016180">查看来源</a>
+          </article>
+          <article>
+            <div class="brand">尊睿2 / 三管内机</div>
+            <h3>尊睿外机不等于每台都是温湿内机</h3>
+            <p>一拖六 5.9 万样本里，作者明确说内机不是三管制。评论反复提醒：不上三管温湿内机，尊睿价值会打折。</p>
+            <a href="https://www.xiaohongshu.com/explore/69ce4e2c000000001d01af63">查看来源</a>
+          </article>
+          <article>
+            <div class="brand">尊睿2 / 低负荷</div>
+            <h3>夜里只开卧室时，启停风险要前置验收</h3>
+            <p>拆机和评论都提醒尊睿路线偏高负载能力；只开 1-2 个卧室时，可能频繁启停、忽冷忽热或出现噪音。</p>
+            <a href="https://www.xiaohongshu.com/explore/69984532000000001a026648">查看来源</a>
+          </article>
+          <article>
+            <div class="brand">尊睿2 / 噪音</div>
+            <h3>尊睿内机也看到风噪、冷媒声和水声</h3>
+            <p>用户反馈尊睿内机低风仍会突然风噪变大、冷气冲出，结束时有水声。评论提到内机匹配、冷媒流动和膨胀阀。</p>
+            <a href="https://www.xiaohongshu.com/explore/68bb9eda000000001d0069b8">查看来源</a>
+          </article>
+          <article>
+            <div class="brand">尊睿2 / 新风</div>
+            <h3>日立新风更透明，但仍要验管径和得风率</h3>
+            <p>日立新风报价样本约 1.08 万，也有自己换滤芯省钱样本；但评论提醒 110/160 管径、风口点位和图纸会影响效果。</p>
+            <a href="./xiaohongshu-central-ac-hitachi-zunrui2-evidence-2026-06-18.md">查看尊睿2补搜</a>
+          </article>
           <article>
             <div class="brand">日立 / 价格与正向选择</div>
             <h3>mini2 160 一拖四 + 新风约 4.3 万</h3>
@@ -719,7 +857,7 @@
       <div class="wrap">
         <h2>下单前 6 个问题</h2>
         <div class="checklist">
-          <div class="check"><h3>型号写死</h3><p>外机、内机、新风主机、风量、匹数、是否双风扇、是否真图灵2/mini2。</p></div>
+          <div class="check"><h3>型号写死</h3><p>外机、内机、新风主机、风量、匹数、是否双风扇、是否真图灵2/尊睿2/mini2。</p></div>
           <div class="check"><h3>辅材写清</h3><p>铜管、保温棉、冷凝水管、分歧管、风口、检修口位置和收费边界。</p></div>
           <div class="check"><h3>安装写工艺</h3><p>抽真空、保压、冷凝水坡度、排水测试、内机减震和防结露处理。</p></div>
           <div class="check"><h3>噪音要测试</h3><p>每个卧室最低风量、夜间模拟、进风口和出风口都要测，不只看客厅。</p></div>
@@ -732,7 +870,7 @@
 
   <footer>
     <div class="wrap">
-      数据来源：2026-06-16 小红书公开页面低频只读搜索与详情页可见评论。累计 115 条详情样本、页面评论口径 3272 条、展开回复入口 253 个；其中噪音专项 26 次搜索、756 张搜索卡片、新增 25 条详情，B/C精准补搜 18 次搜索、308 张候选卡片、新增 31 条详情。期间出现一次安全验证，用户扫码后继续完成只读浏览。详情见 <a href="./xiaohongshu-central-ac-freshair-model-noise-evidence-2026-06-16.md">B/C精准补搜证据</a>、<a href="./xiaohongshu-central-ac-noise-special-evidence-2026-06-16.md">噪音专项证据</a>、<a href="./xiaohongshu-central-ac-hitachi-colmo-full-evidence-2026-06-16.md">全量语义证据库</a> 和 <a href="./xiaohongshu-central-ac-hitachi-colmo-evidence-2026-06-16.md">首轮证据底稿</a>。
+      数据来源：2026-06-16 原小红书公开页面低频只读搜索与详情页可见评论，累计 115 条详情样本、页面评论口径 3272 条、展开回复入口 253 个；2026-06-18 新增日立尊睿2专项补搜，18 组关键词、110 个去重候选、34 条详情页、页面显示评论口径约 1295 条。详情见 <a href="./xiaohongshu-central-ac-hitachi-zunrui2-evidence-2026-06-18.md">尊睿2补搜证据</a>、<a href="./xiaohongshu-central-ac-freshair-model-noise-evidence-2026-06-16.md">B/C精准补搜证据</a>、<a href="./xiaohongshu-central-ac-noise-special-evidence-2026-06-16.md">噪音专项证据</a>、<a href="./xiaohongshu-central-ac-hitachi-colmo-full-evidence-2026-06-16.md">全量语义证据库</a> 和 <a href="./xiaohongshu-central-ac-hitachi-colmo-evidence-2026-06-16.md">首轮证据底稿</a>。
     </div>
   </footer>
 </body>
