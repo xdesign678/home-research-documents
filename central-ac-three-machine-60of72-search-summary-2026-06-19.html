@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小红书三机扩搜 60/72 搜索详细总结</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #657184;
+      --line: #dfe6ef;
+      --soft: #f6f8fb;
+      --panel: #ffffff;
+      --colmo: #0f766e;
+      --zunrui: #2563eb;
+      --mini: #b45309;
+      --risk: #b42318;
+      --good: #067647;
+      --shadow: 0 16px 40px rgba(15, 23, 42, .08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.72;
+      background: #eef3f8;
+    }
+
+    a { color: #1d4ed8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background:
+        linear-gradient(135deg, rgba(15, 118, 110, .94), rgba(37, 99, 235, .9)),
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, .22), transparent 32%);
+      color: #fff;
+      padding: 56px 0 42px;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      gap: 28px;
+      align-items: end;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin-bottom: 0;
+      font-size: 18px;
+      color: rgba(255, 255, 255, .88);
+    }
+
+    .verdict {
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .14);
+      backdrop-filter: blur(10px);
+    }
+
+    .verdict strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 24px;
+    }
+
+    .verdict p {
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, .86);
+    }
+
+    section { padding: 44px 0; }
+
+    .section-tight { padding-top: 24px; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: -24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat {
+      min-height: 112px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .stat b {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 30px;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .callout {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 16px;
+      padding: 22px;
+      border: 1px solid #c9d7ee;
+      border-radius: 8px;
+      background: #f7fbff;
+    }
+
+    .callout .icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: #dbeafe;
+      font-size: 22px;
+    }
+
+    .callout p:last-child { margin-bottom: 0; }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .card p { margin-bottom: 12px; color: #334155; }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      background: #ecfeff;
+      color: var(--colmo);
+    }
+
+    .brand.zunrui { background: #eff6ff; color: var(--zunrui); }
+    .brand.mini { background: #fff7ed; color: var(--mini); }
+
+    .meter {
+      height: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e2e8f0;
+    }
+
+    .meter span {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: 999px;
+      background: var(--c);
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .filter-btn {
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: #334155;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .filter-btn.active {
+      border-color: #1d4ed8;
+      background: #1d4ed8;
+      color: #fff;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 1020px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #f8fafc;
+      color: #475569;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    tbody tr:last-child td { border-bottom: 0; }
+
+    .tag {
+      display: inline-flex;
+      margin: 0 6px 6px 0;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .tag.risk { background: #fef3f2; color: var(--risk); }
+    .tag.good { background: #ecfdf3; color: var(--good); }
+    .tag.warn { background: #fffaeb; color: #b54708; }
+
+    .candidate-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .candidate {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .candidate .meta {
+      margin: 6px 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .candidate p { margin-bottom: 0; color: #334155; }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 94px 1fr;
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: 13px;
+      background: #e8eef5;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .grid-3, .candidate-grid, .stats { grid-template-columns: 1fr; }
+      .stats { margin-top: 18px; }
+      header { padding: 38px 0 28px; }
+      section { padding: 32px 0; }
+      h2 { font-size: 24px; }
+      .lead { font-size: 16px; }
+      .timeline-item { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div>
+        <h1>小红书三机扩搜 60/72 搜索详细总结</h1>
+        <p class="lead">这页只整理已完成的 60 组搜索关键词：COLMO 24 组、日立尊睿2 24 组、日立 mini2 12 组。它不是新增 60 个已深读帖子，也没有新增评论审计。</p>
+      </div>
+      <aside class="verdict">
+        <strong>结论暂不改</strong>
+        <p>COLMO 图灵2 + 新风仍暂排第一，尊睿2排第二，mini2排第三。新增搜索强化的是风险边界，不是最终盖棺定论。</p>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-tight">
+      <div class="wrap stats">
+        <div class="stat"><b>60/72</b><span>已完成搜索关键词</span></div>
+        <div class="stat"><b>502</b><span>搜索页去重候选</span></div>
+        <div class="stat"><b>410</b><span>旧证据库未收过的新增候选</span></div>
+        <div class="stat"><b>0</b><span>本阶段新增详情页评论审计</span></div>
+        <div class="stat"><b>61</b><span>断点：日立 mini2 除湿</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="callout">
+          <div class="icon">⚠️</div>
+          <div>
+            <h2>先把证据边界说清</h2>
+            <p>这 60 组搜索主要来自搜索页卡片和既有证据命中。卡片数字只能说明“值得优先打开”，不能等同于评论结论；视频也不能默认看过完整口播。真正能改排序的证据，仍要进入详情页读正文、可见字幕、实际评论和作者回复。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>三台机器的阶段性变化</h2>
+        <div class="grid-3">
+          <article class="card">
+            <div class="brand">COLMO 图灵2</div>
+            <h3>排第一，但新风和售后要写进验收</h3>
+            <p>24 组已完成，搜索页可见卡片累计 531 张。新增候选集中在价格、图灵二代型号混淆、新风得风率、除湿不降温、投诉售后和水声/回流声。</p>
+            <div class="meter" aria-label="COLMO 搜索完成度"><span style="--w:100%;--c:var(--colmo)"></span></div>
+            <p class="note">当前用法：继续暂排第一，但必须把新风型号、管径、滤芯、风口实测风量、回流声和售后整改写死。</p>
+          </article>
+
+          <article class="card">
+            <div class="brand zunrui">日立尊睿2</div>
+            <h3>能进决赛圈，但 49000 元门槛很硬</h3>
+            <p>24 组已完成，搜索页可见卡片累计 480 张。新增候选集中在价格、故障、售后、温湿平衡、三管制、低负荷启停、冷媒声、水声和新风。</p>
+            <div class="meter" aria-label="尊睿2 搜索完成度"><span style="--w:100%;--c:var(--zunrui)"></span></div>
+            <p class="note">当前用法：只有真实温湿平衡内机、新风型号清楚、主卧夜间低负荷验收通过，才值得加钱。</p>
+          </article>
+
+          <article class="card">
+            <div class="brand mini">日立 mini2</div>
+            <h3>暂不反超，噪音和低负荷风险最密</h3>
+            <p>只完成 12/24 组，搜索页可见卡片累计 240 张。已覆盖价格、报价、噪音、主卧噪音、水泵噪音、冷媒声、低频和外机噪音。</p>
+            <div class="meter" aria-label="mini2 搜索完成度"><span style="--w:50%;--c:var(--mini)"></span></div>
+            <p class="note">当前用法：还缺除湿、费电、售后、故障、新风和住后体验，不能直接判死，但也不能反超。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>60 组搜索逐条总结</h2>
+        <p class="note">可以用筛选按钮快速看单台机器。每一行的“判断”都是搜索页级别，不代表已打开详情页读完评论。</p>
+        <div class="filters" role="group" aria-label="筛选搜索组">
+          <button class="filter-btn active" type="button" data-filter="all">全部 60</button>
+          <button class="filter-btn" type="button" data-filter="colmo">COLMO 24</button>
+          <button class="filter-btn" type="button" data-filter="zunrui2">尊睿2 24</button>
+          <button class="filter-btn" type="button" data-filter="mini2">mini2 12</button>
+          <button class="filter-btn" type="button" data-filter="risk">只看风险</button>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>机器</th>
+                <th>关键词</th>
+                <th>可见候选</th>
+                <th>搜索指向</th>
+                <th>阶段判断</th>
+                <th>下一步核验</th>
+              </tr>
+            </thead>
+            <tbody id="searchRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>最值得优先打开的候选</h2>
+        <p class="note">这些不是“已经定性”的帖子，而是后续详情页深读的优先顺序。真正要记录：页面显示评论数、实际读到评论数、作者回复、视频可见性和对排序影响。</p>
+        <div class="candidate-grid" id="candidateGrid"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>下一轮怎么继续</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <strong>先补 mini2</strong>
+            <div>从第 61 个关键词“日立 mini2 除湿”继续，不从头重搜。优先补除湿、费电、售后、故障、新风和住后体验。</div>
+          </div>
+          <div class="timeline-item">
+            <strong>再读详情页</strong>
+            <div>先打开 mini2 噪音/能耗/低负荷负面候选，再打开 COLMO 新风得风率和售后负面，最后核尊睿2三管温湿内机和低负荷。</div>
+          </div>
+          <div class="timeline-item">
+            <strong>记录评论量</strong>
+            <div>每条详情页必须分开写“页面显示评论数”和“实际读到评论数”。如果是视频，只能写可见字幕、画面文字或评论线索，不能默认有完整口播。</div>
+          </div>
+          <div class="timeline-item">
+            <strong>再改排序</strong>
+            <div>只有真实住后、卧室夜间、除湿模式、售后处理和高质量评论互证足够强时，才调整 COLMO / 尊睿2 / mini2 的排序。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      数据来源：<a href="./xiaohongshu-central-ac-three-machine-expanded-search-log-2026-06-18.md">小红书三机扩搜阶段日志</a>、<a href="./xiaohongshu-central-ac-three-machine-60of72-evidence-digest-2026-06-19.md">60/72 证据整理稿</a>、<a href="./central-ac-hitachi-colmo-decision-report-2026-06-16.html">主决策页</a>。本页只整理公开搜索页可见信息和既有证据沉淀，不新增浏览、不新增评论审计。
+    </div>
+  </footer>
+
+  <script>
+    const searchRows = [
+      {id:1, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 中央空调", count:19, tags:["基础口碑","风险"], signal:"基础词同时命中报价、商家稿和新增负面候选。", judgment:"能看出图灵2讨论热度足够，但内容混有宣传和求助，不能直接当口碑。", next:"优先深读“不要轻易选择colmo”和价格求助帖，判断是安装、售后还是型号问题。"},
+      {id:2, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵二代 中央空调", count:20, tags:["型号混淆"], signal:"图灵2和图灵二代写法混用，候选里有进场、下定和报价。", judgment:"型号边界容易被销售写虚，必须确认到底是一代、二代还是旧库存。", next:"合同写外机、内机、线控器完整型号，并核对发货铭牌。"},
+      {id:3, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 一拖四", count:20, tags:["报价"], signal:"一拖四价格和配置候选较多，也命中新增负面。", judgment:"38000 的报价有比较价值，但要拆开空调、新风、辅材和安装。", next:"对比一拖四内机匹数、外机匹数、是否双风扇和线控器。"},
+      {id:4, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵二代 一拖四", count:20, tags:["报价","型号混淆"], signal:"继续强化一拖四报价和图灵二代命名混用。", judgment:"价格优势还在，但型号和配置写不清会吞掉性价比。", next:"让商家把图灵二代、三管制、双蒸发器、线控器逐项写进报价。"},
+      {id:5, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 价格", count:19, tags:["报价"], signal:"命中多条价格求助和“买贵了吗”候选。", judgment:"适合校验38000是否合理，但不能只比总价。", next:"拆空调本体、新风、安装、国补、辅材和质保。"},
+      {id:6, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵二代 报价", count:19, tags:["报价"], signal:"报价候选覆盖一拖四、一拖五、一拖七。", judgment:"可作为价格区间参考，但户型和内机数量差异大。", next:"只拿103平一拖四或接近配置横比，避免拿一拖七误判。"},
+      {id:7, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 噪音", count:20, tags:["噪音","风险"], signal:"命中既有噪音样本，也有商家解释类内容。", judgment:"COLMO强噪音样本没日立密，但不能免检。", next:"封板前测主卧低风、除湿模式、水声、回流声和水泵尾声。"},
+      {id:8, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵二代 异响", count:19, tags:["噪音","风险"], signal:"异响词命中安装、抽真空、回流声和旧证据。", judgment:"三管制复杂度是风险来源，不能只看官方静音参数。", next:"问清铜管、排水、内机减震和异响整改责任。"},
+      {id:9, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 主卧 噪音", count:20, tags:["主卧","噪音","风险"], signal:"主卧场景命中风噪、低频和价格候选。", judgment:"主卧是最关键场景，客厅安静不能代表睡眠无感。", next:"床头位置连续听30分钟，记录启动、停机、再启动声音。"},
+      {id:10, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 低频 噪音", count:20, tags:["低频","风险"], signal:"低频词命中图灵2和图灵二代多条候选。", judgment:"低频不能靠低风量参数排除，和外机、吊顶、机位有关。", next:"夜间测外机低频、吊顶共振和只开主卧的运行状态。"},
+      {id:11, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 水声", count:20, tags:["水声","风险"], signal:"水声词命中安装、抽真空、回流声关联。", judgment:"三管制和排水路径需要前置验收。", next:"要求排水坡度、冷凝水测试和水声整改写入验收。"},
+      {id:12, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 回流声", count:19, tags:["回流声","风险"], signal:"回流声命中旧证据和图灵二代安装样本。", judgment:"这是COLMO需要防的系统复杂度问题。", next:"只开主卧、只开客厅、切换模式时分别听回流声。"},
+      {id:13, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 除湿", count:20, tags:["除湿","优势"], signal:"除湿词支持图灵2控湿路线，但也要看实际体感。", judgment:"COLMO除湿方向最贴题，但不能只看卖点。", next:"验主卧单开除湿30-60分钟，记录温度、湿度和出风体感。"},
+      {id:14, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵二代 除湿不降温", count:40, tags:["除湿","风险"], signal:"可见候选数明显增加，说明这个痛点值得细读。", judgment:"“不降温除湿”是核心需求，但需要真实住后验证。", next:"深读除湿不降温帖，找湿度曲线、温度变化和评论反证。"},
+      {id:15, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 控湿", count:20, tags:["除湿","优势"], signal:"控湿词继续强化COLMO路线优势。", judgment:"路线贴题，但要落到内机、控制器和模式。", next:"确认每个房间是否支持目标湿度、是否需要特定线控器。"},
+      {id:16, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 三管制", count:20, tags:["三管制","风险"], signal:"三管制词命中宣传、科普和疑问帖。", judgment:"三管制是优势，也是噪音、回流声和售后复杂度来源。", next:"让商家写清三管制内机、施工工艺和后期维修责任。"},
+      {id:17, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 新风", count:20, tags:["新风","风险"], signal:"新风词样本仍偏少，强证据不足。", judgment:"COLMO最大缺口仍是新风有效性。", next:"不接受“带新风”四个字，必须写完整型号和风量。"},
+      {id:18, brand:"colmo", brandName:"COLMO", keyword:"COLMO 新风 得风率", count:40, tags:["新风","风险"], signal:"得风率候选数高，且已有强负面样本。", judgment:"新风不是有无问题，而是每个房间有没有实际风量。", next:"封板前用风量仪测每个风口，记录数值。"},
+      {id:19, brand:"colmo", brandName:"COLMO", keyword:"COLMO 新风 管径", count:20, tags:["新风","风险"], signal:"管径和打孔整改是新风风险关键。", judgment:"110/160管径、主管支管和孔位会直接影响效果。", next:"报价单写主管、支管管径、孔径和整改责任。"},
+      {id:20, brand:"colmo", brandName:"COLMO", keyword:"COLMO 新风 滤芯", count:20, tags:["新风","维护"], signal:"滤芯样本少于日立，维护成本不够透明。", judgment:"COLMO新风后期耗材要提前问。", next:"问滤芯型号、片数、单价、可否自行更换和检修口位置。"},
+      {id:21, brand:"colmo", brandName:"COLMO", keyword:"COLMO 中央空调 售后", count:18, tags:["售后","风险"], signal:"售后词命中投诉和整改类候选。", judgment:"COLMO价格低不能抵消本地售后不确定性。", next:"写故障响应时限、异响整改、吊顶恢复和责任人。"},
+      {id:22, brand:"colmo", brandName:"COLMO", keyword:"COLMO 中央空调 修不停", count:19, tags:["售后","风险"], signal:"修不停词更偏负面，适合找反证。", judgment:"需要分清机器质量、安装调试和个案售后。", next:"深读评论，看是否同型号、同城市、同安装商。"},
+      {id:23, brand:"colmo", brandName:"COLMO", keyword:"COLMO 中央空调 投诉", count:39, tags:["投诉","风险"], signal:"投诉词候选数高，说明售后负面不能忽略。", judgment:"不能把低价当无条件优势。", next:"优先看投诉帖后续是否解决、是否拆吊顶、是否重复报修。"},
+      {id:24, brand:"colmo", brandName:"COLMO", keyword:"COLMO 图灵2 住后体验", count:20, tags:["住后"], signal:"住后体验能补齐宣传和报价之外的体感。", judgment:"这类证据权重最高，但需要确认是真住后。", next:"筛真实入住、梅雨季、主卧夜间和售后处理评论。"},
+      {id:25, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 中央空调", count:20, tags:["基础口碑"], signal:"基础词命中尊睿、尊瑞、尊睿无界等写法。", judgment:"命名容易混，先确认到底是尊睿2、尊睿全效2还是无界。", next:"合同写外机系列、内机系列、是否温湿平衡内机。"},
+      {id:26, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿全效2 中央空调", count:20, tags:["基础口碑"], signal:"全效2词命中商家参数、下定和噪音帖子。", judgment:"资料更透明，但商家稿比例不低。", next:"用真实住后和投诉帖抵消商家宣传偏差。"},
+      {id:27, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿全效二代 中央空调", count:20, tags:["型号混淆"], signal:"二代写法继续命中同一批候选。", judgment:"搜索能覆盖命名差异，但合同不能模糊。", next:"要求销售用官方型号表，不用口头简称。"},
+      {id:28, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿二代 中央空调", count:20, tags:["型号混淆"], signal:"尊睿二代词覆盖无界、全效和普通尊睿讨论。", judgment:"不能只凭外机名称判断内机能力。", next:"确认主卧是否真实三管温湿平衡内机。"},
+      {id:29, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 一拖四", count:20, tags:["报价"], signal:"一拖四候选能对齐103平方案。", judgment:"49000不算离谱，但要看包含什么。", next:"拆空调、新风、安装、升级内机、线控器和质保。"},
+      {id:30, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿全效2 一拖四", count:20, tags:["报价"], signal:"一拖四词也命中参数介绍和对比帖。", judgment:"配置差异比品牌名重要。", next:"看外机容量、内机数量、温湿内机数量和是否带泵。"},
+      {id:31, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 价格", count:20, tags:["报价"], signal:"价格候选覆盖4万到5万以上区间。", judgment:"49000只有配置清楚才成立。", next:"拿同户型、同内机、同新风和同安装边界比较。"},
+      {id:32, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿全效二代 报价", count:20, tags:["报价"], signal:"报价词命中商家参数和用户求助。", judgment:"报价需要拆单，不能只看总价。", next:"让商家列明每台内机、线控器、新风和辅材单价。"},
+      {id:33, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 噪音", count:20, tags:["噪音","风险"], signal:"噪音词命中尊睿和日立通用噪音维修样本。", judgment:"尊睿2不能免检。", next:"重点听低风风噪、冷媒声、水声和启动变化。"},
+      {id:34, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿全效2 噪音", count:20, tags:["噪音","风险"], signal:"全效2噪音词命中商家静音解释和用户噪音。", judgment:"低噪宣传要用卧室夜间实测验证。", next:"封板前按最低风量连续测试，记录是否突增风噪。"},
+      {id:35, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 主卧 噪音", count:20, tags:["主卧","噪音","风险"], signal:"主卧词命中低风、冷媒、水声和低负荷候选。", judgment:"主卧噪音是尊睿2加钱前的硬门槛。", next:"床头位置测最低风量、除湿模式和夜间只开主卧。"},
+      {id:36, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 水声", count:20, tags:["水声","风险"], signal:"水声词命中尊睿制冷、拆机和噪音样本。", judgment:"水声可能和冷媒、排水、内机结构有关。", next:"验启动、停机、排水和水泵尾声。"},
+      {id:37, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 冷媒声", count:20, tags:["冷媒声","风险"], signal:"冷媒声词命中维修和能耗样本。", judgment:"冷媒声可修，但过程可能涉及拆机和焊接。", next:"问清冷媒声判定、维修流程和吊顶恢复责任。"},
+      {id:38, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿 频繁启停", count:20, tags:["低负荷","风险"], signal:"启停词命中三管拆机和上车样本。", judgment:"高配不等于低负荷稳定。", next:"只开主卧连续运行，记录启停次数和温湿波动。"},
+      {id:39, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 低负荷", count:20, tags:["低负荷","风险"], signal:"低负荷词命中实测数据和启停讨论。", judgment:"103平夜里只开一间房是关键风险场景。", next:"要求销售给低负荷运行说明，并做现场验收。"},
+      {id:40, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 故障", count:20, tags:["故障","风险"], signal:"该关键词曾触发安全验证，之后由用户手动验证再继续。", judgment:"故障组不能继续自动深刷，现阶段只保留搜索页线索。", next:"后续只低频打开代表帖，记录报错、维修次数和结局。"},
+      {id:41, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 售后", count:20, tags:["售后","风险"], signal:"售后词命中反复沟通和故障类候选。", judgment:"高端线也不能靠品牌名替代售后责任。", next:"合同写响应时限、拆吊顶恢复、反复维修处理和责任主体。"},
+      {id:42, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿全效2 温湿平衡", count:20, tags:["除湿","优势"], signal:"温湿平衡是尊睿2进入决赛圈的核心理由。", judgment:"价值成立要看主卧是否真温湿平衡内机。", next:"确认主卧内机型号、控制方式和除湿模式可单独测试。"},
+      {id:43, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 除湿", count:20, tags:["除湿","优势"], signal:"除湿词补齐尊睿2和COLMO的核心对比。", judgment:"路线贴题，但真实住后样本仍偏少。", next:"深读梅雨季、主卧和低温除湿评论。"},
+      {id:44, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 三管制", count:20, tags:["三管制","风险"], signal:"三管制词命中拆机和高配解释。", judgment:"三管制是加钱理由，也带来低负荷和噪音验收要求。", next:"看三管内机数量、排水、冷媒管和控制器。"},
+      {id:45, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 新风", count:20, tags:["新风"], signal:"日立新风资料比COLMO更容易问清。", judgment:"透明不代表有效风量已验证。", next:"写新风主机型号、主管/支管管径和风量仪验收。"},
+      {id:46, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 云净新风", count:20, tags:["新风"], signal:"云净新风词能追到具体新风系统。", judgment:"日立新风优势在可追型号和滤芯。", next:"确认是云净、天净、云镜还是Q5，别让销售混说。"},
+      {id:47, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿2 住后体验", count:20, tags:["住后"], signal:"住后体验是尊睿2最缺的高权重证据。", judgment:"真实入住样本不足时，不该把尊睿2直接升第一。", next:"找夜间、梅雨季、主卧和售后后续评论。"},
+      {id:48, brand:"zunrui2", brandName:"尊睿2", keyword:"日立 尊睿全效2 缺点", count:20, tags:["缺点","风险"], signal:"缺点词用于主动找反证。", judgment:"补缺点后，尊睿2仍是有条件备选。", next:"把缺点按低负荷、噪音、价格、售后、新风分组。"},
+      {id:49, brand:"mini2", brandName:"mini2", keyword:"日立 mini2 中央空调", count:20, tags:["基础口碑"], signal:"基础词命中价格、单风扇/双风扇和既有住后候选。", judgment:"mini2成熟度高，但搜索开始就混入噪音和能耗线索。", next:"先分清VAM mini2、mini2单风扇、双风扇和具体外机。"},
+      {id:50, brand:"mini2", brandName:"mini2", keyword:"日立 VAM mini2 中央空调", count:20, tags:["型号"], signal:"VAM词命中拆机评测和型号解释。", judgment:"有助于确认机器能力，但商家/科普内容不能替代住后。", next:"用拆机理解结构，用真实评论验证噪音和能耗。"},
+      {id:51, brand:"mini2", brandName:"mini2", keyword:"日立 mini2 一拖四", count:20, tags:["报价"], signal:"一拖四词对齐当前42500方案。", judgment:"价格可比较，但不能压过主卧噪音风险。", next:"拆出空调、新风、辅材、线控器、安装和质保。"},
+      {id:52, brand:"mini2", brandName:"mini2", keyword:"日立 mini2 双风扇 一拖四", count:20, tags:["报价","型号"], signal:"双风扇词命中价格求助和一拖四配置。", judgment:"双风扇是卖点，但不是除湿和噪音免检证明。", next:"确认外机双风扇型号、低频能力和内机匹配。"},
+      {id:53, brand:"mini2", brandName:"mini2", keyword:"日立 mini2 价格", count:20, tags:["报价"], signal:"价格词用于校验42500是否合理。", judgment:"mini2价格不算离谱，但风险集中在住后体验。", next:"只和同配置一拖四6匹、同新风、同安装边界比较。"},
+      {id:54, brand:"mini2", brandName:"mini2", keyword:"日立 mini2 报价", count:20, tags:["报价"], signal:"报价词命中低价求助和装修花费。", judgment:"报价要看是否包含新风和升级项。", next:"拆国补、空调本体、新风、辅材、线控器和售后。"},
+      {id:55, brand:"mini2", brandName:"mini2", keyword:"日立 mini2 噪音", count:20, tags:["噪音","风险"], signal:"噪音词命中“真的好吵”、维修和低频候选。", judgment:"mini2风险信号最密。", next:"优先打开噪音帖读评论，记录分贝、房间、模式和售后结论。"},
+      {id:56, brand:"mini2", brandName:"mini2", keyword:"日立 mini2 主卧 噪音", count:20, tags:["主卧","噪音","风险"], signal:"主卧噪音词命中睡眠场景强负面。", judgment:"这是mini2暂不反超的核心原因。", next:"确认是否mini2精确型号，是否低风仍吵，能否调好。"},
+      {id:57, brand:"mini2", brandName:"mini2", keyword:"日立 mini2 水泵 噪音", count:20, tags:["水泵","风险"], signal:"水泵词命中咕噜声、低频和维修候选。", judgment:"水泵声是卧室吊顶机常见痛点。", next:"问主卧是否带泵、泵位置、减震、尾声和检修口。"},
+      {id:58, brand:"mini2", brandName:"mini2", keyword:"日立 mini2 冷媒声", count:20, tags:["冷媒声","风险"], signal:"冷媒声词命中维修、蒸发器和低频候选。", judgment:"冷媒声可维修，但代价可能是拆机和多次售后。", next:"记录是否换蒸发器、重焊铜管、抽真空和最终是否稳定。"},
+      {id:59, brand:"mini2", brandName:"mini2", keyword:"日立 mini2 低频 噪音", count:20, tags:["低频","风险"], signal:"低频词命中低频实测、售后和睡眠负面。", judgment:"低频最影响睡眠，且不容易靠参数判断。", next:"看机位、减震、同开率、低负荷和夜间场景。"},
+      {id:60, brand:"mini2", brandName:"mini2", keyword:"日立 mini2 外机 噪音", count:20, tags:["外机","风险"], signal:"外机词命中扰民、投诉和通用维修候选。", judgment:"外机低频会牵涉机位、邻里和整改。", next:"核外机型号、安装位置、通风、减震、邻里距离和整改结果。"}
+    ];
+
+    const candidates = [
+      {brand:"COLMO", title:"不要轻易选择colmo 谁买谁倒霉", meta:"新增候选；卡片数字 2；命中基础、价格和一拖四词", link:"https://www.xiaohongshu.com/explore/6a3378ad000000001003f5fd", why:"优先判断是安装问题、售后问题，还是机器/型号问题。"},
+      {brand:"COLMO", title:"Colmo科慕中央空调图灵二代这个价格合适吗？", meta:"新增候选；卡片数字 21；命中基础和一拖四词", link:"https://www.xiaohongshu.com/explore/69bcfffc000000001a0377ba", why:"用来校验图灵2一拖四、一拖五价格区间。"},
+      {brand:"COLMO", title:"风很大的COLMO中央空调，我先替你们试了", meta:"旧证据已收；卡片数字 36；命中噪音、水声、除湿", link:"https://www.xiaohongshu.com/explore/6825b963000000002202c7af", why:"继续核验低风量、回流声、水声和调试效果。"},
+      {brand:"COLMO", title:"COLMO新风负面样本", meta:"旧证据线索；命中新风得风率和管径", link:"https://www.xiaohongshu.com/explore/66e11426000000000c01927b", why:"重点不是“有没有新风”，而是得风率、孔径、管径和整改责任。"},
+      {brand:"尊睿2", title:"装修日记-中央空调+新风已定", meta:"旧证据已收；卡片数字 3；命中尊睿2多个基础词", link:"https://www.xiaohongshu.com/explore/6a04858900000000360303d7", why:"mini2加价升级尊睿2，关键理由是温湿平衡内机。"},
+      {brand:"尊睿2", title:"尊睿全效三管制温湿平衡拆机评测", meta:"旧证据已收；卡片数字 28；命中水声、冷媒声、启停", link:"https://www.xiaohongshu.com/explore/69984532000000001a026648", why:"高配路线不代表低负荷无风险，拆机和评论都要看。"},
+      {brand:"尊睿2", title:"日立尊睿中央空调制冷", meta:"旧证据已收；卡片数字 6；命中噪音、水声", link:"https://www.xiaohongshu.com/explore/6695397d000000000d00d466", why:"继续核验低风风噪、冷媒声、水声和启停。"},
+      {brand:"尊睿2", title:"跟日立售后扯了三个月，不如发一篇小红书。", meta:"既有售后风险线索", link:"https://www.xiaohongshu.com/explore/68c1aa06000000001d01ea1a", why:"高端线也要把售后响应和吊顶恢复责任写进合同。"},
+      {brand:"mini2", title:"日立mini2中央空调费电", meta:"旧证据已收；卡片数字 2；命中主卧、水泵、冷媒、低频", link:"https://www.xiaohongshu.com/explore/6a22ad160000000022008aa1", why:"被多组风险关键词同时命中，优先查电量、同开率和是否只开卧室。"},
+      {brand:"mini2", title:"日立，真的好吵。", meta:"旧证据已收；卡片数字 56；命中噪音和主卧噪音", link:"https://www.xiaohongshu.com/explore/66b39dda000000001e01cb63", why:"睡眠场景强相关，需要读分贝、模式、房间位置和售后判断。"},
+      {brand:"mini2", title:"中央空调噪音终于没啦", meta:"旧证据已收；卡片数字 434；命中水泵、冷媒、低频", link:"https://www.xiaohongshu.com/explore/6852bc7500000000100103c5", why:"说明噪音可能修好，但过程复杂，需记录拆机范围和维修次数。"},
+      {brand:"mini2", title:"日立中央空调制热效果差-时冷时热", meta:"新增候选；卡片数字 3；命中低负荷和冷媒声", link:"https://www.xiaohongshu.com/explore/6955f842000000001e0311d3", why:"指向低负荷、温度波动和售后处理，需要确认是否mini2精确型号。"},
+      {brand:"mini2", title:"日立中央空调避雷！！！外机噪音实在太夸张", meta:"新增候选；卡片数字 33；命中外机噪音", link:"https://www.xiaohongshu.com/explore/682cbf2c0000000023003b78", why:"关系到机位、减震、邻里距离和外机低频。"},
+      {brand:"mini2", title:"日立mini2你们买了多少钱？？？", meta:"新增候选；卡片数字 1；命中一拖四和双风扇", link:"https://www.xiaohongshu.com/explore/69f2fef90000000023016187", why:"用于校验42500元报价，必须拆新风、辅材、国补和质保。"}
+    ];
+
+    const rowBody = document.getElementById("searchRows");
+    const candidateGrid = document.getElementById("candidateGrid");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+
+    function tagHtml(tags) {
+      return tags.map(tag => {
+        const cls = tag.includes("风险") || tag.includes("投诉") || tag.includes("故障") ? "risk" : tag.includes("优势") ? "good" : tag.includes("报价") ? "warn" : "";
+        return `<span class="tag ${cls}">${tag}</span>`;
+      }).join("");
+    }
+
+    function renderRows(filter = "all") {
+      const rows = searchRows.filter(row => {
+        if (filter === "all") return true;
+        if (filter === "risk") return row.tags.some(tag => ["风险", "投诉", "故障", "噪音", "低频", "水声", "冷媒声", "外机", "售后"].includes(tag));
+        return row.brand === filter;
+      });
+
+      rowBody.innerHTML = rows.map(row => `
+        <tr>
+          <td>${row.id}</td>
+          <td>${row.brandName}</td>
+          <td><strong>${row.keyword}</strong><br>${tagHtml(row.tags)}</td>
+          <td>${row.count}</td>
+          <td>${row.signal}</td>
+          <td>${row.judgment}</td>
+          <td>${row.next}</td>
+        </tr>
+      `).join("");
+    }
+
+    function renderCandidates() {
+      candidateGrid.innerHTML = candidates.map(item => `
+        <article class="candidate">
+          <span class="tag">${item.brand}</span>
+          <h3><a href="${item.link}">${item.title}</a></h3>
+          <div class="meta">${item.meta}</div>
+          <p>${item.why}</p>
+        </article>
+      `).join("");
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        renderRows(button.dataset.filter);
+      });
+    });
+
+    renderRows();
+    renderCandidates();
+  </script>
+</body>
+</html>
