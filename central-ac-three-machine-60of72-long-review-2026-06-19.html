@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>基于60组小红书搜索的中央空调长评测：COLMO 图灵2 / 日立尊睿2 / 日立 mini2</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --ink: #16202c;
+      --muted: #607085;
+      --soft: #f5f7fa;
+      --panel: #ffffff;
+      --line: #dbe3ed;
+      --deep: #103c4a;
+      --colmo: #0f766e;
+      --zunrui: #2557b8;
+      --mini: #a95612;
+      --risk: #b42318;
+      --good: #067647;
+      --warn: #b54708;
+      --shadow: 0 16px 38px rgba(15, 23, 42, .08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.78;
+      background: #edf2f6;
+    }
+
+    a { color: #1d4ed8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(16, 60, 74, .98), rgba(37, 87, 184, .92)),
+        radial-gradient(circle at 78% 22%, rgba(255, 255, 255, .18), transparent 28%);
+      padding: 58px 0 42px;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      min-width: 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      gap: 30px;
+      align-items: end;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 850px;
+      margin-bottom: 18px;
+      font-size: clamp(34px, 5vw, 60px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: 30px;
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 21px;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 780px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, .88);
+      font-size: 18px;
+    }
+
+    .verdict {
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .13);
+      backdrop-filter: blur(10px);
+    }
+
+    .verdict .label {
+      margin-bottom: 8px;
+      color: rgba(255, 255, 255, .72);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .verdict strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 25px;
+      line-height: 1.25;
+    }
+
+    .verdict p {
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, .86);
+    }
+
+    main { padding-bottom: 48px; }
+    section { padding: 42px 0; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: -22px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat {
+      min-height: 112px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .stat b {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 31px;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .article {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 290px;
+      gap: 26px;
+      align-items: start;
+      min-width: 0;
+    }
+
+    .paper {
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      min-width: 0;
+    }
+
+    .paper p {
+      margin-bottom: 18px;
+      color: #2c3a4b;
+      font-size: 16px;
+    }
+
+    .paper .opening {
+      color: #111827;
+      font-size: 19px;
+      line-height: 1.72;
+    }
+
+    .aside {
+      position: sticky;
+      top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .side-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .side-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+      color: #334155;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .toc a:last-child { border-bottom: 0; }
+
+    .callout {
+      margin: 24px 0;
+      padding: 20px;
+      border: 1px solid #bfd0e5;
+      border-left: 5px solid #2557b8;
+      border-radius: 8px;
+      background: #f7fbff;
+    }
+
+    .callout p:last-child { margin-bottom: 0; }
+
+    .quote {
+      margin: 28px 0;
+      padding: 24px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      color: #1f2937;
+      font-size: 20px;
+      line-height: 1.65;
+      font-weight: 700;
+    }
+
+    .score-line {
+      display: grid;
+      gap: 10px;
+      margin: 22px 0 30px;
+    }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: 92px 1fr 46px;
+      gap: 12px;
+      align-items: center;
+      color: #334155;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .bar {
+      height: 11px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e2e8f0;
+    }
+
+    .bar span {
+      display: block;
+      width: var(--w);
+      height: 100%;
+      border-radius: 999px;
+      background: var(--c);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .pill.good { background: #ecfdf3; color: var(--good); }
+    .pill.warn { background: #fffaeb; color: var(--warn); }
+    .pill.risk { background: #fef3f2; color: var(--risk); }
+
+    .review-block {
+      margin: 26px 0;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .review-block.colmo { border-top: 5px solid var(--colmo); }
+    .review-block.zunrui { border-top: 5px solid var(--zunrui); }
+    .review-block.mini { border-top: 5px solid var(--mini); }
+
+    .evidence-list {
+      margin: 14px 0 0;
+      padding-left: 20px;
+      color: #334155;
+    }
+
+    .evidence-list li { margin-bottom: 9px; }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 22px 0;
+    }
+
+    .matrix-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdff;
+    }
+
+    .matrix-card p { margin-bottom: 0; }
+
+    details {
+      margin: 14px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 14px 16px;
+      color: #1f2937;
+      font-weight: 800;
+    }
+
+    .detail-body {
+      padding: 0 16px 16px;
+      color: #334155;
+    }
+
+    .detail-body ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .detail-body li { margin-bottom: 8px; }
+
+    .table-scroll {
+      overflow-x: auto;
+      max-width: 100%;
+      margin: 20px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 780px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #475569;
+      white-space: nowrap;
+    }
+
+    tbody tr:last-child td { border-bottom: 0; }
+
+    footer {
+      padding: 28px 0 42px;
+      color: var(--muted);
+      font-size: 13px;
+      background: #e7edf4;
+    }
+
+    @media (max-width: 900px) {
+      header { padding: 40px 0 30px; }
+      .hero, .article, .stats, .matrix { grid-template-columns: 1fr; }
+      .stats { margin-top: 18px; }
+      .paper { padding: 24px 18px; }
+      .aside { position: static; }
+      .score-row { grid-template-columns: 76px 1fr 42px; }
+      h2 { font-size: 25px; }
+      .lead, .paper .opening { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div>
+        <h1>基于 60 组小红书搜索的中央空调长评测</h1>
+        <p class="lead">对象是 103 平一拖四里的三套方案：COLMO 图灵2 + 新风、日立尊睿2 + 新风、日立 mini2 + 新风。本文把 60 组搜索线索整合成一篇连续评测，不新增浏览，也不把搜索卡片当成已读评论。</p>
+      </div>
+      <aside class="verdict">
+        <div class="label">阶段结论</div>
+        <strong>COLMO 暂排第一，尊睿2进入决赛圈，mini2暂不反超。</strong>
+        <p>这不是最终定论。它只说明：在已有 60/72 组搜索里，COLMO 的价格和除湿路线仍占优；尊睿2值不值取决于配置验收；mini2的噪音和低负荷风险需要优先深读。</p>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap stats">
+        <div class="stat"><b>60/72</b><span>已完成搜索关键词，不是 60 个已深读帖子</span></div>
+        <div class="stat"><b>502</b><span>搜索页去重候选</span></div>
+        <div class="stat"><b>410</b><span>旧证据库未收过的新候选</span></div>
+        <div class="stat"><b>0</b><span>本阶段新增详情页评论审计</span></div>
+        <div class="stat"><b>61</b><span>下一步断点：日立 mini2 除湿</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap article">
+        <article class="paper">
+          <p class="opening">如果只看销售话术，这三套方案都能讲出自己的好处：COLMO 说三管制和控湿，尊睿2说温湿平衡，mini2说成熟稳定和日立体系。但这 60 组搜索把问题拉回到真实入住：新风到底有没有风，梅雨季能不能不冷地除湿，夜里只开主卧会不会启停、异响、低频，出了问题谁负责拆吊顶和恢复。</p>
+
+          <div class="quote">这轮搜索之后，真正的排序逻辑不是“哪个品牌高级”，而是“谁能把关键风险写清、测出来、验收过”。</div>
+
+          <section id="boundary">
+            <h2>一、先说证据边界：这是一篇搜索线索评测，不是全量评论审计</h2>
+            <p>这 60 组搜索覆盖 COLMO 24 组、日立尊睿2 24 组、日立 mini2 12 组。它的价值在于扩大候选池，帮我们知道下一步该优先打开哪些详情页；它的局限也很明确：本阶段没有新增详情页评论审计，搜索页卡片上的数字只能当优先级线索，不能直接当评论结论。</p>
+            <p>这一点很重要。比如一个帖子卡片数字很高，只能说明它可能值得读；它可能是商家宣传、暖通科普、价格求助，也可能是真实住后投诉。只有进入详情页，看正文、评论、作者回复、是否视频、视频能看到什么，才有资格把它升级成强证据。</p>
+            <div class="callout">
+              <p><strong>本文的评测口径：</strong>把已完成的 60 组搜索合并成阶段判断；所有涉及评论、视频和真实住后体验的部分，仍以“待深读”“待核验”表述，不伪装成已经完整看完。</p>
+            </div>
+          </section>
+
+          <section id="rank">
+            <h2>二、综合排序：COLMO 仍第一，但第一不是无条件放心</h2>
+            <p>如果报价不变，当前排序仍是 COLMO 图灵2 + 新风第一，日立尊睿2 + 新风第二，日立 mini2 + 新风第三。原因很简单：COLMO 的价格和除湿路线仍最贴近你的核心需求；尊睿2虽然更贴“温湿平衡”，但 49000 元必须换来真实配置和夜间验收；mini2虽然成熟，但已完成的 12 组里，噪音、外机、低频、冷媒声、水泵声和能耗候选过于密集。</p>
+            <div class="score-line">
+              <div class="score-row"><span>COLMO</span><div class="bar"><span style="--w:82%;--c:var(--colmo)"></span></div><span>暂一</span></div>
+              <div class="score-row"><span>尊睿2</span><div class="bar"><span style="--w:74%;--c:var(--zunrui)"></span></div><span>备选</span></div>
+              <div class="score-row"><span>mini2</span><div class="bar"><span style="--w:61%;--c:var(--mini)"></span></div><span>待补</span></div>
+            </div>
+            <p>但这不是说 COLMO 已经稳赢。COLMO 的问题集中在“新风证据弱”和“三管制复杂度”。如果新风只写“套餐含新风”，不写主机型号、管径、风量、滤芯、检修口和风量仪实测，那 COLMO 的第一名就不稳。如果三管制只讲卖点，不验回流声、水声、水泵尾声和本地售后，那它的低价也可能被后期麻烦吃掉。</p>
+          </section>
+
+          <section id="colmo">
+            <h2>三、COLMO 图灵2：最像“正确方向”，但需要把新风和售后钉死</h2>
+            <div class="review-block colmo">
+              <div class="pill-row">
+                <span class="pill good">价格优势</span>
+                <span class="pill good">除湿路线贴题</span>
+                <span class="pill risk">新风得风率待验</span>
+                <span class="pill risk">三管制复杂度</span>
+              </div>
+              <p>COLMO 完成 24/24 组搜索，搜索页可见候选累计 531 张。关键词覆盖基础口碑、一拖四、价格、噪音、异响、主卧噪音、低频、水声、回流声、除湿、控湿、三管制、新风、得风率、管径、滤芯、售后、修不停、投诉和住后体验。</p>
+              <p>这组搜索给出的主线很清楚：COLMO 图灵2的优势不是品牌光环，而是 38000 元价格下，三管制、双蒸发器、控温控湿这些路线更接近“梅雨季不太冷也能降湿”的需求。和 mini2 相比，它至少在除湿逻辑上更贴题；和尊睿2相比，它省下的价差足够买很多确定性。</p>
+              <p>风险也同样清楚。第一是新风，尤其是得风率、管径、打孔和整改。搜索里“COLMO 新风 得风率”出现 40 张可见候选，说明这不是边缘问题。新风不等于风真的到房间，风口漂亮也不等于每个卧室有足够风量。第二是三管制系统复杂，水声、回流声、提升泵、排水和本地售后都要提前验。第三是型号和报价容易写虚，图灵2、图灵二代、线控器、内机型号必须写清。</p>
+              <ul class="evidence-list">
+                <li><a href="https://www.xiaohongshu.com/explore/69bcfffc000000001a0377ba">Colmo科慕中央空调图灵二代这个价格合适吗？</a>：用于校验图灵2一拖四、一拖五价格区间。</li>
+                <li><a href="https://www.xiaohongshu.com/explore/6a3378ad000000001003f5fd">不要轻易选择colmo 谁买谁倒霉</a>：负面候选，需要深读评论判断是安装、售后还是机器问题。</li>
+                <li><a href="https://www.xiaohongshu.com/explore/66e11426000000000c01927b">COLMO新风负面样本</a>：重点不是滤芯，而是得风率、孔径、管径和整改责任。</li>
+                <li><a href="https://www.xiaohongshu.com/explore/6825b963000000002202c7af">风很大的COLMO中央空调，我先替你们试了</a>：继续核验低风量、回流声、水声和调试效果。</li>
+              </ul>
+            </div>
+            <p>所以，COLMO 的正确用法不是“直接下单”。正确用法是拿它当默认首选，同时把销售最容易含糊的东西写进纸面：外机、内机、线控器、新风主机、每个风口设计风量、主管和支管管径、滤芯型号和单价、排水路径、噪音测试、冷凝水测试、售后响应和吊顶恢复责任。谁写不清，谁就把 COLMO 的价格优势打折。</p>
+          </section>
+
+          <section id="zunrui">
+            <h2>四、日立尊睿2：不是自动更稳，而是“高价买确定性”的备选</h2>
+            <div class="review-block zunrui">
+              <div class="pill-row">
+                <span class="pill good">温湿平衡路线</span>
+                <span class="pill good">日立新风资料更透明</span>
+                <span class="pill warn">49000 要拆单</span>
+                <span class="pill risk">低负荷不能免检</span>
+              </div>
+              <p>尊睿2完成 24/24 组搜索，搜索页可见候选累计 480 张。搜索覆盖尊睿2、尊睿全效2、尊睿全效二代、尊睿二代、一拖四、价格、报价、噪音、主卧噪音、水声、冷媒声、频繁启停、低负荷、故障、售后、温湿平衡、除湿、三管制、新风、云净新风、住后体验和缺点。</p>
+              <p>它能进决赛圈，原因不是“日立更大牌”，而是温湿平衡这条路线确实贴近你的需求。特别是“装修日记-中央空调+新风已定”这类样本，显示有人从 mini2 加价升级尊睿2，关键理由正是温湿平衡内机。如果 49000 元包含真实三管温湿内机、清楚的新风型号、合理辅材、明确线控器和封板前验收，那尊睿2就不是离谱报价。</p>
+              <p>但尊睿2的问题是：它的价值成立条件很窄。外机叫尊睿，不代表每台内机都是温湿平衡内机；高配三管，也不代表夜里只开主卧就不会频繁启停、忽冷忽热、冷媒声、水声或风噪突增。搜索里“低负荷”“频繁启停”“冷媒声”“水声”“售后”都已经补齐，说明它不能免检。</p>
+              <ul class="evidence-list">
+                <li><a href="https://www.xiaohongshu.com/explore/6a04858900000000360303d7">装修日记-中央空调+新风已定</a>：mini2 加价升级尊睿2，关键理由是温湿平衡内机。</li>
+                <li><a href="https://www.xiaohongshu.com/explore/69984532000000001a026648">尊睿全效三管制温湿平衡拆机评测</a>：高配路线不代表低负荷无风险，拆机和评论仍要看。</li>
+                <li><a href="https://www.xiaohongshu.com/explore/6695397d000000000d00d466">日立尊睿中央空调制冷</a>：继续核验低风风噪、冷媒声、水声和启停。</li>
+                <li><a href="https://www.xiaohongshu.com/explore/68c1aa06000000001d01ea1a">跟日立售后扯了三个月，不如发一篇小红书</a>：高端线也要把售后响应和吊顶恢复责任写进合同。</li>
+              </ul>
+            </div>
+            <p>尊睿2最合理的位置，是“高配备选”。如果商家愿意把 49000 拆成空调本体、新风、安装、升级温湿内机、线控器、辅材、保修和验收责任，并且愿意在封板前做主卧夜间低负荷测试，那它有资格和 COLMO 竞争。反过来，如果配置拆不清、主卧内机说不清、新风型号说不清，那它只是更贵，不是更稳。</p>
+          </section>
+
+          <section id="mini">
+            <h2>五、日立 mini2：成熟不是没风险，已完成12组里噪音信号太密</h2>
+            <div class="review-block mini">
+              <div class="pill-row">
+                <span class="pill good">成熟度高</span>
+                <span class="pill good">价格可校验</span>
+                <span class="pill risk">主卧噪音密集</span>
+                <span class="pill risk">除湿和新风还没补完</span>
+              </div>
+              <p>mini2 目前只完成 12/24 组搜索，搜索页可见候选累计 240 张。已经覆盖中央空调、VAM mini2、一拖四、双风扇一拖四、价格、报价、噪音、主卧噪音、水泵噪音、冷媒声、低频噪音和外机噪音。还没完成除湿、费电、售后、故障、新风、云净新风、天净新风、云镜新风、VAM mini2 双风扇、缺点、住后体验和一拖四6匹。</p>
+              <p>这意味着 mini2 不能被直接判死，因为最关键的除湿、新风、售后和住后体验还没补完。但也不能把它反超，因为已经完成的 12 组里，负面信号太集中。主卧噪音、水泵声、冷媒声、低频、外机噪音、制热时冷时热、费电和售后维修复杂度都在同一批候选里反复出现。</p>
+              <p>mini2 的优势是成熟、样本多、价格容易横比，日立新风体系也更容易问到型号和滤芯。但对你这个场景，最大问题不是白天制冷够不够，而是夜里只开主卧是否安静、低负荷是否稳定、梅雨季除湿是否不越除越冷。只要这些没有被详情页和评论证明，mini2就只能暂排第三。</p>
+              <ul class="evidence-list">
+                <li><a href="https://www.xiaohongshu.com/explore/6a22ad160000000022008aa1">日立mini2中央空调费电</a>：被主卧噪音、水泵、冷媒、低频多组命中。</li>
+                <li><a href="https://www.xiaohongshu.com/explore/66b39dda000000001e01cb63">日立，真的好吵</a>：睡眠场景强相关，需要核验分贝、模式、房间位置和售后判断。</li>
+                <li><a href="https://www.xiaohongshu.com/explore/6852bc7500000000100103c5">中央空调噪音终于没啦</a>：说明噪音可能可修，但过程可能复杂。</li>
+                <li><a href="https://www.xiaohongshu.com/explore/6955f842000000001e0311d3">日立中央空调制热效果差-时冷时热</a>：指向低负荷、温度波动和售后处理。</li>
+                <li><a href="https://www.xiaohongshu.com/explore/682cbf2c0000000023003b78">日立中央空调避雷，外机噪音实在太夸张</a>：关系到机位、减震、邻里距离和外机低频。</li>
+                <li><a href="https://www.xiaohongshu.com/explore/69f2fef90000000023016187">日立mini2你们买了多少钱</a>：用于校验 42500 元报价。</li>
+              </ul>
+            </div>
+            <p>mini2 后续最该补的是第 61 组开始的剩余搜索。先查除湿，再查费电、售后、故障、新风和住后体验。如果这些后续深读能证明：主卧低风安静、除湿体感可接受、同开率下能耗合理、新风型号和滤芯清楚、售后处理顺畅，那么 mini2 可以重新进入竞争。现在还不够。</p>
+          </section>
+
+          <section id="dimensions">
+            <h2>六、四个关键维度：真正影响入住体感的不是参数表</h2>
+            <div class="matrix">
+              <div class="matrix-card">
+                <h3>新风</h3>
+                <p>日立体系更容易问清新风型号和滤芯，COLMO 的强缺口是得风率。所有方案都必须写主机型号、主管/支管管径、每个风口设计风量、滤芯型号和封板前风量仪实测。</p>
+              </div>
+              <div class="matrix-card">
+                <h3>除湿</h3>
+                <p>COLMO 和尊睿2路线更贴题，mini2还缺除湿深搜。验收不能只看“有除湿模式”，要主卧单开 30-60 分钟，看湿度下降、温度变化、启停和水声。</p>
+              </div>
+              <div class="matrix-card">
+                <h3>稳定性</h3>
+                <p>103 平一拖四白天负荷不难，难的是夜里只开主卧。低负荷时的启停、忽冷忽热、冷媒声和售后责任，比品牌名更重要。</p>
+              </div>
+              <div class="matrix-card">
+                <h3>噪音</h3>
+                <p>噪音要拆成风噪、冷媒声、水泵声、水声、回流声、低频共振和外机噪音。实验室“低至17dB”不能代表床头夜间体感。</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="sixty">
+            <h2>七、60组搜索怎么整合：不是平均投票，而是按风险权重归类</h2>
+            <p>这 60 组不是平均重要。基础词和价格词负责确认讨论热度与报价区间；噪音、低频、水声、冷媒声、外机和售后词负责找反证；除湿、新风、温湿平衡词负责验证你的核心需求；住后体验词权重最高，因为它更接近真实使用。</p>
+            <details open>
+              <summary>COLMO 24组整合</summary>
+              <div class="detail-body">
+                <ol>
+                  <li>基础与价格：图灵2、图灵二代、一拖四、价格、报价，支持 38000 价格有比较价值，但必须拆配置。</li>
+                  <li>噪音与复杂度：噪音、异响、主卧噪音、低频、水声、回流声，指向三管制和安装调试风险。</li>
+                  <li>除湿路线：除湿、除湿不降温、控湿、三管制，支持 COLMO 路线最贴梅雨季需求，但仍要实测。</li>
+                  <li>新风与售后：新风、得风率、管径、滤芯、售后、修不停、投诉、住后体验，说明新风和本地售后是最大不确定性。</li>
+                </ol>
+              </div>
+            </details>
+            <details>
+              <summary>尊睿2 24组整合</summary>
+              <div class="detail-body">
+                <ol>
+                  <li>基础与报价：尊睿2、尊睿全效2、尊睿全效二代、尊睿二代、一拖四、价格、报价，说明命名和配置必须写清。</li>
+                  <li>噪音与低负荷：噪音、主卧噪音、水声、冷媒声、频繁启停、低负荷，说明尊睿2不能免检。</li>
+                  <li>配置价值：温湿平衡、除湿、三管制、新风、云净新风，构成它进入决赛圈的理由。</li>
+                  <li>反证：故障、售后、住后体验、缺点，提醒高价不等于售后和低负荷自动稳。</li>
+                </ol>
+              </div>
+            </details>
+            <details>
+              <summary>mini2 12组整合</summary>
+              <div class="detail-body">
+                <ol>
+                  <li>基础与报价：mini2、VAM mini2、一拖四、双风扇一拖四、价格、报价，能校验 42500 是否合理。</li>
+                  <li>噪音风险：噪音、主卧噪音、水泵噪音、冷媒声、低频噪音、外机噪音，形成当前最强负面信号。</li>
+                  <li>证据缺口：除湿、费电、售后、故障、新风、住后体验还没补完，所以不能终局判断。</li>
+                </ol>
+              </div>
+            </details>
+          </section>
+
+          <section id="decision">
+            <h2>八、如果现在就要推进，应该怎么和商家谈</h2>
+            <p>不要再问“哪个品牌更好”。更有效的问题是：这套报价能不能把风险写清，能不能在封板前测出来，测不达标谁整改。用这个标准去压三家，结果会比听销售讲品牌故事可靠。</p>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>方案</th>
+                    <th>现在的谈判重点</th>
+                    <th>过不了就淘汰</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>COLMO 图灵2 + 新风</td>
+                    <td>锁定型号、线控器、新风主机、得风率、管径、滤芯、回流声、水声、售后响应。</td>
+                    <td>新风只写套餐、风量不实测、三管制和售后责任说不清。</td>
+                  </tr>
+                  <tr>
+                    <td>日立尊睿2 + 新风</td>
+                    <td>拆清 49000 的构成，确认主卧温湿平衡内机、三管内机、线控器、新风型号和夜间验收。</td>
+                    <td>外机叫尊睿但内机不清楚，低负荷噪音和启停不愿测。</td>
+                  </tr>
+                  <tr>
+                    <td>日立 mini2 + 新风</td>
+                    <td>确认双风扇外机、主卧内机、水泵、冷媒声、外机低频、新风型号和除湿表现。</td>
+                    <td>只能讲成熟稳定，拿不出主卧夜间和低负荷验收方案。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout">
+              <p><strong>当前可执行结论：</strong>报价不变时，先按 COLMO 继续推进，但把新风和噪音验收写得很硬；尊睿2只有配置和验收都清楚才值得加钱；mini2暂不反超，等剩余 12 组搜索和详情页深读后再复议。</p>
+            </div>
+          </section>
+
+          <section id="links">
+            <h2>九、关联材料</h2>
+            <ul class="evidence-list">
+              <li><a href="./central-ac-three-machine-60of72-search-summary-2026-06-19.html">表格版：小红书三机扩搜 60/72 搜索详细总结</a></li>
+              <li><a href="./xiaohongshu-central-ac-three-machine-60of72-evidence-digest-2026-06-19.md">Markdown：小红书三机扩搜 60/72 证据整理稿</a></li>
+              <li><a href="./xiaohongshu-central-ac-three-machine-expanded-search-log-2026-06-18.md">原始日志：小红书三机扩搜阶段日志</a></li>
+              <li><a href="./central-ac-hitachi-colmo-decision-report-2026-06-16.html">主决策页：COLMO 图灵2 vs 日立尊睿2 vs 日立 mini2</a></li>
+            </ul>
+          </section>
+        </article>
+
+        <aside class="aside">
+          <div class="side-card toc">
+            <h3>阅读导航</h3>
+            <a href="#boundary">证据边界</a>
+            <a href="#rank">综合排序</a>
+            <a href="#colmo">COLMO 评测</a>
+            <a href="#zunrui">尊睿2 评测</a>
+            <a href="#mini">mini2 评测</a>
+            <a href="#dimensions">四个关键维度</a>
+            <a href="#decision">商家谈判重点</a>
+          </div>
+          <div class="side-card">
+            <h3>一句话</h3>
+            <p>60组搜索没有推翻原排序，但把“要验什么”变得更明确：COLMO验新风，尊睿2验配置和低负荷，mini2验主卧噪音和剩余除湿/新风证据。</p>
+          </div>
+          <div class="side-card">
+            <h3>不能误读</h3>
+            <p>本页不是新增评论审计。搜索卡片、标题和视频封面只能做线索；强结论必须等详情页和评论互证。</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      数据来源：2026-06-18 三机扩搜阶段日志、2026-06-19 60/72 证据整理稿、主决策页与既有证据库。本页没有继续浏览小红书，没有新增评论读取；所有未进入详情页复核的内容均按搜索线索处理。
+    </div>
+  </footer>
+</body>
+</html>

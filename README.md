@@ -13,6 +13,7 @@
 - [小红书中央空调三管制噪音专项证据：COLMO 图灵2 / 日立三管](./xiaohongshu-central-ac-three-pipe-noise-evidence-2026-06-16.md)
 - [中央空调噪音深度报告：日立 mini2 vs COLMO 图灵2](./central-ac-noise-deep-dive-report-2026-06-16.html)
 - [103平一拖四中央空调决策：COLMO 图灵2 vs 日立尊睿2 vs 日立 mini2](./central-ac-hitachi-colmo-decision-report-2026-06-16.html)
+- [小红书三机扩搜 60/72 长评测网页：COLMO 图灵2 / 日立尊睿2 / 日立 mini2](./central-ac-three-machine-60of72-long-review-2026-06-19.html)
 - [小红书三机扩搜 60/72 搜索详细总结网页：COLMO 图灵2 / 日立尊睿2 / 日立 mini2](./central-ac-three-machine-60of72-search-summary-2026-06-19.html)
 - [小红书三机扩搜 60/72 证据整理稿：COLMO 图灵2 / 日立尊睿2 / 日立 mini2](./xiaohongshu-central-ac-three-machine-60of72-evidence-digest-2026-06-19.md)
 - [小红书三机扩搜阶段日志：COLMO 图灵2 / 日立尊睿2 / 日立 mini2](./xiaohongshu-central-ac-three-machine-expanded-search-log-2026-06-18.md)
