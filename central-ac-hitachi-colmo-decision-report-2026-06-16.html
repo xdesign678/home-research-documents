@@ -236,6 +236,86 @@
       min-width: 980px;
     }
 
+    .dimension-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .dimension-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 10px 24px rgba(30, 48, 66, .05);
+    }
+
+    .dimension-kicker {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .dimension-card h3 {
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .dimension-card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .dimension-rank {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .rank-chip {
+      border-left: 3px solid var(--line);
+      padding: 0 0 0 10px;
+      min-height: 0;
+    }
+
+    .rank-chip strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      color: #263640;
+    }
+
+    .rank-chip span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .evidence-list {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .evidence-list li {
+      margin: 6px 0;
+    }
+
+    .action-line {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
     .evidence {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -331,8 +411,13 @@
     @media (max-width: 860px) {
       .hero,
       .option-grid,
+      .dimension-grid,
       .evidence,
       .checklist {
+        grid-template-columns: 1fr;
+      }
+
+      .dimension-rank {
         grid-template-columns: 1fr;
       }
 
@@ -541,6 +626,82 @@
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>4 个关键维度详解</h2>
+        <p class="note">这四项直接决定你住进去后的体感：有没有真新风、梅雨季能不能舒服除湿、夜里只开主卧稳不稳、睡觉会不会被吵醒。</p>
+        <div class="dimension-grid">
+          <article class="dimension-card">
+            <div class="dimension-kicker">🌬️ 新风</div>
+            <h3>日立资料更透明，COLMO必须补得风率</h3>
+            <p>新风不是“套餐里有就行”。真正要看的是风有没有送到房间、主机和风口吵不吵、滤芯后期贵不贵、管径和检修口是否合理。</p>
+            <div class="dimension-rank">
+              <div class="rank-chip"><strong>COLMO</strong><span>最大不确定项。公开样本少，负面集中在得风率、110/160 管径、打孔和整改。</span></div>
+              <div class="rank-chip"><strong>尊睿2</strong><span>同属日立新风体系，型号和滤芯资料更容易查，但仍要独立验收。</span></div>
+              <div class="rank-chip"><strong>mini2</strong><span>新风资料厚度和尊睿2接近，优势是可问清天净/云净/云镜/Q5具体型号。</span></div>
+            </div>
+            <ul class="evidence-list">
+              <li><a href="https://www.xiaohongshu.com/explore/66e11426000000000c01927b">COLMO新风负面样本</a>：重点不是滤芯，而是得风率、孔径、管径和售后整改。</li>
+              <li><a href="https://www.xiaohongshu.com/explore/68ec6e770000000007014879">日立新风配置样本</a>：约 10800 元报价，同时提醒 350 风量主机主管管径要核实。</li>
+              <li><a href="https://www.xiaohongshu.com/explore/67149f4e000000001402c640">日立新风滤芯样本</a>：自己换能省钱，但必须确认滤芯数量、型号和检修口。</li>
+            </ul>
+            <div class="action-line">验收重点：完整型号、额定风量、每个风口实测风量、主管/支管管径、滤芯价格、检修口位置。</div>
+          </article>
+
+          <article class="dimension-card">
+            <div class="dimension-kicker">💧 除湿</div>
+            <h3>COLMO和尊睿2更贴题，mini2是弱项</h3>
+            <p>你关心的是梅雨季“不太冷也能降湿”。普通制冷除湿容易越除越冷；三管制、双蒸发器、温湿平衡这类路线更贴近需求，但必须落到具体内机和控制方式。</p>
+            <div class="dimension-rank">
+              <div class="rank-chip"><strong>COLMO</strong><span>图灵2主打三管制、双蒸发器、控温控湿，除湿路线最贴题。</span></div>
+              <div class="rank-chip"><strong>尊睿2</strong><span>卖点是温湿独立、三种除湿模式，但真实住后样本仍偏少。</span></div>
+              <div class="rank-chip"><strong>mini2</strong><span>有除湿参数，但更像普通多联机路线，主卧体感依赖内机和调试。</span></div>
+            </div>
+            <ul class="evidence-list">
+              <li><a href="https://www.xiaohongshu.com/explore/6a04858900000000360303d7">尊睿2升级样本</a>：mini2 加价后选择尊睿2，关键理由是升级温湿平衡内机。</li>
+              <li><a href="https://www.xiaohongshu.com/explore/69ce4e2c000000001d01af63">尊睿2配置反证</a>：外机叫尊睿不代表每台内机都是三管温湿内机。</li>
+              <li><a href="./xiaohongshu-central-ac-hitachi-colmo-full-evidence-2026-06-16.md">全量证据库</a>：COLMO得分主要来自控湿路线和价格优势，但型号、线控器和安装必须写清。</li>
+            </ul>
+            <div class="action-line">验收重点：主卧是否温湿平衡内机、除湿模式是否可独立测试、湿度目标能否稳定、会不会越除越冷。</div>
+          </article>
+
+          <article class="dimension-card">
+            <div class="dimension-kicker">🧱 稳定性</div>
+            <h3>别迷信老牌，低负荷和售后责任更关键</h3>
+            <p>103 平一拖四白天负荷不算低，真正难的是夜里只开主卧。多联机在低负荷下可能启停、忽冷忽热、冷媒声变明显，售后如果只说“正常”，后面会很被动。</p>
+            <div class="dimension-rank">
+              <div class="rank-chip"><strong>COLMO</strong><span>价格低，容错高；风险是型号写虚、三管调试和本地售后协同。</span></div>
+              <div class="rank-chip"><strong>尊睿2</strong><span>高配但不等于稳。低负荷启停、真实样本少、售后责任要写死。</span></div>
+              <div class="rank-chip"><strong>mini2</strong><span>成熟度较高，但日立体系里也看到噪音、酸臭、维修反复和制热能耗争议。</span></div>
+            </div>
+            <ul class="evidence-list">
+              <li><a href="https://www.xiaohongshu.com/explore/6a20979e00000000380344ad">尊睿启停样本</a>：卧室到温后仍热、频繁启动、噪音变大，是主卧低负荷风险信号。</li>
+              <li><a href="https://www.xiaohongshu.com/explore/68c2690e000000001d00e746">尊睿能耗/低频样本</a>：通过低频设置改善舒适度，但后半夜两三台内机仍涉及启停。</li>
+              <li><a href="https://www.xiaohongshu.com/explore/6689493e000000001c026c73">尊睿售后负面样本</a>：高端线也可能出现反复故障，不能靠品牌名替代合同责任。</li>
+            </ul>
+            <div class="action-line">验收重点：只开主卧连续运行、启停间隔、温湿度波动、故障响应时限、拆吊顶恢复责任。</div>
+          </article>
+
+          <article class="dimension-card">
+            <div class="dimension-kicker">🔇 噪音</div>
+            <h3>按已深读证据，COLMO略占优，但都要实测</h3>
+            <p>噪音不是一个声音。风噪、冷媒声、水泵声、回流声、低频共振、外机声都不一样。实验室“低至17dB”不能代表你家床头夜间体感。</p>
+            <div class="dimension-rank">
+              <div class="rank-chip"><strong>COLMO</strong><span>强噪音样本少一些，但三管制回流声、水声、带泵内机仍要严验。</span></div>
+              <div class="rank-chip"><strong>尊睿2</strong><span>不能免检。看到低风风噪、冷媒/水声和低负荷启停相关样本。</span></div>
+              <div class="rank-chip"><strong>mini2</strong><span>日立噪音样本更密集，尤其卧室低风、水泵、冷媒和外机低频。</span></div>
+            </div>
+            <ul class="evidence-list">
+              <li><a href="./xiaohongshu-central-ac-noise-special-evidence-2026-06-16.md">噪音专项证据</a>：新增 25 条噪音/稳定性详情，日立强噪音样本更集中。</li>
+              <li><a href="https://www.xiaohongshu.com/explore/68bb9eda000000001d0069b8">尊睿内机噪音样本</a>：低风仍会突然风噪变大，并伴随冷媒声、水声线索。</li>
+              <li><a href="https://www.xiaohongshu.com/explore/6881f1c6000000000b02d83a">日立噪音维修样本</a>：冷媒声可维修改善，但过程可能涉及拆机、焊接和多次售后。</li>
+            </ul>
+            <div class="action-line">验收重点：主卧床头最低风量 30 分钟、除湿模式、启动/停机/再启动、水泵尾声、外机低频。</div>
+          </article>
         </div>
       </div>
     </section>
