@@ -2,6 +2,11 @@
 
 本仓库用于保存本地调研文档、可视化报告网页和证据底稿。
 
+## 全屋智能
+
+- [103 平全屋智能决策：小米/米家 vs 华为鸿蒙智家](./smart-home-xiaomi-huawei-decision-2026-06-19.html)
+- [小红书全屋智能研究证据沉淀：小米/米家 vs 华为鸿蒙智家](./xiaohongshu-smart-home-xiaomi-huawei-evidence-2026-06-19.md)
+
 ## 深圳装修监理
 
 - [深圳装修监理决策报告：装小蜜 vs 牛角监](./shenzhen-renovation-supervision-comparison.html)
