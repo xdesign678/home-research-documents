@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>103 平全屋智能决策：米家 vs 绿米 Aqara vs 易来 Pro</title>
+<link rel="icon" href="data:,">
+<style>
+:root {
+  --paper: #fbfaf7;
+  --surface: #ffffff;
+  --ink: #171815;
+  --body: #42443d;
+  --muted: #707368;
+  --line: #deddd5;
+  --soft: #f1f0ea;
+  --green: #537b63;
+  --blue: #4d6f91;
+  --amber: #b7773d;
+  --red: #a9564c;
+  --shadow: 0 16px 36px rgba(33, 34, 30, .08);
+  --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --serif: "Noto Serif SC", Georgia, "Times New Roman", serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--body); font-family: var(--serif); font-size: 17px; line-height: 1.7; }
+a { color: inherit; text-underline-offset: .22em; text-decoration-color: rgba(23,24,21,.32); }
+a:hover { text-decoration-color: rgba(23,24,21,.72); }
+nav { position: sticky; top: 0; z-index: 10; background: rgba(251,250,247,.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.nav-inner { width: min(1120px, calc(100vw - 32px)); min-height: 64px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.brand, .nav-links, h1, h2, h3, .eyebrow, .metric b, th, td, .pill, .score, .tag, .delta { font-family: var(--sans); }
+.brand { color: var(--ink); font-weight: 650; font-size: 15px; white-space: nowrap; }
+.nav-links { display: flex; gap: 16px; overflow-x: auto; white-space: nowrap; }
+.nav-links a { min-height: 44px; display: inline-flex; align-items: center; color: var(--muted); text-decoration: none; font-size: 14px; }
+.nav-links a:hover { color: var(--ink); }
+main { width: min(1120px, calc(100vw - 32px)); margin: 0 auto; }
+section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+.hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); gap: 28px; align-items: start; padding-top: 80px; }
+.eyebrow { margin: 0 0 16px; color: var(--blue); font-size: 12px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; }
+h1 { margin: 0 0 22px; color: var(--ink); font-size: clamp(2.45rem, 1.95rem + 2vw, 4rem); line-height: 1.08; letter-spacing: 0; }
+h2 { margin: 0 0 24px; color: var(--ink); font-size: clamp(1.7rem, 1.5rem + .7vw, 2.25rem); line-height: 1.2; letter-spacing: 0; }
+h3 { margin: 0 0 12px; color: var(--ink); font-size: 1.12rem; line-height: 1.35; letter-spacing: 0; }
+p { margin: 0 0 16px; }
+.lead { max-width: 760px; color: var(--body); font-size: clamp(1.08rem, 1rem + .25vw, 1.22rem); }
+.card, .metric, .note, .choice, .evidence { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: none; }
+.card { padding: 24px; }
+.hero-card { border-top: 4px solid var(--green); box-shadow: var(--shadow); }
+.hero-card strong { display: block; color: var(--ink); font-family: var(--sans); font-size: 1.55rem; line-height: 1.25; margin-bottom: 14px; }
+.muted { color: var(--muted); }
+.metrics { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+.metric { padding: 20px; min-width: 0; }
+.metric b { display: block; color: var(--ink); font-size: 2rem; line-height: 1; margin-bottom: 8px; }
+.metric span { color: var(--muted); font-family: var(--sans); font-size: 14px; }
+.score-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+.score-card { padding: 22px; min-width: 0; }
+.score { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.score b { color: var(--ink); font-size: 3rem; line-height: 1; }
+.score span { color: var(--muted); font-size: 13px; }
+.rank-1 { border-top: 4px solid var(--green); }
+.rank-2 { border-top: 4px solid var(--blue); }
+.rank-3 { border-top: 4px solid var(--amber); }
+.pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.pill, .tag { min-height: 30px; display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; background: var(--soft); color: var(--muted); padding: 4px 10px; font-size: 12px; }
+.table-wrap { overflow-x: auto; min-width: 0; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { width: 100%; min-width: 860px; border-collapse: collapse; }
+th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left; font-size: 14px; vertical-align: top; }
+th { color: var(--ink); background: var(--soft); font-weight: 650; }
+tr:last-child td { border-bottom: 0; }
+.delta { font-weight: 700; }
+.up { color: var(--green); }
+.down { color: var(--red); }
+.flat { color: var(--muted); }
+.bar-list { display: grid; gap: 11px; }
+.bar-row { display: grid; grid-template-columns: 92px minmax(0,1fr) 38px; gap: 10px; align-items: center; font-family: var(--sans); font-size: 13px; color: var(--muted); }
+.bar { height: 10px; background: var(--soft); border-radius: 999px; overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: 999px; background: var(--green); }
+.bar.blue i { background: var(--blue); }
+.bar.amber i { background: var(--amber); }
+.cols { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+.note, .choice, .evidence { padding: 20px; min-width: 0; }
+.choice strong, .note strong, .evidence strong { display: block; color: var(--ink); font-family: var(--sans); margin-bottom: 8px; }
+.evidence-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+.evidence .tag { margin-right: 6px; margin-bottom: 8px; }
+.link-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.link-grid a { min-height: 42px; display: inline-flex; align-items: center; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font-family: var(--sans); font-size: 13px; text-decoration: none; }
+.footer { padding-bottom: 88px; border-bottom: 0; }
+@media (max-width: 920px) {
+  .hero, .score-grid, .cols, .evidence-grid { grid-template-columns: 1fr; }
+  .metrics { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .nav-inner { align-items: stretch; flex-direction: column; justify-content: center; padding: 8px 0; gap: 0; }
+}
+@media (max-width: 560px) {
+  main, .nav-inner { width: min(100% - 24px, 1120px); }
+  section { padding: 58px 0; }
+  .metrics { grid-template-columns: 1fr; }
+  .card, .metric, .note, .choice, .evidence { padding: 17px; }
+  .bar-row { grid-template-columns: 82px minmax(0,1fr) 34px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <div class="brand">103 平全屋智能决策</div>
+    <div class="nav-links">
+      <a href="#verdict">结论</a>
+      <a href="#scores">评分</a>
+      <a href="#changes">变化</a>
+      <a href="./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html">维度推导</a>
+      <a href="#questions">追问清单</a>
+      <a href="#sources">证据</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <section class="hero" id="verdict">
+    <div>
+      <p class="eyebrow">Expanded search · 2026-06-21</p>
+      <h1>绿米仍是默认首选，但米家已经很接近。</h1>
+      <p class="lead">本轮新增 32 条目标功能证据后，结论从“绿米明显领先”校准为“绿米略领先”。米家凭中枢网关、本地自动化和低预算上修；易来 Pro 仍适合灯光优先，但综合全屋能力和售后不确定性更高。</p>
+      <div class="link-grid">
+        <a href="./xiaohongshu-smart-home-target-function-expanded-evidence-2026-06-21.md">新增证据 Markdown</a>
+        <a href="./smart-home-mijia-aqara-yeelight-pro-decision-2026-06-21.before-expanded-search.html">旧版决策页备份</a>
+        <a href="./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.before-expanded-search.html">旧版推导页备份</a>
+      </div>
+    </div>
+    <aside class="card hero-card">
+      <strong>建议先谈绿米 Aqara 4 万方案。</strong>
+      <p>前提是把授权、清单、点位图、网关、本地自动化、调试次数、售后和拆装费写进合同。若绿米供应商回答含糊，米家方案可以反超。</p>
+      <p class="muted">这不是品牌崇拜，是把水电和长期维护责任尽量压到可验收的团队上。</p>
+    </aside>
+  </section>
+
+  <section>
+    <h2>样本规模</h2>
+    <div class="metrics">
+      <div class="metric"><b>110</b><span>旧详情页去重样本</span></div>
+      <div class="metric"><b>32</b><span>新增目标功能样本</span></div>
+      <div class="metric"><b>1,258</b><span>累计可见评论片段</span></div>
+      <div class="metric"><b>16</b><span>本轮新增关键词</span></div>
+    </div>
+  </section>
+
+  <section id="scores">
+    <h2>新评分</h2>
+    <div class="score-grid">
+      <article class="card score-card rank-1">
+        <div class="score"><span>Rank 1</span><b>82</b></div>
+        <h3>绿米 Aqara</h3>
+        <p>线下对接、水电规划和多生态能力最均衡。新增证据暴露售后与网关离线风险，所以不是稳胜，只是默认更可控。</p>
+        <div class="pill-row"><span class="pill">线下交付</span><span class="pill">HomeKit</span><span class="pill">需锁合同</span></div>
+      </article>
+      <article class="card score-card rank-2">
+        <div class="score"><span>Rank 2</span><b>80</b></div>
+        <h3>米家</h3>
+        <p>生态最广、性价比最高。新增证据支持断网本地化和中枢网关，但水电、网关、自动化和售后要你自己盯得更细。</p>
+        <div class="pill-row"><span class="pill">性价比</span><span class="pill">中枢网关</span><span class="pill">自盯成本</span></div>
+      </article>
+      <article class="card score-card rank-3">
+        <div class="score"><span>Rank 3</span><b>75</b></div>
+        <h3>易来 Pro</h3>
+        <p>灯光、调光和窗帘体验强。新增掉线、授权、售后拖延证据后，综合分略降，除非你把灯光体验放在第一位。</p>
+        <div class="pill-row"><span class="pill">灯光强</span><span class="pill">价格高</span><span class="pill">核验授权</span></div>
+      </article>
+    </div>
+
+    <div class="table-wrap" style="margin-top:24px">
+      <table>
+        <thead>
+          <tr>
+            <th>维度</th>
+            <th>权重</th>
+            <th><a href="./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html#mijia">米家</a></th>
+            <th><a href="./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html#aqara">绿米 Aqara</a></th>
+            <th><a href="./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html#yeelight">易来 Pro</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html#dimension-stability">稳定与联动丝滑</a></td><td>30%</td><td>78</td><td>82</td><td>74</td></tr>
+          <tr><td><a href="./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html#dimension-ecosystem">生态完整度与设备选择</a></td><td>20%</td><td>90</td><td>84</td><td>74</td></tr>
+          <tr><td><a href="./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html#dimension-wiring">水电预留与线下对接</a></td><td>15%</td><td>68</td><td>86</td><td>84</td></tr>
+          <tr><td><a href="./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html#dimension-coverage">灯光、窗帘、门锁、安防覆盖</a></td><td>15%</td><td>84</td><td>85</td><td>78</td></tr>
+          <tr><td><a href="./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html#dimension-cost">总价与性价比</a></td><td>10%</td><td>90</td><td>78</td><td>70</td></tr>
+          <tr><td><a href="./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html#dimension-service">售后与长期维护</a></td><td>5%</td><td>62</td><td>70</td><td>64</td></tr>
+          <tr><td><a href="./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html#dimension-evidence">证据质量与不确定性</a></td><td>5%</td><td>80</td><td>80</td><td>75</td></tr>
+          <tr><td><strong>加权总分</strong></td><td>100%</td><td><strong>80</strong></td><td><strong>82</strong></td><td><strong>75</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="changes">
+    <h2>旧分对照</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>方案</th><th>旧分</th><th>新分</th><th>变化</th><th>为什么变</th></tr></thead>
+        <tbody>
+          <tr><td>米家</td><td>76</td><td>80</td><td class="delta up">+4</td><td>新增中枢网关、本地自动化、断网可用、门锁回家模式证据，低价方案能力被上修；但没有全面线下团队，不能反超绿米。</td></tr>
+          <tr><td>绿米 Aqara</td><td>83</td><td>82</td><td class="delta down">-1</td><td>项目化和线下优势仍在，但 Aqara 网关离线、保外维修、售后拆装责任争议带来扣分。</td></tr>
+          <tr><td>易来 Pro</td><td>76</td><td>75</td><td class="delta down">-1</td><td>灯光和窗帘优势保留，但新增设备离线、授权店拖延、热线打不通等证据，削弱长期维护信心。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>关键证据变化</h2>
+    <div class="cols">
+      <article class="note">
+        <strong>米家被上修</strong>
+        <div class="bar-list">
+          <div class="bar-row"><span>本地自动化</span><div class="bar blue"><i style="width:82%"></i></div><b>强</b></div>
+          <div class="bar-row"><span>生态覆盖</span><div class="bar blue"><i style="width:90%"></i></div><b>强</b></div>
+          <div class="bar-row"><span>线下交付</span><div class="bar blue"><i style="width:48%"></i></div><b>弱</b></div>
+        </div>
+        <p class="muted">关键不是“米家便宜”，而是中枢网关、热点预配置、门锁回家模式这些证据说明它有做好的技术路径。</p>
+      </article>
+      <article class="note">
+        <strong>绿米被小幅扣分</strong>
+        <div class="bar-list">
+          <div class="bar-row"><span>水电对接</span><div class="bar"><i style="width:86%"></i></div><b>强</b></div>
+          <div class="bar-row"><span>网关稳定</span><div class="bar"><i style="width:78%"></i></div><b>中</b></div>
+          <div class="bar-row"><span>售后边界</span><div class="bar"><i style="width:70%"></i></div><b>查</b></div>
+        </div>
+        <p class="muted">Aqara 不是天然无风险，新增证据提醒必须核验授权、保外维修、拆装费和服务商能力。</p>
+      </article>
+      <article class="note">
+        <strong>易来仍偏专项</strong>
+        <div class="bar-list">
+          <div class="bar-row"><span>灯光体验</span><div class="bar amber"><i style="width:90%"></i></div><b>强</b></div>
+          <div class="bar-row"><span>全屋覆盖</span><div class="bar amber"><i style="width:72%"></i></div><b>中</b></div>
+          <div class="bar-row"><span>长期维护</span><div class="bar amber"><i style="width:64%"></i></div><b>查</b></div>
+        </div>
+        <p class="muted">除非你把灯光体验放第一，否则 4.7 万要证明门锁、安防、传感器和售后也完整。</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="questions">
+    <h2>下单前必须追问</h2>
+    <div class="cols">
+      <article class="choice"><strong>米家</strong><p>线上工作室能否出完整点位图、设备型号、网关位置、网络/AP 方案、本地自动化清单？深圳本地调试或水电顾问谁负责？</p></article>
+      <article class="choice"><strong>绿米 Aqara</strong><p>服务商是否官方授权？网关型号、协议、HomeKit/Matter 边界、保内保外维修、拆装费、上门次数和调试责任是否写进合同？</p></article>
+      <article class="choice"><strong>易来 Pro</strong><p>清单里是否全是线下 Pro 系列？三年质保是否落合同？门锁、安防、传感器是否完整覆盖，还是只做高级灯光系统？</p></article>
+    </div>
+  </section>
+
+  <section id="sources">
+    <h2>新增证据节选</h2>
+    <div class="evidence-grid">
+      <article class="evidence">
+        <span class="tag">米家</span><span class="tag">断网</span><span class="tag">网关</span>
+        <strong>应该买几台小米中枢网关？</strong>
+        <p>支持米家稳定性上修：本地部署、网关数量、有线连接和断网执行是核心。但评论也追问外网断后仍掉线，说明配置不当仍会翻车。</p>
+        <a href="https://www.xiaohongshu.com/explore/69873c4a0000000015031535" target="_blank" rel="noreferrer">来源</a>
+      </article>
+      <article class="evidence">
+        <span class="tag">Aqara</span><span class="tag">网关</span><span class="tag">掉线</span>
+        <strong>Aqara M1S 网关每天离线一次</strong>
+        <p>支持绿米小幅扣分：Aqara 也有真实离线案例，评论里出现固定 IP、固件、路由和服务商排查线索。</p>
+        <a href="https://www.xiaohongshu.com/explore/67e3cf250000000007035aee" target="_blank" rel="noreferrer">来源</a>
+      </article>
+      <article class="evidence">
+        <span class="tag">易来 Pro</span><span class="tag">离线</span><span class="tag">售后</span>
+        <strong>易来 Pro 设备全部离线</strong>
+        <p>支持易来稳定扣分：移动网关位置后缓解，但也说明灯光强不等于全屋链路天然稳定。</p>
+        <a href="https://www.xiaohongshu.com/explore/695cc1c4000000001a022104" target="_blank" rel="noreferrer">来源</a>
+      </article>
+      <article class="evidence">
+        <span class="tag">通用</span><span class="tag">售后</span><span class="tag">合同</span>
+        <strong>全屋智能没售后</strong>
+        <p>新增最强风险信号：没合同、没清单、没证据，后期坏灯、面板卡机、供应商不响应时很难追责。</p>
+        <a href="https://www.xiaohongshu.com/explore/6a1b9e320000000007020d70" target="_blank" rel="noreferrer">来源</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="footer">
+    <p>完整底稿：<a href="./xiaohongshu-smart-home-target-function-expanded-evidence-2026-06-21.md">目标功能扩搜证据 Markdown</a>。旧证据底稿：<a href="./xiaohongshu-smart-home-mijia-aqara-yeelight-pro-evidence-2026-06-21.md">米家 / 绿米 / 易来 Pro 原始证据</a>。本页为公开可见内容转述，不是小红书原文备份。</p>
+  </section>
+</main>
+</body>
+</html>
