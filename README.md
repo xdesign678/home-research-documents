@@ -7,6 +7,7 @@
 - [103 平全屋智能四方案决策：米家 / 绿米 Aqara / 易来 Pro / 米家+易来 Z](./smart-home-mijia-aqara-yeelight-pro-decision-2026-06-21.html)
 - [全屋智能四方案评分维度证据详情](./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html)
 - [小红书全屋智能混合方案复核：米家系统 + 易来 Z 系列灯光](./xiaohongshu-smart-home-mijia-yeelight-z-hybrid-evidence-2026-06-21.md)
+- [小红书米家 vs HomeKit 生态体验复核证据](./xiaohongshu-smart-home-mijia-homekit-ecosystem-evidence-2026-06-21.md)
 - [小红书全屋智能目标功能扩搜证据：米家 vs 绿米 Aqara vs 易来 Pro](./xiaohongshu-smart-home-target-function-expanded-evidence-2026-06-21.md)
 - [小红书全屋智能研究证据沉淀：米家 vs 绿米 Aqara vs 易来 Pro](./xiaohongshu-smart-home-mijia-aqara-yeelight-pro-evidence-2026-06-21.md)
 
