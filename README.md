@@ -5,6 +5,7 @@
 ## 全屋智能
 
 - [103 平全屋智能决策：米家 vs 绿米 Aqara vs 易来 Pro](./smart-home-mijia-aqara-yeelight-pro-decision-2026-06-21.html)
+- [全屋智能评分维度证据详情：米家 vs 绿米 Aqara vs 易来 Pro](./smart-home-mijia-aqara-yeelight-pro-dimension-evidence-2026-06-21.html)
 - [小红书全屋智能研究证据沉淀：米家 vs 绿米 Aqara vs 易来 Pro](./xiaohongshu-smart-home-mijia-aqara-yeelight-pro-evidence-2026-06-21.md)
 
 - [103 平全屋智能决策：小米/米家 vs 华为鸿蒙智家](./smart-home-xiaomi-huawei-decision-2026-06-19.html)
