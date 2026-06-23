@@ -21,6 +21,8 @@
 
 ## 中央空调与新风
 
+- [103 平两管制中央空调 + 新风除湿方案决策页](./freshair-dehumidifier-brand-decision-2026-06-23.html)
+- [小红书新风除湿一体机品牌与方案决策证据库](./xiaohongshu-freshair-dehumidifier-brand-evidence-2026-06-23.md)
 - [三管制噪音专项网页：COLMO 图灵2 vs 日立三管](./central-ac-three-pipe-noise-report-2026-06-16.html)
 - [小红书中央空调三管制噪音专项证据：COLMO 图灵2 / 日立三管](./xiaohongshu-central-ac-three-pipe-noise-evidence-2026-06-16.md)
 - [中央空调噪音深度报告：日立 mini2 vs COLMO 图灵2](./central-ac-noise-deep-dive-report-2026-06-16.html)

@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>103 平两管制中央空调 + 新风除湿方案决策页</title>
+  <style>
+    :root {
+      --paper: #f7f5f0;
+      --ink: #202020;
+      --muted: #69645e;
+      --line: #d8d2c7;
+      --green: #1d6f5d;
+      --blue: #2f6f9f;
+      --amber: #b86c1d;
+      --red: #b64a3a;
+      --panel: #ffffff;
+      --soft: #ebe6dc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 20px 56px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      padding: 22px 0 24px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.18;
+      font-weight: 760;
+      max-width: 880px;
+    }
+
+    .lead {
+      margin: 14px 0 0;
+      color: var(--muted);
+      max-width: 860px;
+      font-size: 16px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: stretch;
+      margin: 24px 0 26px;
+      min-width: 0;
+    }
+
+    .verdict {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      min-width: 0;
+    }
+
+    .verdict h2,
+    section h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .verdict strong {
+      color: var(--green);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .stat {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 118px;
+      min-width: 0;
+    }
+
+    .stat b {
+      display: block;
+      font-size: 28px;
+      line-height: 1.1;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      margin: 26px 0;
+      min-width: 0;
+    }
+
+    .band {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      min-width: 0;
+    }
+
+    .rank-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .rank-row {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr) 74px;
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffdf9;
+      min-width: 0;
+    }
+
+    .rank-no {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .rank-title {
+      font-weight: 720;
+      margin-bottom: 8px;
+      overflow-wrap: anywhere;
+    }
+
+    .bar {
+      height: 9px;
+      background: var(--soft);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: var(--green);
+    }
+
+    .score {
+      font-size: 22px;
+      font-weight: 800;
+      text-align: right;
+      color: var(--green);
+    }
+
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffdf9;
+      padding: 16px;
+      min-width: 0;
+    }
+
+    .brand h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      background: var(--green);
+    }
+
+    .tag.warn { background: var(--amber); }
+    .tag.bad { background: var(--red); }
+    .tag.neutral { background: var(--blue); }
+
+    .brand p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      min-width: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+      background: #fffdf9;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 12px 10px;
+      vertical-align: top;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      color: var(--muted);
+      font-weight: 760;
+      background: #faf7ef;
+    }
+
+    .risk-matrix {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .risk {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      background: #fffdf9;
+      min-width: 0;
+    }
+
+    .risk b {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .risk .level {
+      display: inline-block;
+      font-size: 12px;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+      background: var(--amber);
+    }
+
+    .risk.high .level { background: var(--red); }
+    .risk.mid .level { background: var(--amber); }
+    .risk.low .level { background: var(--green); }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .evidence {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffdf9;
+      padding: 16px;
+      min-width: 0;
+    }
+
+    .evidence h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .evidence p {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .checklist {
+      columns: 2;
+      column-gap: 28px;
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .checklist li {
+      break-inside: avoid;
+      margin: 0 0 8px;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 30px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    @media (max-width: 880px) {
+      .hero-grid,
+      .brand-grid,
+      .risk-matrix,
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { font-size: 28px; }
+
+      .rank-row {
+        grid-template-columns: 34px minmax(0, 1fr);
+      }
+
+      .score {
+        grid-column: 2;
+        text-align: left;
+      }
+
+      .checklist { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="eyebrow">小红书只读调研 · 2026-06-23</div>
+      <h1>103 平两管制中央空调，别急着把新风除湿一体机当最优解</h1>
+      <p class="lead">本页基于本轮小红书公开页低频只读搜索、既有中央空调证据库和 19 条详情页深读。重点不是品牌口号，而是噪音、得风率、排水、滤芯和售后这些会影响入住体验的硬问题。</p>
+    </header>
+
+    <div class="hero-grid">
+      <div class="verdict">
+        <h2>结论</h2>
+        <p><strong>最稳方案：</strong>两管制中央空调 + 成熟普通新风 + 独立除湿设备或预留除湿排水。</p>
+        <p><strong>条件备选：</strong>新风除湿一体机可以谈，但必须把低档噪音、风量仪验收、内循环除湿、回风、排水、检修口、滤芯和模块质保写进合同。</p>
+        <p><strong>品牌判断：</strong>百朗、博乐、霍尼韦尔都不能闭眼选。谁能给出同城落地、实测噪音、风量验收和售后承诺，谁才值得进入决赛。</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><b>10</b><span>组新增关键词，覆盖品牌、噪音、维修、维护和方案对比。</span></div>
+        <div class="stat"><b>19</b><span>条详情页深读，其中 18 条与新风/除湿直接相关。</span></div>
+        <div class="stat"><b>682</b><span>相关样本页面显示评论口径，已展开高信息回复。</span></div>
+        <div class="stat"><b>0</b><span>未遇登录、验证码、异常访问或安全限制。</span></div>
+      </div>
+    </div>
+
+    <section class="band">
+      <h2>方案排序</h2>
+      <div class="rank-list">
+        <div class="rank-row">
+          <div class="rank-no">1</div>
+          <div>
+            <div class="rank-title">两管制中央空调 + 普通新风 + 独立除湿机/预留排水</div>
+            <div class="bar"><i style="width:86%"></i></div>
+          </div>
+          <div class="score">86</div>
+        </div>
+        <div class="rank-row">
+          <div class="rank-no">2</div>
+          <div>
+            <div class="rank-title">主卧独立低噪空调/小系统 + 客餐厅两管制 + 普通新风 + 独立除湿</div>
+            <div class="bar"><i style="width:84%"></i></div>
+          </div>
+          <div class="score">84</div>
+        </div>
+        <div class="rank-row">
+          <div class="rank-no">3</div>
+          <div>
+            <div class="rank-title">两管制中央空调 + 新风除湿一体机</div>
+            <div class="bar"><i style="width:68%; background:var(--amber)"></i></div>
+          </div>
+          <div class="score" style="color:var(--amber)">68</div>
+        </div>
+        <div class="rank-row">
+          <div class="rank-no">4</div>
+          <div>
+            <div class="rank-title">两管制中央空调 + 品牌新风“套餐赠品”</div>
+            <div class="bar"><i style="width:59%; background:var(--red)"></i></div>
+          </div>
+          <div class="score" style="color:var(--red)">59</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>品牌判断</h2>
+      <div class="brand-grid">
+        <div class="brand">
+          <span class="tag warn">可谈但强验收</span>
+          <h3>百朗</h3>
+          <p>样本多，噪音、检修、安装消音和维护成本都暴露充分。不是不能选，但必须看当地安装商能力。</p>
+        </div>
+        <div class="brand">
+          <span class="tag warn">样本不足</span>
+          <h3>博乐</h3>
+          <p>宣传和专业号多，真实入住长评少。适合继续问，不适合直接定为“最好品牌”。</p>
+        </div>
+        <div class="brand">
+          <span class="tag warn">参数强，售后要锁死</span>
+          <h3>霍尼韦尔</h3>
+          <p>除湿量、过滤、排水泵卖点完整，但除湿模块和长期售后负面明确。</p>
+        </div>
+        <div class="brand">
+          <span class="tag neutral">普通新风候选</span>
+          <h3>松下 / 日立</h3>
+          <p>资料透明度更好。注意不要贪 500 大风量，优先低噪、短管路、消音和得风率。</p>
+        </div>
+        <div class="brand">
+          <span class="tag bad">暂不优先</span>
+          <h3>兰舍 / 森德</h3>
+          <p>本轮看到噪音、面板、滤芯密封、得风率和商家强负面，不适合排前面。</p>
+        </div>
+        <div class="brand">
+          <span class="tag bad">不建议</span>
+          <h3>造梦者 / 证据不足的爱迪士</h3>
+          <p>造梦者售后和故障风险过高；爱迪士没有足够一体机深度证据。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>风险矩阵</h2>
+      <div class="risk-matrix">
+        <div class="risk high">
+          <span class="level">高风险</span>
+          <b>卧室噪音</b>
+          <p>百朗、松下、森德和通用噪音帖都说明，低档风噪、主机噪音和末端风速必须实测。</p>
+        </div>
+        <div class="risk high">
+          <span class="level">高风险</span>
+          <b>得风率缩水</b>
+          <p>管径、风阻、风口数量、缩径和弯头会让铭牌风量失真，验收必须用风量仪。</p>
+        </div>
+        <div class="risk mid">
+          <span class="level">中高风险</span>
+          <b>排水和冷凝水</b>
+          <p>除湿一定涉及冷凝水。排水坡度、水泵、溢水保护和检修口要在封吊顶前确认。</p>
+        </div>
+        <div class="risk mid">
+          <span class="level">中高风险</span>
+          <b>售后和模块</b>
+          <p>霍尼韦尔模块、造梦者售后、百朗风轮收费都提示：长期服务链比品牌宣传更重要。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>证据摘要</h2>
+      <div class="evidence-grid">
+        <div class="evidence">
+          <h3>百朗 350 风量噪音</h3>
+          <div class="meta">55 条评论 · 用户求助</div>
+          <p>2 档以上噪音明显；评论把问题拆成消音管、消音棉、电机、几送几回和售后上门。</p>
+          <a href="https://www.xiaohongshu.com/explore/67c8b126000000002900f582?xsec_token=ABhF05Tztd3FN1d2oKp5oIFczsJxVEta5H1QvhVRoTUQY=&xsec_source=">查看来源</a>
+        </div>
+        <div class="evidence">
+          <h3>霍尼韦尔除湿模块损坏</h3>
+          <div class="meta">3 条评论 · 维修求助</div>
+          <p>两年后除湿模块坏，更换价接近新机价。必须锁定模块质保和更换报价。</p>
+          <a href="https://www.xiaohongshu.com/explore/69f0a7170000000037035c35?xsec_token=AB7hqUNREjMjpPitesRyaresDw70PQ45kQTRpqo2GcIp8=&xsec_source=">查看来源</a>
+        </div>
+        <div class="evidence">
+          <h3>松下 500 风量低档噪音</h3>
+          <div class="meta">57 条评论 · 具体型号</div>
+          <p>FV-50ZDP2C 低档仍有呼呼声；评论建议调风量比例、做消音、避免一台大风量硬推。</p>
+          <a href="https://www.xiaohongshu.com/explore/682b2dea000000000f038ed6?xsec_token=ABpwQQXYeRc8YCozRwRbeczDI7CAKct4yvFge6nMkMQZ0=&xsec_source=">查看来源</a>
+        </div>
+        <div class="evidence">
+          <h3>地下室一体机正向样本</h3>
+          <div class="meta">187 条评论 · 地下室/下叠</div>
+          <p>一体机省心，但成本更高；回风口、提升泵、排水和噪音是关键。不能直接外推到平层。</p>
+          <a href="https://www.xiaohongshu.com/explore/65f2511900000000120327af?xsec_token=ABW0cbonLBp0QO5Xqhs0-FvbuA55cpSaYeXA2Oi5wUwmY=&xsec_source=">查看来源</a>
+        </div>
+        <div class="evidence">
+          <h3>兰舍暖通商强负面</h3>
+          <div class="meta">13 条评论 · 暖通商反馈</div>
+          <p>指向面板、噪音、滤芯效果问题。存在商业立场，但足以让兰舍降级。</p>
+          <a href="https://www.xiaohongshu.com/explore/69741e9b00000000220315c3?xsec_token=ABV8kKx6dlkfKbNhp98TXHSWfsr0hpd32PQLPED-nFyGA=&xsec_source=">查看来源</a>
+        </div>
+        <div class="evidence">
+          <h3>森德滤网密封和得风率</h3>
+          <div class="meta">34 条评论 · 用户负面</div>
+          <p>滤网漏风、声音变大、得风率不到 50%。品牌定位不能替代实测。</p>
+          <a href="https://www.xiaohongshu.com/explore/6668e616000000001c034245?xsec_token=ABeLoIMkxlmi7DXOkiS0x61lG_fJQ3Qf8i59hDnNxbxOE=&xsec_source=">查看来源</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>品牌与风险对照</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>对象</th>
+              <th>本轮证据</th>
+              <th>主要风险</th>
+              <th>下一步动作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>百朗</td>
+              <td>真实用户噪音、安装、滤网和检修讨论较多。</td>
+              <td>2 档噪音、消音缺失、检修困难、风轮维修费。</td>
+              <td>只谈能提供低噪案例和风量仪验收的经销商。</td>
+            </tr>
+            <tr>
+              <td>博乐</td>
+              <td>宣传和专业号较多，真实入住长评偏少。</td>
+              <td>证据不足，容易被品牌高端感带偏。</td>
+              <td>要求同城样板间、实测噪音、完整型号和售后条款。</td>
+            </tr>
+            <tr>
+              <td>霍尼韦尔</td>
+              <td>参数强，模块损坏和售后负面也强。</td>
+              <td>除湿模块、管道除尘、长期售后和滤芯维护。</td>
+              <td>锁死模块质保、更换价、售后主体和上门时效。</td>
+            </tr>
+            <tr>
+              <td>松下/日立普通新风</td>
+              <td>普通新风资料透明，型号讨论较多。</td>
+              <td>大风量噪音、风阻、消音管、得风率。</td>
+              <td>优先 250-350 风量内的低噪方案，不贪 500。</td>
+            </tr>
+            <tr>
+              <td>兰舍/森德/造梦者</td>
+              <td>强负面样本明确。</td>
+              <td>质量、噪音、密封、售后和配件风险。</td>
+              <td>本轮不建议优先进入候选。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>合同前必问</h2>
+      <ol class="checklist">
+        <li>主机、面板、滤芯、热交换芯、除湿模块完整型号。</li>
+        <li>每个风口实测风量，验收用风量仪。</li>
+        <li>低噪档风量和噪音，不只写最低分贝。</li>
+        <li>主机位置、卧室距离、吊顶检修口尺寸。</li>
+        <li>卧室风口消音管、主机隔音、检修口密封。</li>
+        <li>除湿模式是内循环、直膨、冷冻、等温还是再热。</li>
+        <li>除湿量测试条件和目标湿度控制逻辑。</li>
+        <li>冷凝水排水坡度、水泵、溢水保护。</li>
+        <li>回风口位置和湿空气回流路径。</li>
+        <li>滤芯价格、数量、更换周期、是否能自己换。</li>
+        <li>除湿模块质保和更换价。</li>
+        <li>不达标时谁负责拆改和恢复吊顶。</li>
+      </ol>
+    </section>
+
+    <footer>
+      本页只使用公开可见小红书内容和本仓库既有研究资料。搜索页只作入口，正文和评论以详情页公开可见内容为准。小红书评论可能包含个案、商家号或情绪化表达，本文只把它们作为风险线索。
+    </footer>
+  </main>
+</body>
+</html>
