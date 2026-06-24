@@ -21,6 +21,7 @@
 
 ## 中央空调与新风
 
+- [小红书证据沉淀：大金 N+ 三管 + 新风 vs 领航者 4 两管 + 松下 35ZXC2C](./xiaohongshu-daikin-nplus-vs-linghangzhe4-panasonic35zxc2c-evidence-2026-06-24.md)
 - [103 平两管制中央空调 + 新风除湿方案决策页](./freshair-dehumidifier-brand-decision-2026-06-23.html)
 - [小红书新风除湿一体机品牌与方案决策证据库](./xiaohongshu-freshair-dehumidifier-brand-evidence-2026-06-23.md)
 - [三管制噪音专项网页：COLMO 图灵2 vs 日立三管](./central-ac-three-pipe-noise-report-2026-06-16.html)
